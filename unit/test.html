@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>QUnit Example</title>
+    <link rel="stylesheet" href="qunit-1.13.0.css">
+    <script src="../DataConnection.js"></script>
+    <script src="../data/GameMap.js"></script>
+    <script src="../data/Region.js"></script>
+    <script src="../data/Point.js"></script>
+</head>
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="qunit-1.13.0.js"></script>
+
+
+
+
+    <script>
+
+        test("Region test",function(){
+            var reg=new Region(2,2,2);
+            ok(reg.getOwner()>-1,"Region has an owner "+reg.getOwner());
+            ok(reg.getOwner()!=undefined);
+            ok(reg.getRenderState()!==null,"Region can be rendered");
+            ok(reg.getX()==2,"xPos:"+reg.getX());
+            ok(reg.getY()==2,"yPos"+reg.getY());
+            ok(reg.getSize()==2,"Region size:"+reg.getSize());
+        });
+
+        test("Region render state test",function(){
+            var reg=new Region(2,2,2);
+            var renderState=reg.getRenderState();
+            ok(renderState.getOwner()!=undefined);
+            ok(renderState.getX()==2,"Correct xPos state");
+            ok(renderState.getY()==2,"Correct yPos state");
+            ok(renderState.getSize()==2,"Region size state:"+renderState.getSize());
+        });
+
+        test( "DataConnection test", function() {
+            var dCon=new DataConnection();
+            var data=dCon.getGameState();
+
+            ok( 1, "Passed!" );
+
+
+        });
+
+        test("Map setup tests",function(){
+
+            var map=new GameMap();
+
+            ok(map.getRegionCount()>0,"Regions created");
+            ok(map.getRegionCount()<999999,"Did not create too many regions");
+            ok(map.updateState()!==null,"We are able to update the game");
+            ok(1,"Passed");
+
+        });
+
+
+    </script>
+
+</body>
+</html>
