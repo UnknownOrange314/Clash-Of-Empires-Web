@@ -2,12 +2,13 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>QUnit Example</title>
+    <title>Clash of Empires Tests</title>
     <link rel="stylesheet" href="qunit-1.13.0.css">
     <script src="../DataConnection.js"></script>
     <script src="../data/GameMap.js"></script>
     <script src="../data/Region.js"></script>
     <script src="../data/Point.js"></script>
+    <script src="../data/Player.js"></script>
 </head>
 <body>
     <div id="qunit"></div>
@@ -21,18 +22,30 @@
 
         test("Region test",function(){
             var reg=new Region(2,2,2);
-            ok(reg.getOwner()>-1,"Region has an owner "+reg.getOwner());
+            var p=new Player(1);
+            reg.setOwner(p);
             ok(reg.getOwner()!=undefined);
             ok(reg.getRenderState()!==null,"Region can be rendered");
             ok(reg.getX()==2,"xPos:"+reg.getX());
             ok(reg.getY()==2,"yPos"+reg.getY());
             ok(reg.getSize()==2,"Region size:"+reg.getSize());
+
+            var reg2=new Region(2,3,2);
+            ok(reg2.distance(reg)===1,"Testing region distance");
+            reg.addBorder(reg2);
+            reg2.addBorder(reg);
+            ok(reg2.hasBorder(reg)===true,"Has border");
+            ok(reg.hasBorder(reg2)===true,"Has border");
+            ok(reg.getBorders().length===1,"Testing correct border count:");
+            ok(reg2.getBorders().length===1,"Testing correct border count");
         });
 
         test("Region render state test",function(){
             var reg=new Region(2,2,2);
+            var p=new Player(1);
+            reg.setOwner(p);
             var renderState=reg.getRenderState();
-            ok(renderState.getOwner()!=undefined);
+            ok(renderState.getOwner()>-1&&renderState.getOwner()<10,"Testing owner");
             ok(renderState.getX()==2,"Correct xPos state");
             ok(renderState.getY()==2,"Correct yPos state");
             ok(renderState.getSize()==2,"Region size state:"+renderState.getSize());
@@ -56,6 +69,24 @@
             ok(map.updateState()!==null,"We are able to update the game");
             ok(1,"Passed");
 
+        });
+
+        test("Point tests",function(){
+            var p=new Point(1,1);
+            ok(p.getX()===1,"Testing xPos");
+            ok(p.getY()===1,"Testing yPos");
+
+            var p2=new Point(1,1);
+            ok(p.getDistance(p2)==0,"Testing distance to same location");
+
+            var p3=new Point(2,1);
+            ok(p.getDistance(p3)===1,"Testing distance");
+
+            var p4=new Point(50,1);
+            ok(p.getDistance(p4)==49,"Testing distance:"+ p.getDistance(p4));
+
+            var p5=new Point(4,5);
+            ok(p.getDistance(p5)===5,"Testing distance:"+ p.getDistance(p5));
         });
 
 

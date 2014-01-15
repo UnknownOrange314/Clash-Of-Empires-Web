@@ -1,17 +1,18 @@
 function Point(x,y){
-    this.x=x;
-    this.y=y;
+
+    var x=x;
+    var y=y;
 
     this.getX=function(){
-        return this.x;
+        return x;
     }
 
     this.getY=function(){
-        return this.y;
+        return y;
     }
 
     this.getDistance=function(loc){
-        return Math.sqrt(Math.pow(loc.getX()-this.x,2)+Math.pow(loc.getY()-this.y,2));
+        return Math.sqrt(Math.pow(loc.getX()-x,2)+Math.pow(loc.getY()-y,2));
     }
 
 }

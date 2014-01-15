@@ -1,43 +1,61 @@
 function Region(x,y,size){
-    this.myOwner=Math.floor((Math.random()*3)+1);
-    this.myLoc=new Point(x,y);
-    this.mySize=size;
 
-    this.borders=new Set();
+    var myOwner=null;
+    var myLoc=new Point(x,y);
+    var mySize=size;
+    var borders=[];
 
     this.addBorder=function(border){
-        this.borders.add(border)
+        borders.push(border);
+    }
+
+    this.hasBorder=function(other){
+        return borders.indexOf(other)!==-1;
+    }
+
+    this.getBorders=function(){
+        return borders;
     }
 
     this.getRenderState=function(){
-        return new RegionRenderState(this.myLoc.getX(),this.myLoc.getY(),this.myOwner,this.mySize);
+        return new RegionRenderState(myLoc.getX(),myLoc.getY(),myOwner.getNum(),mySize,myOwner.getArmy(this));
+    }
+
+    this.setOwner=function(owner){
+        if(myOwner!==null){
+            myOwner.removeRegion(this);
+        }
+        myOwner=owner;
+        owner.addRegion(this);
     }
 
     this.getOwner=function(){
-        return this.myOwner;
+        return myOwner;
     }
 
     this.getX=function(){
-        return this.myLoc.getX();
+        return myLoc.getX();
     }
 
     this.getY=function(){
-        return this.myLoc.getY();
+        return myLoc.getY();
     }
 
     this.getSize=function(){
-        console.log(this.mySize);
-        return this.mySize;
+        return mySize;
     }
 
     this.getLocation=function(){
-        return this.myLoc
+        return myLoc
     }
 
     this.distance=function(other){
-        return this.myLoc.getDistance(other);
+        return myLoc.getDistance(other);
     }
 
+    this.buildTroop=function(){
+        myOwner.buildTroop(this);
+    }
 }
 
 /**
@@ -48,26 +66,32 @@ function Region(x,y,size){
  * @param size
  * @constructor
  */
-function RegionRenderState(x,y,owner,size){
-    this.myX=x;
-    this.myY=y;
-    this.myOwner=owner;
-    this.mySize=size;
+function RegionRenderState(x,y,owner,size,army){
+
+    var myX=x;
+    var myY=y;
+    var myOwner=owner;
+    var mySize=size;
+    var myArmy=army;
+
+    this.getArmy=function(){
+        return myArmy;
+    }
 
     this.getOwner=function(){
-        return this.myOwner;
+        return myOwner;
     }
 
     this.getX=function(){
-        return this.myX;
+        return myX;
     }
 
     this.getY=function(){
-        return this.myY;
+        return myY;
     }
 
     this.getSize=function(){
-        return this.mySize;
+        return mySize;
     }
 
 }
