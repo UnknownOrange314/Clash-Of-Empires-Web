@@ -1,0 +1,75 @@
+<html><head>
+    <title></title>
+</head>
+<body>
+
+<canvas height="800" width="1100" id="game"></canvas>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+
+<script>
+
+    function Client(){
+
+
+        var regionState=null;
+        var scoreState=null;
+
+        var canvas=document.getElementById("game");
+        var g=canvas.getContext("2d");
+
+
+
+
+
+        var socket = io.connect('http://192.168.1.5:880');
+        socket.on('news', function (data) {
+            console.log(data);
+            socket.emit('my other event', { my: 'data' });
+        });
+
+        //We received the score state.
+        socket.on('scoreState',function(data){
+            console.log(data);
+        });
+
+        //We received the region state.
+        socket.on('regionState',function(data){
+            //console.log(data);
+
+            g.fillStyle='#FFFFFF';
+            g.fillRect(0,0,1000,1000);
+            var rData=JSON.parse(data);
+
+            for(key in rData) {
+                if(rData.hasOwnProperty(key)) {
+                    var value = rData[key];
+                    value.map(function(item){
+                        console.log(item);
+                        g.fillStyle='#FF00FF';
+                        g.strokeRect(item[1],item[2],50,50);
+                        g.fillStyle='#000000';
+                        g.fillText(""+item[4],item[1]+10,item[2]+10);
+                    });
+
+                }
+            }
+
+
+
+
+
+        });
+
+
+
+    }
+    var client=new Client();
+
+
+
+
+</script>
+
+
+</body></html>
