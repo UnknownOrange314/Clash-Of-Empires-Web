@@ -1,3 +1,5 @@
+
+
 var app = require('http').createServer(handler)
     , io = require('socket.io').listen(app)
     , fs = require('fs')
@@ -17,9 +19,26 @@ function handler (req, res) {
         });
 }
 
+console.log("Starting");
+io.set('log level','1');
+
 io.sockets.on('connection', function (socket) {
     socket.emit('news', { hello: 'world' });
     socket.on('my other event', function (data) {
         console.log(data);
     });
+
+    //The host player has sent region data.
+
+    socket.on('hostRegionState',function(data){
+        var strData=JSON.stringify(data);
+        console.log("region State:"+strData);
+        //socket.emit('regionState',data);
+        io.sockets.emit('regionState',strData);
+    });
+
+
 });
+
+
+
