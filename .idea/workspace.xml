@@ -59,10 +59,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="0" selection-start="391" selection-end="391" vertical-scroll-proportion="0.32126698" vertical-offset="61" max-vertical-offset="1200">
+            <state line="23" column="0" selection-start="391" selection-end="391" vertical-scroll-proportion="-11.833333" vertical-offset="61" max-vertical-offset="1200">
               <folding />
             </state>
           </provider>
@@ -93,10 +93,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameMap.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="GameMap.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/GameMap.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="2460" max-vertical-offset="3480">
+            <state line="129" column="51" selection-start="4059" selection-end="4059" vertical-scroll-proportion="0.33920705" vertical-offset="1627" max-vertical-offset="3495">
               <folding />
             </state>
           </provider>
@@ -126,6 +126,7 @@
         <option value="$PROJECT_DIR$/game.html" />
         <option value="$PROJECT_DIR$/DataConnection.js" />
         <option value="$PROJECT_DIR$/client/index.html" />
+        <option value="$PROJECT_DIR$/server/GameMap.js" />
       </list>
     </option>
   </component>
@@ -446,13 +447,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/GameMap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="2572" max-vertical-offset="3480">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="26" column="48" selection-start="548" selection-end="548" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="2025">
@@ -476,7 +470,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="391" selection-end="391" vertical-scroll-proportion="0.32126698" vertical-offset="61" max-vertical-offset="1200">
+        <state line="23" column="0" selection-start="391" selection-end="391" vertical-scroll-proportion="-11.833333" vertical-offset="61" max-vertical-offset="1200">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/GameMap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="129" column="51" selection-start="4059" selection-end="4059" vertical-scroll-proportion="0.33920705" vertical-offset="1627" max-vertical-offset="3495">
           <folding />
         </state>
       </provider>

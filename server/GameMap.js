@@ -127,6 +127,7 @@ function GameMap(){
     rTemp["Tunisia"].setOwner(players[0]);
 
     rTemp["Champagne"].addBorder(rTemp["England"]);
+    rTemp["England"].addBorder(rTemp["Champagne"]);
     rTemp["Champagne"].addBorder(rTemp["Paris"]);
 
 
