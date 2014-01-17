@@ -8,6 +8,14 @@ function DataConnection(){
 
     }
 
+    this.getPlayerStates=function(){
+        return this.myMap.getPlayerStates();
+    }
+
+    this.getRegionStates=function(){
+        return this.myMap.updateState();
+    }
+
 }
 
 
