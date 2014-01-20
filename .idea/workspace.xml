@@ -25,10 +25,10 @@
     <splitter split-orientation="vertical" split-proportion="0.5424084">
       <split-first>
         <leaf>
-          <file leaf-file-name="game.html" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="game.html" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/game.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="9" column="3" selection-start="182" selection-end="689" vertical-scroll-proportion="0.28969958" vertical-offset="0" max-vertical-offset="495">
+                <state line="8" column="57" selection-start="178" selection-end="178" vertical-scroll-proportion="0.25751072" vertical-offset="0" max-vertical-offset="495">
                   <folding />
                 </state>
               </provider>
@@ -94,7 +94,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="client.html" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="client.html" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/client.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state line="21" column="0" selection-start="573" selection-end="573" vertical-scroll-proportion="0.71240103" vertical-offset="45" max-vertical-offset="975">
@@ -611,16 +611,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/game.html">
+    <entry file="file://$PROJECT_DIR$/client.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="3" selection-start="182" selection-end="689" vertical-scroll-proportion="0.28969958" vertical-offset="0" max-vertical-offset="495">
+        <state line="21" column="0" selection-start="573" selection-end="573" vertical-scroll-proportion="0.71240103" vertical-offset="45" max-vertical-offset="975">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client.html">
+    <entry file="file://$PROJECT_DIR$/game.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="573" selection-end="573" vertical-scroll-proportion="0.71240103" vertical-offset="45" max-vertical-offset="975">
+        <state line="8" column="57" selection-start="178" selection-end="178" vertical-scroll-proportion="0.25751072" vertical-offset="0" max-vertical-offset="495">
           <folding />
         </state>
       </provider>
