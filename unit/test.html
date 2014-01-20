@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Clash of Empires Tests</title>
     <link rel="stylesheet" href="qunit-1.13.0.css">
-    <script src="../DataConnection.js"></script>
+    <script src="../client/DataConnection.js"></script>
     <script src="../data/GameMap.js"></script>
     <script src="../data/Region.js"></script>
     <script src="../data/Point.js"></script>
@@ -53,7 +53,7 @@
         });
 
         test( "DataConnection test", function() {
-            var dCon=new DataConnection();
+            var dCon=new LocalConnection();
             var data=dCon.getGameState();
 
             ok( 1, "Passed!" );

@@ -7,11 +7,11 @@ var app = require('http').createServer(handler)
 app.listen(880);
 
 function handler (req, res) {
-    fs.readFile(__dirname + '/index.html',
+    fs.readFile(__dirname + '/client.html',
         function (err, data) {
             if (err) {
                 res.writeHead(500);
-                return res.end('Error loading index.html');
+                return res.end('Error loading client.html');
             }
 
             res.writeHead(200);
@@ -32,7 +32,7 @@ io.sockets.on('connection', function (socket) {
 
     socket.on('hostRegionState',function(data){
         var strData=JSON.stringify(data);
-        console.log("region State:"+strData);
+        console.log("data");
         //socket.emit('regionState',data);
         io.sockets.emit('regionState',strData);
     });

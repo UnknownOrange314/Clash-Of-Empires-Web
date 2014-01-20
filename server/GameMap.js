@@ -1,7 +1,7 @@
 function GameMap(){
 
 
-    var socket = io.connect('http://192.168.1.5:880');//Connect to server.
+    var socket = io.connect('http://192.17.224.200:880');//Connect to server.
 
     var rTemp={};
 
@@ -208,11 +208,10 @@ function GameMap(){
             arr.push(state.getArmy());
             return arr;
         });
-        console.log(JSON.stringify(JSONState));
         socket.emit('hostRegionState', { data: JSONState});
 
 
-        return renderState;
+        return JSONState;
     }
 
     this.getRegionCount=function(){

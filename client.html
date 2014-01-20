@@ -1,0 +1,60 @@
+<html><head>
+    <title></title>
+</head>
+<body>
+
+<canvas height="800" width="1100" id="game"></canvas>
+
+<script src="lib/socket.io.js"></script>
+<script src="lib/jquery.min.js"></script>
+<script src="inputListeners.js"></script>
+<script src="client/DataConnection.js"></script>
+
+<script src="server/GameMap.js"></script>
+<script src="server/Region.js"></script>
+<script src="server/Point.js"></script>
+<script src="server/Player.js"></script>
+
+<script src="client/view/MapDisplay.js"></script>
+<script src="main.js"></script>
+
+<script src="client/view/Driver.js"></script>
+
+
+<script>
+
+    function Client(){
+
+        var dataConnection=new ClientConnection();
+        startClient(dataConnection);
+
+        var socket = io.connect('http://192.17.224.200:880');
+        socket.on('news', function (data) {
+            console.log(data);
+            socket.emit('my other event', { my: 'data' });
+        });
+
+        //We received the score state.
+        socket.on('scoreState',function(data){
+            console.log(data);
+        });
+
+        //We received the region state.
+        socket.on('regionState',function(data){
+
+            dataConnection.saveRegionStates(data["data"]);
+
+        });
+
+
+
+    }
+    var client=new Client();
+
+
+
+
+</script>
+
+
+</body></html>
