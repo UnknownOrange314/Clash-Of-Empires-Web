@@ -1,8 +1,6 @@
-function ScoreDisplay(tX,tY,dCon,img){
+function ScoreDisplay(topX,topY,dataConnection,img){
 
-    var dataConnection=dCon;
-    var topX=tX;
-    var topY=tY;
+
     var base=Display();
     var g=base.getGraphics();
 

@@ -1,16 +1,60 @@
-function Player(pNum){
+/**
+ * This is a simple AI function for a computer player to follow.
+ * @param player The player that is running the AI.
+ * @constructor
+ */
+var Computer=function(player){
 
-    var num=pNum;
+    var regions=player.getRegions();
+    for(var i=0;i<regions.length;i++){
+        var reg=regions[i];
+        var t=player.getArmy(reg);
+        var enemy=[];
+        var borders=reg.getBorders();
+        for(var j=0;j<borders.length;j++){
+            var e=borders[j];
+            if(e.getOwner()!==player){
+                enemy.push(e);
+            }
+        }
+        for(var k=0;k<enemy.length;k++){
+            var eReg=enemy[k];
+            player.attack(t/enemy.length,eReg);
+        }
+    }
+}
+
+/**
+ * This is an empty AI function for human players.
+ * @constructor
+ */
+var NoAI=function(){
+
+}
+
+function Player(num,ai){
+
     var armies={};
     var regions=[];
     var score=0;
     var name=""+num;
+    var capital=null;
 
+    this.setCapital=function(cap){
+        capital=cap;
+    }
+    this.getCapital=function(){
+        return capital;
+    }
     this.setName=function(nm){
         name=nm;
     }
     this.addRegion=function(region){
         regions.push(region);
+    }
+
+    this.getRegions=function(){
+        return regions;
     }
 
 
@@ -39,7 +83,12 @@ function Player(pNum){
     }
 
     this.fightArmy=function(enemy,region){
-        armies[region.getX()+region.getY()]=armies[region.getX()+region.getY()]-Math.floor(enemy/2);
+
+        var damageFactor=2;
+        if(region==region.getOwner().getCapital()){
+            damageFactor=100;
+        }
+        armies[region.getX()+region.getY()]=armies[region.getX()+region.getY()]-Math.floor(enemy/damageFactor);
     }
 
 
@@ -63,30 +112,16 @@ function Player(pNum){
     }
 
     this.AI=function(){
-        for(var i=0;i<regions.length;i++){
-            var reg=regions[i];
-            var t=this.getArmy(reg);
-            var enemy=[];
-            var borders=reg.getBorders();
-            for(var j=0;j<borders.length;j++){
-                var e=borders[j];
-                if(e.getOwner()!==this){
-                    enemy.push(e);num
-                }
-            }
-            for(var k=0;k<enemy.length;k++){
-                var eReg=enemy[k];
-                this.attack(t/enemy.length,eReg);
-            }
-        }
+        ai(this);
     }
+
+
 
     this.getScore=function(){
         return name+":"+score;
     }
 
     this.updateScore=function(){
-        console.log("Hi");
         score+=regions.length;
     }
 

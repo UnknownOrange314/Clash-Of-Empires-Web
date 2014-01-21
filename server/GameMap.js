@@ -88,7 +88,13 @@ function GameMap(){
 
     players=[];
     for(var i=1;i<6;i++){
-        var p=new Player(i);
+        var p=null;
+        if(i===2){//Create human player.
+            p=new Player(i,NoAI);
+        }
+        else{
+            p=new Player(i,Computer);
+        }
         players.push(p);
         for(var j=0;j<regions.length;j++){
             var reg=regions[j];
@@ -102,10 +108,19 @@ function GameMap(){
     }
 
     players[0].setName("France");
+    players[0].setCapital(rTemp["Paris"]);
+
     players[1].setName("Great Britain");
+    players[1].setCapital(rTemp["England"]);
+
     players[2].setName("Germany");
+    players[2].setCapital(rTemp["Berlin"]);
+
     players[3].setName("Russia");
+    players[3].setCapital(rTemp["Moscow"]);
+
     players[4].setName("Minors");
+    players[4].setCapital(rTemp["Norway"]);
 
     rTemp["Portugal"].setOwner(players[1]);
     rTemp["Ireland"].setOwner(players[1]);
@@ -115,6 +130,10 @@ function GameMap(){
     rTemp["Holland"].setOwner(players[1]);
     rTemp["Greece"].setOwner(players[1]);
 
+
+    /**
+     * French regions.
+     */
     rTemp["Morocco"].setOwner(players[0]);
     rTemp["Algeria"].setOwner(players[0]);
     rTemp["Poitou"].setOwner(players[0]);
@@ -126,9 +145,6 @@ function GameMap(){
     rTemp["Auvergne"].setOwner(players[0]);
     rTemp["Tunisia"].setOwner(players[0]);
 
-    rTemp["Champagne"].addBorder(rTemp["England"]);
-    rTemp["England"].addBorder(rTemp["Champagne"]);
-    rTemp["Champagne"].addBorder(rTemp["Paris"]);
 
 
     rTemp["Thuringen"].setOwner(players[2]);
@@ -164,7 +180,7 @@ function GameMap(){
     for(var i=0;i<regions.length;i++){
         for(var j=0;j<regions.length;j++){
             if(i!==j){
-                if(regions[i].distance(regions[j])<75){
+                if(regions[i].distance(regions[j])<150){
                     regions[i].addBorder(regions[j]);
                     regions[j].addBorder(regions[i]);
                 }
@@ -172,15 +188,57 @@ function GameMap(){
         }
     }
 
-    this.processInput=function(x,y){
-        var pt=new Point(x,y);
+    //Below are methods for processing input from clients
+
+    var clickA=null;
+    var clickB=null;
+
+    this.clearClicks=function(){
+        clickA=null;
+        clickB=null;
+    }
+
+    /**
+     * @param pt
+     */
+    this.processClick=function(pt){
+        if(clickA==null){
+            clickA=pt;
+        }
+        else{
+            clickB=pt;
+            this.processTwoClicks();
+            this.clearClicks();
+        }
+    }
+
+    /**
+     * This function is called when two clicks are made.
+     */
+    this.processTwoClicks=function(){
+        var r1=null;
+        var r2=null;
         regions.forEach(function(region){
-            if(region.distance(pt)<100){
-                region.getOwner().removeTroops(region,50);
+            if(region.getLocation().getDistance(clickA)<40){
+                r1=region;
+            }
+            if(region.getLocation().getDistance(clickA)<40){
+                r2=region;
             }
         });
-
+        setMovementCommand(r1,r2);
     }
+
+    /**
+     * This function sets movement between two regions.
+     */
+    this.setMovementCommand=function(r1,r2){
+        //If r1 and r2 are owned by the same player, troops will move.
+        //if r1 and r2 are owned by different players, the troops will attack.
+    }
+
+
+
     this.updateState=function(){
 
         //Perform AI actions.
@@ -200,12 +258,12 @@ function GameMap(){
         });
 
         var JSONState=renderState.map(function(state){
-            var arr=[];
-            arr.push(state.getOwner());
-            arr.push(state.getX());
-            arr.push(state.getY());
-            arr.push(state.getSize());
-            arr.push(state.getArmy());
+            var arr={};
+            arr["owner"]=state.getOwner();
+            arr["xPos"]=state.getX();
+            arr["yPos"]=state.getY();
+            arr["size"]=state.getSize();
+            arr["army"]=state.getArmy();
             return arr;
         });
         socket.emit('hostRegionState', { data: JSONState});
