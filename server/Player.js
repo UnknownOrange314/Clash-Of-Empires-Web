@@ -1,7 +1,9 @@
 
 var MoveCommand=function(r1,r2){
+
     var start=r1;
     var end=r2;
+    var speed=1;
 
     this.start=function(){
         return start
@@ -9,6 +11,33 @@ var MoveCommand=function(r1,r2){
 
     this.end=function(){
         return end;
+    }
+
+    this.execute=function(player){
+        if(player.getArmy(start)>40){
+
+            console.log("Army in destination:"+player.getArmy(end));
+            var sOwn=start.getOwner();
+            var eOwn=end.getOwner();
+            if(sOwn!==eOwn){
+                var dBonus=1.0;
+                if(eOwn.getCapital()===end){
+                    dBonus=5.0;
+                }
+                sOwn.removeTroops(start,Math.floor(speed*dBonus));
+                eOwn.removeTroops(end,speed);
+                if(eOwn.getArmy(end)<=0){//The enemy is out of troops.
+                    end.setOwner(player);
+                }
+            }
+            if(start.getOwner()===end.getOwner()){
+                player.removeTroops(start,speed);
+               // console.log("Army in destination:"+player.getArmy(end));
+                player.addTroops(end,speed);
+             //   console.log("Army in destination:"+player.getArmy(end));
+            }
+            console.log("Army in destination:"+player.getArmy(end));
+        }
     }
 }
 /**
@@ -79,33 +108,35 @@ function Player(num,ai){
     }
 
     this.createArmy=function(region){
-        armies[region.getX()+region.getY()]=0+Math.floor(Math.random()*7);
+        armies[region.hashCode()]=0+Math.floor(Math.random()*7);
     }
 
     this.addTroops=function(region,tCount){
-        armies[region.getX()+region.getY()]+=tCount;
+        var key=region.hashCode();
+        if(!(key in armies)){
+            armies[key]=0;
+        }
+        armies[region.hashCode()]+=tCount;
     }
 
     this.removeTroops=function(region,tCount){
-        armies[region.getX()+region.getY()]-=tCount;
+        if(region.hashCode() in armies){
+            armies[region.hashCode()]-=tCount;
+        }
     }
 
     this.getArmy=function(region){
-        return armies[region.getX()+region.getY()];
+        if((region.hashCode() in armies)){
+            return armies[region.hashCode()];
+        }
+        return 0;
     }
 
     this.buildTroop=function(region){
-        armies[region.getX()+region.getY()]+=1;
+        armies[region.hashCode()]+=1;
     }
 
-    this.fightArmy=function(enemy,region){
 
-        var damageFactor=2;
-        if(region==region.getOwner().getCapital()){
-            damageFactor=100;
-        }
-        armies[region.getX()+region.getY()]=armies[region.getX()+region.getY()]-Math.floor(enemy/damageFactor);
-    }
 
 
 
@@ -118,36 +149,14 @@ function Player(num,ai){
         return num;
     }
 
-    this.attack=function(tCount,dest){
-        dest.getOwner().fightArmy(tCount,dest);
-        if(dest.getOwner().getArmy(dest)<=0){
-            dest.setOwner(this);
 
-        }
-
-    }
 
     this.updateState=function(){
         moveCommands=ai(this);
-        var speed=5;
+        var speed=1;
         var player=this;
         moveCommands.forEach(function(command){
-
-            var start=command.start();
-            if(player.getArmy(start)>40){
-                var end=command.end();
-                if(start.getOwner()!==end.getOwner()){
-                    start.getOwner().removeTroops(start,speed);
-                    end.getOwner().removeTroops(end,speed);
-                    if(end.getOwner().getArmy(end)<=0){//The enemy is out of troops.
-                        end.setOwner(player);
-                    }
-                }
-                if(start.getOwner()===end.getOwner()){
-                    player.removeTroops(start,speed);
-                    player.addTroops(end,speed);
-                }
-            }
+            command.execute(player);
         });
     }
 
