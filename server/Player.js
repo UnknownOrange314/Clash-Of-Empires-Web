@@ -1,35 +1,47 @@
+
+var MoveCommand=function(r1,r2){
+    var start=r1;
+    var end=r2;
+
+    this.start=function(){
+        return start
+    }
+
+    this.end=function(){
+        return end;
+    }
+}
 /**
  * This is a simple AI function for a computer player to follow.
  * @param player The player that is running the AI.
  * @constructor
  */
 var Computer=function(player){
-
+    var moveCommands=[];
     var regions=player.getRegions();
-    for(var i=0;i<regions.length;i++){
-        var reg=regions[i];
-        var t=player.getArmy(reg);
-        var enemy=[];
-        var borders=reg.getBorders();
-        for(var j=0;j<borders.length;j++){
-            var e=borders[j];
-            if(e.getOwner()!==player){
-                enemy.push(e);
+    regions.forEach(function(region){
+        var eCount=0;
+        region.getBorders().forEach(function(border){
+            if(border.getOwner()!==player){  //Enemy region that will be attacked.
+                moveCommands.push(new MoveCommand(region,border));
+                eCount++;
             }
+        });
+        if(eCount===0){ //We should not leave troops in interior regions.
+            region.getBorders().forEach(function(border){
+                moveCommands.push(new MoveCommand(region,border));
+            });
         }
-        for(var k=0;k<enemy.length;k++){
-            var eReg=enemy[k];
-            player.attack(t/enemy.length,eReg);
-        }
-    }
+    });
+    return moveCommands;
 }
 
 /**
- * This is an empty AI function for human players.
+ * This is an empty updateState function for human players.
  * @constructor
  */
-var NoAI=function(){
-
+var NoAI=function(player){
+    return player.getMoveCommands();
 }
 
 function Player(num,ai){
@@ -39,7 +51,11 @@ function Player(num,ai){
     var score=0;
     var name=""+num;
     var capital=null;
+    var moveCommands=[];
 
+    this.getMoveCommands=function(){
+        return moveCommands;
+    }
     this.setCapital=function(cap){
         capital=cap;
     }
@@ -111,8 +127,28 @@ function Player(num,ai){
 
     }
 
-    this.AI=function(){
-        ai(this);
+    this.updateState=function(){
+        moveCommands=ai(this);
+        var speed=5;
+        var player=this;
+        moveCommands.forEach(function(command){
+
+            var start=command.start();
+            if(player.getArmy(start)>40){
+                var end=command.end();
+                if(start.getOwner()!==end.getOwner()){
+                    start.getOwner().removeTroops(start,speed);
+                    end.getOwner().removeTroops(end,speed);
+                    if(end.getOwner().getArmy(end)<=0){//The enemy is out of troops.
+                        end.setOwner(player);
+                    }
+                }
+                if(start.getOwner()===end.getOwner()){
+                    player.removeTroops(start,speed);
+                    player.addTroops(end,speed);
+                }
+            }
+        });
     }
 
 
