@@ -48,5 +48,15 @@ function MapDisplay(topX,topY,mapImg,dataCon,titleView,scoreView,background){
             g.font='10pt Calibri';
             g.fillText(""+state["army"],state["xPos"]+10+topX,state["yPos"]+20+topY);
         });
+
+        /*
+         var clicks=dataCon.getSavedClicks(); //Get the clicks that are saved
+
+            -If there are no saved clicks, then end select animation
+            -If there is one saved click, then end any existing select animation and
+             start a new one for the region.
+             -If there are two saved clicks......
+         */
+
     }
 }

@@ -56,6 +56,13 @@ function Region(x,y,size){
     this.buildTroop=function(){
         myOwner.buildTroop(this);
     }
+
+    /**
+     * Generates a string hash for the region for use in dictionaries.
+     */
+    this.hashCode=function(){
+        return myLoc.getX()+":"+myLoc.getY();
+    }
 }
 
 /**

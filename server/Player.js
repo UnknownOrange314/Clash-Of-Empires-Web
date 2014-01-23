@@ -15,8 +15,6 @@ var MoveCommand=function(r1,r2){
 
     this.execute=function(player){
         if(player.getArmy(start)>40){
-
-            console.log("Army in destination:"+player.getArmy(end));
             var sOwn=start.getOwner();
             var eOwn=end.getOwner();
             if(sOwn!==eOwn){
@@ -32,11 +30,8 @@ var MoveCommand=function(r1,r2){
             }
             if(start.getOwner()===end.getOwner()){
                 player.removeTroops(start,speed);
-               // console.log("Army in destination:"+player.getArmy(end));
                 player.addTroops(end,speed);
-             //   console.log("Army in destination:"+player.getArmy(end));
             }
-            console.log("Army in destination:"+player.getArmy(end));
         }
     }
 }
@@ -108,7 +103,7 @@ function Player(num,ai){
     }
 
     this.createArmy=function(region){
-        armies[region.hashCode()]=0+Math.floor(Math.random()*7);
+        armies[region.hashCode()]=0;
     }
 
     this.addTroops=function(region,tCount){
@@ -129,11 +124,11 @@ function Player(num,ai){
         if((region.hashCode() in armies)){
             return armies[region.hashCode()];
         }
-        return 0;
+        return "Problem";
     }
 
     this.buildTroop=function(region){
-        armies[region.hashCode()]+=1;
+        armies[region.hashCode()]+=1+Math.floor(Math.random()*8);
     }
 
 
@@ -158,6 +153,7 @@ function Player(num,ai){
         moveCommands.forEach(function(command){
             command.execute(player);
         });
+        this.updateScore();
     }
 
 

@@ -1,6 +1,6 @@
 function LocalConnection(){
 
-    myMap=new GameMap();
+    var myMap=new GameMap();
 
     this.getPlayerStates=function(){
         return myMap.getPlayerStates();
@@ -8,6 +8,13 @@ function LocalConnection(){
 
     this.getRegionStates=function(){
         return myMap.updateState();
+    }
+
+    /**
+     * Return the clicks that a player made.
+     */
+    this.getSavedClicks=function(){
+
     }
 
     this.sendClick=function(data){

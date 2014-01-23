@@ -4,11 +4,22 @@
     <meta charset="utf-8">
     <title>Clash of Empires Tests</title>
     <link rel="stylesheet" href="qunit-1.13.0.css">
+    <script src="../lib/socket.io.js"></script>
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../client/controller/inputListeners.js"></script>
     <script src="../client/DataConnection.js"></script>
-    <script src="../data/GameMap.js"></script>
-    <script src="../data/Region.js"></script>
-    <script src="../data/Point.js"></script>
-    <script src="../data/Player.js"></script>
+    <script src="../client/view/Display.js"></script>
+    <script src="../client/view/ScoreDisplay.js"></script>
+    <script src="../client/view/TitleDisplay.js"></script>
+
+    <script src="../server/GameMap.js"></script>
+    <script src="../server/Region.js"></script>
+    <script src="../server/Point.js"></script>
+    <script src="../server/Player.js"></script>
+    <script src="../server/maps/Europe.js"></script>
+
+    <script src="../client/view/MapDisplay.js"></script>
+
 
 </head>
 <body>
@@ -54,22 +65,42 @@
 
         test( "DataConnection test", function() {
             var dCon=new LocalConnection();
-            var data=dCon.getGameState();
-
+            var data=dCon.getRegionStates();
             ok( 1, "Passed!" );
-
-
         });
 
         test("Map setup tests",function(){
+            var mapGen=new Europe();
+            var data=mapGen.generateMap();
+            var regions=data["regions"];
+            var players=data["players"];
+            players.forEach(function(player){
+                ok(player!==null,"Checking if player is null");
+            });
+            regions.forEach(function(reg){
+                if(reg===undefined){
+                    ok(0,"Undefined region");
+                }
+                if(reg.getOwner()===null){
+                    ok(0,"Null owner");
+                }
+                if(reg.getBorders().length===0){
+                    ok(0,"No borders");
+                }
+            });
+        });
+
+        test("Game map tests",function(){
 
             var map=new GameMap();
 
             ok(map.getRegionCount()>0,"Regions created");
             ok(map.getRegionCount()<999999,"Did not create too many regions");
-            ok(map.updateState()!==null,"We are able to update the game");
-            ok(1,"Passed");
-
+            map.updateState().forEach(function(state){
+                if(isNaN(state["army"])){
+                    ok(0,"Army state is invalid");
+                }
+            });
         });
 
         test("Point tests",function(){
@@ -88,6 +119,44 @@
 
             var p5=new Point(4,5);
             ok(p.getDistance(p5)===5,"Testing distance:"+ p.getDistance(p5));
+        });
+
+        test("Player tests",function(){
+
+            var r0=new Region(200,200.1);
+            var r1=new Region(0,0,1);
+            var r2=new Region(100,100,1);
+
+            var p1=new Player(1,NoAI);
+            var p2=new Player(2,NoAI);
+
+            r0.setOwner(p1);
+            r1.setOwner(p1);
+            r2.setOwner(p2);
+
+            p1.addTroops(r0,50);
+            p1.addTroops(r1,200);
+            p2.addTroops(r2,100);
+
+            ok(p1.getArmy(r0)===50);
+            ok(p1.getArmy(r1)===200,"Army size:"+p1.getArmy(r1));
+            ok(p1.getArmy(r2)===0,"Army size:"+p1.getArmy(r2));
+            ok(p2.getArmy(r2)===100,"Army size:"+p1.getArmy(r2));
+
+            var move=new MoveCommand(r1,r2);
+            while(r2.getOwner()!==p1){
+                move.execute(p1);
+            }
+            ok(r1.getOwner()===p1,"Player still has old region");
+
+            move.execute(p1);
+            ok(p1.getArmy(r1)<150,"Army size:"+p1.getArmy(r1));
+            ok(p1.getArmy(r1)>10,"Army size:"+p1.getArmy(r1));
+            ok(p1.getArmy(r2)>0,"Size of army in conquered region:"+p1.getArmy(r2));
+            ok(p2.getArmy(r2)===0,"Army size"+p2.getArmy(r2));
+
+
+
         });
 
 
