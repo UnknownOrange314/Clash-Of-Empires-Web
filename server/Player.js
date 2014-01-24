@@ -47,13 +47,14 @@ var Computer=function(player){
         var eCount=0;
         region.getBorders().forEach(function(border){
             if(border.getOwner()!==player){  //Enemy region that will be attacked.
-                moveCommands.push(new MoveCommand(region,border));
+                var a=new MoveCommand(region,border);
+                moveCommands.push(a);
                 eCount++;
             }
         });
         if(eCount===0){ //We should not leave troops in interior regions.
             region.getBorders().forEach(function(border){
-                moveCommands.push(new MoveCommand(region,border));
+                var a=new MoveCommand(region,border);
             });
         }
     });
@@ -77,6 +78,23 @@ function Player(num,ai){
     var capital=null;
     var moveCommands=[];
 
+    this.exportMoveCommands=function(){
+        var data=moveCommands.map(function(command){
+            var p1=command.start().getLocation();
+            var p2=command.end().getLocation();
+            var arr={};
+            arr["x1"]=p1.getX();
+            arr["y1"]=p1.getY();
+            arr["x2"]=p2.getX();
+            arr["y2"]=p2.getY();
+            return arr;
+        });
+        return data;
+    }
+    this.addMoveCommand=function(s,e){
+
+        moveCommands.push(new MoveCommand(s,e));
+    }
     this.getMoveCommands=function(){
         return moveCommands;
     }
@@ -124,7 +142,7 @@ function Player(num,ai){
         if((region.hashCode() in armies)){
             return armies[region.hashCode()];
         }
-        return "Problem";
+        return 0;
     }
 
     this.buildTroop=function(region){

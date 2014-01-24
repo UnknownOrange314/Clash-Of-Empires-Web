@@ -29,7 +29,7 @@ function MapDisplay(topX,topY,mapImg,dataCon,titleView,scoreView,background){
         scoreView.drawSelf();
         g.drawImage(mapImg,topX,topY,mapImg.width/4,mapImg.height/4);
 
-        gameState.map(function(state){
+        gameState["regionStates"].map(function(state){
             if(state["owner"]==1){
                 g.fillStyle='Red';
             }
@@ -48,6 +48,25 @@ function MapDisplay(topX,topY,mapImg,dataCon,titleView,scoreView,background){
             g.font='10pt Calibri';
             g.fillText(""+state["army"],state["xPos"]+10+topX,state["yPos"]+20+topY);
         });
+        gameState["moveCommands"].map(function(state){
+            g.beginPath();
+            g.moveTo(state["x1"]+topX+10,state["y1"]+topY+10);
+            g.lineTo(state["x2"]+topX+10,state["y2"]+topY+10);
+            g.stroke();
+        });
+
+        //Indicate that an area has been clicked.
+
+        var clickData=dataCon.getSavedClick();
+        var x=clickData["x"];
+        var y=clickData["y"];
+
+        //g.save();
+        //g.globalAlpha=.5;
+        g.fillStyle='Black';
+        g.rect(x,y,40,40);
+        g.fillText("Click",x,y);
+        //g.restore();
 
         /*
          var clicks=dataCon.getSavedClicks(); //Get the clicks that are saved

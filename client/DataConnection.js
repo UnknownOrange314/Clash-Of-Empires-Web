@@ -13,8 +13,8 @@ function LocalConnection(){
     /**
      * Return the clicks that a player made.
      */
-    this.getSavedClicks=function(){
-
+    this.getSavedClick=function(){
+        return myMap.getFirstClick();
     }
 
     this.sendClick=function(data){

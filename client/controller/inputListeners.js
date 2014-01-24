@@ -18,7 +18,6 @@ function Inputs(canvas,topX,topY,dataCon){
 		var x=e.pageX;
 		var y=e.pageY;
         dataCon.sendClick(new Point(x,y));
-		console.log(x+":"+y);
 	}
 
 };
