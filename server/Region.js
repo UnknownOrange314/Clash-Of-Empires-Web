@@ -4,6 +4,15 @@ function Region(x,y,size){
     var myLoc=new Point(x,y);
     var mySize=size;
     var borders=[];
+    var name=x+":"+y;
+
+    this.setName=function(nm){
+        name=nm;
+    }
+
+    this.getName=function(){
+        return name;
+    }
 
     this.addBorder=function(border){
         borders.push(border);
@@ -80,6 +89,8 @@ function RegionRenderState(x,y,owner,size,army){
     var myOwner=owner;
     var mySize=size;
     var myArmy=army;
+
+
 
     this.getArmy=function(){
         return myArmy;

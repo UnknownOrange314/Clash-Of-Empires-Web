@@ -71,6 +71,11 @@ function Europe(){
         rTemp["Algeria"]=new Region(189,600);
         rTemp["Tunisia"]=new Region(308,625);
 
+
+
+        Object.keys(rTemp).forEach(function(rName){
+            rTemp[rName].setName(rName);
+        });
         return rTemp;
     }
 
@@ -163,6 +168,7 @@ function Europe(){
     }
 
     function linkRegions(r1,r2){
+        console.log(r1.getName()+":"+r2.getName());
         r1.addBorder(r2);
         r2.addBorder(r1);
     }
@@ -170,7 +176,7 @@ function Europe(){
     this.setBorders=function(rTemp){
 
         /**
-         * Add borders for England
+         * Add borders for England.
          */
         linkRegions(rTemp["England"],rTemp["Scotland"]);
         linkRegions(rTemp["England"],rTemp["Ireland"]);
@@ -194,7 +200,6 @@ function Europe(){
         linkRegions(rTemp["Greece"],rTemp["Bulgaria"]);
         linkRegions(rTemp["Greece"],rTemp["Turkey"]);
         linkRegions(rTemp["Greece"],rTemp["Sicily"]);
-        linkRegions(rTemp["Greece"],rTemp["Naples"]);
 
         /**
          * Add borders for France.
@@ -208,8 +213,19 @@ function Europe(){
         linkRegions(rTemp["Algeria"],rTemp["Andalucia"]);
         linkRegions(rTemp["Tunisia"],rTemp["Sicily"]);
 
+        linkRegions(rTemp["Paris"],rTemp["Brittany"]);
+        linkRegions(rTemp["Paris"],rTemp["Champagne"]);
+        linkRegions(rTemp["Paris"],rTemp["Poitou"]);
+        linkRegions(rTemp["Paris"],rTemp["Auvergne"]);
+        linkRegions(rTemp["Paris"],rTemp["Burgundy"]);
+        linkRegions(rTemp["Languedoc"],rTemp["Burgundy"]);
+        linkRegions(rTemp["Languedoc"],rTemp["Auvergne"]);
+
+        linkRegions(rTemp["Algeria"],rTemp["Tunisia"]);
+        linkRegions(rTemp["Algeria"],rTemp["Morocco"]);
+
         /**
-         * Add borders for Germany
+         * Add borders for Germany.
          */
         linkRegions(rTemp["Bavaria"],rTemp["Austria"]);
         linkRegions(rTemp["Bavaria"],rTemp["Bohemia"]);
@@ -220,13 +236,111 @@ function Europe(){
         linkRegions(rTemp["Prussia"],rTemp["Baltic"]);
         linkRegions(rTemp["SH"],rTemp["Denmark"]);
 
+        linkRegions(rTemp["Berlin"],rTemp["Pomerania"]);
+        linkRegions(rTemp["Berlin"],rTemp["Silesia"]);
+        linkRegions(rTemp["Berlin"],rTemp["SH"]);
+        linkRegions(rTemp["Berlin"],rTemp["Thuringen"]);
+
+        linkRegions(rTemp["Thuringen"],rTemp["Hesse"]);
+        linkRegions(rTemp["Thuringen"],rTemp["Hanover"]);
+
+        linkRegions(rTemp["Hanover"],rTemp["Hesse"]);
+        linkRegions(rTemp["Hesse"],rTemp["Bavaria"]);
+        linkRegions(rTemp["Hesse"],rTemp["Alsace"]);
+        linkRegions(rTemp["Hesse"],rTemp["Wuttenberg"]);
+        linkRegions(rTemp["Wuttenberg"],rTemp["Bavaria"]);
+
+
+        linkRegions(rTemp["Alsace"],rTemp["Wuttenberg"]);
+
         /**
-         * Add borders for Russia
+         * Add borders for Russia.
          */
         linkRegions(rTemp["Finland"],rTemp["Sweden"]);
         linkRegions(rTemp["Poland"],rTemp["Hungary"]);
         linkRegions(rTemp["Ukraine"],rTemp["Hungary"]);
         linkRegions(rTemp["Ukraine"],rTemp["Romania"]);
+
+        linkRegions(rTemp["Belarus"],rTemp["Poland"]);
+        linkRegions(rTemp["Belarus"],rTemp["Baltic"]);
+        linkRegions(rTemp["Belarus"],rTemp["Orel"]);
+        linkRegions(rTemp["Belarus"],rTemp["Voronesh"]);
+
+        linkRegions(rTemp["Ukraine"],rTemp["Romania"]);
+        linkRegions(rTemp["Ukraine"],rTemp["Hungary"]);
+        linkRegions(rTemp["Ukraine"],rTemp["Poland"]);
+        linkRegions(rTemp["Ukraine"],rTemp["Voronesh"]);
+
+        linkRegions(rTemp["Orel"],rTemp["Baltic"]);
+        linkRegions(rTemp["Orel"],rTemp["Voronesh"]);
+        linkRegions(rTemp["Orel"],rTemp["Moscow"]);
+
+        linkRegions(rTemp["StPetersburg"],rTemp["Baltic"]);
+        linkRegions(rTemp["StPetersburg"],rTemp["Moscow"]);
+        linkRegions(rTemp["StPetersburg"],rTemp["Karelia"]);
+        linkRegions(rTemp["StPetersburg"],rTemp["Finland"]);
+        linkRegions(rTemp["Belarus"],rTemp["Ukraine"]);
+        linkRegions(rTemp["Orel"],rTemp["StPetersburg"]);
+        linkRegions(rTemp["Moscow"],rTemp["Voronesh"]);
+        linkRegions(rTemp["Moscow"],rTemp["Karelia"]);
+        linkRegions(rTemp["Karelia"],rTemp["Finland"]);
+
+        /**
+         * Add borders for Spain.
+         */
+        linkRegions(rTemp["Catalonia"],rTemp["Galicia"]);
+        linkRegions(rTemp["Catalonia"],rTemp["Madrid"]);
+        linkRegions(rTemp["Catalonia"],rTemp["Andalucia"]);
+        linkRegions(rTemp["Portugal"],rTemp["Madrid"]);
+        linkRegions(rTemp["Portugal"],rTemp["Galicia"]);
+        linkRegions(rTemp["Madrid"],rTemp["Andalucia"]);
+        linkRegions(rTemp["Madrid"],rTemp["Galicia"]);
+
+        /**
+         * Add borders for Italy.
+         */
+        linkRegions(rTemp["Savoy"],rTemp["Venice"]);
+        linkRegions(rTemp["Savoy"],rTemp["Rome"]);
+        linkRegions(rTemp["Rome"],rTemp["Naples"]);
+        linkRegions(rTemp["Naples"],rTemp["Greece"]);
+        linkRegions(rTemp["Venice"],rTemp["Austria"]);
+
+        /**
+         * Add borders for Balkans
+         */
+        linkRegions(rTemp["Serbia"],rTemp["Bosnia"]);
+        linkRegions(rTemp["Serbia"],rTemp["Croatia"]);
+        linkRegions(rTemp["Serbia"],rTemp["Albania"]);
+        linkRegions(rTemp["Serbia"],rTemp["Bulgaria"]);
+        linkRegions(rTemp["Serbia"],rTemp["Romania"]);
+        linkRegions(rTemp["Serbia"],rTemp["Hungary"]);
+
+        linkRegions(rTemp["Hungary"],rTemp["Croatia"]);
+        linkRegions(rTemp["Hungary"],rTemp["Romania"]);
+        linkRegions(rTemp["Hungary"],rTemp["Austria"]);
+        linkRegions(rTemp["Hungary"],rTemp["Bohemia"]);
+
+        linkRegions(rTemp["Croatia"],rTemp["Bosnia"]);
+        linkRegions(rTemp["Croatia"],rTemp["Venice"]);
+        linkRegions(rTemp["Croatia"],rTemp["Austria"]);
+        linkRegions(rTemp["Austria"],rTemp["Bohemia"]);
+
+        linkRegions(rTemp["Bulgaria"],rTemp["Romania"]);
+        linkRegions(rTemp["Bulgaria"],rTemp["Turkey"]);
+
+
+
+
+        /**
+         * Add borders for Scandinavia.
+         */
+        linkRegions(rTemp["Denmark"],rTemp["Norway"]);
+        linkRegions(rTemp["Denmark"],rTemp["Sweden"]);
+        linkRegions(rTemp["Norway"],rTemp["Sweden"]);
+        linkRegions(rTemp["Scotland"],rTemp["Norway"]);
+        linkRegions(rTemp["Scotland"],rTemp["Ireland"]);
+
+
     }
 
 

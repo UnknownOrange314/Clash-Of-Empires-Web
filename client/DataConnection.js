@@ -1,6 +1,6 @@
 function LocalConnection(){
 
-    var myMap=new GameMap();
+    var myMap=new GameMap(new Europe());
 
     this.getPlayerStates=function(){
         return myMap.getPlayerStates();

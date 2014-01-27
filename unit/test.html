@@ -19,7 +19,7 @@
     <script src="../server/maps/Europe.js"></script>
 
     <script src="../client/view/MapDisplay.js"></script>
-
+    <script src="testGen.js"></script>
 
 </head>
 <body>
@@ -85,18 +85,18 @@
                     ok(0,"Null owner");
                 }
                 if(reg.getBorders().length===0){
-                    ok(0,"No borders");
+                    ok(0,"No borders:"+reg.getName());
                 }
             });
         });
 
         test("Game map tests",function(){
 
-            var map=new GameMap();
+            var map=new GameMap(new Europe);
 
             ok(map.getRegionCount()>0,"Regions created");
             ok(map.getRegionCount()<999999,"Did not create too many regions");
-            map.updateState().forEach(function(state){
+            map.updateState()["regionStates"].forEach(function(state){
                 if(isNaN(state["army"])){
                     ok(0,"Army state is invalid");
                 }
@@ -134,6 +134,13 @@
             r1.setOwner(p1);
             r2.setOwner(p2);
 
+            r0.addBorder(r1);
+            r0.addBorder(r2);
+            r1.addBorder(r0);
+            r1.addBorder(r2);
+            r2.addBorder(r0);
+            r2.addBorder(r1);
+
             p1.addTroops(r0,50);
             p1.addTroops(r1,200);
             p2.addTroops(r2,100);
@@ -155,9 +162,62 @@
             ok(p1.getArmy(r2)>0,"Size of army in conquered region:"+p1.getArmy(r2));
             ok(p2.getArmy(r2)===0,"Army size"+p2.getArmy(r2));
 
-
+            //Make sure region borders are not being modified.
+            for(var i=0;i<10;i++){
+                p1.updateState();
+                p2.updateState();
+                if(r0.getBorders().length!==2){
+                    ok(0,"Invalid borders");
+                }
+                if(r1.getBorders().length!==2){
+                    ok(0,"Invalid borders");
+                }
+                if(r2.getBorders().length!==2){
+                    ok(0,"Invalid borders");
+                }
+            }
 
         });
+        test("AI Tests",function(){
+            var map=new GameMap(new TestGen());
+
+            var oStr="";
+            var rCount=0;
+            var players=map.getPlayers();
+            players.forEach(function(p){
+                oStr=oStr+":"+ p.countRegions();
+                rCount+= p.countRegions();
+            });
+
+            for(var i=0;i<9;i++){
+                map.updateState();
+                var regions=map.getRegions();
+                var bCount=0;
+                regions.forEach(function(reg){
+                    bCount+=reg.getBorders().length;
+                })
+                if(bCount!=180){
+                    ok(0,"Borders:"+bCount);
+                }
+            }
+
+            var oStr2="";
+            var rCount2=0;
+            var players=map.getPlayers();
+            players.forEach(function(p){
+                oStr2=oStr2+":"+ p.countRegions();
+                rCount2+= p.countRegions();
+            });
+
+            if(oStr===oStr2){ //Make sure region ownership had some change.
+                ok(0,oStr+" "+oStr2);
+            }
+            if(rCount!=rCount2){
+                ok(0,rCount+":"+rCount2);
+            }
+            ok(1,"AI is working");
+        });
+
 
 
     </script>

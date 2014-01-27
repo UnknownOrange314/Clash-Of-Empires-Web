@@ -14,7 +14,6 @@ var MoveCommand=function(r1,r2){
     }
 
     this.execute=function(player){
-        if(player.getArmy(start)>40){
             var sOwn=start.getOwner();
             var eOwn=end.getOwner();
             if(sOwn!==eOwn){
@@ -22,17 +21,19 @@ var MoveCommand=function(r1,r2){
                 if(eOwn.getCapital()===end){
                     dBonus=5.0;
                 }
-                sOwn.removeTroops(start,Math.floor(speed*dBonus));
-                eOwn.removeTroops(end,speed);
+                if(Math.random()>0.5){
+                    sOwn.removeTroops(start,Math.floor(speed*dBonus));
+                }
+                else{
+                    eOwn.removeTroops(end,speed);
+                }
                 if(eOwn.getArmy(end)<=0){//The enemy is out of troops.
                     end.setOwner(player);
                 }
             }
             if(start.getOwner()===end.getOwner()){
-                player.removeTroops(start,speed);
-                player.addTroops(end,speed);
+                player.moveTroops(start,end,speed);
             }
-        }
     }
 }
 /**
@@ -43,7 +44,8 @@ var MoveCommand=function(r1,r2){
 var Computer=function(player){
     var moveCommands=[];
     var regions=player.getRegions();
-    regions.forEach(function(region){
+    Object.keys(regions).forEach(function(r){
+        var region=regions[r];
         var eCount=0;
         region.getBorders().forEach(function(border){
             if(border.getOwner()!==player){  //Enemy region that will be attacked.
@@ -55,6 +57,8 @@ var Computer=function(player){
         if(eCount===0){ //We should not leave troops in interior regions.
             region.getBorders().forEach(function(border){
                 var a=new MoveCommand(region,border);
+                moveCommands.push(a);
+
             });
         }
     });
@@ -72,7 +76,7 @@ var NoAI=function(player){
 function Player(num,ai){
 
     var armies={};
-    var regions=[];
+    var regions={};
     var score=0;
     var name=""+num;
     var capital=null;
@@ -92,7 +96,6 @@ function Player(num,ai){
         return data;
     }
     this.addMoveCommand=function(s,e){
-
         moveCommands.push(new MoveCommand(s,e));
     }
     this.getMoveCommands=function(){
@@ -108,16 +111,25 @@ function Player(num,ai){
         name=nm;
     }
     this.addRegion=function(region){
-        regions.push(region);
+        regions[region.hashCode()]=region;
     }
 
+    this.countRegions=function(){
+        return Object.keys(regions).length;
+    }
     this.getRegions=function(){
         return regions;
     }
 
+    this.moveTroops=function(r1,r2,mv){
+        var ct=Math.min(this.getArmy(r1),mv);
+        this.removeTroops(r1,ct);
+        this.addTroops(r2,mv);
+    }
+
 
     this.removeRegion=function(region){
-        regions=regions.splice(regions.indexOf(region),1);
+        delete regions[region.hashCode()];
     }
 
     this.createArmy=function(region){
@@ -134,7 +146,7 @@ function Player(num,ai){
 
     this.removeTroops=function(region,tCount){
         if(region.hashCode() in armies){
-            armies[region.hashCode()]-=tCount;
+            armies[region.hashCode()]-=Math.min(this.getArmy(region),tCount);
         }
     }
 
@@ -146,7 +158,7 @@ function Player(num,ai){
     }
 
     this.buildTroop=function(region){
-        armies[region.hashCode()]+=1+Math.floor(Math.random()*8);
+        armies[region.hashCode()]+=1+Math.floor(Math.random()*2);
     }
 
 
@@ -181,7 +193,7 @@ function Player(num,ai){
     }
 
     this.updateScore=function(){
-        score+=regions.length;
+        score+=Object.keys(regions).length;
     }
 
     this.getName=function(){

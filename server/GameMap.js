@@ -1,19 +1,14 @@
-function GameMap(){
-
+function GameMap(mapGen){
 
     var socket = io.connect('http://192.17.224.200:880');//Connect to server.
 
-    var mapGen=new Europe();
     var data=mapGen.generateMap();
     var regions=data["regions"];
     var players=data["players"];
-
-
-
-
+    //var humanPlayers=[];
+    //humanPlayers[0]=players[0];
 
     //Below are methods for processing input from clients
-
     var clickA=null;
     var clickB=null;
 
@@ -34,6 +29,14 @@ function GameMap(){
             this.processTwoClicks();
             this.clearClicks();
         }
+    }
+
+    this.getRegions=function(){
+        return regions;
+    }
+
+    this.getPlayers=function(){
+        return players;
     }
 
     /**
