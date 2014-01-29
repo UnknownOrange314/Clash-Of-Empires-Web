@@ -1,6 +1,6 @@
 function GameMap(mapGen){
 
-    var socket = io.connect('http://192.17.224.200:880');//Connect to server.
+    var socket = io.connect('http://192.17.205.104:880');//Connect to server.
 
     var data=mapGen.generateMap();
     var regions=data["regions"];
@@ -77,7 +77,7 @@ function GameMap(mapGen){
         });
         var a=r1.getLocation();
         var b=r2.getLocation();
-        console.log(a.getX()+":"+ a.getY()+" "+ b.getX()+":"+ b.getY());
+        console.log("Click locations "+a.getX()+":"+ a.getY()+" "+ b.getX()+":"+ b.getY());
         this.setMovementCommand(r1,r2);
     }
 
@@ -98,7 +98,7 @@ function GameMap(mapGen){
      */
     this.setMovementCommand=function(r1,r2,pName){
         players.forEach(function(p){ //Search for the player with the name.
-            if(p.getAI().username()===pName){
+            if(p.getAI().username(p)===pName){
                 p.addMoveCommand(r1,r2);
             }
         });

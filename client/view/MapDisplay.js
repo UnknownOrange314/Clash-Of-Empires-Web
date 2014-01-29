@@ -16,6 +16,13 @@ function MapDisplay(topX,topY,mapImg,dataCon,titleView,scoreView,background,pNam
     var g=base.getGraphics();
     var inputListeners=new Inputs(base.getCanvas(),topX,topY,dataCon,pName);
 
+    function transX(x){
+        return x+topX;
+    }
+
+    function transY(y){
+        return y+topY;
+    }
 
     this.gameLoop=function(){
 
@@ -46,31 +53,16 @@ function MapDisplay(topX,topY,mapImg,dataCon,titleView,scoreView,background,pNam
                 g.fillStyle='DarkOrange';
             }
             g.font='10pt Calibri';
-            g.fillText(""+state["army"],state["xPos"]+10+topX,state["yPos"]+20+topY);
+            g.fillText(""+state["army"],transX(state["xPos"])+10,transY(state["yPos"])+20);
         });
 
-        console.log("state:"+JSON.stringify(gameState["moveCommands"]));
         //Indicate that an area has been clicked.
-
         var clickData=dataCon.getSavedClick();
         var x=clickData["x"];
         var y=clickData["y"];
 
-        //g.save();
-        //g.globalAlpha=.5;
         g.fillStyle='Black';
         g.rect(x,y,40,40);
-        g.fillText("Click",x,y);
-        //g.restore();
-
-        /*
-         var clicks=dataCon.getSavedClicks(); //Get the clicks that are saved
-
-            -If there are no saved clicks, then end select animation
-            -If there is one saved click, then end any existing select animation and
-             start a new one for the region.
-             -If there are two saved clicks......
-         */
-
+        g.fillText("Click",transX(x),transY(y));
     }
 }
