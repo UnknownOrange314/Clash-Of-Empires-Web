@@ -145,9 +145,16 @@ function GameMap(mapGen){
         return regions.length;
     }
 
-    this.getPlayerStates=function(){
-        return players.map(function(p){
-            return p.getScore();
+    this.getPlayerInfo=function(){
+
+        var data={};
+        players.forEach(function(p){
+            var pData={};
+            pData["score"]=p.getScore();
+            pData["money"]=0.0;
+            pData["num"]= p.getNum();
+            data[p.getAI().username(p)]=pData;
         });
+        return data;
     }
 }

@@ -1,3 +1,24 @@
+
+function getColor(pNum){
+    if(pNum==1){
+        return 'Red';
+    }
+    if(pNum==2){
+        return 'White';
+    }
+    if(pNum==3){
+        return 'Black';
+    }
+    if(pNum==4){
+        return 'Purple';
+    }
+    if(pNum==5){
+        return 'DarkOrange';
+    }
+    return 'Green';
+}
+
+
 /**
  *
  * @param topX The top x coordinate.
@@ -7,10 +28,10 @@
  * @param titleView The panel that has the title.
  * @param scoreView The panel that has player score information.
  * @param background The background image for the game.
+ * @param pName The name of the player
  * @constructor
  */
 function MapDisplay(topX,topY,mapImg,dataCon,titleView,scoreView,background,pName){
-
 
     var base=Display();
     var g=base.getGraphics();
@@ -37,21 +58,7 @@ function MapDisplay(topX,topY,mapImg,dataCon,titleView,scoreView,background,pNam
         g.drawImage(mapImg,topX,topY,mapImg.width/4,mapImg.height/4);
 
         gameState["regionStates"].map(function(state){
-            if(state["owner"]==1){
-                g.fillStyle='Red';
-            }
-            if(state["owner"]==2){
-                g.fillStyle='White';
-            }
-            if(state["owner"]==3){
-                g.fillStyle='Black';
-            }
-            if(state["owner"]==4){
-                g.fillStyle='Purple';
-            }
-            if(state["owner"]==5){
-                g.fillStyle='DarkOrange';
-            }
+            g.fillStyle=getColor(state["owner"]);
             g.font='10pt Calibri';
             g.fillText(""+state["army"],transX(state["xPos"])+10,transY(state["yPos"])+20);
         });

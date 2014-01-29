@@ -14,20 +14,17 @@ var MoveCommand=function(r1,r2){
     }
 
     this.execute=function(player){
-            var sOwn=start.getOwner();
-            var eOwn=end.getOwner();
-            if(sOwn!==eOwn){
-                var dBonus=1.0;
-                if(eOwn.getCapital()===end){
-                    dBonus=5.0;
+            var attacker=start.getOwner();
+            var defender=end.getOwner();
+            if(attacker!==defender){
+
+                if(Math.random()>0.5){ //Defender hits.
+                    attacker.removeTroops(start, defender.getDefendPower(end));
                 }
-                if(Math.random()>0.5){
-                    sOwn.removeTroops(start,Math.floor(speed*dBonus));
+                else{ //Attacker hits.
+                    defender.removeTroops(end,attacker.getAttackPower(start));
                 }
-                else{
-                    eOwn.removeTroops(end,speed);
-                }
-                if(eOwn.getArmy(end)<=0&Object.keys(eOwn.getRegions()).length>2){//The enemy is out of troops.
+                if(defender.getArmy(end)<=0&Object.keys(defender.getRegions()).length>2){//The enemy is out of troops.
                     end.setOwner(player);
                 }
             }
@@ -97,6 +94,27 @@ function Player(num,ai){
     var name=""+num;
     var capital=null;
     var moveCommands=[];
+
+    /**
+     * The attack power of a player when attacking from a region.
+     * @param reg
+     */
+    this.getAttackPower=function(reg){
+        return Math.min(this.getArmy(reg),10);
+    }
+
+    /**
+     * The defense power of a player when defending a region.
+     * @param reg
+     */
+    this.getDefendPower=function(reg){
+        var dBonus=1.0;
+        if(this.getCapital()===reg){
+            dBonus=5.0;
+        }
+        return dBonus*Math.min(this.getArmy(reg),10);
+    }
+
 
     this.exportMoveCommands=function(){
         var data=moveCommands.map(function(command){
@@ -216,7 +234,7 @@ function Player(num,ai){
 
 
     this.getScore=function(){
-        return name+":"+score;
+        return score;
     }
 
     this.updateScore=function(){

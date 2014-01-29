@@ -1,9 +1,7 @@
 function ScoreDisplay(topX,topY,dataConnection,img){
 
-
     var base=Display();
     var g=base.getGraphics();
-
 
     this.drawSelf=function(){
 
@@ -13,14 +11,17 @@ function ScoreDisplay(topX,topY,dataConnection,img){
         var drawY=topY+110;
 
         g.fillText("Player Scores",topX+30,drawY);
-        var scores=dataConnection.getPlayerStates();
-
+        var pData=dataConnection.getPlayerInfo();
         drawY+=100;
         g.fillStyle="#Black";
         g.font='10pt Calibri';
-        for(var i=0;i<scores.length;i++){
-            g.fillText(scores[i],drawX,drawY);
+        Object.keys(pData).forEach(function(name){
+            g.fillStyle= getColor(pData[name]["num"]);
+            g.fillText(name+":"+pData[name]["score"],drawX,drawY);
             drawY+=100;
+        });
+        for(var i=0;i<pData.length;i++){
+            var info=pData[i];
         }
     }
 }
