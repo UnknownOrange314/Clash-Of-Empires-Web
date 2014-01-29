@@ -27,7 +27,7 @@ var MoveCommand=function(r1,r2){
                 else{
                     eOwn.removeTroops(end,speed);
                 }
-                if(eOwn.getArmy(end)<=0){//The enemy is out of troops.
+                if(eOwn.getArmy(end)<=0&Object.keys(eOwn.getRegions()).length>2){//The enemy is out of troops.
                     end.setOwner(player);
                 }
             }
@@ -41,36 +41,52 @@ var MoveCommand=function(r1,r2){
  * @param player The player that is running the AI.
  * @constructor
  */
-var Computer=function(player){
-    var moveCommands=[];
-    var regions=player.getRegions();
-    Object.keys(regions).forEach(function(r){
-        var region=regions[r];
-        var eCount=0;
-        region.getBorders().forEach(function(border){
-            if(border.getOwner()!==player){  //Enemy region that will be attacked.
-                var a=new MoveCommand(region,border);
-                moveCommands.push(a);
-                eCount++;
+var Computer=function(){
+
+    this.run=function(player){
+        var moveCommands=[];
+        var regions=player.getRegions();
+        Object.keys(regions).forEach(function(r){
+            var region=regions[r];
+            var eCount=0;
+            region.getBorders().forEach(function(border){
+                if(border.getOwner()!==player){  //Enemy region that will be attacked.
+                    var a=new MoveCommand(region,border);
+                    moveCommands.push(a);
+                    eCount++;
+                }
+            });
+            if(eCount===0){ //We should not leave troops in interior regions.
+                region.getBorders().forEach(function(border){
+                    var a=new MoveCommand(region,border);
+                    moveCommands.push(a);
+
+                });
             }
         });
-        if(eCount===0){ //We should not leave troops in interior regions.
-            region.getBorders().forEach(function(border){
-                var a=new MoveCommand(region,border);
-                moveCommands.push(a);
+        return moveCommands;
+    }
 
-            });
-        }
-    });
-    return moveCommands;
+    this.username=function(player){
+        return player.getName();
+    }
+
 }
 
 /**
- * This is an empty updateState function for human players.
+ * This is a function for human player actions.
+ * @param username The name of the player given by the client.
  * @constructor
  */
-var NoAI=function(player){
-    return player.getMoveCommands();
+var NoAI=function(user){
+
+    this.run=function(player){
+        return player.getMoveCommands();
+    }
+
+    this.username=function(player){
+        return user;
+    }
 }
 
 function Player(num,ai){
@@ -177,13 +193,24 @@ function Player(num,ai){
 
 
     this.updateState=function(){
-        moveCommands=ai(this);
+        moveCommands=ai.run(this);
         var speed=1;
         var player=this;
         moveCommands.forEach(function(command){
             command.execute(player);
         });
         this.updateScore();
+    }
+
+    /**
+     * Returns the AI function that the player is using.
+     */
+    this.getAI=function(){
+        return ai;
+    }
+
+    this.setAI=function(AiFunc){
+        ai=AiFunc;
     }
 
 

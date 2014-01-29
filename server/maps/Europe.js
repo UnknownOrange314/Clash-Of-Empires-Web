@@ -84,10 +84,10 @@ function Europe(){
         for(var i=1;i<6;i++){
             var p=null;
             if(i===2){//Create human player.
-                p=new Player(i,Computer);
+                p=new Player(i,new NoAI("1.1.1.1"));
             }
             else{
-                p=new Player(i,Computer);
+                p=new Player(i,new Computer());
             }
             players.push(p);
         }
@@ -168,7 +168,6 @@ function Europe(){
     }
 
     function linkRegions(r1,r2){
-        console.log(r1.getName()+":"+r2.getName());
         r1.addBorder(r2);
         r2.addBorder(r1);
     }

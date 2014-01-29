@@ -9,12 +9,12 @@
  * @param background The background image for the game.
  * @constructor
  */
-function MapDisplay(topX,topY,mapImg,dataCon,titleView,scoreView,background){
+function MapDisplay(topX,topY,mapImg,dataCon,titleView,scoreView,background,pName){
 
 
     var base=Display();
     var g=base.getGraphics();
-    var inputListeners=new Inputs(base.getCanvas(),topX,topY,dataCon);
+    var inputListeners=new Inputs(base.getCanvas(),topX,topY,dataCon,pName);
 
 
     this.gameLoop=function(){
@@ -48,13 +48,8 @@ function MapDisplay(topX,topY,mapImg,dataCon,titleView,scoreView,background){
             g.font='10pt Calibri';
             g.fillText(""+state["army"],state["xPos"]+10+topX,state["yPos"]+20+topY);
         });
-        gameState["moveCommands"].map(function(state){
-            g.beginPath();
-            g.moveTo(state["x1"]+topX+10,state["y1"]+topY+10);
-            g.lineTo(state["x2"]+topX+10,state["y2"]+topY+10);
-            g.stroke();
-        });
 
+        console.log("state:"+JSON.stringify(gameState["moveCommands"]));
         //Indicate that an area has been clicked.
 
         var clickData=dataCon.getSavedClick();

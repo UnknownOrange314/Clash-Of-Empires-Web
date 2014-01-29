@@ -4,9 +4,10 @@
  * @param topX The x position at the top right of the drawing area.
  * @param topY The y position at the top left of the drawing area.
  * @param dataCon The object that is used to communicate with the server.
+ * @param pName The player number that is associated with this input.
  * @constructor
  */
-function Inputs(canvas,topX,topY,dataCon){
+function Inputs(canvas,topX,topY,dataCon,pName){
 
 	canvas.addEventListener("click",processClick,false);
 
@@ -17,7 +18,7 @@ function Inputs(canvas,topX,topY,dataCon){
 	function processClick(e){
 		var x=e.pageX;
 		var y=e.pageY;
-        dataCon.sendClick(new Point(x,y));
+        dataCon.sendClick(new Point(x,y),pName);
 	}
 
 };

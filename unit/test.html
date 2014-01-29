@@ -7,7 +7,7 @@
     <script src="../lib/socket.io.js"></script>
     <script src="../lib/jquery.min.js"></script>
     <script src="../client/controller/inputListeners.js"></script>
-    <script src="../client/DataConnection.js"></script>
+    <script src="../client/network/DataConnection.js"></script>
     <script src="../client/view/Display.js"></script>
     <script src="../client/view/ScoreDisplay.js"></script>
     <script src="../client/view/TitleDisplay.js"></script>
@@ -19,6 +19,8 @@
     <script src="../server/maps/Europe.js"></script>
 
     <script src="../client/view/MapDisplay.js"></script>
+    <script src="../client/network/NetUtil.js"></script>
+
     <script src="testGen.js"></script>
 
 </head>
@@ -127,8 +129,8 @@
             var r1=new Region(0,0,1);
             var r2=new Region(100,100,1);
 
-            var p1=new Player(1,NoAI);
-            var p2=new Player(2,NoAI);
+            var p1=new Player(1,new NoAI());
+            var p2=new Player(2,new NoAI());
 
             r0.setOwner(p1);
             r1.setOwner(p1);
@@ -219,6 +221,13 @@
         });
 
 
+        asyncTest("Networking Tests",function(){
+            var res=function(data){
+                ok(1,"Data:"+data);
+                start();
+            }
+            getIP(res);
+        });
 
     </script>
 

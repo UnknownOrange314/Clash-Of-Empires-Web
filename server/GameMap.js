@@ -20,13 +20,13 @@ function GameMap(mapGen){
     /**
      * @param pt
      */
-    this.processClick=function(pt){
+    this.processClick=function(pt,pName){
         if(clickA==null){
             clickA=pt;
         }
         else{
             clickB=pt;
-            this.processTwoClicks();
+            this.processTwoClicks(pName);
             this.clearClicks();
         }
     }
@@ -40,9 +40,26 @@ function GameMap(mapGen){
     }
 
     /**
+     * This method registers a player so that input associated
+     * with a player can be processed.
+     */
+    this.registerPlayer=function(pName){
+        var reg=false;
+        players.forEach(function(p){
+            if(p.getAI() instanceof Computer){
+                if(reg===false){
+                    p.setAI(new NoAI(pName));
+                    console.log("Registering player");
+                    reg=true;
+                }
+            }
+        });
+    }
+
+    /**
      * This function is called when two clicks are made.
      */
-    this.processTwoClicks=function(){
+    this.processTwoClicks=function(pName){
         var r1=null;
         var min1=99999;
         var r2=null;
@@ -79,13 +96,13 @@ function GameMap(mapGen){
     /**
      * This function sets movement between two regions.
      */
-    this.setMovementCommand=function(r1,r2){
-        players[0].addMoveCommand(r1,r2);
-        //If r1 and r2 are owned by the same player, troops will move.
-        //if r1 and r2 are owned by different players, the troops will attack.
+    this.setMovementCommand=function(r1,r2,pName){
+        players.forEach(function(p){ //Search for the player with the name.
+            if(p.getAI().username()===pName){
+                p.addMoveCommand(r1,r2);
+            }
+        });
     }
-
-
 
 
     this.updateState=function(){
@@ -116,10 +133,9 @@ function GameMap(mapGen){
             arr["army"]=state.getArmy();
             return arr;
         });
-        var moveCommands=[];
+        var moveCommands={};
         players.forEach(function(player){
-          //  console.log("Move commands:"+player.getMoveCommands());
-            moveCommands=moveCommands.concat(player.exportMoveCommands());
+            moveCommands[player.getAI().username(player)]=player.exportMoveCommands();
         });
         socket.emit('hostRegionState', { data: regionState});
         return {"regionStates":regionState,"moveCommands":moveCommands};
