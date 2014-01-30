@@ -7,7 +7,7 @@ function getColor(pNum){
         return 'White';
     }
     if(pNum==3){
-        return 'Blue';
+        return 'Black';
     }
     if(pNum==4){
         return 'Purple';
