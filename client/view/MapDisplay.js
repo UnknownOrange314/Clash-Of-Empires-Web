@@ -47,6 +47,8 @@ function MapDisplay(topX,topY,mapImg,dataCon,titleView,scoreView,background,pNam
 
     this.gameLoop=function(){
 
+        var start=new Date().getTime();
+
         var gameState=dataCon.getRegionStates(); //Ask for the game state
         if(gameState==undefined){
             return;
@@ -63,6 +65,12 @@ function MapDisplay(topX,topY,mapImg,dataCon,titleView,scoreView,background,pNam
             g.fillText(""+state["army"],transX(state["xPos"])+10,transY(state["yPos"])+20);
         });
 
+        gameState["moveCommands"][pName].forEach(function(state){
+            g.beginPath();
+            g.moveTo(transX(state["x1"]+10),transY(state["y1"])+10);
+            g.lineTo(transX(state["x2"]+10),transY(state["y2"])+10);
+            g.stroke();
+        });
         //Indicate that an area has been clicked.
         var clickData=dataCon.getSavedClick();
         var x=clickData["x"];
@@ -71,5 +79,8 @@ function MapDisplay(topX,topY,mapImg,dataCon,titleView,scoreView,background,pNam
         g.fillStyle='Black';
         g.rect(x,y,40,40);
         g.fillText("Click",transX(x),transY(y));
+
+        var end=new Date().getTime();
+        //console.log("Time "+(end-start));
     }
 }

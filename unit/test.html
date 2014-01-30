@@ -123,7 +123,7 @@
             ok(p.getDistance(p5)===5,"Testing distance:"+ p.getDistance(p5));
         });
 
-        test("Player tests",function(){
+        test("Conquest test",function(){
 
             //Players cannot take over region because players cannot lose their last two regions.
             //Players take damage even when there are no troops in a region.
@@ -193,6 +193,32 @@
             }
 
         });
+
+        test("Attacking capital test",function(){
+            var map=new GameMap(new TestGen());
+            var players=map.getPlayers();
+            var regions=map.getRegions();
+            var r1=players[0].getCapital();
+            var aReg=regions[7];
+
+            var move=new MoveCommand(aReg,r1);
+            players[0].addTroops(r1,9999);
+            aReg.getOwner().addTroops(aReg,9999);
+
+            ok(1,aReg.getOwner()!=players[0]);
+            for(var i=0;i<20;i++){
+                move.execute(aReg.getOwner());
+            }
+            var aOwn=aReg.getOwner();
+            var c1=aOwn.getArmy(aReg);
+            var c2=players[0].getArmy(r1);
+            ok(c1<c2,"Troop counts "+c1+":"+c2);
+
+
+
+        });
+
+
         test("AI Tests",function(){
             var map=new GameMap(new TestGen());
 
@@ -216,21 +242,53 @@
                 }
             }
 
-            var oStr2="";
+
             var rCount2=0;
             var players=map.getPlayers();
             players.forEach(function(p){
-                oStr2=oStr2+":"+ p.countRegions();
                 rCount2+= p.countRegions();
             });
 
-            if(oStr===oStr2){ //Make sure region ownership had some change.
-                ok(0,oStr+" "+oStr2);
-            }
             if(rCount!=rCount2){
                 ok(0,rCount+":"+rCount2);
             }
+            var data=map.updateState();
+            ok(data["moveCommands"]["0"].length>1,"Move commands are greater than 0");
+
+
+
             ok(1,"AI is working");
+        });
+
+        /**
+         * This test to see if a player can issue a move command and have trops move.
+         */
+        test("Player move command test",function(){
+            var map=new GameMap(new Europe());
+            map.registerPlayer("host");
+            map.processClick(new Point(226,346),"host");
+            map.processClick(new Point(248,302),"host");
+
+            var data=map.updateState();
+            ok(data["moveCommands"].hasOwnProperty("host"),"Has host data been sent?");
+            ok((data["moveCommands"]["host"]).length===1,"Move data:"+JSON.stringify(data["moveCommands"]["host"]));
+
+        });
+
+        /**
+         * This method tests if the game is running fast enough
+         */
+        test("Speed Test",function(){
+
+            var map=new GameMap(new Europe());
+            var start=new Date().getTime();
+            var cycles=100;
+            for(var i=0;i<cycles;i++){
+                map.updateState();
+            }
+            var end=new Date().getTime();
+            var time=end-start;
+            ok(time<10*cycles,"Time "+(end-start));
         });
 
 

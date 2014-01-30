@@ -83,8 +83,8 @@ function Europe(){
         var players=[];
         for(var i=1;i<6;i++){
             var p=null;
-            if(i===2){//Create human player.
-                p=new Player(i,new NoAI("1.1.1.1"));
+            if(i===5){//Create human player.
+                p=new Player(i,new NoAI("Minors"));
             }
             else{
                 p=new Player(i,new Computer());

@@ -1,5 +1,7 @@
 function GameMap(mapGen){
 
+    var time=0;
+
     var socket = io.connect('http://192.17.205.104:880');//Connect to server.
 
     var data=mapGen.generateMap();
@@ -77,8 +79,7 @@ function GameMap(mapGen){
         });
         var a=r1.getLocation();
         var b=r2.getLocation();
-        console.log("Click locations "+a.getX()+":"+ a.getY()+" "+ b.getX()+":"+ b.getY());
-        this.setMovementCommand(r1,r2);
+        this.setMovementCommand(r1,r2,pName);
     }
 
     this.getFirstClick=function(){
@@ -97,7 +98,9 @@ function GameMap(mapGen){
      * This function sets movement between two regions.
      */
     this.setMovementCommand=function(r1,r2,pName){
+        console.log("Checking commands");
         players.forEach(function(p){ //Search for the player with the name.
+            console.log(pName+":"+ p.getAI().username(p));
             if(p.getAI().username(p)===pName){
                 p.addMoveCommand(r1,r2);
             }
@@ -115,10 +118,19 @@ function GameMap(mapGen){
 
 
         //Build troops for each region
-        regions.forEach(function(region){
-            region.buildTroop();
-        });
+        if(time%30==0){
+            regions.forEach(function(region){
+                region.buildTroop();
+            });
+            players.forEach(function(player){
+                player.updateAI();
+            })
+        }
 
+
+
+
+        time++;
 
         var renderState=regions.map(function(region){
             return region.getRenderState();

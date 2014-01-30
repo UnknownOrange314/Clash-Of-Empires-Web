@@ -25,7 +25,10 @@ var MoveCommand=function(r1,r2){
                     defender.removeTroops(end,attacker.getAttackPower(start));
                 }
                 if(defender.getArmy(end)<=0&Object.keys(defender.getRegions()).length>2){//The enemy is out of troops.
-                    end.setOwner(player);
+                    if(defender.getCapital()!==end){
+                        end.setOwner(player);
+                    }
+                    
                 }
             }
             if(start.getOwner()===end.getOwner()){
@@ -41,16 +44,23 @@ var MoveCommand=function(r1,r2){
 var Computer=function(){
 
     this.run=function(player){
+
+        console.log("Username:"+this.username(player));
         var moveCommands=[];
         var regions=player.getRegions();
         Object.keys(regions).forEach(function(r){
             var region=regions[r];
             var eCount=0;
             region.getBorders().forEach(function(border){
-                if(border.getOwner()!==player){  //Enemy region that will be attacked.
-                    var a=new MoveCommand(region,border);
-                    moveCommands.push(a);
-                    eCount++;
+                var bOwn=border.getOwner();
+                if(bOwn!==player){  //Enemy region that will be attacked.
+                    var def=bOwn.getArmy(border);
+                    var att=player.getArmy(region);
+                    if(att>def){
+                        var a=new MoveCommand(region,border);
+                        moveCommands.push(a);
+                        eCount++;
+                    }
                 }
             });
             if(eCount===0){ //We should not leave troops in interior regions.
@@ -110,7 +120,7 @@ function Player(num,ai){
     this.getDefendPower=function(reg){
         var dBonus=1.0;
         if(this.getCapital()===reg){
-            dBonus=5.0;
+            dBonus=15.0;
         }
         return dBonus*Math.min(this.getArmy(reg),10);
     }
@@ -192,7 +202,11 @@ function Player(num,ai){
     }
 
     this.buildTroop=function(region){
-        armies[region.hashCode()]+=1+Math.floor(Math.random()*2);
+        var bCount=1;
+        if(region===this.getCapital()){
+            bCount=20;
+        }
+        armies[region.hashCode()]+=bCount+Math.floor(Math.random()*1);
     }
 
 
@@ -208,11 +222,11 @@ function Player(num,ai){
         return num;
     }
 
-
+    this.updateAI=function(){
+        moveCommands=ai.run(this);
+    }
 
     this.updateState=function(){
-        moveCommands=ai.run(this);
-        var speed=1;
         var player=this;
         moveCommands.forEach(function(command){
             command.execute(player);
