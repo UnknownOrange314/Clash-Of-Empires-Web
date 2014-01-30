@@ -102,7 +102,9 @@ function GameMap(mapGen){
         players.forEach(function(p){ //Search for the player with the name.
             console.log(pName+":"+ p.getAI().username(p));
             if(p.getAI().username(p)===pName){
-                p.addMoveCommand(r1,r2);
+                if(r1.hasBorder(r2)){
+                    p.addMoveCommand(r1,r2);
+                }
             }
         });
     }
@@ -143,6 +145,7 @@ function GameMap(mapGen){
             arr["yPos"]=state.getY();
             arr["size"]=state.getSize();
             arr["army"]=state.getArmy();
+            arr["hitPoints"]=state.getHP();
             return arr;
         });
         var moveCommands={};

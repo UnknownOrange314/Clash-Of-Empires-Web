@@ -1,3 +1,4 @@
+
 function Region(x,y,size){
 
     var myOwner=null;
@@ -5,6 +6,23 @@ function Region(x,y,size){
     var mySize=size;
     var borders=[];
     var name=x+":"+y;
+
+    var maxHP=1000;
+    var curHP=1000;
+
+    this.loseHP=function(aStr){
+        curHP=Math.max(0,curHP-aStr);
+    }
+
+    this.heal=function(){
+        curHP=Math.min(1000,curHP+1);
+    }
+
+    this.getHP=function(){
+        return curHP;
+    }
+
+
 
     this.setName=function(nm){
         name=nm;
@@ -27,7 +45,7 @@ function Region(x,y,size){
     }
 
     this.getRenderState=function(){
-        return new RegionRenderState(myLoc.getX(),myLoc.getY(),myOwner.getNum(),mySize,myOwner.getArmy(this));
+        return new RegionRenderState(myLoc.getX(),myLoc.getY(),myOwner.getNum(),mySize,myOwner.getArmy(this),curHP);
     }
 
     this.setOwner=function(owner){
@@ -72,6 +90,7 @@ function Region(x,y,size){
     this.hashCode=function(){
         return myLoc.getX()+":"+myLoc.getY();
     }
+
 }
 
 /**
@@ -82,16 +101,18 @@ function Region(x,y,size){
  * @param size
  * @constructor
  */
-function RegionRenderState(x,y,owner,size,army){
+function RegionRenderState(x,y,owner,size,army,curHP){
 
     var myX=x;
     var myY=y;
     var myOwner=owner;
     var mySize=size;
     var myArmy=army;
+    var hitPoints=curHP;
 
-
-
+    this.getHP=function(){
+        return hitPoints;
+    }
     this.getArmy=function(){
         return myArmy;
     }

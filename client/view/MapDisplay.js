@@ -7,7 +7,7 @@ function getColor(pNum){
         return 'White';
     }
     if(pNum==3){
-        return 'Black';
+        return 'Blue';
     }
     if(pNum==4){
         return 'Purple';
@@ -63,6 +63,13 @@ function MapDisplay(topX,topY,mapImg,dataCon,titleView,scoreView,background,pNam
             g.fillStyle=getColor(state["owner"]);
             g.font='10pt Calibri';
             g.fillText(""+state["army"],transX(state["xPos"])+10,transY(state["yPos"])+20);
+
+            g.fillStyle='black';
+            var sX=transX(state["xPos"]);
+            var sY=transY(state["yPos"]);
+            var width=Math.floor(30.0*state["hitPoints"]/1000.0);
+            g.fillRect(sX,sY,width,10);
+            console.log("Hit points:"+state["hitPoints"]);
         });
 
         gameState["moveCommands"][pName].forEach(function(state){

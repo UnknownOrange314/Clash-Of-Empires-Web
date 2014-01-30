@@ -25,10 +25,12 @@ var MoveCommand=function(r1,r2){
                     defender.removeTroops(end,attacker.getAttackPower(start));
                 }
                 if(defender.getArmy(end)<=0&Object.keys(defender.getRegions()).length>2){//The enemy is out of troops.
-                    if(defender.getCapital()!==end){
-                        end.setOwner(player);
+                    end.loseHP(attacker.getAttackPower(start));
+                    if(end.getHP()<=0){
+                        if(defender.getCapital()!==end){
+                            end.setOwner(player);
+                        }
                     }
-                    
                 }
             }
             if(start.getOwner()===end.getOwner()){
@@ -230,6 +232,9 @@ function Player(num,ai){
         var player=this;
         moveCommands.forEach(function(command){
             command.execute(player);
+        });
+        Object.keys(regions).forEach(function(rLoc){
+            regions[rLoc].heal();
         });
         this.updateScore();
     }
