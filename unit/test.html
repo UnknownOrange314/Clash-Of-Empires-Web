@@ -71,25 +71,37 @@
             ok( 1, "Passed!" );
         });
 
-        test("Map setup tests",function(){
-            var mapGen=new Europe();
-            var data=mapGen.generateMap();
-            var regions=data["regions"];
-            var players=data["players"];
-            players.forEach(function(player){
-                ok(player!==null,"Checking if player is null");
+
+        asyncTest("Map setup tests",function(){
+
+            $.getJSON('../server/maps/Europe.json',function(json){
+
+                start();
+                var mapGen=new Europe(json);
+
+                //Load the map data from a JSON file.
+                mapGen.loadData()
+
+                //Generate the map
+                var data=mapGen.generateMap();
+                var regions=data["regions"];
+                var players=data["players"];
+                players.forEach(function(player){
+                    ok(player!==null,"Checking if player is null");
+                });
+                regions.forEach(function(reg){
+                    if(reg===undefined){
+                        ok(0,"Undefined region");
+                    }
+                    if(reg.getOwner()===null){
+                        ok(0,"Null owner");
+                    }
+                    if(reg.getBorders().length===0){
+                        ok(0,"No borders:"+reg.getName());
+                    }
+                });
             });
-            regions.forEach(function(reg){
-                if(reg===undefined){
-                    ok(0,"Undefined region");
-                }
-                if(reg.getOwner()===null){
-                    ok(0,"Null owner");
-                }
-                if(reg.getBorders().length===0){
-                    ok(0,"No borders:"+reg.getName());
-                }
-            });
+
         });
 
         test("Game map tests",function(){

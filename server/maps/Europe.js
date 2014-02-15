@@ -1,4 +1,34 @@
-function Europe(){
+function Europe(json){
+
+
+    //console.log(json["africa"])
+    //console.log(json["balkans"])
+
+    //console.log("Data:"+Object.keys(json))
+
+    var data=new Array();
+
+    for(var part in (json)){
+       // console.log("Part:"+part)
+       // console.log("Part:"+JSON.stringify(json))
+        //console.log("Part:"+json["africa"])
+        //console.log("Data:"+part)
+
+        for(var i=0;i<(json[part]).length;i++){
+                var rName=json[part][i]["name"]
+                console.log("Region name:"+rName)
+                console.log("Region shape:"+"images/"+part+"/"+rName+".svg")
+        }
+    }
+
+
+    //var regionData=array();
+
+
+    this.loadData=function(){
+
+    }
+
     this.createRegions=function(){
         var rTemp={};
         rTemp["Portugal"]=(new Region(47,442));
@@ -220,6 +250,15 @@ function Europe(){
         linkRegions(rTemp["Languedoc"],rTemp["Burgundy"]);
         linkRegions(rTemp["Languedoc"],rTemp["Auvergne"]);
 
+        linkRegions(rTemp["Poitou"],rTemp["Auvergne"]);
+        linkRegions(rTemp["Poitou"],rTemp["Paris"]);
+        linkRegions(rTemp["Poitou"],rTemp["Brittany"]);
+
+        linkRegions(rTemp["Burgundy"],rTemp["Champagne"]);
+
+        linkRegions(rTemp["Champagne"],rTemp["Brittany"]);
+
+
         linkRegions(rTemp["Algeria"],rTemp["Tunisia"]);
         linkRegions(rTemp["Algeria"],rTemp["Morocco"]);
 
@@ -303,6 +342,7 @@ function Europe(){
         linkRegions(rTemp["Rome"],rTemp["Naples"]);
         linkRegions(rTemp["Naples"],rTemp["Greece"]);
         linkRegions(rTemp["Venice"],rTemp["Austria"]);
+        linkRegions(rTemp["Sicily"],rTemp["Naples"]);
 
         /**
          * Add borders for Balkans
