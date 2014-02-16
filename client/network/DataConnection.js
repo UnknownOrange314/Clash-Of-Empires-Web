@@ -1,6 +1,16 @@
 function LocalConnection(){
 
-    var myMap=new GameMap(new Europe());
+    console.log("Starting")
+    var myMap=null
+    $.ajaxSetup({"async":false});
+
+    $.getJSON("server/maps/Europe.json",function(json){
+        myMap=new GameMap(new Europe(json));
+    });
+
+    console.log("Done");
+
+
 
     this.getPlayerInfo=function(){
         return myMap.getPlayerInfo();
@@ -30,7 +40,7 @@ function LocalConnection(){
 }
 
 /**
- * This object is for thhttp://www.jetbrains.com/webstorm/buy/index.jspe client to get data from the server and send data.
+ * This object is for the client to get data from the server and send data.
  * @constructor
  */
 function ClientConnection(){

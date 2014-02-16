@@ -1,111 +1,19 @@
-function Europe(json){
+function Europe(data){
 
-
-    //console.log(json["africa"])
-    //console.log(json["balkans"])
-
-    //console.log("Data:"+Object.keys(json))
-
-    var data=new Array();
-
-    for(var part in (json)){
-       // console.log("Part:"+part)
-       // console.log("Part:"+JSON.stringify(json))
-        //console.log("Part:"+json["africa"])
-        //console.log("Data:"+part)
-
-        for(var i=0;i<(json[part]).length;i++){
-                var rName=json[part][i]["name"]
-                console.log("Region name:"+rName)
-                console.log("Region shape:"+"images/"+part+"/"+rName+".svg")
-        }
-    }
-
-
-    //var regionData=array();
-
-
-    this.loadData=function(){
-
-    }
+    var json=data; //Map data.
 
     this.createRegions=function(){
+
         var rTemp={};
-        rTemp["Portugal"]=(new Region(47,442));
-        rTemp["Madrid"]=new Region(121,487);
-        rTemp["Andalucia"]=new Region(93,529);
-        rTemp["Galicia"]=new Region(111,424);
-        rTemp["Catalonia"]=new Region(187,458);
-
-        rTemp["Poitou"]=new Region(185,390);
-        rTemp["Brittany"]=new Region(186,328);
-        rTemp["Paris"]=new Region(226,346);
-        rTemp["Champagne"]=new Region(248,302);
-        rTemp["Burgundy"]=new Region(268,361);
-        rTemp["Languedoc"]=new Region(267,402);
-        rTemp["Auvergne"]=new Region(221,414);
-
-        rTemp["Savoy"]=new Region(330,417);
-        rTemp["Venice"]=new Region(368,389);
-        rTemp["Rome"]=new Region(385,468);
-        rTemp["Naples"]=new Region(436,500);
-        rTemp["Sicily"]=new Region(402,570);
-
-        rTemp["Ireland"]=new Region(137,199);
-        rTemp["England"]=new Region(218,239);
-        rTemp["Scotland"]=new Region(194,144);
-        rTemp["Belgium"]=new Region(284,286);
-        rTemp["Holland"]=new Region(288,244);
-
-        rTemp["Austria"]=new Region(414,367);
-        rTemp["Hungary"]=new Region(491,360);
-        rTemp["Bohemia"]=new Region(418,304);
-
-        rTemp["Greece"]=new Region(527,528);
-        rTemp["Turkey"]=new Region(690,519);
-        rTemp["Albania"]=new Region(504,481);
-        rTemp["Serbia"]=new Region(510,443);
-        rTemp["Bosnia"]=new Region(457,430);
-        rTemp["Croatia"]=new Region(423,394);
-        rTemp["Romania"]=new Region(584,388);
-        rTemp["Bulgaria"]=new Region(568,455);
-
-
-        rTemp["Ukraine"]=new Region(611,290);
-        rTemp["Poland"]=new Region(516,277);
-        rTemp["Belarus"]=new Region(559,228);
-        rTemp["Baltic"]=new Region(530,182);
-        rTemp["Voronesh"]=new Region(712,226);
-        rTemp["Orel"]=new Region(643,142);
-        rTemp["Moscow"]=new Region(727,110);
-        rTemp["StPetersburg"]=new Region(603,78);
-        rTemp["Finland"]=new Region(511,44);
-        rTemp["Karelia"]=new Region(616,25);
-        rTemp["Norway"]=new Region(348,70);
-        rTemp["Sweden"]=new Region(407,68);
-        rTemp["Denmark"]=new Region(341,183);
-
-        rTemp["Thuringen"]=new Region(368,270);
-        rTemp["Prussia"]=new Region(474,227);
-        rTemp["Silesia"]=new Region(428,282);
-        rTemp["Bavaria"]=new Region(368,332);
-        rTemp["Wuttenberg"]=new Region(326,330);
-        rTemp["Hesse"]=new Region(320,287);
-        rTemp["Hanover"]=new Region(348,250);
-        rTemp["Alsace"]=new Region(296,333);
-        rTemp["SH"]=new Region(370,229);
-        rTemp["Berlin"]=new Region(395,260);
-        rTemp["Pomerania"]=new Region(415,230);
-
-        rTemp["Morocco"]=new Region(63,600);
-        rTemp["Algeria"]=new Region(189,600);
-        rTemp["Tunisia"]=new Region(308,625);
-
-
-
-        Object.keys(rTemp).forEach(function(rName){
-            rTemp[rName].setName(rName);
-        });
+        for(var part in (json)){
+            for(var i=0;i<(json[part]).length;i++){
+                var rName=json[part][i]["name"]
+                var path="Region shape:"+"images/"+part+"/"+rName+".svg"
+                var x=json[part][i]["x"]
+                var y=json[part][i]["y"]
+                rTemp[rName]=new Region(parseInt(x),parseInt(y),rName,path)
+            }
+        }
         return rTemp;
     }
 
@@ -142,6 +50,7 @@ function Europe(json){
     }
 
     this.setOwners=function(rTemp,players){
+
 
         Object.keys(rTemp).forEach(function(reg){
             rTemp[reg].setOwner(players[4]);
@@ -203,6 +112,7 @@ function Europe(json){
     }
 
     this.setBorders=function(rTemp){
+
 
         /**
          * Add borders for England.
@@ -385,6 +295,7 @@ function Europe(json){
 
     this.generateMap=function(){
         var rTemp=this.createRegions();
+        console.log("Regions:"+rTemp)
         var players=this.createPlayers(rTemp);
         this.setOwners(rTemp,players);
         this.setBorders(rTemp);

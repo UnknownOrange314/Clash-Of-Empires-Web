@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+	<h1>Clash of Empires</h1>
+	<canvas id="game" width="1000" height="800"></canvas>
+
+
+	<div id="view"></div>
+<script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
+
+    <script src="lib/socket.io.js"></script>
+	<script src="lib/jquery.min.js"></script>
+    <script src="client/controller/inputListeners.js"></script>
+    <script src="client/network/DataConnection.js"></script>
+    <script src="client/view/Display.js"></script>
+    <script src="client/view/ScoreDisplay.js"></script>
+    <script src="client/view/TitleDisplay.js"></script>
+
+    <script src="server/game/GameMap.js"></script>
+    <script src="server/game/Region.js"></script>
+    <script src="server/game/Point.js"></script>
+    <script src="server/game/Player.js"></script>
+    <script src="server/maps/Europe.js"></script>
+
+    <script src="client/view/MapDisplay.js"></script>
+
+    <script src="client/view/Driver.js"></script>
+
+<script type="text/javascript">
+ 
+d3.xml("TestC.svg", "image/svg+xml", function(xml) {
+var importedNode = document.importNode(xml.documentElement, true);
+d3.select("#viz").node().appendChild(importedNode);
+var dataMax = 100;
+function generateData(num){
+var randomArray = [];
+for(var i=0; i<num; i++)randomArray.push(Math.random()*dataMax);
+return randomArray;
+}
+var data = generateData(5);
+d3.select("#button_panel")
+.on("mousedown", function(d, i){
+data = generateData(5);
+d3.selectAll("rect.bar")
+.data(data)
+.transition()
+.call(setBarHeight);
+});
+var barW = 40;
+var panelSVG = d3.select("#chart_panel");
+var panelX = ~~panelSVG.attr("x");
+var panelY = ~~panelSVG.attr("y");
+var panelW = ~~panelSVG.attr("width");
+var panelH = ~~panelSVG.attr("height");
+d3.select("#layer1")
+.selectAll("rect.bar")
+.data(data)
+.enter().append("svg:rect")
+.attr("class", "bar")
+.attr("width", barW)
+.attr("fill", "#5599FF")
+.attr("stroke", "black")
+.attr("x", function(d, i){return panelX+i*panelW/data.length+10;})
+.call(setBarHeight);
+function setBarHeight(){
+this.attr("height", function(d, i){return d/dataMax*panelH;})
+.attr("y", function(d, i){return panelY+panelH-(d/dataMax*panelH);})
+}
+d3.select("#download")
+.on("mouseover", function(){
+var html = d3.select("svg")
+.attr("version", 1.1)
+.attr("xmlns", "http://www.w3.org/2000/svg")
+.node().parentNode.innerHTML;
+d3.select(this)
+.attr("href-lang", "image/svg+xml")
+.attr("href", "data:image/svg+xml;base64,\n" + btoa(html));
+});
+});
+ 
+</script>
+
+
+
+</body>
+</html>

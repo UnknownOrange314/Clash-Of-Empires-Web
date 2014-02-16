@@ -33,9 +33,11 @@ function getColor(pNum){
  */
 function MapDisplay(topX,topY,mapImg,dataCon,titleView,scoreView,background,pName){
 
+
     var base=Display();
     var g=base.getGraphics();
     var inputListeners=new Inputs(base.getCanvas(),topX,topY,dataCon,pName);
+
 
     function transX(x){
         return x+topX;
@@ -47,6 +49,7 @@ function MapDisplay(topX,topY,mapImg,dataCon,titleView,scoreView,background,pNam
 
     this.gameLoop=function(){
 
+	
         var start=new Date().getTime();
 
         var gameState=dataCon.getRegionStates(); //Ask for the game state
@@ -69,7 +72,6 @@ function MapDisplay(topX,topY,mapImg,dataCon,titleView,scoreView,background,pNam
             var sY=transY(state["yPos"]);
             var width=Math.floor(30.0*state["hitPoints"]/1000.0);
             g.fillRect(sX,sY,width,10);
-            console.log("Hit points:"+state["hitPoints"]);
         });
 
         gameState["moveCommands"][pName].forEach(function(state){
@@ -89,5 +91,6 @@ function MapDisplay(topX,topY,mapImg,dataCon,titleView,scoreView,background,pNam
 
         var end=new Date().getTime();
         //console.log("Time "+(end-start));
+	
     }
 }

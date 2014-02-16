@@ -47,7 +47,6 @@ var Computer=function(){
 
     this.run=function(player){
 
-        console.log("Username:"+this.username(player));
         var moveCommands=[];
         var regions=player.getRegions();
         Object.keys(regions).forEach(function(r){

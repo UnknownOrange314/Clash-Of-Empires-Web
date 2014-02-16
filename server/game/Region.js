@@ -1,11 +1,11 @@
 
-function Region(x,y,size){
+function Region(x,y,rName,sLoc){
 
     var myOwner=null;
     var myLoc=new Point(x,y);
-    var mySize=size;
     var borders=[];
-    var name=x+":"+y;
+    var name=rName;
+    var shapeLoc=sLoc;
 
     var maxHP=1000;
     var curHP=1000;
@@ -45,7 +45,7 @@ function Region(x,y,size){
     }
 
     this.getRenderState=function(){
-        return new RegionRenderState(myLoc.getX(),myLoc.getY(),myOwner.getNum(),mySize,myOwner.getArmy(this),curHP);
+        return new RegionRenderState(myLoc.getX(),myLoc.getY(),myOwner.getNum(),myOwner.getArmy(this),curHP);
     }
 
     this.setOwner=function(owner){
@@ -68,9 +68,7 @@ function Region(x,y,size){
         return myLoc.getY();
     }
 
-    this.getSize=function(){
-        return mySize;
-    }
+
 
     this.getLocation=function(){
         return myLoc
@@ -101,12 +99,11 @@ function Region(x,y,size){
  * @param size
  * @constructor
  */
-function RegionRenderState(x,y,owner,size,army,curHP){
+function RegionRenderState(x,y,owner,army,curHP){
 
     var myX=x;
     var myY=y;
     var myOwner=owner;
-    var mySize=size;
     var myArmy=army;
     var hitPoints=curHP;
 
@@ -129,8 +126,5 @@ function RegionRenderState(x,y,owner,size,army,curHP){
         return myY;
     }
 
-    this.getSize=function(){
-        return mySize;
-    }
 
 }

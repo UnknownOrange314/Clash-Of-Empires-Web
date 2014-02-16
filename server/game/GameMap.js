@@ -143,7 +143,6 @@ function GameMap(mapGen){
             arr["owner"]=state.getOwner();
             arr["xPos"]=state.getX();
             arr["yPos"]=state.getY();
-            arr["size"]=state.getSize();
             arr["army"]=state.getArmy();
             arr["hitPoints"]=state.getHP();
             return arr;

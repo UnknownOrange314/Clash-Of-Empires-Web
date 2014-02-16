@@ -5,6 +5,8 @@
  */
 function startClient(dataConnection,pName){
 
+
+
     var dataCon=dataConnection;
     dataCon.registerPlayer(pName);
     var title=new TitleDisplay(200,0);
@@ -21,6 +23,8 @@ function startClient(dataConnection,pName){
         bg.src='images/background.jpg';
     }
     mapImg.src='images/map.png';
+
+
 }
 
 startClient(new LocalConnection(),"Host");
