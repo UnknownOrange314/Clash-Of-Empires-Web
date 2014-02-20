@@ -11,7 +11,7 @@ function ScoreDisplay(topX,topY,dataConnection,img){
         var drawY=topY+110;
 
         g.fillText("Player Scores",topX+30,drawY);
-        var pData=dataConnection.getPlayerInfo();
+        var pData=dataConnection.getPlayerState();
         drawY+=100;
         g.fillStyle="#Black";
         g.font='10pt Calibri';

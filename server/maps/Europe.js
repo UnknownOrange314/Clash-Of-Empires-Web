@@ -1,3 +1,6 @@
+
+
+
 function Europe(data){
 
     var json=data; //Map data.
@@ -8,7 +11,7 @@ function Europe(data){
         for(var part in (json)){
             for(var i=0;i<(json[part]).length;i++){
                 var rName=json[part][i]["name"]
-                var path="Region shape:"+"images/"+part+"/"+rName+".svg"
+                var path="images/"+part+"/"+rName+".svg"
                 var x=json[part][i]["x"]
                 var y=json[part][i]["y"]
                 rTemp[rName]=new Region(parseInt(x),parseInt(y),rName,path)

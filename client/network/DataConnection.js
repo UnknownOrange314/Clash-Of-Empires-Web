@@ -11,9 +11,16 @@ function LocalConnection(){
     console.log("Done");
 
 
+    /**
+     * Get information about region shape and location
+     * @returns {*}
+     */
+    this.getRegionInfo=function(){
+        return myMap.getRegionInfo();
+    }
 
-    this.getPlayerInfo=function(){
-        return myMap.getPlayerInfo();
+    this.getPlayerState=function(){
+        return myMap.getPlayerState();
     }
 
     this.getRegionStates=function(){
@@ -53,7 +60,7 @@ function ClientConnection(){
         return regionState;
     }
 
-    this.getPlayerInfo=function(){
+    this.getPlayerState=function(){
         return [];
     }
 

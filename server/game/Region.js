@@ -22,7 +22,16 @@ function Region(x,y,rName,sLoc){
         return curHP;
     }
 
+    this.getX=function(){
+        return myLoc.getX()
+    }
 
+    this.getY=function(){
+        return myLoc.getY()
+    }
+    this.getShapeLoc=function(){
+        return shapeLoc;
+    }
 
     this.setName=function(nm){
         name=nm;
@@ -45,7 +54,7 @@ function Region(x,y,rName,sLoc){
     }
 
     this.getRenderState=function(){
-        return new RegionRenderState(myLoc.getX(),myLoc.getY(),myOwner.getNum(),myOwner.getArmy(this),curHP);
+        return new RegionRenderState(myLoc.getX(),myLoc.getY(),myOwner.getNum(),myOwner.getArmy(this),curHP,this.getName());
     }
 
     this.setOwner=function(owner){
@@ -99,14 +108,18 @@ function Region(x,y,rName,sLoc){
  * @param size
  * @constructor
  */
-function RegionRenderState(x,y,owner,army,curHP){
+function RegionRenderState(x,y,owner,army,curHP,name){
 
     var myX=x;
     var myY=y;
     var myOwner=owner;
     var myArmy=army;
     var hitPoints=curHP;
+    var myName=name;
 
+    this.getName=function(){
+        return myName;
+    }
     this.getHP=function(){
         return hitPoints;
     }

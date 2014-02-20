@@ -4,10 +4,10 @@ function getColor(pNum){
         return 'Red';
     }
     if(pNum==2){
-        return 'White';
+        return 'Yellow';
     }
     if(pNum==3){
-        return 'Black';
+        return 'Cyan';
     }
     if(pNum==4){
         return 'Purple';
@@ -39,6 +39,36 @@ function MapDisplay(topX,topY,mapImg,dataCon,titleView,scoreView,background,pNam
     var inputListeners=new Inputs(base.getCanvas(),topX,topY,dataCon,pName);
 
 
+    this.drawShapes=function(data){
+        console.log("Data:"+Object.keys(data));
+
+
+        Object.keys(data).forEach(function(reg){
+            var rData=data[reg]
+            d3.select("svg").selectAll("path#"+reg)
+                .attr("transform","translate("+rData["x"]+","+rData["y"]+")scale(0.25)")
+            console.log("text#"+reg)
+            d3.select("svg").selectAll("text#"+reg)
+                .attr("x",rData["x"])
+                .attr("y",rData["y"])
+                .attr("fill","black")
+
+        });
+
+        var svg=d3.select("svg")
+        console.log(svg.selectAll("path#Scotland"))
+
+        var rData=data["Scotland"]
+        d3.select("svg").selectAll("path#Scotland")
+            .attr("transform","translate("+(rData["x"]-20)+","+(rData["y"]-50)+")scale(0.25)")
+    }
+
+
+    //Load data and draw regions
+    var rData=dataCon.getRegionInfo();
+    this.drawShapes(rData)
+
+
     function transX(x){
         return x+topX;
     }
@@ -49,7 +79,8 @@ function MapDisplay(topX,topY,mapImg,dataCon,titleView,scoreView,background,pNam
 
     this.gameLoop=function(){
 
-	
+
+
         var start=new Date().getTime();
 
         var gameState=dataCon.getRegionStates(); //Ask for the game state
@@ -63,6 +94,15 @@ function MapDisplay(topX,topY,mapImg,dataCon,titleView,scoreView,background,pNam
         g.drawImage(mapImg,topX,topY,mapImg.width/4,mapImg.height/4);
 
         gameState["regionStates"].map(function(state){
+
+            d3.select("svg")
+                .selectAll("path#"+state["name"])
+                .attr("fill",getColor(state["owner"]))
+            d3.select("svg")
+                .selectAll("text#"+state["name"])
+                .text(state["army"])
+
+
             g.fillStyle=getColor(state["owner"]);
             g.font='10pt Calibri';
             g.fillText(""+state["army"],transX(state["xPos"])+10,transY(state["yPos"])+20);
@@ -91,6 +131,6 @@ function MapDisplay(topX,topY,mapImg,dataCon,titleView,scoreView,background,pNam
 
         var end=new Date().getTime();
         //console.log("Time "+(end-start));
-	
+
     }
 }

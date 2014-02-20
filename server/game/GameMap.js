@@ -109,6 +109,20 @@ function GameMap(mapGen){
         });
     }
 
+    /**
+     * This method returns information about a region.
+     */
+    this.getRegionInfo=function(){
+        var rData={};
+        regions.forEach(function(reg){
+            var data={}
+            data["x"]=reg.getX()
+            data["y"]=reg.getY()
+            rData[reg.getName()]=data
+        });
+        return rData;
+    }
+
 
     this.updateState=function(){
 
@@ -145,6 +159,7 @@ function GameMap(mapGen){
             arr["yPos"]=state.getY();
             arr["army"]=state.getArmy();
             arr["hitPoints"]=state.getHP();
+            arr["name"]=state.getName();
             return arr;
         });
 
@@ -164,7 +179,7 @@ function GameMap(mapGen){
         return regions.length;
     }
 
-    this.getPlayerInfo=function(){
+    this.getPlayerState=function(){
 
         var data={};
         players.forEach(function(p){

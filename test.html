@@ -66,6 +66,8 @@
         test( "DataConnection test", function() {
             var dCon=new LocalConnection();
             var data=dCon.getRegionStates();
+            var rData=dCon.getRegionInfo();
+            ok(Object.keys(rData).length>0,"Region info size");
             ok( 1, "Passed!" );
         });
 
