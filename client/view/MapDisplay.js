@@ -40,27 +40,29 @@ function MapDisplay(topX,topY,mapImg,dataCon,titleView,scoreView,background,pNam
 
 
     this.drawShapes=function(data){
-        console.log("Data:"+Object.keys(data));
 
 
-        Object.keys(data).forEach(function(reg){
-            var rData=data[reg]
+        $.ajax({
+            url:"images/map.svg",
+            dataType:"text",
+            success: function(imgData){
+                $("body").append(imgData)
+                Object.keys(data).forEach(function(reg){
+                    var rData=data[reg]
+                    var svg=d3.select("svg")
+                    svg.selectAll("text#"+reg)
+                        .attr("x",rData["x"])
+                        .attr("y",rData["y"])
+                        .attr("fill","black")
+                        .attr("transform","translate(10,20)")
+                        .attr("font-size","12px")
 
-            console.log("text#"+reg)
-
-            var svg=d3.select("svg")
-            svg.selectAll("text#"+reg)
-                .attr("x",rData["x"])
-                .attr("y",rData["y"])
-                .attr("fill","black")
-                .attr("transform","translate(10,20)")
-
-            svg.selectAll("path#"+reg)
-                .attr("transform","scale(0.25)")
-
-        });
-
-
+                    svg.selectAll("path#"+reg)
+                        .attr("transform","scale(0.25)")
+                        .attr("stroke-width",5)
+                });
+            }
+        })
     }
 
 
