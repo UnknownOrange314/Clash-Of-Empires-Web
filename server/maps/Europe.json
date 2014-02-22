@@ -1,8 +1,14 @@
 {
+    "borders":[
+
+        {
+            "1":"Englan"
+        }
+    ],
     "africa":[
         {
             "name":"Algeria",
-            "x":"189",
+            "x":"199",
             "y":"600"
         },{
             "name":"Morocco",
@@ -46,7 +52,13 @@
         },{
             "name":"Greece",
             "x":"527",
-            "y":"528"
+            "y":"528",
+            "borders":[
+                "Albania",
+                "Bulgaria",
+                "Turkey",
+                "Sicily"
+            ]
         },{
             "name":"Hungary",
             "x":"491",
@@ -78,7 +90,16 @@
         },{
             "name":"England",
             "x":"198",
-            "y":"239"
+            "y":"239",
+            "borders":[
+                    "Scotland",
+                    "Ireland",
+                    "Holland",
+                    "Belgium",
+                    "Champagne",
+                    "Brittany",
+                    "Norway"
+                ]
         }
 
     ],
@@ -115,11 +136,20 @@
         },{
             "name":"Belgium",
             "x":"284",
-            "y":"286"
+            "y":"286",
+            "borders":[
+                    "Champagne",
+                    "Alsace",
+                    "Hesse"
+                ]
         },{
             "name":"Holland",
             "x":"288",
-            "y":"244"
+            "y":"244",
+            "borders":[
+                "Hanover",
+                "Hesse"
+            ]
         }
     ],
     "Italy":[
@@ -214,7 +244,12 @@
         {
             "name":"Portugal",
             "x":"47",
-            "y":"442"
+            "y":"442",
+            "borders":[
+                    "Galicia",
+                    "Madrid",
+                    "Andalucia"
+                ]
         },{
             "name":"Galicia",
             "x":"111",

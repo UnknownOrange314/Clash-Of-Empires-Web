@@ -1,0 +1,24 @@
+{
+    "PlayerColors":[
+        {
+            "1":"Red",
+            "2":"Yellow",
+            "3":"Cyan",
+            "4":"Purple",
+            "5":"DarkOrange"
+        }
+
+    ],
+    "ArmyLabels":[
+        {
+            "font-size":"12px",
+            "fill":"black"
+        }
+    ],
+    "TerritoryShape":[
+        {
+            "stroke-width":"5"
+        }
+    ]
+
+}

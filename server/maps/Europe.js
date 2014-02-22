@@ -9,13 +9,19 @@ function Europe(data){
 
         var rTemp={};
         for(var part in (json)){
-            for(var i=0;i<(json[part]).length;i++){
-                var rName=json[part][i]["name"]
-                var path="images/"+part+"/"+rName+".svg"
-                var x=json[part][i]["x"]
-                var y=json[part][i]["y"]
-                rTemp[rName]=new Region(parseInt(x),parseInt(y),rName,path)
+
+            if(part==="borders"){
+
+            }else{
+                for(var i=0;i<(json[part]).length;i++){
+                    var rName=json[part][i]["name"]
+                    var path="images/"+part+"/"+rName+".svg"
+                    var x=json[part][i]["x"]
+                    var y=json[part][i]["y"]
+                    rTemp[rName]=new Region(parseInt(x),parseInt(y),rName,path)
+                }
             }
+
         }
         return rTemp;
     }
@@ -57,7 +63,7 @@ function Europe(data){
 
         Object.keys(rTemp).forEach(function(reg){
             rTemp[reg].setOwner(players[4]);
-        });
+        });1
 
         rTemp["Portugal"].setOwner(players[1]);
         rTemp["Ireland"].setOwner(players[1]);

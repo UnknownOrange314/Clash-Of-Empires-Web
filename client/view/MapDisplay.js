@@ -102,7 +102,7 @@ function MapDisplay(topX,topY,mapImg,dataCon,background,pName){
 
         svg.selectAll("path#"+clickData)
             .attr("fill","white")
-          
+
 
 
 

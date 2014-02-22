@@ -9,8 +9,6 @@
     <script src="client/controller/inputListeners.js"></script>
     <script src="client/network/DataConnection.js"></script>
     <script src="client/view/Display.js"></script>
-    <script src="client/view/ScoreDisplay.js"></script>
-    <script src="client/view/TitleDisplay.js"></script>
 
     <script src="server/game/GameMap.js"></script>
     <script src="server/game/Region.js"></script>
@@ -77,6 +75,7 @@
             $.getJSON('server/maps/Europe.json',function(json){
 
                 start();
+                console.log(JSON.stringify(json))
                 var mapGen=new Europe(json);
 
                 //Load the map data from a JSON file.
