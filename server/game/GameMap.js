@@ -24,11 +24,20 @@ function GameMap(mapGen){
      */
     this.processClick=function(pt,pName){
         if(clickA==null){
-            clickA=pt;
+            regions.forEach(function(reg){
+                if(reg.getName()===pt){
+                    clickA=reg
+                }
+            });
         }
         else{
-            clickB=pt;
-            this.processTwoClicks(pName);
+            regions.forEach(function(reg){
+                if(reg.getName()===pt){
+                    clickB=reg
+                }
+            });
+            console.log("Moving from: "+clickA.getName()+" to"+clickB.getName())
+            this.setMovementCommand(clickA,clickB,pName);
             this.clearClicks();
         }
     }
@@ -58,40 +67,13 @@ function GameMap(mapGen){
         });
     }
 
-    /**
-     * This function is called when two clicks are made.
-     */
-    this.processTwoClicks=function(pName){
-        var r1=null;
-        var min1=99999;
-        var r2=null;
-        var min2=99999;
-        regions.forEach(function(region){
-            var rLoc=region.getLocation();
-            if(rLoc.getDistance(clickA)<min1){
-                r1=region;
-                min1=rLoc.getDistance(clickA);
-            }
-            if(rLoc.getDistance(clickB)<min2){
-                r2=region;
-                min2=rLoc.getDistance(clickB);
-            }
-        });
-        var a=r1.getLocation();
-        var b=r2.getLocation();
-        this.setMovementCommand(r1,r2,pName);
-    }
 
     this.getFirstClick=function(){
-        var arr={};
-        if(clickA===null){
-            arr["x"]=-1;
-            arr["y"]=-1;
+        if(clickA!==null){
+            return clickA.getName();
         }else{
-            arr["x"]=clickA.getX();
-            arr["y"]=clickA.getY();
+            return "Undefined"
         }
-        return arr;
     }
 
     /**
@@ -100,7 +82,6 @@ function GameMap(mapGen){
     this.setMovementCommand=function(r1,r2,pName){
         console.log("Checking commands");
         players.forEach(function(p){ //Search for the player with the name.
-            console.log(pName+":"+ p.getAI().username(p));
             if(p.getAI().username(p)===pName){
                 if(r1.hasBorder(r2)){
                     p.addMoveCommand(r1,r2);

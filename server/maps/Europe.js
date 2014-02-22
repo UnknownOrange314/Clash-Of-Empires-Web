@@ -38,7 +38,7 @@ function Europe(data){
         players[0].setName("France");
         players[0].setCapital(rTemp["Paris"]);
 
-        players[1].setName("Great Britain");
+        players[1].setName("Britain");
         players[1].setCapital(rTemp["England"]);
 
         players[2].setName("Germany");
