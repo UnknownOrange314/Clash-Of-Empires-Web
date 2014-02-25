@@ -12,9 +12,7 @@
  */
 function MapDisplay(topX,topY,mapImg,dataCon,background,pName){
 
-    var base=Display();
-    var g=base.getGraphics();
-    var inputListeners=new Inputs(base.getCanvas(),topX,topY,dataCon,pName);
+    //var inputListeners=new Inputs(base.getCanvas(),topX,topY,dataCon,pName);
 
     var colorData={}
     var labelConfig={}
@@ -90,13 +88,7 @@ function MapDisplay(topX,topY,mapImg,dataCon,background,pName){
 
 
 
-        gameState["moveCommands"][pName].forEach(function(state){
-            g.beginPath();
-            g.moveTo(transX(state["x1"]+10),transY(state["y1"])+10);
-            g.lineTo(transX(state["x2"]+10),transY(state["y2"])+10);
-            g.stroke();
 
-        });
         //Indicate that an area has been clicked.
         var clickData=dataCon.getSavedClick();
 

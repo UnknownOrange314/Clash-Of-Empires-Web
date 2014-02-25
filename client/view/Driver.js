@@ -16,7 +16,7 @@ function startClient(dataConnection,pName){
         var bg=new Image(); //Load background image for menu
         bg.onload=function(){
             var disp=new MapDisplay(250,100,mapImg,dataCon,bg,pName);
-            setInterval(disp.gameLoop,30);
+            setInterval(disp.gameLoop,40);
         }
         bg.src='images/background.jpg';
     }

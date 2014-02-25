@@ -9,15 +9,26 @@
         {
             "name":"Algeria",
             "x":"199",
-            "y":"600"
+            "y":"600",
+            "borders":[
+                "Andalucia",
+                "Tunisia",
+                "Morocco"
+            ]
         },{
             "name":"Morocco",
             "x":"63",
-            "y":"600"
+            "y":"600",
+            "borders":[
+                "Andalucia"
+            ]
         },{
             "name":"Tunisia",
             "x":"308",
-            "y":"625"
+            "y":"625",
+            "borders":[
+                "Sicily"
+            ]
         }
     ],
     "balkans":[
@@ -28,7 +39,11 @@
         },{
             "name":"Austria",
             "x":"414",
-            "y":"367"
+            "y":"367",
+            "borders":[
+                "Bohemia"
+             ]
+
         },{
             "name":"Bohemia",
             "x":"418",
@@ -40,11 +55,20 @@
         },{
             "name":"Bulgaria",
             "x":"568",
-            "y":"455"
+            "y":"455",
+            "borders":[
+                "Romania",
+                "Turkey"
+             ]
         },{
             "name":"Croatia",
             "x":"423",
-            "y":"394"
+            "y":"394",
+            "borders":[
+                "Bosnia",
+                "Venice",
+                "Austria"
+            ]
         },{
             "name":"Const",
             "x":"500",
@@ -62,11 +86,27 @@
         },{
             "name":"Hungary",
             "x":"491",
-            "y":"360"
+            "y":"360",
+            "borders":[
+                "Croatia",
+                "Romania",
+                "Austria",
+                "Bohemia"
+            ]
+
         },{
             "name":"Serbia",
             "x":"510",
-            "y":"443"
+            "y":"443",
+            "borders":[
+                "Bosnia",
+                "Croatia",
+                "Albania",
+                "Bulgaria",
+                "Romania",
+                "Hungary"
+
+             ]
         },{
             "name":"Turkey",
             "x":"690",
@@ -107,7 +147,10 @@
         {
             "name":"Auvergne",
             "x":"221",
-            "y":"414"
+            "y":"414",
+            "borders":[
+                    "Catalonia"
+                ]
 
         },{
             "name":"Brittany",
@@ -116,23 +159,49 @@
         },{
             "name":"Burgundy",
             "x":"268",
-            "y":"361"
+            "y":"361",
+            "borders":[
+                "Alsace",
+                "Champagne"
+            ]
         },{
             "name":"Languedoc",
             "x":"267",
-            "y":"402"
+            "y":"402",
+            "borders":[
+                "Savoy",
+                "Burgundy",
+                "Auvergne"
+            ]
         },{
             "name":"Champagne",
             "x":"256",
-            "y":"308"
+            "y":"308",
+            "borders":[
+                "Alsace",
+                "Brittany"
+             ]
         },{
             "name":"Paris",
             "x":"216",
-            "y":"346"
+            "y":"346",
+            "borders":[
+                "Brittany",
+                "Champagne",
+                "Poitou",
+                "Auvergne",
+                "Burgundy"
+            ]
         },{
             "name":"Poitou",
             "x":"185",
-            "y":"390"
+            "y":"390",
+            "borders":[
+                  "Catalonia",
+                  "Auvergne",
+                  "Paris",
+                  "Brittany"
+               ]
         },{
             "name":"Belgium",
             "x":"284",
@@ -160,19 +229,34 @@
         },{
             "name":"Rome",
             "x":"385",
-            "y":"468"
+            "y":"468",
+            "borders":[
+                "Naples"
+
+            ]
         },{
             "name":"Savoy",
             "x":"330",
-            "y":"417"
+            "y":"417",
+            "borders":[
+                "Venice",
+                "Rome"
+            ]
+
         },{
             "name":"Sicily",
             "x":"402",
-            "y":"570"
+            "y":"570",
+            "borders":[
+                "Naples"
+             ]
         },{
             "name":"Venice",
             "x":"368",
-            "y":"389"
+            "y":"389",
+            "borders":[
+                "Austria"
+            ]
         }
     ],
     "russia":[
@@ -183,27 +267,54 @@
         },{
             "name":"Belarus",
             "x":"559",
-            "y":"228"
+            "y":"228",
+            "borders":[
+                "Poland",
+                "Baltic",
+                "Orel",
+                "Voronesh"
+
+            ]
         },{
             "name":"Finland",
             "x":"511",
-            "y":"44"
+            "y":"44",
+            "borders":[
+                "Sweden"
+           ]
         },{
             "name":"Karelia",
             "x":"616",
-            "y":"25"
+            "y":"25",
+            "borders":[
+                "Finland"
+            ]
         },{
             "name":"Moscow",
             "x":"727",
-            "y":"110"
+            "y":"110",
+            "borders":[
+                "Voronesh",
+                "Karelia"
+            ]
+
         },{
             "name":"Orel",
             "x":"644",
-            "y":"142"
+            "y":"142",
+            "borders":[
+                "StPetersburg"
+
+            ]
+
         },{
             "name":"Poland",
             "x":"496",
-            "y":"277"
+            "y":"277",
+            "borders":[
+                "Hungary"
+
+             ]
         },{
             "name":"StPetersburg",
             "x":"603",
@@ -211,7 +322,13 @@
         },{
             "name":"Ukraine",
             "x":"611",
-            "y":"290"
+            "y":"290",
+            "borders":[
+              "Hungary",
+               "Romania",
+                "Poland",
+                "Voronesh"
+            ]
         },{
             "name":"Voronesh",
             "x":"712",
@@ -233,7 +350,7 @@
             "x":"407",
             "y":"68"
         },{
-            "name":"Ifslands",
+            "name":"Islands",
             "x":"4444",
             "y":"4444"
         }
@@ -258,11 +375,20 @@
         },{
             "name":"Catalonia",
             "x":"187",
-            "y":"458"
+            "y":"458",
+            "borders":[
+                "Galicia",
+                "Madrid",
+                "Andalucia"
+             ]
         },{
             "name":"Madrid",
             "x":"121",
-            "y":"487"
+            "y":"487",
+            "borders":[
+                "Andalucia",
+                "Galicia"
+            ]
         },{
             "name":"Andalucia",
             "x":"93",
@@ -273,43 +399,85 @@
         {
             "name":"Thuringen",
             "x":"368",
-            "y":"270"
+            "y":"270",
+            "borders":[
+                "Bohemia",
+                "Hesse",
+                "Hanover"
+            ]
         },{
             "name":"Prussia",
             "x":"474",
-            "y":"227"
+            "y":"227",
+            "borders":[
+                "Poland",
+                "Baltic"
+            ]
         },{
             "name":"Silesia",
             "x":"428",
-            "y":"282"
+            "y":"282",
+            "borders":[
+                "Bohemia",
+                "Poland"
+             ]
         },{
             "name":"Bavaria",
             "x":"368",
-            "y":"332"
+            "y":"332",
+            "borders":[
+                "Austria",
+                "Bohemia"
+            ]
         },{
             "name":"Wuttenberg",
             "x":"326",
-            "y":"330"
+            "y":"330",
+            "borders":[
+                "Bavaria"
+             ]
         },{
             "name":"Hesse",
             "x":"320",
-            "y":"287"
+            "y":"287",
+            "borders":[
+                "Bavaria",
+                "Alsace",
+                "Wuttenberg"
+            ]
         },{
             "name":"Hanover",
             "x":"348",
-            "y":"250"
+            "y":"250",
+            "borders":[
+                "Hesse"
+            ]
         },{
             "name":"Alsace",
             "x":"291",
-            "y":"333"
+            "y":"333",
+            "borders":[
+                "Wuttenberg"
+
+             ]
         },{
             "name":"SH",
             "x":"370",
-            "y":"229"
+            "y":"229",
+            "borders":[
+                "Denmark"
+
+             ]
         },{
             "name":"Berlin",
             "x":"395",
-            "y":"260"
+            "y":"260",
+            "borders":[
+                "Pomerania",
+                "Silesia",
+                "SH",
+                "Thuringen"
+             ]
         },{
             "name":"Pomerania",
             "x":"415",

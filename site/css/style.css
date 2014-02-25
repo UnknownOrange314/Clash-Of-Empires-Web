@@ -1,0 +1,14 @@
+body {
+background-image:url('http://clashofempires.us/images/background.jpg');
+background-size: 100% auto; /* width and height, can be %, px or whatever. */
+}
+
+#footer {
+    position:absolute;
+    top:1100px;
+    right:0;
+    width:1200px;
+}
+
+
+

@@ -6894,7 +6894,7 @@
 
 
     <path id="Islands"
-          fill="Orange" stroke="black" stroke-width="1"
+          fill="Green" stroke="black" stroke-width="1"
           d="M 635.00,689.00
            C 635.00,689.00 641.00,687.00 641.00,687.00
              641.00,687.00 642.00,693.00 642.00,693.00
