@@ -118,7 +118,7 @@ function GameMap(mapGen){
 
 
         //Build troops for each region
-        if(time%30==0){
+        if(time%60==0){
             regions.forEach(function(region){
                 region.buildTroop();
             });

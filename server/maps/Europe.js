@@ -92,7 +92,7 @@ function Europe(data){
         rTemp["Tunisia"].setOwner(players[0]);
 
 
-
+/*
         rTemp["Thuringen"].setOwner(players[2]);
         rTemp["Prussia"].setOwner(players[2]);
         rTemp["Silesia"].setOwner(players[2]);
@@ -104,6 +104,18 @@ function Europe(data){
         rTemp["SH"].setOwner(players[2]);
         rTemp["Berlin"].setOwner(players[2]);
         rTemp["Pomerania"].setOwner(players[2]);
+*/
+        rTemp["Greece"].setOwner(players[2])
+        rTemp["Turkey"].setOwner(players[2])
+        rTemp["Albania"].setOwner(players[2])
+        rTemp["Bulgaria"].setOwner(players[2])
+        rTemp["Serbia"].setOwner(players[2])
+        rTemp["Bosnia"].setOwner(players[2])
+        rTemp["Croatia"].setOwner(players[2])
+        rTemp["Romania"].setOwner(players[2])
+        rTemp["Hungary"].setOwner(players[2])
+        rTemp["Sicily"].setOwner(players[2])
+
 
 
         rTemp["Ukraine"].setOwner(players[3]);

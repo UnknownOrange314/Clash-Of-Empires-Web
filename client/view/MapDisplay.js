@@ -17,6 +17,8 @@ function MapDisplay(topX,topY,mapImg,dataCon,background,pName){
     var labelConfig={};
     var tShapeConfig={};
 
+    var clicks={}
+
     var maxTime=30
     var displayCache=new DisplayCache("stuff")
 
@@ -48,6 +50,8 @@ function MapDisplay(topX,topY,mapImg,dataCon,background,pName){
                         .attr("transform","scale(0.25)")
                         .on("click",function(d,i){console.log(d+":"+i+"  "+reg); dataCon.sendClick(reg,pName)      })
                 });
+
+
                 var rifle=new Image();
                 rifle.onload=function(){
                     var canvas=document.getElementById('myCanvas');
@@ -57,18 +61,21 @@ function MapDisplay(topX,topY,mapImg,dataCon,background,pName){
                     ctx.rect(0,0,100,100)
                     Object.keys(data).forEach(function(reg){
                         var d=data[reg];
-                        console.log("Region name:"+reg)
-                        console.log(d["aX"]+":"+d["aY"])
-                        var x=data[reg]["x"]*1.34
-                        var y=data[reg]["y"]*1.34
+                        var x=data[reg]["x"]*1.335
+                        var y=data[reg]["y"]*1.345
                         ctx.drawImage(rifle,x,y,15,15*rifle.height/rifle.width)
                     });
 
                 }
                 rifle.src='images/soldier.png'
 
+
             }
         })
+   }
+
+   this.drawLines=function(){
+
    }
 
     //Load data and draw regions
@@ -94,7 +101,10 @@ function MapDisplay(topX,topY,mapImg,dataCon,background,pName){
 
         var svg=d3.select("svg")
         gameState["regionStates"].map(function(state){
-            displayCache.updateReg(state["name"],state["owner"])
+
+            svg.selectAll("path#"+state["name"])
+                .attr("fill",colorData[state["owner"]])
+          //  displayCache.updateReg(state["name"],state["owner"])
             svg.selectAll("text#"+state["name"])
                 .text(state["army"])
         });
@@ -118,6 +128,7 @@ function MapDisplay(topX,topY,mapImg,dataCon,background,pName){
 
         //Indicate that an area has been clicked.
         var clickData=dataCon.getSavedClick();
+
 
         svg.selectAll("path#"+clickData)
             .attr("fill","white")
