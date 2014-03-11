@@ -99,6 +99,9 @@ function GameMap(mapGen){
             var data={}
             data["x"]=reg.getX()
             data["y"]=reg.getY()
+            data["aX"]=reg.getAx()
+            data["aY"]=reg.getAy()
+            console.log("region aLoc:"+data["aX"]+" "+data["aY"])
             rData[reg.getName()]=data
         });
         return rData;
@@ -159,6 +162,8 @@ function GameMap(mapGen){
     this.getRegionCount=function(){
         return regions.length;
     }
+
+
 
     this.getPlayerState=function(){
 

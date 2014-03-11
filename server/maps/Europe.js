@@ -18,7 +18,10 @@ function Europe(data){
                     var path="images/"+part+"/"+rName+".svg"
                     var x=json[part][i]["x"]
                     var y=json[part][i]["y"]
-                    rTemp[rName]=new Region(parseInt(x),parseInt(y),rName,path)
+                    var aX=json[part][i]["aX"]
+                    var aY=json[part][i]["aY"]
+
+                    rTemp[rName]=new Region(parseInt(x),parseInt(y),parseInt(aX),parseInt(aY),rName,path)
                 }
             }
 

@@ -1,3 +1,4 @@
+
 /**
  *
  * @param topX The top x coordinate.
@@ -12,11 +13,12 @@
  */
 function MapDisplay(topX,topY,mapImg,dataCon,background,pName){
 
-    //var inputListeners=new Inputs(base.getCanvas(),topX,topY,dataCon,pName);
+    var colorData={};
+    var labelConfig={};
+    var tShapeConfig={};
 
-    var colorData={}
-    var labelConfig={}
-    var tShapeConfig={}
+    var maxTime=30
+    var displayCache=new DisplayCache("stuff")
 
     $.getJSON("server/game/config.json",function(data){
         colorData=data["PlayerColors"][0]
@@ -29,7 +31,7 @@ function MapDisplay(topX,topY,mapImg,dataCon,background,pName){
             url:"images/map.svg",
             dataType:"text",
             success: function(imgData){
-                $("body").append(imgData)
+                $("body").prepend(imgData)
                 Object.keys(data).forEach(function(reg){
                     var rData=data[reg]
                     var svg=d3.select("svg")
@@ -39,15 +41,35 @@ function MapDisplay(topX,topY,mapImg,dataCon,background,pName){
                         .attr("fill",labelConfig["fill"])
                         .attr("transform","translate(10,20)")
                         .attr("font-size",labelConfig["font-size"])
+                        .attr("font-weight",labelConfig["font-weight"])
 
                     svg.selectAll("path#"+reg)
-                        .attr("transform","scale(0.25)")
                         .attr("stroke-width",tShapeConfig["strokeWidth"])
+                        .attr("transform","scale(0.25)")
                         .on("click",function(d,i){console.log(d+":"+i+"  "+reg); dataCon.sendClick(reg,pName)      })
                 });
+                var rifle=new Image();
+                rifle.onload=function(){
+                    var canvas=document.getElementById('myCanvas');
+                    var ctx=canvas.getContext('2d');
+                    ctx.fillStyle = 'yellow';
+
+                    ctx.rect(0,0,100,100)
+                    Object.keys(data).forEach(function(reg){
+                        var d=data[reg];
+                        console.log("Region name:"+reg)
+                        console.log(d["aX"]+":"+d["aY"])
+                        var x=data[reg]["x"]*1.34
+                        var y=data[reg]["y"]*1.34
+                        ctx.drawImage(rifle,x,y,15,15*rifle.height/rifle.width)
+                    });
+
+                }
+                rifle.src='images/soldier.png'
+
             }
         })
-    }
+   }
 
     //Load data and draw regions
     var rData=dataCon.getRegionInfo();
@@ -63,24 +85,29 @@ function MapDisplay(topX,topY,mapImg,dataCon,background,pName){
 
     this.gameLoop=function(){
 
-        var start=new Date().getTime();
+        var timer=new Timer()
+
         var gameState=dataCon.getRegionStates(); //Ask for the game state
         if(gameState==undefined){
             return;
         }
+
         var svg=d3.select("svg")
-
         gameState["regionStates"].map(function(state){
-
-            svg.selectAll("path#"+state["name"])
-                .attr("fill",colorData[state["owner"]])
-
+            displayCache.updateReg(state["name"],state["owner"])
             svg.selectAll("text#"+state["name"])
                 .text(state["army"])
-
         });
 
+
+        while(displayCache.hasUpdates()){
+            var update=displayCache.getUpdate()
+            svg.selectAll("path#"+update["name"])
+                .attr("fill",colorData[update["owner"]])
+        }
+
         var pData=dataCon.getPlayerState()
+
         Object.keys(pData).forEach(function(name){
             svg.selectAll("text#Score_"+pData[name]["num"])
                 .text(name+":"+pData[name]["score"])
@@ -95,11 +122,8 @@ function MapDisplay(topX,topY,mapImg,dataCon,background,pName){
         svg.selectAll("path#"+clickData)
             .attr("fill","white")
 
-
-
-
-        var end=new Date().getTime();
-        //console.log("Time "+(end-start));
-
+        if(timer.getTime()>maxTime){
+            console.log("Too slow, game update time:"+timer.getTime()+"ms")
+        }
     }
 }

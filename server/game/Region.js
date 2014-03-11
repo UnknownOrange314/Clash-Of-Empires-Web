@@ -1,7 +1,8 @@
 
-function Region(x,y,rName,sLoc){
+function Region(x,y,aX,aY,rName,sLoc){
 
     var myOwner=null;
+    var armyLoc=new Point(aX,aY)
     var myLoc=new Point(x,y);
     var borders=[];
     var name=rName;
@@ -9,6 +10,14 @@ function Region(x,y,rName,sLoc){
 
     var maxHP=1000;
     var curHP=1000;
+
+    this.getAx=function(){
+        return aX
+    }
+
+    this.getAy=function(){
+        return aY
+    }
 
     this.loseHP=function(aStr){
         curHP=Math.max(0,curHP-aStr);
@@ -110,6 +119,7 @@ function Region(x,y,rName,sLoc){
  */
 function RegionRenderState(x,y,owner,army,curHP,name){
 
+
     var myX=x;
     var myY=y;
     var myOwner=owner;
@@ -117,6 +127,12 @@ function RegionRenderState(x,y,owner,army,curHP,name){
     var hitPoints=curHP;
     var myName=name;
 
+    this.getAx=function(){
+        return a_x
+    }
+    this.getAy=function(){
+        return a_y
+    }
     this.getName=function(){
         return myName;
     }

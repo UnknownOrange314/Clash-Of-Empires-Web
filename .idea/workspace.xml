@@ -22,13 +22,13 @@
     <favorites_list name="gulugame" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.45053762">
+    <splitter split-orientation="vertical" split-proportion="0.4536741">
       <split-first>
         <leaf>
           <file leaf-file-name="Region.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/server/game/Region.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="119" column="28" selection-start="2199" selection-end="2199" vertical-scroll-proportion="0.0" vertical-offset="822" max-vertical-offset="2220">
+                <state line="11" column="19" selection-start="229" selection-end="229" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2788">
                   <folding />
                 </state>
               </provider>
@@ -37,16 +37,7 @@
           <file leaf-file-name="map.svg" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/images/map.svg">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="6893" column="0" selection-start="399782" selection-end="399782" vertical-scroll-proportion="-2.3333333" vertical-offset="103332" max-vertical-offset="108135">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/site/css/style.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="9" column="13" selection-start="235" selection-end="235" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
+                <state line="6" column="33" selection-start="299" selection-end="299" vertical-scroll-proportion="-4.08" vertical-offset="0" max-vertical-offset="122553">
                   <folding />
                 </state>
               </provider>
@@ -55,7 +46,34 @@
           <file leaf-file-name="Europe.json" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/server/maps/Europe.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="60" column="23" selection-start="1204" selection-end="1204" vertical-scroll-proportion="0.9117647" vertical-offset="590" max-vertical-offset="7455">
+                <state line="213" column="19" selection-start="4576" selection-end="4576" vertical-scroll-proportion="0.45584047" vertical-offset="3461" max-vertical-offset="10574">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MapDisplay.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/view/MapDisplay.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="62" column="49" selection-start="2416" selection-end="2416" vertical-scroll-proportion="0.0" vertical-offset="886" max-vertical-offset="2295">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="DataConnection.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/network/DataConnection.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="18" column="34" selection-start="395" selection-end="408" vertical-scroll-proportion="0.0" vertical-offset="156" max-vertical-offset="1309">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Europe.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/server/maps/Europe.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="27" column="9" selection-start="707" selection-end="707" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="5661">
                   <folding />
                 </state>
               </provider>
@@ -65,11 +83,13 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="gameHost.html" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="gameHost.html" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/gameHost.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="68" column="0" selection-start="2341" selection-end="2341" vertical-scroll-proportion="-16.083334" vertical-offset="634" max-vertical-offset="1170">
-                  <folding />
+                <state line="68" column="0" selection-start="2502" selection-end="2502" vertical-scroll-proportion="0.44323143" vertical-offset="953" max-vertical-offset="1411">
+                  <folding>
+                    <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -77,7 +97,7 @@
           <file leaf-file-name="Display.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/view/Display.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="17" column="1" selection-start="415" selection-end="415" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
+                <state line="17" column="1" selection-start="415" selection-end="415" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
                   <folding />
                 </state>
               </provider>
@@ -86,7 +106,7 @@
           <file leaf-file-name="config.json" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/server/game/config.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="4" column="25" selection-start="81" selection-end="81" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="450">
+                <state line="15" column="31" selection-start="301" selection-end="301" vertical-scroll-proportion="-9.346154" vertical-offset="12" max-vertical-offset="527">
                   <folding />
                 </state>
               </provider>
@@ -95,43 +115,41 @@
           <file leaf-file-name="Driver.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/view/Driver.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="12" column="36" selection-start="301" selection-end="301" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="510">
+                <state line="6" column="0" selection-start="194" selection-end="194" vertical-scroll-proportion="0.0" vertical-offset="67" max-vertical-offset="578">
                   <folding />
                 </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="01_iconclassic_042312.jpg" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$USER_HOME$/Desktop/01_iconclassic_042312.jpg">
+              <provider selected="true" editor-type-id="images">
+                <state />
               </provider>
             </entry>
           </file>
           <file leaf-file-name="inputListeners.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/controller/inputListeners.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="14" column="61" selection-start="563" selection-end="563" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="810">
+                <state line="14" column="61" selection-start="563" selection-end="563" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="918">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="MapDisplay.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/client/view/MapDisplay.js">
+          <file leaf-file-name="Timer.coffee" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/server/game/util/Timer.coffee">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="101" column="43" selection-start="2974" selection-end="2974" vertical-scroll-proportion="0.0" vertical-offset="1195" max-vertical-offset="1665">
+                <state line="7" column="17" selection-start="136" selection-end="136" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Europe.js" pinned="false" current="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/server/maps/Europe.js">
+          <file leaf-file-name="GameMap.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/server/game/GameMap.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="286" column="27" selection-start="10383" selection-end="10443" vertical-scroll-proportion="0.8303167" vertical-offset="3923" max-vertical-offset="4950">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="test.html" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="77" column="47" selection-start="2680" selection-end="2680" vertical-scroll-proportion="-0.0" vertical-offset="1155" max-vertical-offset="5265">
+                <state line="103" column="39" selection-start="2636" selection-end="2636" vertical-scroll-proportion="0.0" vertical-offset="1450" max-vertical-offset="3162">
                   <folding />
                 </state>
               </provider>
@@ -182,25 +200,32 @@
         <option value="$PROJECT_DIR$/unit/test.html" />
         <option value="$PROJECT_DIR$/server/game/Player.js" />
         <option value="$PROJECT_DIR$/client/network/DataConnection.js" />
-        <option value="$PROJECT_DIR$/server/game/Region.js" />
         <option value="$PROJECT_DIR$/client/view/ScoreDisplay.js" />
-        <option value="$PROJECT_DIR$/server/game/config.json" />
-        <option value="$PROJECT_DIR$/server/game/GameMap.js" />
         <option value="$PROJECT_DIR$/server/maps/Borders.json" />
         <option value="$PROJECT_DIR$/test.html" />
-        <option value="$PROJECT_DIR$/server/maps/Europe.js" />
-        <option value="$PROJECT_DIR$/images/map.svg" />
         <option value="$PROJECT_DIR$/client/view/Driver.js" />
-        <option value="$PROJECT_DIR$/client/view/MapDisplay.js" />
         <option value="$PROJECT_DIR$/site/css/style.css" />
+        <option value="$PROJECT_DIR$/client/view/DisplayCache.coffee" />
+        <option value="$PROJECT_DIR$/client/view/DisplayCache.js" />
+        <option value="$PROJECT_DIR$/client/view/displayCache.js" />
+        <option value="$PROJECT_DIR$/client/view/displayCache.coffee" />
+        <option value="$PROJECT_DIR$/server/game/util/Timer.coffee" />
+        <option value="$PROJECT_DIR$/server/game/config.json" />
+        <option value="$PROJECT_DIR$/images/map.svg" />
+        <option value="$PROJECT_DIR$/server/maps/Europe.js" />
+        <option value="$PROJECT_DIR$/server/game/Region.js" />
+        <option value="$PROJECT_DIR$/server/game/GameMap.js" />
+        <option value="$PROJECT_DIR$/client/view/MapDisplay.js" />
         <option value="$PROJECT_DIR$/gameHost.html" />
         <option value="$PROJECT_DIR$/server/maps/Europe.json" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="919" />
-    <option name="height" value="1048" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -242,7 +267,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gulugame" />
+              <option name="myItemId" value="ClashOfEmpires" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -252,53 +277,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gulugame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="unit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gulugame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gulugame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="site" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gulugame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gulugame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="site" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gulugame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gulugame" />
+              <option name="myItemId" value="ClashOfEmpires" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -312,7 +291,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gulugame" />
+              <option name="myItemId" value="ClashOfEmpires" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -330,7 +309,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gulugame" />
+              <option name="myItemId" value="ClashOfEmpires" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -348,7 +327,47 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="ClashOfEmpires" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Timer.coffee" />
+              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
               <option name="myItemId" value="gulugame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ClashOfEmpires" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gulugame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ClashOfEmpires" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -366,7 +385,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gulugame" />
+              <option name="myItemId" value="ClashOfEmpires" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -374,8 +393,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="network" />
+              <option name="myItemId" value="view" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="displayCache.coffee" />
+              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -384,15 +407,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gulugame" />
+              <option name="myItemId" value="ClashOfEmpires" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -406,9 +425,13 @@
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="SearchEverywhereHistory" value="" />
     <property name="FullScreen" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/images" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\inetpub\wwwroot\ClashOfEmpires\images" />
+      <recent name="C:\inetpub\wwwroot" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/lib" />
@@ -483,27 +506,46 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="919" height="1048" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16719915" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32847533" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15416667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16793066" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16719915" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32779622" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-    </layout>
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USERS">
@@ -526,46 +568,6 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="47" selection-start="2680" selection-end="2680" vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="5265">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/view/Display.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="9" selection-start="406" selection-end="406" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="345" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/view/Driver.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="29" selection-start="327" selection-end="327" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="435">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/view/MapDisplay.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="35" selection-start="1326" selection-end="1326" vertical-scroll-proportion="0.0" vertical-offset="628" max-vertical-offset="930">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/network/DataConnection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="34" selection-start="244" selection-end="244" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="405">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/game/GameMap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="221" column="9" selection-start="6533" selection-end="6533" vertical-scroll-proportion="0.0" vertical-offset="2930" max-vertical-offset="3495">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.html">
-      <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="0" selection-start="507" selection-end="507" vertical-scroll-proportion="0.0" vertical-offset="989" max-vertical-offset="1530">
           <folding />
         </state>
@@ -574,7 +576,9 @@
     <entry file="file://$PROJECT_DIR$/gameHost.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="45" selection-start="321" selection-end="367" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="480">
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -593,15 +597,15 @@
     <entry file="file://$PROJECT_DIR$/gameHost.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="99" selection-start="278" selection-end="278" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/network/DataConnection.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="39" selection-start="338" selection-end="338" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="405">
-          <folding />
-        </state>
+        <state line="15" column="39" selection-start="338" selection-end="338" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="405" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/game/app.js">
@@ -641,7 +645,9 @@
     <entry file="file://$PROJECT_DIR$/gameHost.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="33" selection-start="431" selection-end="431" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="450">
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -660,7 +666,9 @@
     <entry file="file://$PROJECT_DIR$/gameHost.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="27" selection-start="340" selection-end="340" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -736,42 +744,56 @@
         <state line="6" column="0" selection-start="103" selection-end="103" vertical-scroll-proportion="-3.75" vertical-offset="0" max-vertical-offset="975" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/game/Region.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="119" column="28" selection-start="2199" selection-end="2199" vertical-scroll-proportion="0.0" vertical-offset="1500" max-vertical-offset="2220">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/images/Banner1.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/game/GameMap.js">
+    <entry file="file://$PROJECT_DIR$/site/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="20" selection-start="1741" selection-end="1741" vertical-scroll-proportion="0.0" vertical-offset="825" max-vertical-offset="2715">
+        <state line="9" column="13" selection-start="235" selection-end="235" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/network/DataConnection.js">
+    <entry file="file://$PROJECT_DIR$/client/view/displayCache.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="16" selection-start="658" selection-end="658" vertical-scroll-proportion="0.0" vertical-offset="317" max-vertical-offset="1155">
+        <state line="34" column="0" selection-start="882" selection-end="882" vertical-scroll-proportion="0.52099234" vertical-offset="305" max-vertical-offset="850">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/game/util/Timer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="524">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/view/displayCache.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="31" selection-start="220" selection-end="220" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/game/util/Timer.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="17" selection-start="136" selection-end="136" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/game/config.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="25" selection-start="81" selection-end="81" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="450">
+        <state line="15" column="31" selection-start="301" selection-end="301" vertical-scroll-proportion="-9.346154" vertical-offset="12" max-vertical-offset="527">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/view/Driver.js">
+    <entry file="file://$PROJECT_DIR$/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="36" selection-start="301" selection-end="301" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="510">
+        <state line="77" column="47" selection-start="2680" selection-end="2680" vertical-scroll-proportion="2.6989691" vertical-offset="0" max-vertical-offset="5967">
           <folding />
         </state>
       </provider>
@@ -783,6 +805,11 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Desktop/01_iconclassic_042312.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/view/Display.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="1" selection-start="415" selection-end="415" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
@@ -790,51 +817,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/view/MapDisplay.js">
+    <entry file="file://$PROJECT_DIR$/client/network/DataConnection.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="43" selection-start="2974" selection-end="2974" vertical-scroll-proportion="0.0" vertical-offset="1195" max-vertical-offset="1665">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="47" selection-start="2680" selection-end="2680" vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="5265">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/map.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6893" column="0" selection-start="399782" selection-end="399782" vertical-scroll-proportion="-2.3333333" vertical-offset="103332" max-vertical-offset="108135">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/site/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="13" selection-start="235" selection-end="235" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gameHost.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="0" selection-start="2341" selection-end="2341" vertical-scroll-proportion="-16.083334" vertical-offset="634" max-vertical-offset="1170">
+        <state line="18" column="34" selection-start="395" selection-end="408" vertical-scroll-proportion="0.0" vertical-offset="156" max-vertical-offset="1309">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/maps/Europe.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="286" column="27" selection-start="10383" selection-end="10443" vertical-scroll-proportion="0.8303167" vertical-offset="3923" max-vertical-offset="4950">
+        <state line="27" column="9" selection-start="707" selection-end="707" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="5661">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/map.svg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="33" selection-start="299" selection-end="299" vertical-scroll-proportion="-4.08" vertical-offset="0" max-vertical-offset="122553">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/game/Region.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="19" selection-start="229" selection-end="229" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2788">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/game/GameMap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="103" column="39" selection-start="2636" selection-end="2636" vertical-scroll-proportion="0.0" vertical-offset="1450" max-vertical-offset="3162">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/view/Driver.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="194" selection-end="194" vertical-scroll-proportion="0.0" vertical-offset="67" max-vertical-offset="578">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/view/MapDisplay.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="49" selection-start="2416" selection-end="2416" vertical-scroll-proportion="0.0" vertical-offset="886" max-vertical-offset="2295">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gameHost.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="0" selection-start="2502" selection-end="2502" vertical-scroll-proportion="0.44323143" vertical-offset="953" max-vertical-offset="1411">
+          <folding>
+            <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/maps/Europe.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="23" selection-start="1204" selection-end="1204" vertical-scroll-proportion="0.9117647" vertical-offset="590" max-vertical-offset="7455">
+        <state line="213" column="19" selection-start="4576" selection-end="4576" vertical-scroll-proportion="0.45584047" vertical-offset="3461" max-vertical-offset="10574">
           <folding />
         </state>
       </provider>

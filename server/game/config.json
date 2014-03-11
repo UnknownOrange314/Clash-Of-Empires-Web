@@ -1,18 +1,19 @@
 {
     "PlayerColors":[
         {
-            "1":"Red",
+            "1":"#FF4444",
             "2":"Yellow",
             "3":"Cyan",
-            "4":"Purple",
-            "5":"DarkOrange"
+            "4":"#E0B0FF",
+            "5":"#C19A6B"
         }
 
     ],
     "ArmyLabels":[
         {
             "font-size":"12px",
-            "fill":"black"
+            "fill":"black",
+            "font-weight":"bold"
         }
     ],
     "TerritoryShape":[
