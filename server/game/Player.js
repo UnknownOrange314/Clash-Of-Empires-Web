@@ -49,6 +49,8 @@ function Player(num,ai){
             var p1=command.start().getLocation();
             var p2=command.end().getLocation();
             var arr={};
+            arr["sCity"]=command.start().getName()
+            arr["eCity"]=command.end().getName()
             arr["x1"]=p1.getX();
             arr["y1"]=p1.getY();
             arr["x2"]=p2.getX();

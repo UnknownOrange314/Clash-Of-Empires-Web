@@ -4,20 +4,31 @@
     <meta charset="utf-8">
     <title>Clash of Empires Tests</title>
     <link rel="stylesheet" href="unit/qunit-1.13.0.css">
+
+    <script type="text/javascript" src="lib/d3.js"></script>
+
     <script src="lib/socket.io.js"></script>
     <script src="lib/jquery.min.js"></script>
+    <script src="client/view/displayCache.js"></script>
+    <script src="client/view/Line.js"></script>
     <script src="client/controller/inputListeners.js"></script>
+    <script src="server/game/util/Timer.js"></script>
     <script src="client/network/DataConnection.js"></script>
     <script src="client/view/Display.js"></script>
 
+    <script src="server/game/ArmyData.js"></script>
+    <script src="server/game/move/MoveCommand.js"></script>
+    <script src="server/game/ai/Computer.js"></script>
     <script src="server/game/GameMap.js"></script>
     <script src="server/game/Region.js"></script>
     <script src="server/game/Point.js"></script>
     <script src="server/game/Player.js"></script>
     <script src="server/maps/Europe.js"></script>
+    <script src="server/game/util/Timer.js"></script>
+    <script src="server/game/util/MathHelper.js"></script>
+
 
     <script src="client/view/MapDisplay.js"></script>
-    <script src="client/network/NetUtil.js"></script>
 
     <script src="unit/testGen.js"></script>
 
@@ -304,11 +315,8 @@
          * This method tests if the game is running fast enough
          */
 
-
         asyncTest("Speed Test",function(){
-
             $.getJSON('server/maps/Europe.json',function(json){
-
                 start();
                 console.log("Start:"+start)
                 var map=new GameMap(new Europe(json));
@@ -325,20 +333,28 @@
                 console.log("Done")
                 ok(time<10*cycles,"Time "+(end-st));
                 ok(1);
-
-
             });
-     
+        });
+
+        test("Math Test",function(){
+            var a1=findAngle(1,0)
+            ok(a1==0,"Angle:"+a1)
+
+            var a2=findAngle(0,1)
+            ok(a2==Math.PI/2,"Angle:"+a2)
+
+            var a3=findAngle(-1,0)
+            ok(a3==Math.PI,"Angle:"+a3)
+
+            var a4=findAngle(0,-1)
+            ok(a4==Math.PI*3/2,"Angle:"+a4)
+
+            var a5=findAngle(-1,1)
+            ok(a5==Math.PI*3/4,"Angle:"+a5)
         });
 
 
-        asyncTest("Networking Tests",function(){
-            var res=function(data){
-                ok(1,"Data:"+data);
-                start();
-            }
-            getIP(res);
-        });
+
 
     </script>
 

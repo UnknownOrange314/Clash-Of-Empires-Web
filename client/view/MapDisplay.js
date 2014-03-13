@@ -5,6 +5,7 @@
  */
 function MapDisplay(dataCon,pName){
 
+    var hpLocs={};
     var colorData={};
     var labelConfig={};
     var tShapeConfig={};
@@ -19,10 +20,17 @@ function MapDisplay(dataCon,pName){
     }
     explosion.src='images/explosion.png'
 
+    var arrow=new Image();
+    arrow.onload=function(){
 
-    $.getJSON("server/game/config.json",function(data){
+    }
+    arrow.src='images/arrow.png'
+
+
+    $.getJSON("server/game/renderConfig.json",function(data){
         colorData=data["PlayerColors"][0]
         labelConfig=data["ArmyLabels"][0]
+        hpLocs=data["BarLocs"]
     });
 
     this.drawShapes=function(data){
@@ -123,34 +131,84 @@ function MapDisplay(dataCon,pName){
         var ctx=canvas.getContext('2d');
         ctx.clearRect(0,0,canvas.width,canvas.height)
 
-        gameState["regionStates"].forEach(function(name){
-            console.log("Hit points:"+name["hitPoints"])
+        gameState["regionStates"].forEach(function(reg){
 
-            //var lX=25*name["hitPoints"]/100
+            var xO=0
+            var yO=0
+            var rName=reg["name"]
+            if(rName in hpLocs){
+                xO=parseInt(hpLocs[rName]["x"])
+                yO=parseInt(hpLocs[rName]["y"])
+            }
 
+            var lX=25*reg["hitPoints"]/1000
+            var xT=(reg["xPos"]-10)*1.335+xO
+            var yT=(reg["yPos"]-10)*1.345+yO
+            ctx.fillStyle="#00FF00"
+            ctx.fillRect(xT,yT,lX,5)
+            ctx.fillStyle="#FF0000"
+            ctx.fillRect(xT+lX,yT,25-lX,5)
+            ctx.strokeStyle="#000000"
+            ctx.strokeRect(xT,yT,25,5)
         })
+
 
         Object.keys(gameState["moveCommands"]).forEach(function(name){
             gameState["moveCommands"][name].forEach(function(loc){
+
+                loc["x1"]=loc["x1"]*1.335
+                loc["x2"]=loc["x2"]*1.345
+
+                loc["y1"]=loc["y1"]*1.345
+                loc["y2"]=loc["y2"]*1.345
+
+                var x=(loc["x1"]+loc["x2"])/2
+                var y=(loc["y1"]+loc["y2"])/2
+
+                if(name=="Host"){
+
+                    var x1=loc["x1"]
+                    var x2=loc["x2"]
+                    var y1=loc["y1"]
+                    var y2=loc["y2"]
+
+                    var aX=x2-x1
+                    var aY=y2-y1
+                    var angle=findAngle(aX,aY)
+
+                    x1+=20*Math.cos(angle)
+                    y1+=20*Math.sin(angle)
+                    x2-=20*Math.cos(angle)
+                    y2-=20*Math.sin(angle)
+                    ctx.save()
+                    ctx.lineWidth=2
+                    ctx.moveTo(x1,y1)
+                    ctx.lineTo(x2,y2)
+                    ctx.stroke()
+                    ctx.restore()
+
+                    ctx.save()
+                    ctx.translate(x2,y2)
+                    ctx.rotate(angle)
+                    ctx.translate(-x2,-y2)
+                    ctx.fillStyle="#000000"
+                    ctx.beginPath();
+                    ctx.moveTo(x2,y2-5);
+                    ctx.lineTo(x2,y2+5);
+                    ctx.lineTo(x2+5,y2);
+                    ctx.closePath()
+                    ctx.fill()
+                    ctx.restore()
+
+                }
+
                 if(loc["conflict"]==true){
-                    console.log("Fighting")
-                    loc["x1"]=loc["x1"]*1.335
-                    loc["x2"]=loc["x2"]*1.335
-
-                    loc["y1"]=loc["y1"]*1.345
-                    loc["y2"]=loc["y2"]*1.345
-
-                    var x=(loc["x1"]+loc["x2"])/2
-                    var y=(loc["y1"]+loc["y2"])/2
-
-
                     ctx.drawImage(explosion,loc["x2"]+15,loc["y2"]+10,15,15)
-
                 }
             })
         })
 
-
+        //console.log("Time:"+timer.getTime())
         if(timer.getTime()>maxTime){
             console.log("Too slow, game update time:"+timer.getTime()+"ms")
         }
