@@ -35,7 +35,6 @@ function GameMap(mapGen){
                     clickB=reg
                 }
             });
-            console.log("Moving from: "+clickA.getName()+" to"+clickB.getName())
             this.setMovementCommand(clickA,clickB,pName);
             this.clearClicks();
         }
@@ -59,7 +58,6 @@ function GameMap(mapGen){
             if(p.getAI() instanceof Computer){
                 if(reg===false){
                     p.setAI(new NoAI(pName));
-                    console.log("Registering player");
                     reg=true;
                 }
             }
@@ -79,7 +77,6 @@ function GameMap(mapGen){
      * This function sets movement between two regions.
      */
     this.setMovementCommand=function(r1,r2,pName){
-        console.log("Checking commands");
         players.forEach(function(p){ //Search for the player with the name.
             if(p.getAI().username(p)===pName){
                 if(r1.hasBorder(r2)){
@@ -100,7 +97,6 @@ function GameMap(mapGen){
             data["y"]=reg.getY()
             data["aX"]=reg.getAx()
             data["aY"]=reg.getAy()
-            console.log("region aLoc:"+data["aX"]+" "+data["aY"])
             rData[reg.getName()]=data
         });
         return rData;
@@ -132,12 +128,6 @@ function GameMap(mapGen){
         var regionState=renderState.map(function(state){
             var arr={};
             arr["owner"]=state.getOwner();
-            if(state.getOwner()==4){
-             //   console.log("Owner is spain")
-            }
-            if(state.getOwner()==5){
-            //    console.log("Owner is neutral")
-            }
             arr["xPos"]=state.getX();
             arr["yPos"]=state.getY();
             arr["army"]=state.getArmy();

@@ -9,29 +9,58 @@ function MapDisplay(dataCon,pName){
     var colorData={};
     var labelConfig={};
     var tShapeConfig={};
+    var lineConfig={};
+
+    var symbols={};
+    var battleMark=null
     var clickReg=null
     var maxTime=30
     var displayCache=new DisplayCache("stuff")
 
-    //Load explosion image.
-    var explosion=new Image();
-    explosion.onload=function(){
+    var move=getCanvas('animation')
+    move.scale(1.335,1.345)
+
+    var russia=new Image();
+    russia.onload=function(){
+    }
+    russia.src='images/flags/Russia.png'
+
+    var ottoman=new Image();
+    ottoman.onload=function(){
 
     }
-    explosion.src='images/explosion.png'
+    ottoman.src='images/flags/Ottoman.png'
 
-    var arrow=new Image();
-    arrow.onload=function(){
+    var france=new Image();
+    france.onload=function(){
 
     }
-    arrow.src='images/arrow.png'
+    france.src='images/flags/France.png'
+
+    var britain=new Image();
+    britain.onload=function(){
+
+    }
+    britain.src='images/flags/Britain.png'
+
+    $.ajax({
+        url:"server/game/renderConfig.json",
+        dataType:"json",
+        async:"false",
+        success:function(data){
+            colorData=data["PlayerColors"][0]
+            labelConfig=data["ArmyLabels"][0]
+            symbols=data["ImageLocs"]
+            hpLocs=data["BarLocs"]
+            lineConfig=data["moveLocs"]
+            //Load explosion image.
+            battleMark=new Image();
+            battleMark.src=symbols["combat"]
+        }
+    })
 
 
-    $.getJSON("server/game/renderConfig.json",function(data){
-        colorData=data["PlayerColors"][0]
-        labelConfig=data["ArmyLabels"][0]
-        hpLocs=data["BarLocs"]
-    });
+
 
     this.drawShapes=function(data){
         $.ajax({
@@ -56,18 +85,36 @@ function MapDisplay(dataCon,pName){
                 });
                 var rifle=new Image();
                 rifle.onload=function(){
-                    var canvas=document.getElementById('symbols');
-                    var ctx=canvas.getContext('2d');
+                    var ctx=getCanvas('symbols')
                     ctx.fillStyle = 'yellow';
-                    ctx.rect(0,0,100,100)
+                    ctx.rect(0,0,900,900)
+                    ctx.scale(1.335,1.345)
                     Object.keys(data).forEach(function(reg){
                         var d=data[reg];
-                        var x=data[reg]["x"]*1.335
-                        var y=data[reg]["y"]*1.345
+                        var x=data[reg]["x"]
+                        var y=data[reg]["y"]
                         ctx.drawImage(rifle,x,y,15,15*rifle.height/rifle.width)
                     });
+
+
+                    var size=40
+                    var h=100
+                    var dH=60
+                    ctx.drawImage(france,10,h,size,size*france.height/france.width)
+                    h+=dH
+                    ctx.drawImage(britain,10,h,size,size*britain.height/britain.width)
+                    h+=dH
+                    ctx.drawImage(ottoman,10,h,size,size*ottoman.height/ottoman.width)
+                    h+=dH
+                    ctx.drawImage(russia,10,h,size,size*russia.height/russia.width)
+                    h+=dH
+
+
                 }
-                rifle.src='images/soldier.png'
+                rifle.src=symbols["army"]
+
+                var ctx=getCanvas('symbols')
+
 
 
             }
@@ -102,7 +149,6 @@ function MapDisplay(dataCon,pName){
         var clickData=dataCon.getSavedClick()
         gameState["regionStates"].map(function(state){ //Restore old color.
             if(state["name"]==clickReg){
-                console.log("Restoring old color  of "+clickReg)
                 svg.selectAll("path#"+state["name"])
                     .attr("fill",colorData[state["owner"]])
             }
@@ -124,12 +170,11 @@ function MapDisplay(dataCon,pName){
         var pData=dataCon.getPlayerState()
         Object.keys(pData).forEach(function(name){
             svg.selectAll("text#Score_"+pData[name]["num"])
-                .text(name+":"+pData[name]["score"])
+                .text(name+" Empire:"+pData[name]["score"])
         });
 
-        var canvas=document.getElementById('animation');
-        var ctx=canvas.getContext('2d');
-        ctx.clearRect(0,0,canvas.width,canvas.height)
+        var ctx=getCanvas('animation')
+        clearCanvas('animation')
 
         gameState["regionStates"].forEach(function(reg){
 
@@ -142,8 +187,8 @@ function MapDisplay(dataCon,pName){
             }
 
             var lX=25*reg["hitPoints"]/1000
-            var xT=(reg["xPos"]-10)*1.335+xO
-            var yT=(reg["yPos"]-10)*1.345+yO
+            var xT=(reg["xPos"]-10)+xO
+            var yT=(reg["yPos"]-10)+yO
             ctx.fillStyle="#00FF00"
             ctx.fillRect(xT,yT,lX,5)
             ctx.fillStyle="#FF0000"
@@ -156,59 +201,40 @@ function MapDisplay(dataCon,pName){
         Object.keys(gameState["moveCommands"]).forEach(function(name){
             gameState["moveCommands"][name].forEach(function(loc){
 
-                loc["x1"]=loc["x1"]*1.335
-                loc["x2"]=loc["x2"]*1.345
 
-                loc["y1"]=loc["y1"]*1.345
-                loc["y2"]=loc["y2"]*1.345
-
-                var x=(loc["x1"]+loc["x2"])/2
-                var y=(loc["y1"]+loc["y2"])/2
-
+                var x=avg(loc["x1"],loc["x2"])
+                var y=avg(loc["y1"],loc["y2"])
                 if(name=="Host"){
 
-                    var x1=loc["x1"]
-                    var x2=loc["x2"]
-                    var y1=loc["y1"]
-                    var y2=loc["y2"]
 
-                    var aX=x2-x1
-                    var aY=y2-y1
-                    var angle=findAngle(aX,aY)
+                    var dX=0
+                    var dY=0
 
-                    x1+=20*Math.cos(angle)
-                    y1+=20*Math.sin(angle)
-                    x2-=20*Math.cos(angle)
-                    y2-=20*Math.sin(angle)
-                    ctx.save()
-                    ctx.lineWidth=2
-                    ctx.moveTo(x1,y1)
-                    ctx.lineTo(x2,y2)
-                    ctx.stroke()
-                    ctx.restore()
+                    var n=loc["sCity"]+"_"+loc["eCity"]
+                    var nR=loc["eCity"]+"_"+loc["sCity"]
+                    console.log(n+" "+JSON.stringify(lineConfig))
+                    if(n in lineConfig){
+                        dX=parseInt(lineConfig[n][0])
+                        dY=parseInt(lineConfig[n][1])
+                        console.log("Moving line")
+                    }
+                    if(nR in lineConfig){
+                        dX=parseInt(lineConfig[n][0])
+                        dY=parseInt(lineConfig[n][1])
+                    }
+                    var x1=loc["x1"]+dX
+                    var x2=loc["x2"]+dX
+                    var y1=loc["y1"]+dY
+                    var y2=loc["y2"]+dY
 
-                    ctx.save()
-                    ctx.translate(x2,y2)
-                    ctx.rotate(angle)
-                    ctx.translate(-x2,-y2)
-                    ctx.fillStyle="#000000"
-                    ctx.beginPath();
-                    ctx.moveTo(x2,y2-5);
-                    ctx.lineTo(x2,y2+5);
-                    ctx.lineTo(x2+5,y2);
-                    ctx.closePath()
-                    ctx.fill()
-                    ctx.restore()
-
+                    drawArrow(x1,y1,x2,y2,ctx)
                 }
-
                 if(loc["conflict"]==true){
-                    ctx.drawImage(explosion,loc["x2"]+15,loc["y2"]+10,15,15)
+                    ctx.drawImage(battleMark,loc["x2"]+15,loc["y2"],15,15)
                 }
             })
         })
 
-        //console.log("Time:"+timer.getTime())
         if(timer.getTime()>maxTime){
             console.log("Too slow, game update time:"+timer.getTime()+"ms")
         }

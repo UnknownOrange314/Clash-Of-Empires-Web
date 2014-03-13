@@ -1,15 +1,11 @@
 function LocalConnection(){
 
-    console.log("Starting")
     var myMap=null
     $.ajaxSetup({"async":false});
 
     $.getJSON("server/maps/Europe.json",function(json){
         myMap=new GameMap(new Europe(json));
     });
-
-    console.log("Done");
-
 
     /**
      * Get information about region shape and location

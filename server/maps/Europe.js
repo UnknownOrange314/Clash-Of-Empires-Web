@@ -39,7 +39,6 @@ function Europe(data){
             else{
                 p=new Player(i,new Computer());
             }
-            console.log("Players:"+p)
             players.push(p);
         }
         for(i=0;i<rTemp.length;i++){
@@ -48,16 +47,16 @@ function Europe(data){
         players[0].setName("France");
         players[0].setCapital(rTemp["Paris"]);
 
-        players[1].setName("Britain");
+        players[1].setName("British");
         players[1].setCapital(rTemp["England"]);
         players[1].isMinor(false)
 
-        players[2].setName("Ottomans");
+        players[2].setName("Ottoman");
         players[2].setCapital(rTemp["Turkey"]);
         players[2].isMinor(false)
 
 
-        players[3].setName("Russia");
+        players[3].setName("Russian");
         players[3].setCapital(rTemp["Moscow"]);
         players[3].isMinor(false)
 
@@ -79,16 +78,13 @@ function Europe(data){
         players[7].setCapital(rTemp["Norway"]);
         players[7].isMinor(true)
 
-        for(var k=0;k<players.length;k++){
-            console.log("Minor power:"+players[k].powerStatus())
-        }
+
 
         return players;
     }
 
     this.setOwners=function(rTemp,players){
 
-        console.log("Setting neutral players")
         Object.keys(rTemp).forEach(function(reg){
             rTemp[reg].setOwner(players[7]);
         });
@@ -350,7 +346,6 @@ function Europe(data){
 
     this.generateMap=function(){
         var rTemp=this.createRegions();
-        console.log("Regions:"+rTemp)
         var players=this.createPlayers(rTemp);
         this.setOwners(rTemp,players);
         this.setBorders(rTemp);

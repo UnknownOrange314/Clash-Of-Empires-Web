@@ -75,7 +75,8 @@
             "y":"455",
             "borders":[
                 "Romania",
-                "Turkey"
+                "Turkey",
+                "Albania"
              ]
         },{
             "name":"Croatia",
@@ -92,8 +93,8 @@
             "name":"Const",
             "aX":"400",
             "aY":"400",
-            "x":"500",
-            "y":"500"
+            "x":"-20",
+            "y":"-20"
         },{
             "name":"Greece",
             "aX":"400",
@@ -390,8 +391,8 @@
             "x":"496",
             "y":"277",
             "borders":[
-                "Hungary"
-
+                "Hungary",
+                "Baltic"
              ]
         },{
             "name":"StPetersburg",
