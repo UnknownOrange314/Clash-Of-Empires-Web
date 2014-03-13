@@ -1,117 +1,33 @@
 
-var MoveCommand=function(r1,r2){
 
-    var start=r1;
-    var end=r2;
-    var speed=1;
 
-    this.start=function(){
-        return start
-    }
 
-    this.end=function(){
-        return end;
-    }
-
-    this.execute=function(player){
-            var attacker=start.getOwner();
-            var defender=end.getOwner();
-            if(attacker!==defender){
-
-                if(Math.random()>0.5){ //Defender hits.
-                    attacker.removeTroops(start, defender.getDefendPower(end));
-                }
-                else{ //Attacker hits.
-                    defender.removeTroops(end,attacker.getAttackPower(start));
-                }
-                if(defender.getArmy(end)<=0&Object.keys(defender.getRegions()).length>2){//The enemy is out of troops.
-                    end.loseHP(attacker.getAttackPower(start));
-                    if(end.getHP()<=0){
-                        if(defender.getCapital()!==end){
-                            end.setOwner(player);
-                        }
-                    }
-                }
-            }
-            if(start.getOwner()===end.getOwner()){
-                player.moveTroops(start,end,speed);
-            }
-    }
-}
-/**
- * This is a simple AI function for a computer player to follow.
- * @param player The player that is running the AI.
- * @constructor
- */
-var Computer=function(){
-
-    this.run=function(player){
-
-        var moveCommands=[];
-        var regions=player.getRegions();
-        Object.keys(regions).forEach(function(r){
-            var region=regions[r];
-            var eCount=0;
-            region.getBorders().forEach(function(border){
-                var bOwn=border.getOwner();
-                if(bOwn!==player){  //Enemy region that will be attacked.
-                    var def=bOwn.getArmy(border);
-                    var att=player.getArmy(region);
-                    if(att>def){
-                        var a=new MoveCommand(region,border);
-                        moveCommands.push(a);
-                        eCount++;
-                    }
-                }
-            });
-            if(eCount===0){ //We should not leave troops in interior regions.
-                region.getBorders().forEach(function(border){
-                    var a=new MoveCommand(region,border);
-                    moveCommands.push(a);
-
-                });
-            }
-        });
-        return moveCommands;
-    }
-
-    this.username=function(player){
-        return player.getName();
-    }
-
-}
-
-/**
- * This is a function for human player actions.
- * @param username The name of the player given by the client.
- * @constructor
- */
-var NoAI=function(user){
-
-    this.run=function(player){
-        return player.getMoveCommands();
-    }
-
-    this.username=function(player){
-        return user;
-    }
-}
 
 function Player(num,ai){
 
-    var armies={};
+    var minorPower=false;
+
+    var army=new ArmyData()
+
     var regions={};
     var score=0;
     var name=""+num;
     var capital=null;
     var moveCommands=[];
 
+
+    this.powerStatus=function(){
+        return minorPower
+    }
+    this.isMinor=function(minor){
+        minorPower=minor;
+    }
     /**
      * The attack power of a player when attacking from a region.
      * @param reg
      */
     this.getAttackPower=function(reg){
-        return Math.min(this.getArmy(reg),10);
+        return army.getAttackPower(reg)
     }
 
     /**
@@ -119,11 +35,12 @@ function Player(num,ai){
      * @param reg
      */
     this.getDefendPower=function(reg){
+
         var dBonus=1.0;
         if(this.getCapital()===reg){
             dBonus=15.0;
         }
-        return dBonus*Math.min(this.getArmy(reg),10);
+        return dBonus*Math.min(this.getArmy(reg),2);
     }
 
 
@@ -136,6 +53,7 @@ function Player(num,ai){
             arr["y1"]=p1.getY();
             arr["x2"]=p2.getX();
             arr["y2"]=p2.getY();
+            arr["conflict"]=command.hasConflict()
             return arr;
         });
         return data;
@@ -178,41 +96,33 @@ function Player(num,ai){
     }
 
     this.createArmy=function(region){
-        armies[region.hashCode()]=0;
+        army.createArmy(region)
     }
 
     this.addTroops=function(region,tCount){
-        var key=region.hashCode();
-        if(!(key in armies)){
-            armies[key]=0;
-        }
-        armies[region.hashCode()]+=tCount;
+        army.addTroops(region,tCount)
     }
 
     this.removeTroops=function(region,tCount){
-        if(region.hashCode() in armies){
-            armies[region.hashCode()]-=Math.min(this.getArmy(region),tCount);
-        }
+        army.removeTroops(region,tCount)
     }
 
     this.getArmy=function(region){
-        if((region.hashCode() in armies)){
-            return armies[region.hashCode()];
-        }
-        return 0;
+        return army.getArmy(region)
     }
 
     this.buildTroop=function(region){
+
         var bCount=1;
-        if(region===this.getCapital()){
-            bCount=20;
+        if(minorPower===false){
+            if(region===this.getCapital()){
+                bCount=20-army.getSize()/1000.0000;
+            }
+
         }
-        armies[region.hashCode()]+=bCount+Math.floor(Math.random()*1);
+
+        army.addTroops(region,Math.floor(bCount))
     }
-
-
-
-
 
     this.moveTroops=function(start,end,ct){
         this.removeTroops(start,ct);

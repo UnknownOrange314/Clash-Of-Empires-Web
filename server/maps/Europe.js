@@ -31,42 +31,68 @@ function Europe(data){
 
     this.createPlayers=function(rTemp){
         var players=[];
-        for(var i=1;i<6;i++){
+        for(var i=1;i<9;i++){
             var p=null;
-            if(i===5){//Create human player.
-                p=new Player(i,new NoAI("Minors"));
+            if(i>4){//Create human player.
+                p=new Player(i,new NoAI("Minors"+i));
             }
             else{
                 p=new Player(i,new Computer());
             }
+            console.log("Players:"+p)
             players.push(p);
         }
         for(i=0;i<rTemp.length;i++){
-            rTemp[i].setOwner(players[4]);
+            rTemp[i].setOwner(players[7]);
         }
         players[0].setName("France");
         players[0].setCapital(rTemp["Paris"]);
 
         players[1].setName("Britain");
         players[1].setCapital(rTemp["England"]);
+        players[1].isMinor(false)
 
-        players[2].setName("Germany");
-        players[2].setCapital(rTemp["Berlin"]);
+        players[2].setName("Ottomans");
+        players[2].setCapital(rTemp["Turkey"]);
+        players[2].isMinor(false)
+
 
         players[3].setName("Russia");
         players[3].setCapital(rTemp["Moscow"]);
+        players[3].isMinor(false)
 
-        players[4].setName("Minors");
+
+        players[4].setName("Spain");
         players[4].setCapital(rTemp["Norway"]);
+        players[4].isMinor(true)
+
+
+        players[5].setName("Habsburg");
+        players[5].setCapital(rTemp["Norway"])
+        players[5].isMinor(true)
+
+        players[6].setName("Germany");
+        players[6].setCapital(rTemp["Norway"])
+        players[6].isMinor(true)
+
+        players[7].setName("Minors");
+        players[7].setCapital(rTemp["Norway"]);
+        players[7].isMinor(true)
+
+        for(var k=0;k<players.length;k++){
+            console.log("Minor power:"+players[k].powerStatus())
+        }
+
         return players;
     }
 
     this.setOwners=function(rTemp,players){
 
-
+        console.log("Setting neutral players")
         Object.keys(rTemp).forEach(function(reg){
-            rTemp[reg].setOwner(players[4]);
-        });1
+            rTemp[reg].setOwner(players[7]);
+        });
+
 
         rTemp["Portugal"].setOwner(players[1]);
         rTemp["Ireland"].setOwner(players[1]);
@@ -80,8 +106,6 @@ function Europe(data){
         /**
          * French regions.
          */
-        rTemp["Morocco"].setOwner(players[0]);
-        rTemp["Algeria"].setOwner(players[0]);
         rTemp["Poitou"].setOwner(players[0]);
         rTemp["Brittany"].setOwner(players[0]);
         rTemp["Paris"].setOwner(players[0]);
@@ -89,22 +113,9 @@ function Europe(data){
         rTemp["Burgundy"].setOwner(players[0]);
         rTemp["Languedoc"].setOwner(players[0]);
         rTemp["Auvergne"].setOwner(players[0]);
-        rTemp["Tunisia"].setOwner(players[0]);
 
 
-/*
-        rTemp["Thuringen"].setOwner(players[2]);
-        rTemp["Prussia"].setOwner(players[2]);
-        rTemp["Silesia"].setOwner(players[2]);
-        rTemp["Bavaria"].setOwner(players[2]);
-        rTemp["Wuttenberg"].setOwner(players[2]);
-        rTemp["Hesse"].setOwner(players[2]);
-        rTemp["Hanover"].setOwner(players[2]);
-        rTemp["Alsace"].setOwner(players[2]);
-        rTemp["SH"].setOwner(players[2]);
-        rTemp["Berlin"].setOwner(players[2]);
-        rTemp["Pomerania"].setOwner(players[2]);
-*/
+
         rTemp["Greece"].setOwner(players[2])
         rTemp["Turkey"].setOwner(players[2])
         rTemp["Albania"].setOwner(players[2])
@@ -128,6 +139,26 @@ function Europe(data){
         rTemp["StPetersburg"].setOwner(players[3]);
         rTemp["Finland"].setOwner(players[3]);
         rTemp["Karelia"].setOwner(players[3]);
+
+        rTemp["Madrid"].setOwner(players[4]);
+        rTemp["Andalucia"].setOwner(players[4]);
+        rTemp["Portugal"].setOwner(players[4]);
+        rTemp["Galicia"].setOwner(players[4]);
+        rTemp["Catalonia"].setOwner(players[4]);
+
+        rTemp["Austria"].setOwner(players[5])
+        rTemp["Hungary"].setOwner(players[5])
+        rTemp["Venice"].setOwner(players[5])
+        rTemp["Bohemia"].setOwner(players[5])
+        rTemp["Bavaria"].setOwner(players[5])
+
+        rTemp["Prussia"].setOwner(players[6])
+        rTemp["Berlin"].setOwner(players[6])
+        rTemp["Pomerania"].setOwner(players[6])
+        rTemp["Silesia"].setOwner(players[6])
+
+
+
     }
 
     function linkRegions(r1,r2){

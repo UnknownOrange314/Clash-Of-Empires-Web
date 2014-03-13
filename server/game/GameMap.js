@@ -2,7 +2,6 @@ function GameMap(mapGen){
 
     var time=0;
 
-    var socket = io.connect('http://192.17.205.104:880');//Connect to server.
 
     var data=mapGen.generateMap();
     var regions=data["regions"];
@@ -110,12 +109,10 @@ function GameMap(mapGen){
 
     this.updateState=function(){
 
-
         //Perform updateState actions.
         players.forEach(function(player){
             player.updateState();
         });
-
 
         //Build troops for each region
         if(time%60==0){
@@ -127,11 +124,7 @@ function GameMap(mapGen){
             })
         }
 
-
-
-
         time++;
-
         var renderState=regions.map(function(region){
             return region.getRenderState();
         });
@@ -139,6 +132,12 @@ function GameMap(mapGen){
         var regionState=renderState.map(function(state){
             var arr={};
             arr["owner"]=state.getOwner();
+            if(state.getOwner()==4){
+             //   console.log("Owner is spain")
+            }
+            if(state.getOwner()==5){
+            //    console.log("Owner is neutral")
+            }
             arr["xPos"]=state.getX();
             arr["yPos"]=state.getY();
             arr["army"]=state.getArmy();
@@ -146,6 +145,7 @@ function GameMap(mapGen){
             arr["name"]=state.getName();
             return arr;
         });
+
 
         var capitals={};
         var moveCommands={};
@@ -155,7 +155,6 @@ function GameMap(mapGen){
         });
 
 
-        socket.emit('hostRegionState', { data: regionState});
         return {"regionStates":regionState,"moveCommands":moveCommands,"capitals":capitals};
     }
 
@@ -166,7 +165,6 @@ function GameMap(mapGen){
 
 
     this.getPlayerState=function(){
-
         var data={};
         players.forEach(function(p){
             var pData={};
