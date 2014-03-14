@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/server/game/util/Timer.js" />
+        <item url="file://$PROJECT_DIR$/server/game/util/MathHelper.js" />
+        <item url="file://$PROJECT_DIR$/client/view/arrow.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/server/game/util/Timer.js" />
+      <root url="file://$PROJECT_DIR$/client/view/arrow.js" />
+      <root url="file://$PROJECT_DIR$/server/game/util/MathHelper.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

@@ -100,13 +100,13 @@ function MapDisplay(dataCon,pName){
                     var size=40
                     var h=100
                     var dH=60
-                    ctx.drawImage(france,10,h,size,size*france.height/france.width)
+                    ctx.drawImage(france,20,h,size,size*france.height/france.width)
                     h+=dH
-                    ctx.drawImage(britain,10,h,size,size*britain.height/britain.width)
+                    ctx.drawImage(britain,20,h,size,size*britain.height/britain.width)
                     h+=dH
-                    ctx.drawImage(ottoman,10,h,size,size*ottoman.height/ottoman.width)
+                    ctx.drawImage(ottoman,20,h,size,size*ottoman.height/ottoman.width)
                     h+=dH
-                    ctx.drawImage(russia,10,h,size,size*russia.height/russia.width)
+                    ctx.drawImage(russia,20,h,size,size*russia.height/russia.width)
                     h+=dH
 
 
@@ -212,15 +212,14 @@ function MapDisplay(dataCon,pName){
 
                     var n=loc["sCity"]+"_"+loc["eCity"]
                     var nR=loc["eCity"]+"_"+loc["sCity"]
-                    console.log(n+" "+JSON.stringify(lineConfig))
                     if(n in lineConfig){
                         dX=parseInt(lineConfig[n][0])
                         dY=parseInt(lineConfig[n][1])
                         console.log("Moving line")
                     }
                     if(nR in lineConfig){
-                        dX=parseInt(lineConfig[n][0])
-                        dY=parseInt(lineConfig[n][1])
+                        dX=parseInt(lineConfig[nR][0])
+                        dY=parseInt(lineConfig[nR][1])
                     }
                     var x1=loc["x1"]+dX
                     var x2=loc["x2"]+dX
