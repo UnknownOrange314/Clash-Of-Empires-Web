@@ -5,6 +5,7 @@
  */
 function MapDisplay(dataCon,pName){
 
+    console.log("Running game")
     var hpLocs={};
     var colorData={};
     var labelConfig={};
@@ -67,7 +68,7 @@ function MapDisplay(dataCon,pName){
             url:"images/map.svg",
             dataType:"text",
             success: function(imgData){
-                $("body").prepend(imgData)
+                $("body").find("#game").prepend(imgData)
                 Object.keys(data).forEach(function(reg){
                     var rData=data[reg]
                     var svg=d3.select("svg")
