@@ -1,7 +1,37 @@
-body {
-background-image:url('http://clashofempires.us/images/background.jpg');
-background-size: 100% auto; /* width and height, can be %, px or whatever. */
+#header{
+    background-color:black;
+    height: 200px;
+    width: 1200px;
 }
+
+.navbar .nav > li >a{
+    color:#ffffff;
+}
+
+.container{
+    position:absolute;
+    top:200px;
+}
+.navbar-default{
+    background-color:#000000;
+    border-color: #000000;
+}
+
+#navMenu{
+    position:absolute;
+    top:100px;
+    width:1200px;
+    height:80px;
+    background-color:black;
+
+}
+
+
+
+body{
+    font-size:22px;
+}
+
 
 #footer {
     position:absolute;

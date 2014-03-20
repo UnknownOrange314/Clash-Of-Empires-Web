@@ -22,96 +22,31 @@
     <favorites_list name="gulugame" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.4888179">
+    <splitter split-orientation="vertical" split-proportion="0.42105263">
       <split-first>
         <leaf>
-          <file leaf-file-name="Computer.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/server/game/ai/Computer.js">
+          <file leaf-file-name="application.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/../2048-master/js/application.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="61" column="1" selection-start="1635" selection-end="1635" vertical-scroll-proportion="0.0" vertical-offset="653" max-vertical-offset="1105">
+                <state line="4" column="0" selection-start="0" selection-end="1157" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="850">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Europe.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/server/maps/Europe.js">
+          <file leaf-file-name="HelpController.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/landing/HelpController.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="49" column="35" selection-start="1296" selection-end="1296" vertical-scroll-proportion="-1.36" vertical-offset="799" max-vertical-offset="6307">
+                <state line="41" column="17" selection-start="1464" selection-end="1464" vertical-scroll-proportion="0.0" vertical-offset="532" max-vertical-offset="884">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="DataConnection.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/client/network/DataConnection.js">
+          <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="13" column="29" selection-start="313" selection-end="313" vertical-scroll-proportion="-8.84" vertical-offset="0" max-vertical-offset="1241">
-                  <folding>
-                    <marker date="1394742921881" expanded="true" signature="26:917" placeholder="{...}" />
-                    <marker date="1394742921881" expanded="true" signature="137:189" placeholder="{...}" />
-                    <marker date="1394742921881" expanded="true" signature="197:283" placeholder="/** Get information about region shape and location ...*/" />
-                    <marker date="1394742921881" expanded="true" signature="317:362" placeholder="{...}" />
-                    <marker date="1394742921881" expanded="true" signature="398:444" placeholder="{...}" />
-                    <marker date="1394742921881" expanded="true" signature="481:524" placeholder="{...}" />
-                    <marker date="1394742921881" expanded="true" signature="530:586" placeholder="/** Return the clicks that a player made. ...*/" />
-                    <marker date="1394742921881" expanded="true" signature="620:665" placeholder="{...}" />
-                    <marker date="1394742921881" expanded="true" signature="706:753" placeholder="{...}" />
-                    <marker date="1394742921881" expanded="true" signature="759:831" placeholder="/** Adds information about a client player to the server. ...*/" />
-                    <marker date="1394742921881" expanded="true" signature="871:915" placeholder="{...}" />
-                    <marker date="1394742921881" expanded="true" signature="919:1018" placeholder="/** This object is for the client to get data from the server and send data. ...*/" />
-                    <marker date="1394742921881" expanded="true" signature="1046:1286" placeholder="{...}" />
-                    <marker date="1394742921881" expanded="true" signature="1115:1150" placeholder="{...}" />
-                    <marker date="1394742921881" expanded="true" signature="1186:1221" placeholder="{...}" />
-                    <marker date="1394742921881" expanded="true" signature="1257:1283" placeholder="{...}" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Timer.coffee" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/server/game/util/Timer.coffee">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="7" column="23" selection-start="142" selection-end="142" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="MathHelper.coffee" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/server/game/util/MathHelper.coffee">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="1" column="0" selection-start="26" selection-end="39" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ArmyData.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/server/game/ArmyData.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="15" column="45" selection-start="414" selection-end="414" vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="1020">
-                  <folding>
-                    <element signature="n#!!doc;n#ArmyData#0" expanded="false" />
-                    <marker date="1394746939398" expanded="true" signature="59:1188" placeholder="{...}" />
-                    <marker date="1394746939398" expanded="true" signature="278:422" placeholder="{...}" />
-                    <marker date="1394746939398" expanded="true" signature="462:506" placeholder="{...}" />
-                    <marker date="1394746939398" expanded="true" signature="550:725" placeholder="{...}" />
-                    <marker date="1394746939398" expanded="true" signature="615:653" placeholder="{...}" />
-                    <marker date="1394746939398" expanded="true" signature="772:964" placeholder="{...}" />
-                    <marker date="1394746939398" expanded="true" signature="813:958" placeholder="{...}" />
-                    <marker date="1394746939398" expanded="true" signature="999:1123" placeholder="{...}" />
-                    <marker date="1394746939398" expanded="true" signature="1042:1099" placeholder="{...}" />
-                    <marker date="1394746939398" expanded="true" signature="1152:1182" placeholder="{...}" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="MapDisplay.js" pinned="false" current="true" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/client/view/MapDisplay.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="209" column="28" selection-start="6481" selection-end="6481" vertical-scroll-proportion="0.41018766" vertical-offset="3400" max-vertical-offset="4199">
+                <state line="41" column="48" selection-start="1352" selection-end="1352" vertical-scroll-proportion="0.33887044" vertical-offset="595" max-vertical-offset="1700">
                   <folding />
                 </state>
               </provider>
@@ -121,147 +56,28 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="gameHost.html" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/gameHost.html">
+          <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/site/css/style.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="54" column="34" selection-start="1860" selection-end="1860" vertical-scroll-proportion="-3.2692308" vertical-offset="833" max-vertical-offset="1615">
-                  <folding>
-                    <marker date="1394747365231" expanded="true" signature="45:3104" placeholder="..." />
-                    <marker date="1394747365231" expanded="true" signature="227:3096" placeholder="..." />
-                    <marker date="1394747365231" expanded="true" signature="3038:3088" placeholder="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="renderConfig.json" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/server/game/renderConfig.json">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="54" column="9" selection-start="1253" selection-end="1253" vertical-scroll-proportion="-6.5686274" vertical-offset="583" max-vertical-offset="2788">
-                  <folding>
-                    <marker date="1394750596499" expanded="true" signature="21:258" placeholder="[...]" />
-                    <marker date="1394750596499" expanded="true" signature="31:251" placeholder="{&quot;1&quot;: &quot;#FF4444&quot;...}" />
-                    <marker date="1394750596499" expanded="true" signature="276:393" placeholder="{&quot;combat&quot;: &quot;images/sword.png&quot;...}" />
-                    <marker date="1394750596499" expanded="true" signature="1301:3049" placeholder="{...}" />
-                    <marker date="1394750596499" expanded="true" signature="1319:1373" placeholder="{&quot;x&quot;: &quot;25&quot;...}" />
-                    <marker date="1394750596499" expanded="true" signature="1394:1446" placeholder="{&quot;x&quot;: &quot;5&quot;...}" />
-                    <marker date="1394750596499" expanded="true" signature="1467:1520" placeholder="{&quot;x&quot;: &quot;25&quot;...}" />
-                    <marker date="1394750596499" expanded="true" signature="1539:1592" placeholder="{&quot;x&quot;: &quot;12&quot;...}" />
-                    <marker date="1394750596499" expanded="true" signature="1613:1665" placeholder="{&quot;x&quot;: &quot;5&quot;...}" />
-                    <marker date="1394750596499" expanded="true" signature="1687:1740" placeholder="{&quot;x&quot;: &quot;10&quot;...}" />
-                    <marker date="1394750596499" expanded="true" signature="1761:1814" placeholder="{&quot;x&quot;: &quot;16&quot;...}" />
-                    <marker date="1394750596499" expanded="true" signature="1833:1886" placeholder="{&quot;x&quot;: &quot;15&quot;...}" />
-                    <marker date="1394750596499" expanded="true" signature="1908:1960" placeholder="{&quot;x&quot;: &quot;5&quot;...}" />
-                    <marker date="1394750596499" expanded="true" signature="1982:2031" placeholder="{&quot;x&quot;: &quot;-2&quot;...}" />
-                    <marker date="1394750596499" expanded="true" signature="2051:2103" placeholder="{&quot;x&quot;: &quot;5&quot;...}" />
-                    <marker date="1394750596499" expanded="true" signature="2124:2177" placeholder="{&quot;x&quot;: &quot;10&quot;...}" />
-                    <marker date="1394750596499" expanded="true" signature="2197:2250" placeholder="{&quot;x&quot;: &quot;10&quot;...}" />
-                    <marker date="1394750596499" expanded="true" signature="2269:2321" placeholder="{&quot;x&quot;: &quot;0&quot;...}" />
-                    <marker date="1394750596499" expanded="true" signature="2340:2393" placeholder="{&quot;x&quot;: &quot;10&quot;...}" />
-                    <marker date="1394750596499" expanded="true" signature="2412:2464" placeholder="{&quot;x&quot;: &quot;5&quot;...}" />
-                    <marker date="1394750596499" expanded="true" signature="2484:2537" placeholder="{&quot;x&quot;: &quot;20&quot;...}" />
-                    <marker date="1394750596499" expanded="true" signature="2556:2608" placeholder="{&quot;x&quot;: &quot;4&quot;...}" />
-                    <marker date="1394750596499" expanded="true" signature="2626:2679" placeholder="{&quot;x&quot;: &quot;-7&quot;...}" />
-                    <marker date="1394750596499" expanded="true" signature="2699:2751" placeholder="{&quot;x&quot;: &quot;5&quot;...}" />
-                    <marker date="1394750596499" expanded="true" signature="2771:2823" placeholder="{&quot;x&quot;: &quot;0&quot;...}" />
-                    <marker date="1394750596499" expanded="true" signature="2845:2897" placeholder="{&quot;x&quot;: &quot;0&quot;...}" />
-                    <marker date="1394750596499" expanded="true" signature="2917:2970" placeholder="{&quot;x&quot;: &quot;10&quot;...}" />
-                    <marker date="1394750596499" expanded="true" signature="2990:3043" placeholder="{&quot;x&quot;: &quot;14&quot;...}" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Europe.json" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/server/maps/Europe.json">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="90" column="13" selection-start="1884" selection-end="1884" vertical-scroll-proportion="-3.9019608" vertical-offset="1331" max-vertical-offset="10574">
-                  <folding>
-                    <marker date="1394751919646" expanded="true" signature="771:1590" placeholder="[...]" />
-                    <marker date="1394751919646" expanded="true" signature="1388:1590" placeholder="{&quot;name&quot;: &quot;Bulgaria&quot;...}" />
-                    <marker date="1394751919646" expanded="true" signature="1537:1590" placeholder="[...]" />
-                    <marker date="1394751919646" expanded="true" signature="7053:9088" placeholder="[...]" />
-                    <marker date="1394751919646" expanded="true" signature="8303:8528" placeholder="{&quot;name&quot;: &quot;Poland&quot;...}" />
-                    <marker date="1394751919646" expanded="true" signature="8450:8518" placeholder="[...]" />
-                    <marker date="1394751919646" expanded="true" signature="8529:8667" placeholder="{&quot;name&quot;: &quot;StPetersburg&quot;...}" />
-                    <marker date="1394751919646" expanded="true" signature="8668:8945" placeholder="{&quot;name&quot;: &quot;Ukraine&quot;...}" />
-                    <marker date="1394751919646" expanded="true" signature="8816:8935" placeholder="[...]" />
-                    <marker date="1394751919646" expanded="true" signature="8946:9082" placeholder="{&quot;name&quot;: &quot;Voronesh&quot;...}" />
-                    <marker date="1394751919646" expanded="true" signature="9108:9614" placeholder="[...]" />
-                    <marker date="1394751919646" expanded="true" signature="9118:9252" placeholder="{&quot;name&quot;: &quot;Denmark&quot;...}" />
-                    <marker date="1394751919646" expanded="true" signature="9253:9385" placeholder="{&quot;name&quot;: &quot;Norway&quot;...}" />
-                    <marker date="1394751919646" expanded="true" signature="9386:9517" placeholder="{&quot;name&quot;: &quot;Sweden&quot;...}" />
-                    <marker date="1394751919646" expanded="true" signature="9518:9606" placeholder="{&quot;name&quot;: &quot;Islands&quot;...}" />
-                    <marker date="1394751919646" expanded="true" signature="9629:10673" placeholder="[...]" />
-                    <marker date="1394751919646" expanded="true" signature="9639:9909" placeholder="{&quot;name&quot;: &quot;Portugal&quot;...}" />
-                    <marker date="1394751919646" expanded="true" signature="9787:9899" placeholder="[...]" />
-                    <marker date="1394751919646" expanded="true" signature="9910:10045" placeholder="{&quot;name&quot;: &quot;Galicia&quot;...}" />
-                    <marker date="1394751919646" expanded="true" signature="10046:10303" placeholder="{&quot;name&quot;: &quot;Catalonia&quot;...}" />
-                    <marker date="1394751919646" expanded="true" signature="10196:10293" placeholder="[...]" />
-                    <marker date="1394751919646" expanded="true" signature="10304:10531" placeholder="{&quot;name&quot;: &quot;Madrid&quot;...}" />
-                    <marker date="1394751919646" expanded="true" signature="10451:10521" placeholder="[...]" />
-                    <marker date="1394751919646" expanded="true" signature="10532:10667" placeholder="{&quot;name&quot;: &quot;Andalucia&quot;...}" />
-                    <marker date="1394751919646" expanded="true" signature="10689:13250" placeholder="[...]" />
-                    <marker date="1394751919646" expanded="true" signature="10699:10952" placeholder="{&quot;name&quot;: &quot;Thuringen&quot;...}" />
-                    <marker date="1394751919646" expanded="true" signature="10849:10942" placeholder="[...]" />
-                    <marker date="1394751919646" expanded="true" signature="10953:11177" placeholder="{&quot;name&quot;: &quot;Prussia&quot;...}" />
-                    <marker date="1394751919646" expanded="true" signature="11101:11167" placeholder="[...]" />
-                    <marker date="1394751919646" expanded="true" signature="11178:11404" placeholder="{&quot;name&quot;: &quot;Silesia&quot;...}" />
-                    <marker date="1394751919646" expanded="true" signature="11326:11394" placeholder="[...]" />
-                    <marker date="1394751919646" expanded="true" signature="11405:11631" placeholder="{&quot;name&quot;: &quot;Bavaria&quot;...}" />
-                    <marker date="1394751919646" expanded="true" signature="11553:11621" placeholder="[...]" />
-                    <marker date="1394751919646" expanded="true" signature="11632:11835" placeholder="{&quot;name&quot;: &quot;Wuttenberg&quot;...}" />
-                    <marker date="1394751919646" expanded="true" signature="11783:11825" placeholder="[...]" />
-                    <marker date="1394751919646" expanded="true" signature="11836:12089" placeholder="{&quot;name&quot;: &quot;Hesse&quot;...}" />
-                    <marker date="1394751919646" expanded="true" signature="11982:12079" placeholder="[...]" />
-                    <marker date="1394751919646" expanded="true" signature="12090:12287" placeholder="{&quot;name&quot;: &quot;Hanover&quot;...}" />
-                    <marker date="1394751919646" expanded="true" signature="12238:12277" placeholder="[...]" />
-                    <marker date="1394751919646" expanded="true" signature="12288:12491" placeholder="{&quot;name&quot;: &quot;Alsace&quot;...}" />
-                    <marker date="1394751919646" expanded="true" signature="12435:12481" placeholder="[...]" />
-                    <marker date="1394751919646" expanded="true" signature="12492:12688" placeholder="{&quot;name&quot;: &quot;SH&quot;...}" />
-                    <marker date="1394751919646" expanded="true" signature="12635:12678" placeholder="[...]" />
-                    <marker date="1394751919646" expanded="true" signature="12689:12968" placeholder="{&quot;name&quot;: &quot;Berlin&quot;...}" />
-                    <marker date="1394751919646" expanded="true" signature="12836:12958" placeholder="[...]" />
-                    <marker date="1394751919646" expanded="true" signature="12969:13105" placeholder="{&quot;name&quot;: &quot;Pomerania&quot;...}" />
-                    <marker date="1394751919646" expanded="true" signature="13106:13244" placeholder="{&quot;name&quot;: &quot;Switzerland&quot;...}" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="GameMap.js" pinned="false" current="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/server/game/GameMap.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="81" column="37" selection-start="1917" selection-end="1917" vertical-scroll-proportion="0.83247423" vertical-offset="1054" max-vertical-offset="2958">
+                <state line="2" column="13" selection-start="50" selection-end="50" vertical-scroll-proportion="-0.2236842" vertical-offset="136" max-vertical-offset="850">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Player.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/server/game/Player.js">
+          <file leaf-file-name="bootstrap.css" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/site/bootstrap/css/bootstrap.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="149" column="0" selection-start="3303" selection-end="3303" vertical-scroll-proportion="0.0" vertical-offset="2058" max-vertical-offset="3111">
+                <state line="4037" column="27" selection-start="79273" selection-end="79283" vertical-scroll-proportion="-6.24" vertical-offset="68473" max-vertical-offset="98447">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="MoveCommand.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/server/game/move/MoveCommand.js">
+          <file leaf-file-name="client.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="884">
-                  <folding>
-                    <element signature="e#0#38#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="map.svg" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/images/map.svg">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="7184" column="0" selection-start="418436" selection-end="418436" vertical-scroll-proportion="0.0" vertical-offset="122070" max-vertical-offset="122553">
+                <state line="6" column="0" selection-start="103" selection-end="103" vertical-scroll-proportion="-0.65384614" vertical-offset="85" max-vertical-offset="1105">
                   <folding />
                 </state>
               </provider>
@@ -279,13 +95,10 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/client/index.html" />
-        <option value="$PROJECT_DIR$/DataConnection.js" />
         <option value="$PROJECT_DIR$/server/app.js" />
         <option value="$PROJECT_DIR$/client/MapDisplay.js" />
         <option value="$PROJECT_DIR$/Display.js" />
         <option value="$PROJECT_DIR$/client/LocalDriver.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/client.html" />
         <option value="$PROJECT_DIR$/main.js" />
         <option value="$PROJECT_DIR$/client/view/Display.js" />
@@ -303,7 +116,6 @@
         <option value="$PROJECT_DIR$/unit/test.html" />
         <option value="$PROJECT_DIR$/client/view/ScoreDisplay.js" />
         <option value="$PROJECT_DIR$/server/maps/Borders.json" />
-        <option value="$PROJECT_DIR$/site/css/style.css" />
         <option value="$PROJECT_DIR$/client/view/DisplayCache.coffee" />
         <option value="$PROJECT_DIR$/client/view/DisplayCache.js" />
         <option value="$PROJECT_DIR$/client/view/displayCache.js" />
@@ -321,7 +133,6 @@
         <option value="$PROJECT_DIR$/server/game/Player.js" />
         <option value="$PROJECT_DIR$/server/game/ArmyData.js" />
         <option value="$PROJECT_DIR$/server/game/move/MoveCommand.js" />
-        <option value="$PROJECT_DIR$/gameHost.html" />
         <option value="$PROJECT_DIR$/server/game/util/helper.coffee" />
         <option value="$PROJECT_DIR$/server/game/GameMap.js" />
         <option value="$PROJECT_DIR$/client/view/arrow.coffee" />
@@ -330,12 +141,18 @@
         <option value="$PROJECT_DIR$/server/maps/Europe.json" />
         <option value="$PROJECT_DIR$/images/map.svg" />
         <option value="$PROJECT_DIR$/client/view/MapDisplay.js" />
+        <option value="$PROJECT_DIR$/gameHost.html" />
+        <option value="$PROJECT_DIR$/../2048-master/js/application.js" />
+        <option value="$PROJECT_DIR$/landing/HelpController.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/site/css/style.css" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="970" />
-    <option name="height" value="1048" />
+    <option name="x" value="-6" />
+    <option name="width" value="936" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -363,7 +180,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -392,7 +208,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
+              <option name="myItemId" value="site" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -406,29 +226,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
+              <option name="myItemId" value="site" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="maps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gulugame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClashOfEmpires" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
+              <option name="myItemId" value="bootstrap" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -442,67 +244,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
+              <option name="myItemId" value="site" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
+              <option name="myItemId" value="bootstrap" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Timer.coffee" />
-              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gulugame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClashOfEmpires" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MathHelper.coffee" />
-              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gulugame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClashOfEmpires" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -516,15 +266,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="move" />
+              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -538,7 +280,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
+              <option name="myItemId" value="landing" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -598,14 +340,15 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="SearchEverywhereHistory" value="" />
+    <property name="SearchEverywhereHistory" value="-" />
     <property name="FullScreen" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/explosion.png" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../2048-master" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -621,14 +364,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -639,15 +374,23 @@
       <option name="showConsoleOnStdOut" value="false" />
       <method />
     </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
       <setting name="configLocationType" value="CONFIG_FILE" />
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="CHROME" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
@@ -686,15 +429,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="970" height="1048" extended-state="0" />
+    <frame x="-6" y="0" width="936" height="1040" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16719915" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3144654" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3054348" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -703,6 +445,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16719915" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -710,10 +453,10 @@
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16719915" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -721,10 +464,10 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3144654" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16461268" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -746,41 +489,9 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/server/game/Player.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="1530" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="82" selection-start="1677" selection-end="1677" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="1515">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/game/GameMap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="129" column="51" selection-start="4059" selection-end="4059" vertical-scroll-proportion="0.0" vertical-offset="1627" max-vertical-offset="3495">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gameHost.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="33" selection-start="431" selection-end="431" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="450">
-          <folding>
-            <marker date="1394747365231" expanded="true" signature="45:3104" placeholder="..." />
-            <marker date="1394747365231" expanded="true" signature="227:3096" placeholder="..." />
-            <marker date="1394747365231" expanded="true" signature="3038:3088" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="82" selection-start="1677" selection-end="1677" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="1515">
-          <folding />
-        </state>
+        <state line="47" column="82" selection-start="1677" selection-end="1677" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="1515" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/doc/ClashOfEmpires.markdown">
@@ -790,13 +501,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gameHost.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="27" selection-start="340" selection-end="340" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
-          <folding>
-            <marker date="1394747365231" expanded="true" signature="45:3104" placeholder="..." />
-            <marker date="1394747365231" expanded="true" signature="227:3096" placeholder="..." />
-            <marker date="1394747365231" expanded="true" signature="3038:3088" placeholder="..." />
-          </folding>
-        </state>
+        <state line="13" column="27" selection-start="340" selection-end="340" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/controller/inputListeners.js">
@@ -806,9 +511,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="30" selection-start="314" selection-end="314" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1050">
-          <folding />
-        </state>
+        <state line="9" column="30" selection-start="314" selection-end="314" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1050" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/doc/Game.png">
@@ -856,21 +559,9 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="103" selection-end="103" vertical-scroll-proportion="-3.75" vertical-offset="0" max-vertical-offset="975" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/images/Banner1.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/site/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="13" selection-start="235" selection-end="235" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/view/displayCache.js">
@@ -880,9 +571,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/controller/inputListeners.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="61" selection-start="563" selection-end="563" vertical-scroll-proportion="0.0" vertical-offset="116" max-vertical-offset="810">
-          <folding />
-        </state>
+        <state line="14" column="61" selection-start="563" selection-end="563" vertical-scroll-proportion="0.0" vertical-offset="116" max-vertical-offset="810" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Desktop/01_iconclassic_042312.jpg">
@@ -892,16 +581,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/view/displayCache.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="13" selection-start="0" selection-end="26" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
-          <folding />
-        </state>
+        <state line="0" column="13" selection-start="0" selection-end="26" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/game/Region.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="5" selection-start="481" selection-end="481" vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="2788">
-          <folding />
-        </state>
+        <state line="27" column="5" selection-start="481" selection-end="481" vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="2788" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Desktop/explosion.png">
@@ -911,44 +596,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/view/Driver.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="32" selection-start="338" selection-end="338" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-          <folding />
-        </state>
+        <state line="9" column="32" selection-start="338" selection-end="338" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/game/util/Timer.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="23" selection-start="142" selection-end="142" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
-          <folding />
-        </state>
+        <state line="7" column="23" selection-start="142" selection-end="142" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/game/util/Timer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="514">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="514" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/game/util/MathHelper.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="5" selection-start="68" selection-end="68" vertical-scroll-proportion="0.03307393" vertical-offset="51" max-vertical-offset="595">
-          <folding />
-        </state>
+        <state line="4" column="5" selection-start="68" selection-end="68" vertical-scroll-proportion="0.03307393" vertical-offset="51" max-vertical-offset="595" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/images/map2.svg">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="43" selection-start="171" selection-end="171" vertical-scroll-proportion="0.32872927" vertical-offset="0" max-vertical-offset="122485">
-          <folding />
-        </state>
+        <state line="7" column="43" selection-start="171" selection-end="171" vertical-scroll-proportion="0.32872927" vertical-offset="0" max-vertical-offset="122485" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/view/Display.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="29" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
-          <folding />
-        </state>
+        <state line="12" column="29" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/images/Europe.jpg">
@@ -958,217 +631,131 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/network/DataConnection.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="29" selection-start="313" selection-end="313" vertical-scroll-proportion="-8.84" vertical-offset="0" max-vertical-offset="1241">
-          <folding>
-            <marker date="1394742921881" expanded="true" signature="26:917" placeholder="{...}" />
-            <marker date="1394742921881" expanded="true" signature="137:189" placeholder="{...}" />
-            <marker date="1394742921881" expanded="true" signature="197:283" placeholder="/** Get information about region shape and location ...*/" />
-            <marker date="1394742921881" expanded="true" signature="317:362" placeholder="{...}" />
-            <marker date="1394742921881" expanded="true" signature="398:444" placeholder="{...}" />
-            <marker date="1394742921881" expanded="true" signature="481:524" placeholder="{...}" />
-            <marker date="1394742921881" expanded="true" signature="530:586" placeholder="/** Return the clicks that a player made. ...*/" />
-            <marker date="1394742921881" expanded="true" signature="620:665" placeholder="{...}" />
-            <marker date="1394742921881" expanded="true" signature="706:753" placeholder="{...}" />
-            <marker date="1394742921881" expanded="true" signature="759:831" placeholder="/** Adds information about a client player to the server. ...*/" />
-            <marker date="1394742921881" expanded="true" signature="871:915" placeholder="{...}" />
-            <marker date="1394742921881" expanded="true" signature="919:1018" placeholder="/** This object is for the client to get data from the server and send data. ...*/" />
-            <marker date="1394742921881" expanded="true" signature="1046:1286" placeholder="{...}" />
-            <marker date="1394742921881" expanded="true" signature="1115:1150" placeholder="{...}" />
-            <marker date="1394742921881" expanded="true" signature="1186:1221" placeholder="{...}" />
-            <marker date="1394742921881" expanded="true" signature="1257:1283" placeholder="{...}" />
-          </folding>
-        </state>
+        <state line="13" column="29" selection-start="313" selection-end="313" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="1241" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/game/util/MathHelper.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="26" selection-end="39" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
-          <folding />
-        </state>
+        <state line="1" column="0" selection-start="26" selection-end="39" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="322" column="0" selection-start="10707" selection-end="10707" vertical-scroll-proportion="-2.6153846" vertical-offset="5406" max-vertical-offset="6239">
+        <state line="322" column="0" selection-start="10707" selection-end="10707" vertical-scroll-proportion="-2.6153846" vertical-offset="5406" max-vertical-offset="6239" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/game/util/helper.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="14" selection-start="248" selection-end="248" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/game/ArmyData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="45" selection-start="414" selection-end="414" vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="1020" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/maps/Europe.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="35" selection-start="1296" selection-end="1296" vertical-scroll-proportion="0.0" vertical-offset="799" max-vertical-offset="6307" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/maps/Europe.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="13" selection-start="1884" selection-end="1884" vertical-scroll-proportion="0.0" vertical-offset="1331" max-vertical-offset="10574" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/game/ai/Computer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="1" selection-start="1635" selection-end="1635" vertical-scroll-proportion="0.0" vertical-offset="653" max-vertical-offset="1105" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/game/move/MoveCommand.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="884" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/game/GameMap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="37" selection-start="1917" selection-end="1917" vertical-scroll-proportion="0.0" vertical-offset="1054" max-vertical-offset="2958" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/map.svg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7184" column="0" selection-start="418436" selection-end="418436" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="122553" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/game/Player.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="149" column="0" selection-start="3303" selection-end="3303" vertical-scroll-proportion="0.0" vertical-offset="2058" max-vertical-offset="3111" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/game/renderConfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="9" selection-start="1253" selection-end="1253" vertical-scroll-proportion="0.0" vertical-offset="583" max-vertical-offset="2788" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/view/MapDisplay.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="233" column="14" selection-start="7397" selection-end="7397" vertical-scroll-proportion="0.0" vertical-offset="3639" max-vertical-offset="4199" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/angular.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3570" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../2048-master/js/application.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="0" selection-end="1157" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gameHost.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="34" selection-start="1860" selection-end="1860" vertical-scroll-proportion="-3.2692308" vertical-offset="833" max-vertical-offset="1615">
-          <folding>
-            <marker date="1394747365231" expanded="true" signature="45:3104" placeholder="..." />
-            <marker date="1394747365231" expanded="true" signature="227:3096" placeholder="..." />
-            <marker date="1394747365231" expanded="true" signature="3038:3088" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/game/util/helper.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="14" selection-start="248" selection-end="248" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+        <state line="2" column="0" selection-start="39" selection-end="39" vertical-scroll-proportion="0.07083333" vertical-offset="0" max-vertical-offset="1105">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/game/renderConfig.json">
+    <entry file="file://$PROJECT_DIR$/landing/HelpController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="9" selection-start="1253" selection-end="1253" vertical-scroll-proportion="-6.5686274" vertical-offset="583" max-vertical-offset="2788">
-          <folding>
-            <marker date="1394750596499" expanded="true" signature="21:258" placeholder="[...]" />
-            <marker date="1394750596499" expanded="true" signature="31:251" placeholder="{&quot;1&quot;: &quot;#FF4444&quot;...}" />
-            <marker date="1394750596499" expanded="true" signature="276:393" placeholder="{&quot;combat&quot;: &quot;images/sword.png&quot;...}" />
-            <marker date="1394750596499" expanded="true" signature="1301:3049" placeholder="{...}" />
-            <marker date="1394750596499" expanded="true" signature="1319:1373" placeholder="{&quot;x&quot;: &quot;25&quot;...}" />
-            <marker date="1394750596499" expanded="true" signature="1394:1446" placeholder="{&quot;x&quot;: &quot;5&quot;...}" />
-            <marker date="1394750596499" expanded="true" signature="1467:1520" placeholder="{&quot;x&quot;: &quot;25&quot;...}" />
-            <marker date="1394750596499" expanded="true" signature="1539:1592" placeholder="{&quot;x&quot;: &quot;12&quot;...}" />
-            <marker date="1394750596499" expanded="true" signature="1613:1665" placeholder="{&quot;x&quot;: &quot;5&quot;...}" />
-            <marker date="1394750596499" expanded="true" signature="1687:1740" placeholder="{&quot;x&quot;: &quot;10&quot;...}" />
-            <marker date="1394750596499" expanded="true" signature="1761:1814" placeholder="{&quot;x&quot;: &quot;16&quot;...}" />
-            <marker date="1394750596499" expanded="true" signature="1833:1886" placeholder="{&quot;x&quot;: &quot;15&quot;...}" />
-            <marker date="1394750596499" expanded="true" signature="1908:1960" placeholder="{&quot;x&quot;: &quot;5&quot;...}" />
-            <marker date="1394750596499" expanded="true" signature="1982:2031" placeholder="{&quot;x&quot;: &quot;-2&quot;...}" />
-            <marker date="1394750596499" expanded="true" signature="2051:2103" placeholder="{&quot;x&quot;: &quot;5&quot;...}" />
-            <marker date="1394750596499" expanded="true" signature="2124:2177" placeholder="{&quot;x&quot;: &quot;10&quot;...}" />
-            <marker date="1394750596499" expanded="true" signature="2197:2250" placeholder="{&quot;x&quot;: &quot;10&quot;...}" />
-            <marker date="1394750596499" expanded="true" signature="2269:2321" placeholder="{&quot;x&quot;: &quot;0&quot;...}" />
-            <marker date="1394750596499" expanded="true" signature="2340:2393" placeholder="{&quot;x&quot;: &quot;10&quot;...}" />
-            <marker date="1394750596499" expanded="true" signature="2412:2464" placeholder="{&quot;x&quot;: &quot;5&quot;...}" />
-            <marker date="1394750596499" expanded="true" signature="2484:2537" placeholder="{&quot;x&quot;: &quot;20&quot;...}" />
-            <marker date="1394750596499" expanded="true" signature="2556:2608" placeholder="{&quot;x&quot;: &quot;4&quot;...}" />
-            <marker date="1394750596499" expanded="true" signature="2626:2679" placeholder="{&quot;x&quot;: &quot;-7&quot;...}" />
-            <marker date="1394750596499" expanded="true" signature="2699:2751" placeholder="{&quot;x&quot;: &quot;5&quot;...}" />
-            <marker date="1394750596499" expanded="true" signature="2771:2823" placeholder="{&quot;x&quot;: &quot;0&quot;...}" />
-            <marker date="1394750596499" expanded="true" signature="2845:2897" placeholder="{&quot;x&quot;: &quot;0&quot;...}" />
-            <marker date="1394750596499" expanded="true" signature="2917:2970" placeholder="{&quot;x&quot;: &quot;10&quot;...}" />
-            <marker date="1394750596499" expanded="true" signature="2990:3043" placeholder="{&quot;x&quot;: &quot;14&quot;...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/game/ArmyData.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="45" selection-start="414" selection-end="414" vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="1020">
-          <folding>
-            <element signature="n#!!doc;n#ArmyData#0" expanded="false" />
-            <marker date="1394746939398" expanded="true" signature="59:1188" placeholder="{...}" />
-            <marker date="1394746939398" expanded="true" signature="278:422" placeholder="{...}" />
-            <marker date="1394746939398" expanded="true" signature="462:506" placeholder="{...}" />
-            <marker date="1394746939398" expanded="true" signature="550:725" placeholder="{...}" />
-            <marker date="1394746939398" expanded="true" signature="615:653" placeholder="{...}" />
-            <marker date="1394746939398" expanded="true" signature="772:964" placeholder="{...}" />
-            <marker date="1394746939398" expanded="true" signature="813:958" placeholder="{...}" />
-            <marker date="1394746939398" expanded="true" signature="999:1123" placeholder="{...}" />
-            <marker date="1394746939398" expanded="true" signature="1042:1099" placeholder="{...}" />
-            <marker date="1394746939398" expanded="true" signature="1152:1182" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/maps/Europe.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="35" selection-start="1296" selection-end="1296" vertical-scroll-proportion="-1.36" vertical-offset="799" max-vertical-offset="6307">
+        <state line="41" column="17" selection-start="1464" selection-end="1464" vertical-scroll-proportion="0.0" vertical-offset="532" max-vertical-offset="884">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/maps/Europe.json">
+    <entry file="file://$PROJECT_DIR$/site/bootstrap/css/bootstrap-theme.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="13" selection-start="1884" selection-end="1884" vertical-scroll-proportion="-3.9019608" vertical-offset="1331" max-vertical-offset="10574">
-          <folding>
-            <marker date="1394751919646" expanded="true" signature="771:1590" placeholder="[...]" />
-            <marker date="1394751919646" expanded="true" signature="1388:1590" placeholder="{&quot;name&quot;: &quot;Bulgaria&quot;...}" />
-            <marker date="1394751919646" expanded="true" signature="1537:1590" placeholder="[...]" />
-            <marker date="1394751919646" expanded="true" signature="7053:9088" placeholder="[...]" />
-            <marker date="1394751919646" expanded="true" signature="8303:8528" placeholder="{&quot;name&quot;: &quot;Poland&quot;...}" />
-            <marker date="1394751919646" expanded="true" signature="8450:8518" placeholder="[...]" />
-            <marker date="1394751919646" expanded="true" signature="8529:8667" placeholder="{&quot;name&quot;: &quot;StPetersburg&quot;...}" />
-            <marker date="1394751919646" expanded="true" signature="8668:8945" placeholder="{&quot;name&quot;: &quot;Ukraine&quot;...}" />
-            <marker date="1394751919646" expanded="true" signature="8816:8935" placeholder="[...]" />
-            <marker date="1394751919646" expanded="true" signature="8946:9082" placeholder="{&quot;name&quot;: &quot;Voronesh&quot;...}" />
-            <marker date="1394751919646" expanded="true" signature="9108:9614" placeholder="[...]" />
-            <marker date="1394751919646" expanded="true" signature="9118:9252" placeholder="{&quot;name&quot;: &quot;Denmark&quot;...}" />
-            <marker date="1394751919646" expanded="true" signature="9253:9385" placeholder="{&quot;name&quot;: &quot;Norway&quot;...}" />
-            <marker date="1394751919646" expanded="true" signature="9386:9517" placeholder="{&quot;name&quot;: &quot;Sweden&quot;...}" />
-            <marker date="1394751919646" expanded="true" signature="9518:9606" placeholder="{&quot;name&quot;: &quot;Islands&quot;...}" />
-            <marker date="1394751919646" expanded="true" signature="9629:10673" placeholder="[...]" />
-            <marker date="1394751919646" expanded="true" signature="9639:9909" placeholder="{&quot;name&quot;: &quot;Portugal&quot;...}" />
-            <marker date="1394751919646" expanded="true" signature="9787:9899" placeholder="[...]" />
-            <marker date="1394751919646" expanded="true" signature="9910:10045" placeholder="{&quot;name&quot;: &quot;Galicia&quot;...}" />
-            <marker date="1394751919646" expanded="true" signature="10046:10303" placeholder="{&quot;name&quot;: &quot;Catalonia&quot;...}" />
-            <marker date="1394751919646" expanded="true" signature="10196:10293" placeholder="[...]" />
-            <marker date="1394751919646" expanded="true" signature="10304:10531" placeholder="{&quot;name&quot;: &quot;Madrid&quot;...}" />
-            <marker date="1394751919646" expanded="true" signature="10451:10521" placeholder="[...]" />
-            <marker date="1394751919646" expanded="true" signature="10532:10667" placeholder="{&quot;name&quot;: &quot;Andalucia&quot;...}" />
-            <marker date="1394751919646" expanded="true" signature="10689:13250" placeholder="[...]" />
-            <marker date="1394751919646" expanded="true" signature="10699:10952" placeholder="{&quot;name&quot;: &quot;Thuringen&quot;...}" />
-            <marker date="1394751919646" expanded="true" signature="10849:10942" placeholder="[...]" />
-            <marker date="1394751919646" expanded="true" signature="10953:11177" placeholder="{&quot;name&quot;: &quot;Prussia&quot;...}" />
-            <marker date="1394751919646" expanded="true" signature="11101:11167" placeholder="[...]" />
-            <marker date="1394751919646" expanded="true" signature="11178:11404" placeholder="{&quot;name&quot;: &quot;Silesia&quot;...}" />
-            <marker date="1394751919646" expanded="true" signature="11326:11394" placeholder="[...]" />
-            <marker date="1394751919646" expanded="true" signature="11405:11631" placeholder="{&quot;name&quot;: &quot;Bavaria&quot;...}" />
-            <marker date="1394751919646" expanded="true" signature="11553:11621" placeholder="[...]" />
-            <marker date="1394751919646" expanded="true" signature="11632:11835" placeholder="{&quot;name&quot;: &quot;Wuttenberg&quot;...}" />
-            <marker date="1394751919646" expanded="true" signature="11783:11825" placeholder="[...]" />
-            <marker date="1394751919646" expanded="true" signature="11836:12089" placeholder="{&quot;name&quot;: &quot;Hesse&quot;...}" />
-            <marker date="1394751919646" expanded="true" signature="11982:12079" placeholder="[...]" />
-            <marker date="1394751919646" expanded="true" signature="12090:12287" placeholder="{&quot;name&quot;: &quot;Hanover&quot;...}" />
-            <marker date="1394751919646" expanded="true" signature="12238:12277" placeholder="[...]" />
-            <marker date="1394751919646" expanded="true" signature="12288:12491" placeholder="{&quot;name&quot;: &quot;Alsace&quot;...}" />
-            <marker date="1394751919646" expanded="true" signature="12435:12481" placeholder="[...]" />
-            <marker date="1394751919646" expanded="true" signature="12492:12688" placeholder="{&quot;name&quot;: &quot;SH&quot;...}" />
-            <marker date="1394751919646" expanded="true" signature="12635:12678" placeholder="[...]" />
-            <marker date="1394751919646" expanded="true" signature="12689:12968" placeholder="{&quot;name&quot;: &quot;Berlin&quot;...}" />
-            <marker date="1394751919646" expanded="true" signature="12836:12958" placeholder="[...]" />
-            <marker date="1394751919646" expanded="true" signature="12969:13105" placeholder="{&quot;name&quot;: &quot;Pomerania&quot;...}" />
-            <marker date="1394751919646" expanded="true" signature="13106:13244" placeholder="{&quot;name&quot;: &quot;Switzerland&quot;...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/game/ai/Computer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="1" selection-start="1635" selection-end="1635" vertical-scroll-proportion="0.0" vertical-offset="653" max-vertical-offset="1105">
+        <state line="216" column="65" selection-start="8121" selection-end="8121" vertical-scroll-proportion="-17.36" vertical-offset="3238" max-vertical-offset="6001">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/images/map.svg">
+    <entry file="file://$PROJECT_DIR$/client.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7184" column="0" selection-start="418436" selection-end="418436" vertical-scroll-proportion="0.0" vertical-offset="122070" max-vertical-offset="122553">
+        <state line="6" column="0" selection-start="103" selection-end="103" vertical-scroll-proportion="-0.65384614" vertical-offset="85" max-vertical-offset="1105">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/game/move/MoveCommand.js">
+    <entry file="file://$PROJECT_DIR$/site/bootstrap/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="884">
-          <folding>
-            <element signature="e#0#38#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/game/Player.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="0" selection-start="3303" selection-end="3303" vertical-scroll-proportion="0.0" vertical-offset="2058" max-vertical-offset="3111">
+        <state line="4037" column="27" selection-start="79273" selection-end="79283" vertical-scroll-proportion="-6.24" vertical-offset="68473" max-vertical-offset="98447">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/game/GameMap.js">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="37" selection-start="1917" selection-end="1917" vertical-scroll-proportion="0.83247423" vertical-offset="1054" max-vertical-offset="2958">
+        <state line="41" column="48" selection-start="1352" selection-end="1352" vertical-scroll-proportion="0.33887044" vertical-offset="595" max-vertical-offset="1700">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/view/MapDisplay.js">
+    <entry file="file://$PROJECT_DIR$/site/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="209" column="28" selection-start="6481" selection-end="6481" vertical-scroll-proportion="0.41018766" vertical-offset="3400" max-vertical-offset="4199">
+        <state line="2" column="13" selection-start="50" selection-end="50" vertical-scroll-proportion="-0.2236842" vertical-offset="136" max-vertical-offset="850">
           <folding />
         </state>
       </provider>
