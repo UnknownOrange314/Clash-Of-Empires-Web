@@ -8,9 +8,9 @@
       </sourceFilesUrls>
     </properties>
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/server/game/util/Timer.js" />
-      <root url="file://$PROJECT_DIR$/client/view/arrow.js" />
-      <root url="file://$PROJECT_DIR$/server/game/util/MathHelper.js" />
+      <root url="file://$PROJECT_DIR$/game/server/game/util/Timer.js" />
+      <root url="file://$PROJECT_DIR$/game/client/view/arrow.js" />
+      <root url="file://$PROJECT_DIR$/game/server/game/util/MathHelper.js" />
     </CLASSES>
     <SOURCES />
   </library>
