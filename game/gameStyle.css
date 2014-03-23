@@ -1,0 +1,13 @@
+#symbols {
+    pointer-events: none;
+    position:absolute;
+    top:200px;
+    left:0px
+}
+
+#animation{
+    pointer-events: none;
+    position:absolute;
+    top:200px;
+    left:0px;
+}

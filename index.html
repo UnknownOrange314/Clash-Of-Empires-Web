@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+    <title>Clash of Empires</title>
+
+    <link rel="stylesheet" href="site/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="site/css/style.css">
+    <link rel="stylesheet" href="game/gameStyle.css">
+
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/angular.min.js"></script>
+    <script src="landing/menuController.js"></script>
+
+    <div id="header">
+        <img src="game/images/websiteHeader.jpg" width="50%" height="50%">
+    </div>
+
+    <!--Game files -->
+    <script type="text/javascript" src="lib/d3.js"></script>
+
+    <script src="lib/socket.io.js"></script>
+    <script src="lib/jquery.min.js"></script>
+    <script src="game/client/view/displayCache.js"></script>
+    <script src="game/client/view/arrow.js"></script>
+    <script src="game/server/game/util/timer.js"></script>
+    <script src="game/server/game/util/mathHelper.js"></script>
+
+    <script src="game/client/network/connectionManager.js"></script>
+    <script src="game/client/view/driver.js"></script>
+
+    <script src="game/server/game/util/helper.js"></script>
+    <script src="game/server/game/armyData.js"></script>
+    <script src="game/server/game/move/moveCommand.js"></script>
+    <script src="game/server/game/ai/computer.js"></script>
+    <script src="game/server/game/gameManager.js"></script>
+    <script src="game/server/game/region.js"></script>
+    <script src="game/server/game/point.js"></script>
+    <script src="game/server/game/player.js"></script>
+    <script src="game/server/maps/europe/Europe.js"></script>
+
+    <script src="game/client/view/mapDisplay.js"></script>
+
+</head>
+
+
+
+<!-- apply the module and controller to our body so angular is applied to that -->
+<body ng-app="formApp" ng-controller="helpController">
+
+
+
+    <div id="navMenu">
+        <nav class="navbar navbar-default" >
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="http://gulugames.com/">About the game</a></li>
+                        <li><a href="http://bponnaluri.com/">Development blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div id="game">
+
+    </div>
+
+    <div class="container">
+        <div class="col-md-6 col-md-offset-3">
+
+            <!-- PAGE TITLE -->
+            <div class="page-header">
+            </div>
+
+            <!-- SHOW ERROR/SUCCESS MESSAGES -->
+            <div id="messages" class="well" ng-show="message">{{ message }}</div>
+
+            <!-- FORM -->
+            <form ng-submit="processForm()">
+
+
+                <button ng-click="startGame()" type="submit" class="btn btn-success btn-lg btn-block">
+                    Play game
+                </button>
+
+                <!-- SUBMIT BUTTON -->
+                <button ng-click="showHelp()" type="submit" class="btn btn-success btn-lg btn-block">
+                  Help
+                </button>
+            </form>
+
+            <!-- SHOW DATA FROM INPUTS AS THEY ARE BEING TYPED -->
+
+        </div>
+    </div>
+
+
+
+<div id="footer">
+    The footer.
+</div>
+
+</body>
+</html>
