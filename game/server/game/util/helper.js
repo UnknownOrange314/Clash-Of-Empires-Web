@@ -26,5 +26,3 @@
   window.clearCanvas = clearCanvas;
 
 }).call(this);
-
-//# sourceMappingURL=helper.map

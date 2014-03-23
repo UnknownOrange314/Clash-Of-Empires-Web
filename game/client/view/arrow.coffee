@@ -22,7 +22,7 @@ drawTriangle=(x2,y2,angle,ctx)->
   ctx.closePath()
   ctx.fill()
   ctx.restore()
-  
+
 ###
   Draws an arrow.
   @param x1 The starting x coordinate.

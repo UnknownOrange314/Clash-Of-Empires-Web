@@ -25,5 +25,3 @@
   window.findAngle = angle;
 
 }).call(this);
-
-//# sourceMappingURL=mathHelper.map

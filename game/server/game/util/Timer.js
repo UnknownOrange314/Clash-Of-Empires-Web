@@ -16,5 +16,3 @@
   })();
 
 }).call(this);
-
-//# sourceMappingURL=timer.map
