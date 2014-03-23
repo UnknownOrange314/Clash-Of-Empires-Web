@@ -24,25 +24,25 @@ function MapDisplay(dataCon,pName){
     var russia=new Image();
     russia.onload=function(){
     }
-    russia.src='game/images/flags/Russia.png'
+    russia.src='game/server/maps/europe/flags/Russia.png'
 
     var ottoman=new Image();
     ottoman.onload=function(){
 
     }
-    ottoman.src='game/images/flags/Ottoman.png'
+    ottoman.src='game/server/maps/europe/flags/Ottoman.png'
 
     var france=new Image();
     france.onload=function(){
 
     }
-    france.src='game/images/flags/France.png'
+    france.src='game/server/maps/europe/flags/France.png'
 
     var britain=new Image();
     britain.onload=function(){
 
     }
-    britain.src='game/images/flags/Britain.png'
+    britain.src='game/server/maps/europe/flags/Britain.png'
 
     $.ajax({
         url:"game/server/game/renderConfig.json",
@@ -65,7 +65,7 @@ function MapDisplay(dataCon,pName){
 
     this.drawShapes=function(data){
         $.ajax({
-            url:"game/images/map.svg",
+            url:"game/server/maps/europe/map.svg",
             dataType:"text",
             success: function(imgData){
                 $("body").find("#game").prepend(imgData)
@@ -124,7 +124,7 @@ function MapDisplay(dataCon,pName){
     }
 
     //Load data and draw regions
-    var rData=dataCon.getRegionInfo();
+    var rData=dataCon.getMapInfo();
     this.drawShapes(rData)
 
     var showOwners=function(gameState){

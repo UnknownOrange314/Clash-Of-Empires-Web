@@ -26,4 +26,4 @@
 
 }).call(this);
 
-//# sourceMappingURL=MathHelper.map
+//# sourceMappingURL=mathHelper.map

@@ -12,23 +12,23 @@
     <script src="game/client/view/displayCache.js"></script>
     <script src="game/client/view/Line.js"></script>
     <script src="game/client/controller/inputListeners.js"></script>
-    <script src="game/server/game/util/Timer.js"></script>
-    <script src="game/client/network/DataConnection.js"></script>
+    <script src="game/server/game/util/timer.js"></script>
+    <script src="game/client/network/connectionManager.js"></script>
     <script src="game/client/view/Display.js"></script>
 
-    <script src="game/server/game/ArmyData.js"></script>
-    <script src="game/server/game/move/MoveCommand.js"></script>
-    <script src="game/server/game/ai/Computer.js"></script>
-    <script src="game/server/game/GameMap.js"></script>
-    <script src="game/server/game/Region.js"></script>
-    <script src="game/server/game/Point.js"></script>
-    <script src="game/server/game/Player.js"></script>
-    <script src="game/server/maps/Europe.js"></script>
-    <script src="game/server/game/util/Timer.js"></script>
-    <script src="game/server/game/util/MathHelper.js"></script>
+    <script src="game/server/game/armyData.js"></script>
+    <script src="game/server/game/move/moveCommand.js"></script>
+    <script src="game/server/game/ai/computer.js"></script>
+    <script src="game/server/game/gameManager.js"></script>
+    <script src="game/server/game/region.js"></script>
+    <script src="game/server/game/point.js"></script>
+    <script src="game/server/game/player.js"></script>
+    <script src="game/server/maps/europe/Europe.js"></script>
+    <script src="game/server/game/util/timer.js"></script>
+    <script src="game/server/game/util/mathHelper.js"></script>
 
 
-    <script src="game/client/view/MapDisplay.js"></script>
+    <script src="game/client/view/mapDisplay.js"></script>
 
     <script src="unit/testGen.js"></script>
 
@@ -75,7 +75,7 @@
         test( "DataConnection test", function() {
             var dCon=new LocalConnection();
             var data=dCon.getRegionStates();
-            var rData=dCon.getRegionInfo();
+            var rData=dCon.getMapInfo();
             ok(Object.keys(rData).length>0,"Region info size");
             ok( 1, "Passed!" );
         });
@@ -118,7 +118,7 @@
         asyncTest("Game map tests",function(){
 
             $.getJSON('server/maps/Europe.json',function(json){
-                var map=new GameMap(new Europe(json));
+                var map=new GameManager(new Europe(json));
                 ok(map.getRegionCount()>0,"Regions created");
                 ok(map.getRegionCount()<999999,"Did not create too many regions");
                 map.updateState()["regionStates"].forEach(function(state){
@@ -221,7 +221,7 @@
         });
 
         test("Attacking capital test",function(){
-            var map=new GameMap(new TestGen());
+            var map=new GameManager(new TestGen());
             var players=map.getPlayers();
             var regions=map.getRegions();
             var r1=players[0].getCapital();
@@ -246,7 +246,7 @@
 
 
         test("AI Tests",function(){
-            var map=new GameMap(new TestGen());
+            var map=new GameManager(new TestGen());
 
             var oStr="";
             var rCount=0;
@@ -294,7 +294,7 @@
             $.getJSON('server/maps/Europe.json',function(json){
 
                 start();
-                var map=new GameMap(new Europe(json));
+                var map=new GameManager(new Europe(json));
                 map.registerPlayer("host");
                 map.processClick(new Point(226,346),"host");
                 map.processClick(new Point(248,302),"host");
@@ -319,7 +319,7 @@
             $.getJSON('server/maps/Europe.json',function(json){
                 start();
                 console.log("Start:"+start)
-                var map=new GameMap(new Europe(json));
+                var map=new GameManager(new Europe(json));
 
                 var st=new Date().getTime();
 

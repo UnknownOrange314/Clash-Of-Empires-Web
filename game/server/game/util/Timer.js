@@ -17,4 +17,4 @@
 
 }).call(this);
 
-//# sourceMappingURL=Timer.map
+//# sourceMappingURL=timer.map

@@ -26,12 +26,9 @@
 
 }
 
-
-
 body{
     font-size:22px;
 }
-
 
 #footer {
     position:absolute;
@@ -39,6 +36,9 @@ body{
     right:0;
     width:1200px;
 }
+
+
+
 
 
 
