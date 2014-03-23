@@ -43,8 +43,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
   // http://blog.alexmaccaw.com/css-transitions
   $.fn.emulateTransitionEnd = function (duration) {
     var called = false, $el = this
-    $(this).one($.support.transition.end, function () { called = true })
-    var callback = function () { if (!called) $($el).trigger($.support.transition.end) }
+    $(this).one($.support.transition.getEnd, function () { called = true })
+    var callback = function () { if (!called) $($el).trigger($.support.transition.getEnd) }
     setTimeout(callback, duration)
     return this
   }
@@ -104,7 +104,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
     $.support.transition && $parent.hasClass('fade') ?
       $parent
-        .one($.support.transition.end, removeElement)
+        .one($.support.transition.getEnd, removeElement)
         .emulateTransitionEnd(150) :
       removeElement()
   }
@@ -323,7 +323,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
     e || (this.paused = true)
 
     if (this.$element.find('.next, .prev').length && $.support.transition) {
-      this.$element.trigger($.support.transition.end)
+      this.$element.trigger($.support.transition.getEnd)
       this.cycle(true)
     }
 
@@ -379,7 +379,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
       $active.addClass(direction)
       $next.addClass(direction)
       $active
-        .one($.support.transition.end, function () {
+        .one($.support.transition.getEnd, function () {
           $next.removeClass([type, direction].join(' ')).addClass('active')
           $active.removeClass(['active', direction].join(' '))
           that.sliding = false
@@ -530,7 +530,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
     var scrollSize = $.camelCase(['scroll', dimension].join('-'))
 
     this.$element
-      .one($.support.transition.end, $.proxy(complete, this))
+      .one($.support.transition.getEnd, $.proxy(complete, this))
       .emulateTransitionEnd(350)
       [dimension](this.$element[0][scrollSize])
   }
@@ -567,7 +567,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
     this.$element
       [dimension](0)
-      .one($.support.transition.end, $.proxy(complete, this))
+      .one($.support.transition.getEnd, $.proxy(complete, this))
       .emulateTransitionEnd(350)
   }
 
@@ -856,7 +856,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
       transition ?
         that.$element.find('.modal-dialog') // wait for modal to slide in
-          .one($.support.transition.end, function () {
+          .one($.support.transition.getEnd, function () {
             that.$element.focus().trigger(e)
           })
           .emulateTransitionEnd(300) :
@@ -886,7 +886,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
     $.support.transition && this.$element.hasClass('fade') ?
       this.$element
-        .one($.support.transition.end, $.proxy(this.hideModal, this))
+        .one($.support.transition.getEnd, $.proxy(this.hideModal, this))
         .emulateTransitionEnd(300) :
       this.hideModal()
   }
@@ -949,7 +949,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
       doAnimate ?
         this.$backdrop
-          .one($.support.transition.end, callback)
+          .one($.support.transition.getEnd, callback)
           .emulateTransitionEnd(150) :
         callback()
 
@@ -958,7 +958,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
       $.support.transition && this.$element.hasClass('fade') ?
         this.$backdrop
-          .one($.support.transition.end, callback)
+          .one($.support.transition.getEnd, callback)
           .emulateTransitionEnd(150) :
         callback()
 
@@ -1210,7 +1210,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
       $.support.transition && this.$tip.hasClass('fade') ?
         $tip
-          .one($.support.transition.end, complete)
+          .one($.support.transition.getEnd, complete)
           .emulateTransitionEnd(150) :
         complete()
     }
@@ -1306,7 +1306,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
     $.support.transition && this.$tip.hasClass('fade') ?
       $tip
-        .one($.support.transition.end, complete)
+        .one($.support.transition.getEnd, complete)
         .emulateTransitionEnd(150) :
       complete()
 
@@ -1767,7 +1767,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
     transition ?
       $active
-        .one($.support.transition.end, next)
+        .one($.support.transition.getEnd, next)
         .emulateTransitionEnd(150) :
       next()
 

@@ -5,44 +5,17 @@
  */
 function MapDisplay(dataCon,pName){
 
-    console.log("Running game")
     var hpLocs={};
     var colorData={};
     var labelConfig={};
     var tShapeConfig={};
     var lineConfig={};
-
     var symbols={};
     var battleMark=null
     var clickReg=null
     var maxTime=30
     var displayCache=new DisplayCache("stuff")
-
-    var move=getCanvas('animation')
-    move.scale(1.335,1.345)
-
-    var russia=new Image();
-    russia.onload=function(){
-    }
-    russia.src='game/server/maps/europe/flags/Russia.png'
-
-    var ottoman=new Image();
-    ottoman.onload=function(){
-
-    }
-    ottoman.src='game/server/maps/europe/flags/Ottoman.png'
-
-    var france=new Image();
-    france.onload=function(){
-
-    }
-    france.src='game/server/maps/europe/flags/France.png'
-
-    var britain=new Image();
-    britain.onload=function(){
-
-    }
-    britain.src='game/server/maps/europe/flags/Britain.png'
+    var flags={}
 
     $.ajax({
         url:"game/server/game/renderConfig.json",
@@ -57,11 +30,12 @@ function MapDisplay(dataCon,pName){
             //Load explosion image.
             battleMark=new Image();
             battleMark.src=symbols["combat"]
+            flags=loadFlags(data["FlagData"])
         }
     })
 
-
-
+    var move=getCanvas('animation')
+    move.scale(1.335,1.345)//For some unknown reason, the canvas coordinates need to be scaled.
 
     this.drawShapes=function(data){
         $.ajax({
@@ -101,16 +75,12 @@ function MapDisplay(dataCon,pName){
                     var size=40
                     var h=100
                     var dH=60
-                    ctx.drawImage(france,20,h,size,size*france.height/france.width)
-                    h+=dH
-                    ctx.drawImage(britain,20,h,size,size*britain.height/britain.width)
-                    h+=dH
-                    ctx.drawImage(ottoman,20,h,size,size*ottoman.height/ottoman.width)
-                    h+=dH
-                    ctx.drawImage(russia,20,h,size,size*russia.height/russia.width)
-                    h+=dH
-
-
+                    for(var key in flags){
+                        console.log("Flag"+flags[key])
+                        var img=flags[key]
+                        ctx.drawImage(img,20,h,size,size*img.height/img.width)
+                        h+=dH
+                    }
                 }
                 console.log(symbols["army"])
                 rifle.src=symbols["army"]
@@ -127,8 +97,7 @@ function MapDisplay(dataCon,pName){
     var rData=dataCon.getMapInfo();
     this.drawShapes(rData)
 
-    var showOwners=function(gameState){
-        var svg=d3.select("svg")
+    var showOwners=function(gameState,svg){
         gameState["regionStates"].map(function(state){
             svg.selectAll("path#"+state["name"])
                 .attr("fill",colorData[state["owner"]])
@@ -161,22 +130,26 @@ function MapDisplay(dataCon,pName){
     }
 
     this.gameLoop=function(){
+
         var timer=new Timer()
-        var gameState=dataCon.getRegionStates(); //Ask for the game state
-        if(gameState==undefined){
-            return;
-        }
-        showOwners(gameState)
-        processClick(gameState)
+        var gameState=dataCon.getRegionStates();
+
+
+
         var svg=d3.select("svg")
+        showOwners(gameState,svg)
+
+        processClick(gameState)
         var pData=dataCon.getPlayerState()
         Object.keys(pData).forEach(function(name){
             svg.selectAll("text#Score_"+pData[name]["num"])
                 .text(name+" Empire:"+pData[name]["score"])
         });
 
+
         var ctx=getCanvas('animation')
         clearCanvas('animation')
+
 
         gameState["regionStates"].forEach(function(reg){
 

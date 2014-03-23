@@ -91,7 +91,7 @@ var QUnit,
 // `QUnit` initialized at top of scope
 QUnit = {
 
-	// call on start of module test to prepend name to all tests
+	// call on getStart of module test to prepend name to all tests
 	module: function( name, testEnvironment ) {
 		config.currentModule = name;
 		config.currentModuleTestEnvironment = testEnvironment;
@@ -147,28 +147,28 @@ QUnit = {
 		}
 	},
 
-	start: function( count ) {
+	getStart: function( count ) {
 		// QUnit hasn't been initialized yet.
 		// Note: RequireJS (et al) may delay onLoad
 		if ( config.semaphore === undefined ) {
 			QUnit.begin(function() {
-				// This is triggered at the top of QUnit.load, push start() to the event loop, to allow QUnit.load to finish first
+				// This is triggered at the top of QUnit.load, push getStart() to the event loop, to allow QUnit.load to finish first
 				setTimeout(function() {
-					QUnit.start( count );
+					QUnit.getStart( count );
 				});
 			});
 			return;
 		}
 
 		config.semaphore -= count || 1;
-		// don't start until equal number of stop-calls
+		// don't getStart until equal number of stop-calls
 		if ( config.semaphore > 0 ) {
 			return;
 		}
-		// ignore if start is called more often then stop
+		// ignore if getStart is called more often then stop
 		if ( config.semaphore < 0 ) {
 			config.semaphore = 0;
-			QUnit.pushFailure( "Called start() while already started (QUnit.config.semaphore was 0 already)", null, sourceFromStacktrace(2) );
+			QUnit.pushFailure( "Called getStart() while already started (QUnit.config.semaphore was 0 already)", null, sourceFromStacktrace(2) );
 			return;
 		}
 		// A slight delay, to avoid any current callbacks
@@ -199,7 +199,7 @@ QUnit = {
 			config.timeout = setTimeout(function() {
 				QUnit.ok( false, "Test timed out" );
 				config.semaphore = 1;
-				QUnit.start();
+				QUnit.getStart();
 			}, config.testTimeout );
 		}
 	}
@@ -706,7 +706,7 @@ QUnit.load = function() {
 	}
 
 	if ( config.autostart ) {
-		QUnit.start();
+		QUnit.getStart();
 	}
 };
 
@@ -1247,7 +1247,7 @@ Test.prototype = {
 
 			// Restart the tests if they're blocking
 			if ( config.blocking ) {
-				QUnit.start();
+				QUnit.getStart();
 			}
 		}
 	},
@@ -1792,7 +1792,7 @@ QUnit.equiv = (function() {
 	innerEquiv = function() { // can take multiple arguments
 		var args = [].slice.apply( arguments );
 		if ( args.length < 2 ) {
-			return true; // end transition
+			return true; // getEnd transition
 		}
 
 		return (function( a, b ) {

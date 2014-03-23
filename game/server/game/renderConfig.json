@@ -12,6 +12,12 @@
         }
 
     ],
+    "FlagData":{
+        "Russia":"game/server/maps/europe/flags/Russia.png",
+        "Ottoman":"game/server/maps/europe/flags/Ottoman.png",
+        "France":"game/server/maps/europe/flags/France.png",
+        "Britain":"game/server/maps/europe/flags/Britain.png"
+    },
     "ImageLocs":{
         "combat":"game/images/sword.png",
         "arrow":"game/images/arrow.png",

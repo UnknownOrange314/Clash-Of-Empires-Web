@@ -2,13 +2,13 @@
 (function() {
   window.Timer = (function() {
     function Timer() {
-      this.start = (new Date()).getTime();
+      this.getStart = (new Date()).getTime();
     }
 
     Timer.prototype.getTime = function() {
       var cur;
       cur = (new Date).getTime();
-      return cur - this.start;
+      return cur - this.getStart;
     };
 
     return Timer;
@@ -16,3 +16,5 @@
   })();
 
 }).call(this);
+
+//# sourceMappingURL=timer.map
