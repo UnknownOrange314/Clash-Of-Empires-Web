@@ -10,6 +10,8 @@ clearCanvas=(name)->
 avg=(a,b)->
   return (a+b)/2
 
+
+
 window.avg=avg
 window.getCanvas=getCanvas
 window.clearCanvas=clearCanvas

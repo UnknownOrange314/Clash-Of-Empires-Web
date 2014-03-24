@@ -17,6 +17,9 @@ function MapDisplay(dataCon,pName){
     var displayCache=new DisplayCache("stuff")
     var flags={}
 
+    var symbolView=new symbolCanvas()
+    var dataView=new DataCanvas()
+
     $.ajax({
         url:"game/server/game/renderConfig.json",
         dataType:"json",
@@ -31,11 +34,11 @@ function MapDisplay(dataCon,pName){
             battleMark=new Image();
             battleMark.src=symbols["combat"]
             flags=loadFlags(data["FlagData"])
+            symbolView=new symbolCanvas()
         }
     })
 
-    var move=getCanvas('animation')
-    move.scale(1.335,1.345)//For some unknown reason, the canvas coordinates need to be scaled.
+
 
     this.drawShapes=function(data){
         $.ajax({
@@ -58,37 +61,7 @@ function MapDisplay(dataCon,pName){
                         .attr("transform","scale(0.25)")
                         .on("click",function(d,i){console.log(d+":"+i+"  "+reg); dataCon.sendClick(reg,pName)      })
                 });
-                var rifle=new Image();
-                rifle.onload=function(){
-                    var ctx=getCanvas('symbols')
-                    ctx.fillStyle = 'yellow';
-                    ctx.rect(0,0,900,900)
-                    ctx.scale(1.335,1.345)
-                    Object.keys(data).forEach(function(reg){
-                        var d=data[reg];
-                        var x=data[reg]["x"]
-                        var y=data[reg]["y"]
-                        ctx.drawImage(rifle,x,y,15,15*rifle.height/rifle.width)
-                    });
-
-
-                    var size=40
-                    var h=100
-                    var dH=60
-                    for(var key in flags){
-                        console.log("Flag"+flags[key])
-                        var img=flags[key]
-                        ctx.drawImage(img,20,h,size,size*img.height/img.width)
-                        h+=dH
-                    }
-                }
-                console.log(symbols["army"])
-                rifle.src=symbols["army"]
-
-                var ctx=getCanvas('symbols')
-
-
-
+                symbolView.drawSymbols(data,flags,symbols)
             }
         })
     }
@@ -146,68 +119,8 @@ function MapDisplay(dataCon,pName){
                 .text(name+" Empire:"+pData[name]["score"])
         });
 
+        dataView.update(gameState,hpLocs,battleMark,lineConfig)
 
-        var ctx=getCanvas('animation')
-        clearCanvas('animation')
-
-
-        gameState["regionStates"].forEach(function(reg){
-
-            var xO=0
-            var yO=0
-            var rName=reg["name"]
-            if(rName in hpLocs){
-                xO=parseInt(hpLocs[rName]["x"])
-                yO=parseInt(hpLocs[rName]["y"])
-            }
-
-            var lX=25*reg["hitPoints"]/1000
-            var xT=(reg["xPos"]-10)+xO
-            var yT=(reg["yPos"]-10)+yO
-            ctx.fillStyle="#00FF00"
-            ctx.fillRect(xT,yT,lX,5)
-            ctx.fillStyle="#FF0000"
-            ctx.fillRect(xT+lX,yT,25-lX,5)
-            ctx.strokeStyle="#000000"
-            ctx.strokeRect(xT,yT,25,5)
-        })
-
-
-        Object.keys(gameState["moveCommands"]).forEach(function(name){
-            gameState["moveCommands"][name].forEach(function(loc){
-
-
-                var x=avg(loc["x1"],loc["x2"])
-                var y=avg(loc["y1"],loc["y2"])
-                if(name=="Host"){
-
-
-                    var dX=0
-                    var dY=0
-
-                    var n=loc["sCity"]+"_"+loc["eCity"]
-                    var nR=loc["eCity"]+"_"+loc["sCity"]
-                    if(n in lineConfig){
-                        dX=parseInt(lineConfig[n][0])
-                        dY=parseInt(lineConfig[n][1])
-                        console.log("Moving line")
-                    }
-                    if(nR in lineConfig){
-                        dX=parseInt(lineConfig[nR][0])
-                        dY=parseInt(lineConfig[nR][1])
-                    }
-                    var x1=loc["x1"]+dX
-                    var x2=loc["x2"]+dX
-                    var y1=loc["y1"]+dY
-                    var y2=loc["y2"]+dY
-
-                    drawArrow(x1,y1,x2,y2,ctx)
-                }
-                if(loc["conflict"]==true){
-                    ctx.drawImage(battleMark,loc["x2"]+15,loc["y2"],15,15)
-                }
-            })
-        })
 
         if(timer.getTime()>maxTime){
             console.log("Too slow, game update time:"+timer.getTime()+"ms")

@@ -2,6 +2,7 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/game/server/game/util/helper.js" />
         <item url="file://$PROJECT_DIR$/game/client/network/connectionManager.js" />
         <item url="file://$PROJECT_DIR$/game/server/game/util/timer.js" />
         <item url="file://$PROJECT_DIR$/game/server/game/armyData.js" />
@@ -12,6 +13,7 @@
       </sourceFilesUrls>
     </properties>
     <CLASSES>
+      <root url="file://$PROJECT_DIR$/game/server/game/util/helper.js" />
       <root url="file://$PROJECT_DIR$/game/client/network/connectionManager.js" />
       <root url="file://$PROJECT_DIR$/game/server/game/util/timer.js" />
       <root url="file://$PROJECT_DIR$/game/server/game/armyData.js" />
