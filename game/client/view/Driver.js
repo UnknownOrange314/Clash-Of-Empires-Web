@@ -14,7 +14,7 @@
     console.log("Starting client");
     dataCon = dataConnection;
     dataCon.registerPlayer(pName);
-    disp = new MapDisplay(dataCon, pName);
+    disp = new MapDisplay(dataCon, pName, $("body"));
     return setInterval(disp.gameLoop, 40);
   };
 

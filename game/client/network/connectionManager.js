@@ -8,16 +8,13 @@
 (function() {
   window.connectionManager = (function() {
     function connectionManager() {
-      console.log("Loading");
       this.game = null;
       $.ajaxSetup({
         "async": false
       });
       $.getJSON("game/server/maps/europe/Europe.json", (function(_this) {
         return function(json) {
-          _this.game = new GameManager(new Europe(json));
-          console.log("Creating game");
-          return console.log("Hi");
+          return _this.game = new GameManager(new Europe(json));
         };
       })(this));
     }
@@ -28,8 +25,7 @@
      */
 
     connectionManager.prototype.getMapInfo = function() {
-      var a;
-      a = 11;
+      console.log(this.game.getMapInfo());
       return this.game.getMapInfo();
     };
 
@@ -78,7 +74,6 @@
      */
 
     connectionManager.prototype.registerPlayer = function(pName) {
-      console.log("Registering player" + this.game.getPlayers());
       return this.game.registerPlayer(pName);
     };
 

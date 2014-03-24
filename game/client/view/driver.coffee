@@ -7,7 +7,7 @@ startClient=(dataConnection,pName)->
   console.log("Starting client")
   dataCon=dataConnection
   dataCon.registerPlayer(pName)
-  disp=new MapDisplay(dataCon,pName)
+  disp=new MapDisplay(dataCon,pName,$("body"))
   setInterval(disp.gameLoop,40)
 
 window.startClient=startClient

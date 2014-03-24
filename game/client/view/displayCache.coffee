@@ -1,6 +1,6 @@
 class window.DisplayCache
 
-  constructor: (@filling) ->
+  constructor: () ->
     @updateQueue={}
     @regionData={}
 

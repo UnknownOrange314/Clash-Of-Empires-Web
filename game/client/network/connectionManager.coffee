@@ -6,15 +6,10 @@
 class window.connectionManager
 
   constructor:()->
-    console.log("Loading")
     @game=null
-
-
     $.ajaxSetup({"async":false});
     $.getJSON("game/server/maps/europe/Europe.json",(json)=>
       @game=new GameManager(new Europe(json))
-      console.log("Creating game")
-      console.log("Hi")
     )
 
 
@@ -23,7 +18,7 @@ class window.connectionManager
      * Gets information about the map.
   ###
   getMapInfo:()->
-    a=11
+    console.log(@game.getMapInfo())
     return @game.getMapInfo()
 
 
@@ -63,6 +58,5 @@ class window.connectionManager
      * @param pName The player that is being added.
   ###
   registerPlayer:(pName)->
-    console.log("Registering player"+@game.getPlayers())
     @game.registerPlayer(pName)
 
