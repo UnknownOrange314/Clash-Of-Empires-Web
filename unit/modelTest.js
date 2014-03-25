@@ -40,7 +40,7 @@ test( "DataConnection test", function() {
 asyncTest("Map setup tests",function(){
 
     $.ajax({
-        url:'game/server/maps/europe/Europe.json',
+        url:'game/server/maps/europe/europe.json',
         dataType:"json",
         success:function(json){
             ok(1)
@@ -80,7 +80,7 @@ asyncTest("Map setup tests",function(){
 
 asyncTest("Game map tests",function(){
 
-    $.getJSON('game/server/maps/europe/Europe.json',function(json){
+    $.getJSON('game/server/maps/europe/europe.json',function(json){
         var map=new GameManager(new Europe(json));
         ok(map.getRegionCount()>0,"Regions created");
         ok(map.getRegionCount()<999999,"Did not create too many regions");
@@ -255,7 +255,7 @@ test("AI Tests",function(){
  */
 asyncTest("Player move command test",function(){
 
-    $.getJSON('server/maps/Europe.json',function(json){
+    $.getJSON('server/maps/europe.json',function(json){
 
 
         var map=new GameManager(new Europe(json));
@@ -282,7 +282,7 @@ asyncTest("Player move command test",function(){
  */
 
 asyncTest("Speed Test",function(){
-    $.getJSON('server/maps/Europe.json',function(json){
+    $.getJSON('server/maps/europe.json',function(json){
         start();
         console.log("Start:"+start)
         var map=new GameManager(new Europe(json));

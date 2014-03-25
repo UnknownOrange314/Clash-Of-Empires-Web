@@ -12,7 +12,7 @@
       $.ajaxSetup({
         "async": false
       });
-      $.getJSON("game/server/maps/europe/Europe.json", (function(_this) {
+      $.getJSON("game/server/maps/europe/europe.json", (function(_this) {
         return function(json) {
           return _this.game = new GameManager(new Europe(json));
         };
