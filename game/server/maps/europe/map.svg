@@ -7099,6 +7099,7 @@
              2493.86,2492.29 2494.64,2497.54 2481.00,2500.55
              2481.00,2500.55 2466.00,2503.08 2466.00,2503.08
              2466.00,2503.08 2457.00,2503.08 2457.00,2503.08
+             2466.00,2503.08 2457.00,2503.08 2457.00,2503.08
              2451.78,2504.18 2452.75,2505.62 2445.00,2506.00
              2445.00,2506.00 2445.00,2511.00 2445.00,2511.00
              2438.00,2511.34 2429.56,2513.57 2423.00,2516.00
@@ -7187,10 +7188,6 @@
     <text id="Norway" x="70" y="70" font-family="sans-serif" font-size="20px" fill="red">Hello!</text>
     <text id="Sweden" x="70" y="70" font-family="sans-serif" font-size="20px" fill="red">Hello!</text>
 
-    <text id="Score_1" x="10" y="140" font-family="sans-serif" font-size="11px" font-weight="bold" fill="black">Score</text>
-    <text id="Score_2" x="10" y="200" font-family="sans-serif" font-size="11px" font-weight="bold" fill="black">Score</text>
-    <text id="Score_3" x="10" y="260" font-family="sans-serif" font-size="11px" font-weight="bold" fill="black">Score</text>
-    <text id="Score_4" x="10" y="320" font-family="sans-serif" font-size="11px" font-weight="bold" fill="black">Score</text>
 
 
     </svg>

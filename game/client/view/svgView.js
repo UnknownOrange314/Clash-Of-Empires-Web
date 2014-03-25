@@ -58,13 +58,4 @@ function SvgView(pN,cData,lConf){
         svg.selectAll("path#"+clickData)//Color other region.
             .attr("fill","white")
     }
-
-    this.showScore=function(dataCon){
-        var pData=dataCon.getPlayerState()
-        Object.keys(pData).forEach(function(name){
-            svg.selectAll("text#Score_"+pData[name]["num"])
-                .text(name+" Empire:"+pData[name]["score"])
-        });
-
-    }
 }

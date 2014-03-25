@@ -7,7 +7,6 @@ function SymbolCanvas(config){
     ctx.scale(1.338,1.348)
 
     var symbols=config["ImageLocs"]
-    var flags=loadFlags(config["FlagData"])
 
     /**
      * Draws the canvas
@@ -25,15 +24,7 @@ function SymbolCanvas(config){
                 var y=rData[reg]["y"]
                 ctx.drawImage(rifle,x,y,15,15*rifle.height/rifle.width)
             });
-            var size=40
-            var h=100
-            var dH=60
-            for(var key in flags){
-                console.log("Flag"+flags[key])
-                var img=flags[key]
-                ctx.drawImage(img,20,h,size,size*img.height/img.width)
-                h+=dH
-            }
+
         }
         console.log(symbols["army"])
         rifle.src=symbols["army"]

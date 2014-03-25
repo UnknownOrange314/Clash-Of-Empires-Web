@@ -10,6 +10,7 @@ function MapDisplay(dataCon,pName,rCont){
     var symbolView=null
     var dataView=null
     var svgView=null
+    var scoreView=null
 
     $.ajax({
         url:"game/server/game/renderConfig.json",
@@ -21,6 +22,7 @@ function MapDisplay(dataCon,pName,rCont){
             dataView=new DataCanvas(data)
             symbolView=new SymbolCanvas(data)
             svgView=new SvgView(pName,colorData,labelConfig)
+            scoreView=new ScoreView(data)
             console.log("Symbol View:"+symbolView)
         },
         error:function(xhr,ajaxOptions,thrownError){
@@ -47,7 +49,8 @@ function MapDisplay(dataCon,pName,rCont){
         var gameState=dataCon.getRegionStates();
         svgView.showOwners(gameState)
         svgView.showClick(gameState,dataCon)
-        svgView.showScore(dataCon)
+       // svgView.showScore(dataCon)
+        scoreView.updateScore(dataCon)
         dataView.update(gameState)
         if(timer.getTime()>maxTime){
             console.log("Too slow, game update time:"+timer.getTime()+"ms")
