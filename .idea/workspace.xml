@@ -70,10 +70,19 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="mapDisplay.js" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="mapDisplay.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/game/client/view/mapDisplay.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="43" column="0" selection-start="1283" selection-end="1283" vertical-scroll-proportion="0.4342762" vertical-offset="470" max-vertical-offset="1071">
+                <state line="43" column="0" selection-start="1283" selection-end="1283" vertical-scroll-proportion="0.0" vertical-offset="470" max-vertical-offset="1071">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="computer.js" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/game/server/game/ai/computer.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="46" column="0" selection-start="1329" selection-end="1330" vertical-scroll-proportion="0.40599" vertical-offset="504" max-vertical-offset="1105">
                   <folding />
                 </state>
               </provider>
@@ -423,6 +432,58 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="move" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gulugame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ClashOfEmpires" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ai" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gulugame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ClashOfEmpires" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -657,11 +718,6 @@
         <state line="2" column="23" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/game/server/game/IP.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="2" selection-start="649" selection-end="649" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/game/server/game/point.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="5" selection-start="98" selection-end="98" vertical-scroll-proportion="0.2238806" vertical-offset="0" max-vertical-offset="469" />
@@ -755,11 +811,6 @@
     <entry file="file://$PROJECT_DIR$/game/server/game/armyData.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="48" column="0" selection-start="1280" selection-end="1280" vertical-scroll-proportion="3.1384616" vertical-offset="0" max-vertical-offset="1122" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/game/server/game/ai/computer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="0" selection-start="1329" selection-end="1330" vertical-scroll-proportion="0.0" vertical-offset="614" max-vertical-offset="1105" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/game/server/game/armyData.coffee">
@@ -933,7 +984,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/game/client/view/mapDisplay.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="0" selection-start="1283" selection-end="1283" vertical-scroll-proportion="0.4342762" vertical-offset="470" max-vertical-offset="1071">
+        <state line="43" column="0" selection-start="1283" selection-end="1283" vertical-scroll-proportion="0.0" vertical-offset="470" max-vertical-offset="1071">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game/server/game/ai/computer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="0" selection-start="1329" selection-end="1330" vertical-scroll-proportion="0.40599" vertical-offset="504" max-vertical-offset="1105">
           <folding />
         </state>
       </provider>
