@@ -42,7 +42,6 @@ function MapDisplay(dataCon,pName,rCont){
     //Load data and draw regions
     this.drawShapes(dataCon.getMapInfo())
 
-
     this.gameLoop=function(){
         var timer=new Timer()
         var gameState=dataCon.getRegionStates();
@@ -54,6 +53,5 @@ function MapDisplay(dataCon,pName,rCont){
             console.log("Too slow, game update time:"+timer.getTime()+"ms")
         }
     }
-
 
 }

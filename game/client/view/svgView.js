@@ -5,17 +5,17 @@
  */
 function SvgView(pN,cData,lConf){
 
-    var pName=pN
-    var colorData=cData
-    var labelConfig=lConf
+    var pName=pN //Name of player.
+    var colorData=cData //Data about the color.
+    var labelConfig=lConf //Location of labels.
     var displayCache=new DisplayCache()//This is for improving rendering speed.
-    var clickReg=null
-
+    var clickReg=null //The region that has been clicked on.
+    var svg=null //The SVG graphics object.
     this.drawRegions=function(imgData,data,renderCont,dataCon){
         renderCont.find("#game").prepend(imgData)
         Object.keys(data).forEach(function(reg){
             var rData=data[reg]
-            var svg=d3.select("svg")
+            svg=d3.select("svg")
             svg.selectAll("text#"+reg)
                 .attr("x",rData["x"])
                 .attr("y",rData["y"])
@@ -31,7 +31,6 @@ function SvgView(pN,cData,lConf){
     }
 
     this.showOwners=function(gameState){
-        var svg=d3.select("svg")
         gameState["regionStates"].map(function(state){
             svg.selectAll("path#"+state["name"])
                 .attr("fill",colorData[state["owner"]])
@@ -47,7 +46,6 @@ function SvgView(pN,cData,lConf){
     }
 
     this.showClick=function(gameState,dataCon){
-        var svg=d3.select("svg")
         //Indicate that an area has been clicked.
         var clickData=dataCon.getSavedClick()
         gameState["regionStates"].map(function(state){ //Restore old color.
@@ -63,7 +61,6 @@ function SvgView(pN,cData,lConf){
 
     this.showScore=function(dataCon){
         var pData=dataCon.getPlayerState()
-        var svg=d3.select("svg")
         Object.keys(pData).forEach(function(name){
             svg.selectAll("text#Score_"+pData[name]["num"])
                 .text(name+" Empire:"+pData[name]["score"])
