@@ -114,15 +114,12 @@ function Player(num,ai){
     }
 
     this.buildTroop=function(region){
-
         var bCount=1;
         if(minorPower===false){
             if(region===this.getCapital()){
                 bCount=20-army.getSize()/1000.0000;
             }
-
         }
-
         army.addTroops(region,Math.floor(bCount))
     }
 
@@ -171,6 +168,9 @@ function Player(num,ai){
         score+=Object.keys(regions).length;
     }
 
+    this.setName=function(nm){
+        name=nm
+    }
     this.getName=function(){
         return name;
     }

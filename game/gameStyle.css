@@ -18,3 +18,10 @@
     top:200px;
     left:1000px;
 }
+
+#alerts{
+    pointer-events:none;
+    position: absolute;
+    top:200px;
+    left:300px;
+}

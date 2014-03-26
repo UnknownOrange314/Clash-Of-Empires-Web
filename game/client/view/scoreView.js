@@ -51,15 +51,11 @@ function ScoreView(config){
         var x=120
         var y=startH
         var dH=60
-        var sCt=0 //TODO:Refactor hack.
         Object.keys(pData).forEach(function(name){
-            if(sCt<4){
-                ctx.fillStyle="#000000"
-                ctx.font='10pt Calibri'
-                ctx.fillText(pData[name]["score"],x,y,80)
-                y+=dH
-            }
-            sCt++;
+            ctx.fillStyle="#000000"
+            ctx.font='10pt Calibri'
+            ctx.fillText(pData[name]["score"],x,y)
+            y+=dH
         });
     }
 }

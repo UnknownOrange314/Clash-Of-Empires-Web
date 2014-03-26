@@ -1,44 +1,45 @@
 function GameManager(mapGen){
 
     var time=0;
-
-
     var data=mapGen.generateMap();
     var regions=data["regions"];
     var players=data["players"];
-    //var humanPlayers=[];
-    //humanPlayers[0]=players[0];
+
+    var cManager=new ClickManager()
 
     //Below are methods for processing input from clients
-    var clickA=null;
-    var clickB=null;
 
     this.clearClicks=function(){
-        clickA=null;
-        clickB=null;
+        cManager.clearClicks()
     }
 
     /**
      * @param pt
      */
     this.processClick=function(pt,pName){
-        if(clickA==null){
-            regions.forEach(function(reg){
-                if(reg.getName()===pt){
-                    clickA=reg
-                }
-            });
-        }
-        else{
-            regions.forEach(function(reg){
-                if(reg.getName()===pt){
-                    clickB=reg
-                }
-            });
-            this.setMovementCommand(clickA,clickB,pName);
-            this.clearClicks();
-        }
+        cManager.processClick(pt,pName,regions,players)
     }
+
+    this.getFirstClick=function(){
+        return cManager.getFirstClick()
+    }
+
+    /**
+     * This method registers a player so that input associated
+     * with a player can be processed.
+     */
+    this.registerPlayer=function(pName){
+        cManager.registerPlayer(pName,players)
+    }
+
+    /**
+     * This function sets movement between two regions.
+     */
+    this.setMovementCommand=function(r1,r2,pName){
+        console.log("Players:"+players)
+        cManager.createMoveCommand(r1,r2,pName,players)
+    }
+
 
     this.getRegions=function(){
         return regions;
@@ -48,43 +49,10 @@ function GameManager(mapGen){
         return players;
     }
 
-    /**
-     * This method registers a player so that input associated
-     * with a player can be processed.
-     */
-    this.registerPlayer=function(pName){
-        var reg=false;
-        players.forEach(function(p){
-            if(p.getAI() instanceof Computer){
-                if(reg===false){
-                    p.setAI(new NoAI(pName));
-                    reg=true;
-                }
-            }
-        });
-    }
 
 
-    this.getFirstClick=function(){
-        if(clickA!==null){
-            return clickA.getName();
-        }else{
-            return "Undefined"
-        }
-    }
 
-    /**
-     * This function sets movement between two regions.
-     */
-    this.setMovementCommand=function(r1,r2,pName){
-        players.forEach(function(p){ //Search for the player with the name.
-            if(p.getAI().username(p)===pName){
-                if(r1.hasBorder(r2)){
-                    p.addMoveCommand(r1,r2);
-                }
-            }
-        });
-    }
+
 
     /**
      * This method returns information about a region.
@@ -144,8 +112,9 @@ function GameManager(mapGen){
             moveCommands[player.getAI().username(player)]=player.exportMoveCommands();
         });
 
-
-        return {"regionStates":regionState,"moveCommands":moveCommands,"capitals":capitals};
+        var cMessages=cManager.getClickMessages()
+        console.log("Click Messages:"+cMessages)
+        return {"regionStates":regionState,"moveCommands":moveCommands,"capitals":capitals,"clickMessages":cMessages};
     }
 
     this.getRegionCount=function(){
@@ -157,11 +126,13 @@ function GameManager(mapGen){
     this.getPlayerState=function(){
         var data={};
         players.forEach(function(p){
-            var pData={};
-            pData["score"]=p.getScore();
-            pData["money"]=0.0;
-            pData["num"]= p.getNum();
-            data[p.getAI().username(p)]=pData;
+            if(p.powerStatus()==true){
+                var pData={};
+                pData["score"]=p.getScore();
+                pData["money"]=0.0;
+                pData["num"]= p.getNum();
+                data[p.getAI().username(p)]=pData;
+            }
         });
         return data;
     }

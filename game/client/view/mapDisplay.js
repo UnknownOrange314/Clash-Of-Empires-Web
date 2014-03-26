@@ -11,6 +11,7 @@ function MapDisplay(dataCon,pName,rCont){
     var dataView=null
     var svgView=null
     var scoreView=null
+    var alertView=new AlertView()
 
     $.ajax({
         url:"game/server/game/renderConfig.json",
@@ -52,6 +53,13 @@ function MapDisplay(dataCon,pName,rCont){
        // svgView.showScore(dataCon)
         scoreView.updateScore(dataCon)
         dataView.update(gameState)
+        alertView.update(gameState["clickMessages"])
+        var cText=gameState["clickMessages"]
+        console.log(JSON.stringify(cText))
+
+
+
+
         if(timer.getTime()>maxTime){
             console.log("Too slow, game update time:"+timer.getTime()+"ms")
         }
