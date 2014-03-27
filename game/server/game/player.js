@@ -183,7 +183,7 @@ function Player(num,ai){
     }
 
     this.updateScore=function(){
-        score+=Object.keys(regions).length;
+        score+=regions.size();
     }
 
     this.setName=function(nm){
