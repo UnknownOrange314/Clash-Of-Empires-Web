@@ -206,4 +206,16 @@ function Player(num,ai){
         moveCommands.remove(c)
     }
 
+    /**
+     * This function exports data about the player state.
+     */
+    this.exportState=function(){
+        var pData={};
+        pData["score"]=this.getScore();
+        pData["money"]=0.0;
+        pData["num"]=this.getNum();
+        return pData
+
+    }
+
 }

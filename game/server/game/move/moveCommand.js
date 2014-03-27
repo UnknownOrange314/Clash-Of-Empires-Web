@@ -32,7 +32,9 @@ var MoveCommand=function(r1,r2){
     }
 }
 
-//Create functions using prototype to save memory.
+MoveCommand.prototype.hashCode=function(){
+    return this.getStart().getName()+":"+this.getEnd().getName();
+}
 MoveCommand.prototype.execute=function(player){
     var start=this.getStart()
     var end=this.getEnd()

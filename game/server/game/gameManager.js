@@ -89,19 +89,10 @@ function GameManager(mapGen){
         }
 
         time++;
-        var renderState=regions.map(function(region){
-            return region.getRenderState();
-        });
 
-        var regionState=renderState.map(function(state){
-            var arr={};
-            arr["owner"]=state.getOwner();
-            arr["xPos"]=state.getX();
-            arr["yPos"]=state.getY();
-            arr["army"]=state.getArmy();
-            arr["hitPoints"]=state.getHP();
-            arr["name"]=state.getName();
-            return arr;
+
+        var regionState=regions.map(function(reg){
+            return reg.exportState()
         });
 
 
@@ -124,12 +115,8 @@ function GameManager(mapGen){
     this.getPlayerState=function(){
         var data={};
         players.forEach(function(p){
-            if(p.powerStatus()==true){
-                var pData={};
-                pData["score"]=p.getScore();
-                pData["money"]=0.0;
-                pData["num"]= p.getNum();
-                data[p.getAI().username(p)]=pData;
+            if(p.powerStatus()==true){ //Ignore minor powers.
+                data[p.getAI().username(p)]= p.exportState();
             }
         });
         return data;

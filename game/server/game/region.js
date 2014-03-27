@@ -107,6 +107,20 @@ function Region(x,y,aX,aY,rName,sLoc){
         return myLoc.getX()+":"+myLoc.getY();
     }
 
+    this.exportState=function(){
+
+       // (myLoc.getX(),myLoc.getY(),myOwner.getNum(),myOwner.getArmy(this),curHP,this.getName());
+
+        var arr={};
+        arr["owner"]=myOwner.getNum();
+        arr["xPos"]=myLoc.getX();
+        arr["yPos"]=myLoc.getY();
+        arr["army"]=myOwner.getArmy(this);
+        arr["hitPoints"]=curHP;
+        arr["name"]=this.getName();
+        return arr;
+    }
+
 }
 
 /**
