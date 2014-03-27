@@ -6,19 +6,24 @@
 function Player(num,ai){
 
     var minorPower=false;
-
     var army=new ArmyData()
 
-    var regions={};
+    var regions=new HashSet(function(reg){
+        return reg.hashCode();
+    });
+
     var score=0;
     var name=""+num;
     var capital=null;
-    var moveCommands=[];
 
+    var moveCommands=new HashSet(function(com){
+        return com.hashCode()
+    })
 
     this.powerStatus=function(){
         return minorPower
     }
+
     this.isMinor=function(minor){
         minorPower=minor;
     }
@@ -44,8 +49,10 @@ function Player(num,ai){
     }
 
 
+
     this.exportMoveCommands=function(){
-        var data=moveCommands.map(function(command){
+        var data=[]
+        moveCommands.forEach(function(command){
             var p1=command.getStart().getLocation();
             var p2=command.getEnd().getLocation();
             var arr={};
@@ -56,16 +63,19 @@ function Player(num,ai){
             arr["x2"]=p2.getX();
             arr["y2"]=p2.getY();
             arr["conflict"]=command.hasConflict()
-            return arr;
+            data.push(arr)
         });
         return data;
     }
+
     this.addMoveCommand=function(s,e){
-        moveCommands.push(new MoveCommand(s,e));
+        moveCommands.add(new MoveCommand(s,e))
     }
+
     this.getMoveCommands=function(){
         return moveCommands;
     }
+
     this.setCapital=function(cap){
         capital=cap;
     }
@@ -76,12 +86,13 @@ function Player(num,ai){
         name=nm;
     }
     this.addRegion=function(region){
-        regions[region.hashCode()]=region;
+        regions.add(region)
     }
 
     this.countRegions=function(){
-        return Object.keys(regions).length;
+        return regions.size();
     }
+
     this.getRegions=function(){
         return regions;
     }
@@ -114,12 +125,15 @@ function Player(num,ai){
     }
 
     this.buildTroop=function(region){
+
         var bCount=1;
         if(minorPower===false){
             if(region===this.getCapital()){
                 bCount=20-army.getSize()/1000.0000;
             }
+
         }
+
         army.addTroops(region,Math.floor(bCount))
     }
 
@@ -137,13 +151,16 @@ function Player(num,ai){
     }
 
     this.updateState=function(){
+
         var player=this;
         moveCommands.forEach(function(command){
             command.execute(player);
         });
-        Object.keys(regions).forEach(function(rLoc){
-            regions[rLoc].heal();
+
+        regions.forEach(function(reg){
+            reg.heal();
         });
+
         this.updateScore();
     }
 

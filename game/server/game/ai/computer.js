@@ -11,10 +11,12 @@ var Computer=function(){
 
     this.run=function(player){
 
-        var moveCommands=[];
+        var moveCommands=new HashSet(function(com){
+            return com.hashCode()
+        });
+
         var regions=player.getRegions();
-        Object.keys(regions).forEach(function(r){
-            var region=regions[r];
+        regions.forEach(function(region){
             var eCount=0;
             region.getBorders().forEach(function(border){
                 var bOwn=border.getOwner();
@@ -23,7 +25,7 @@ var Computer=function(){
                     var att=player.getArmy(region);
                     if(att>def){
                         var a=new MoveCommand(region,border);
-                        moveCommands.push(a);
+                        moveCommands.add(a);
                         eCount++;
                     }
                 }
@@ -31,12 +33,14 @@ var Computer=function(){
             if(eCount===0){ //We should not leave troops in interior regions.
                 region.getBorders().forEach(function(border){
                     var a=new MoveCommand(region,border);
-                    moveCommands.push(a);
+                    moveCommands.add(a);
 
                 });
             }
         });
+
         return moveCommands;
+
     }
 
     this.username=function(player){

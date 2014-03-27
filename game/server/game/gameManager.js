@@ -113,7 +113,6 @@ function GameManager(mapGen){
         });
 
         var cMessages=cManager.getClickMessages()
-        console.log("Click Messages:"+cMessages)
         return {"regionStates":regionState,"moveCommands":moveCommands,"capitals":capitals,"clickMessages":cMessages};
     }
 

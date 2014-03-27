@@ -55,7 +55,6 @@ function MapDisplay(dataCon,pName,rCont){
         dataView.update(gameState)
         alertView.update(gameState["clickMessages"])
         var cText=gameState["clickMessages"]
-        console.log(JSON.stringify(cText))
 
 
 

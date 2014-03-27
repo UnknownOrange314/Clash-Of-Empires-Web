@@ -26,6 +26,10 @@ var MoveCommand=function(r1,r2){
     this.getSpeed=function(){
         return speed
     }
+
+    this.hashCode=function(){
+        return start.getName()+":"+end.getName()
+    }
 }
 
 //Create functions using prototype to save memory.

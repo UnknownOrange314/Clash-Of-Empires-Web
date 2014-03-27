@@ -4,7 +4,6 @@
 function ClickManager(){
 
     var clickMessages=[] //Messages that are sent back to the user.
-    clickMessages.push("Nothing")
     var clickA=null;
     var clickB=null;
 
