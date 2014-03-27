@@ -86,7 +86,11 @@ function ClickManager(){
         players.forEach(function(p){ //Search for the player with the name.
             if(p.getAI().username(p)===pName){
                 if(r1.hasBorder(r2)){
-                    p.addMoveCommand(r1,r2);
+                    if(!p.hasMoveCommand(r1,r2)){
+                        p.addMoveCommand(r1,r2);
+                    }else{ //Delete the move command.
+                        p.removeMoveCommand(r1,r2);
+                    }
                 }
             }
         });

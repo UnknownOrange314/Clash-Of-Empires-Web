@@ -121,7 +121,6 @@ function GameManager(mapGen){
     }
 
 
-
     this.getPlayerState=function(){
         var data={};
         players.forEach(function(p){

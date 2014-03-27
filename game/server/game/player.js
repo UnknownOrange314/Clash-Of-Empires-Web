@@ -16,6 +16,7 @@ function Player(num,ai){
     var name=""+num;
     var capital=null;
 
+    //Move commands for a player. There can only be one move command per player between regions.
     var moveCommands=new HashSet(function(com){
         return com.hashCode()
     })
@@ -188,8 +189,21 @@ function Player(num,ai){
     this.setName=function(nm){
         name=nm
     }
+
     this.getName=function(){
         return name;
+    }
+
+    //TODO: Find a way to implement this without creating a new object.
+    this.hasMoveCommand=function(r1,r2){
+        var c=new MoveCommand(r1,r2)
+        return moveCommands.contains(c)
+    }
+
+    //TODO: Find a way to implement this without creating a new object.
+    this.removeMoveCommand=function(r1,r2){
+        var c=new MoveCommand(r1,r2)
+        moveCommands.remove(c)
     }
 
 }
