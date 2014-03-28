@@ -53,7 +53,7 @@ function MapDisplay(dataCon,pName,rCont){
         svgView.showOwners(gameState)
         svgView.showClick(gameState,dataCon)
        // svgView.showScore(dataCon)
-        scoreView.updateScore(dataCon)
+        scoreView.update(dataCon)
         dataView.update(gameState)
         alertView.update(gameState["clickMessages"])
         var cText=gameState["clickMessages"]

@@ -41,7 +41,7 @@ function ScoreView(config){
     var ctx=getCanvas('score')
     loadFlags(config["FlagData"],drawPanel)
 
-    this.updateScore=function(dataCon){
+    this.update=function(dataCon){
         var ctx=getCanvas('score')
 
         ctx.fillStyle="#C0C0C0"

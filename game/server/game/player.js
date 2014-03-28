@@ -202,7 +202,7 @@ function Player(num,ai,pStatus){
             reg.heal();
         });
 
-        this.updateScore();
+        this.update();
     }
 
     /**
@@ -222,7 +222,7 @@ function Player(num,ai,pStatus){
         return score;
     }
 
-    this.updateScore=function(){
+    this.update=function(){
         score+=regions.size();
     }
 
