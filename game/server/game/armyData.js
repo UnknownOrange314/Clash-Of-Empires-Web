@@ -45,6 +45,7 @@
       if (region.hashCode() in this.armies) {
         return this.armies[region.hashCode()];
       }
+      return 0;
     };
 
     ArmyData.prototype.getSize = function() {

@@ -46,15 +46,18 @@ function ClickManager(){
             regions.forEach(function(reg){
                 if(reg.getName()===pt){
 
-                    //We do not want to set a movement command from an enemy region.
-                    if(!(clickA.hasBorder(reg))){
-                        clickMessages.push("Cannot move troops to non bordering region")
-                    }else{
-                        clickB=reg;
-                        cM.createMoveCommand(clickA,clickB,pName,players);
-                        cM.clearClicks();
+                    if(reg!=clickA){
+                        //We do not want to set a movement command from an enemy region.
+                        if(!(clickA.hasBorder(reg))){
+                            clickMessages.push("Cannot move troops to non bordering region")
+                        }else{
+                            clickB=reg;
+                            cM.createMoveCommand(clickA,clickB,pName,players);
+                            cM.clearClicks();
+                        }
+                    }else{ //Clear click.
+                        clickA=null;
                     }
-
                 }
             });
 

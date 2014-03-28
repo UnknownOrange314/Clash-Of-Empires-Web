@@ -4,7 +4,7 @@
 var MoveCommand=function(r1,r2){
     var start=r1;
     var end=r2;
-    var speed=1;
+    var speed=3;
     var conflict=false
 
     this.getConflict=function(){
@@ -35,6 +35,9 @@ var MoveCommand=function(r1,r2){
 MoveCommand.prototype.hashCode=function(){
     return this.getStart().getName()+":"+this.getEnd().getName();
 }
+
+
+
 MoveCommand.prototype.execute=function(player){
     var start=this.getStart()
     var end=this.getEnd()
@@ -43,17 +46,17 @@ MoveCommand.prototype.execute=function(player){
     if(attacker!==defender){
         this.setConflict(true)
         if(Math.random()>0.5){ //Defender hits.
-            attacker.removeTroops(start, attacker.getAttackPower(start));
+            attacker.removeTroops(start, defender.getDefendPower(end));
         }
         else{ //Attacker hits.
             defender.removeTroops(end,attacker.getAttackPower(start));
         }
-        if(defender.getArmy(end)<=0&Object.keys(defender.getRegions()).length>2){//The enemy is out of troops.
+        if(defender.getArmy(end)<=0){//The enemy is out of troops.
             end.loseHP(attacker.getAttackPower(start));
             if(end.getHP()<=0){
-                if(defender.getCapital()!==end){
-                    end.setOwner(player);
-                }
+                var n1=player.getNum();
+                var n2=start.getOwner().getNum();
+                end.setOwner(player);
             }
         }
     }else{

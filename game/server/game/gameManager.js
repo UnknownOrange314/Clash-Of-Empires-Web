@@ -8,7 +8,6 @@ function GameManager(mapGen){
     var cManager=new ClickManager()
 
     //Below are methods for processing input from clients
-
     this.clearClicks=function(){
         cManager.clearClicks()
     }
@@ -40,7 +39,6 @@ function GameManager(mapGen){
         cManager.createMoveCommand(r1,r2,pName,players)
     }
 
-
     this.getRegions=function(){
         return regions;
     }
@@ -48,9 +46,6 @@ function GameManager(mapGen){
     this.getPlayers=function(){
         return players;
     }
-
-
-
 
 
 

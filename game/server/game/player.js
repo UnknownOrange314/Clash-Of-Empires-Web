@@ -1,11 +1,47 @@
 
+function MinorPower(){
+    this.status=function(){
+        return false;
+    }
+
+    this.getBuildCount=function(reg,player){
+        return 1;
+    }
+
+
+    this.getDefense=function(player,reg){
+        return 1.0;
+    }
+}
+
+function MajorPower(){
+
+    this.status=function(){
+        return true;
+    }
+
+    this.getBuildCount=function(player,reg){
+        if(reg===player.getCapital()){
+            return 20;
+        }
+        return 1;
+    }
+
+    this.getDefense=function(player,reg){
+        if(reg==player.getCapital()){
+            return 20;
+        }
+        return 1;
+    }
+
+
+}
 
 
 
+function Player(num,ai,pStatus){
 
-function Player(num,ai){
-
-    var minorPower=false;
+    var powStatus=pStatus
     var army=new ArmyData()
 
     var regions=new HashSet(function(reg){
@@ -21,12 +57,28 @@ function Player(num,ai){
         return com.hashCode()
     })
 
+    /**
+     *
+     * @returns {*} boolean indicating if the player is a minor power.
+     */
     this.powerStatus=function(){
-        return minorPower
+        return powStatus.status()
+    }
+
+    /**
+     *
+     * @returns {*} Information about a player's power status.
+     */
+    this.getPowerData=function(){
+        return powStatus;
     }
 
     this.isMinor=function(minor){
-        minorPower=minor;
+        if(minor==true){
+            powStatus=new MinorPower();
+        }else{
+            powStatus=new MajorPower();
+        }
     }
     /**
      * The attack power of a player when attacking from a region.
@@ -41,11 +93,7 @@ function Player(num,ai){
      * @param reg
      */
     this.getDefendPower=function(reg){
-
-        var dBonus=1.0;
-        if(this.getCapital()===reg){
-            dBonus=15.0;
-        }
+        var dBonus=powStatus.getDefense(this,reg)
         return dBonus*Math.min(this.getArmy(reg),2);
     }
 
@@ -106,7 +154,7 @@ function Player(num,ai){
 
 
     this.removeRegion=function(region){
-        delete regions[region.hashCode()];
+        regions.remove(region)
     }
 
     this.createArmy=function(region){
@@ -126,16 +174,8 @@ function Player(num,ai){
     }
 
     this.buildTroop=function(region){
-
-        var bCount=1;
-        if(minorPower===false){
-            if(region===this.getCapital()){
-                bCount=20-army.getSize()/1000.0000;
-            }
-
-        }
-
-        army.addTroops(region,Math.floor(bCount))
+        var bCount=powStatus.getBuildCount(this,region);
+        army.addTroops(region,bCount)
     }
 
     this.moveTroops=function(start,end,ct){

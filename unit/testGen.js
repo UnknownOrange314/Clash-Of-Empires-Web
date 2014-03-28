@@ -8,7 +8,7 @@ function TestGen(){
         }
         var players=[];
         for(i=0;i<pNum;i++){
-            players.push(new Player(i,new Computer()));
+            players.push(new Player(i,new Computer(),new MajorPower()));
         }
         var j=0;
         regions.forEach(function(r1){

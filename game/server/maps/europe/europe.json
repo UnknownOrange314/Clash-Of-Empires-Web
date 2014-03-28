@@ -94,7 +94,13 @@
             "aX":"400",
             "aY":"400",
             "x":"-20",
-            "y":"-20"
+            "y":"-20",
+            "borders":[
+                "Turkey",
+                "Greece",
+                "Bulgaria"
+            ]
+
         },{
             "name":"Greece",
             "aX":"400",
@@ -351,7 +357,8 @@
             "x":"511",
             "y":"44",
             "borders":[
-                "Sweden"
+                "Sweden",
+                "Baltic"
            ]
         },{
             "name":"Karelia",
@@ -439,7 +446,11 @@
             "aX":"400",
             "aY":"400",
             "x":"417",
-            "y":"68"
+            "y":"68",
+            "borders":[
+                "Baltic",
+                "Prussia"
+            ]
         },{
             "name":"Islands",
             "x":"4444",

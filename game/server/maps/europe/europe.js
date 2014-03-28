@@ -34,10 +34,10 @@ function Europe(data){
         for(var i=1;i<9;i++){
             var p=null;
             if(i>4){//Create human player.
-                p=new Player(i,new NoAI("Minors"+i));
+                p=new Player(i,new NoAI("Minors"+i),new MinorPower());
             }
             else{
-                p=new Player(i,new Computer());
+                p=new Player(i,new Computer(),new MajorPower());
             }
             players.push(p);
         }
@@ -49,36 +49,27 @@ function Europe(data){
 
         players[1].setName("British");
         players[1].setCapital(rTemp["England"]);
-        players[1].isMinor(false)
 
         players[2].setName("Ottoman");
         players[2].setCapital(rTemp["Turkey"]);
-        players[2].isMinor(false)
 
 
         players[3].setName("Russian");
         players[3].setCapital(rTemp["Moscow"]);
-        players[3].isMinor(false)
 
 
         players[4].setName("Spain");
         players[4].setCapital(rTemp["Norway"]);
-        players[4].isMinor(true)
 
 
         players[5].setName("Habsburg");
         players[5].setCapital(rTemp["Norway"])
-        players[5].isMinor(true)
 
         players[6].setName("Germany");
         players[6].setCapital(rTemp["Norway"])
-        players[6].isMinor(true)
 
         players[7].setName("Minors");
         players[7].setCapital(rTemp["Norway"]);
-        players[7].isMinor(true)
-
-
 
         return players;
     }
@@ -94,9 +85,6 @@ function Europe(data){
         rTemp["Ireland"].setOwner(players[1]);
         rTemp["Scotland"].setOwner(players[1]);
         rTemp["England"].setOwner(players[1]);
-        rTemp["Belgium"].setOwner(players[1]);
-        rTemp["Holland"].setOwner(players[1]);
-        rTemp["Greece"].setOwner(players[1]);
 
 
         /**
@@ -112,7 +100,6 @@ function Europe(data){
 
 
 
-        rTemp["Greece"].setOwner(players[2])
         rTemp["Turkey"].setOwner(players[2])
         rTemp["Albania"].setOwner(players[2])
         rTemp["Bulgaria"].setOwner(players[2])
@@ -121,7 +108,6 @@ function Europe(data){
         rTemp["Croatia"].setOwner(players[2])
         rTemp["Romania"].setOwner(players[2])
         rTemp["Hungary"].setOwner(players[2])
-        rTemp["Sicily"].setOwner(players[2])
 
 
 

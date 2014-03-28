@@ -123,8 +123,8 @@ test("Conquest test",function(){
     var r3=new Region(3,3);
     var r4=new Region(4,4);
 
-    var p1=new Player(1,new NoAI());
-    var p2=new Player(2,new NoAI());
+    var p1=new Player(1,new NoAI("P1"),new MajorPower());
+    var p2=new Player(2,new NoAI("P2"),new MajorPower());
 
     r0.setOwner(p1);
     r1.setOwner(p1);
@@ -213,11 +213,11 @@ test("AI Tests",function(){
     var map=new GameManager(new TestGen());
 
     var oStr="";
-    var rCount=0;
+    var regionCount=0;
     var players=map.getPlayers();
     players.forEach(function(p){
         oStr=oStr+":"+ p.countRegions();
-        rCount+= p.countRegions();
+        regionCount+= p.countRegions();
     });
 
     for(var i=0;i<9;i++){
@@ -233,17 +233,17 @@ test("AI Tests",function(){
     }
 
 
-    var rCount2=0;
+    var regionCount2=0;
     var players=map.getPlayers();
     players.forEach(function(p){
-        rCount2+= p.countRegions();
+        regionCount2+= p.countRegions();
     });
 
-    if(rCount!=rCount2){
-        ok(0,rCount+":"+rCount2);
+    if(regionCount!=regionCount2){
+        ok(0,regionCount+":"+regionCount2);
     }
     var data=map.updateState();
-    ok(data["moveCommands"]["0"].length>1,"Move commands are greater than 0");
+    ok(data["moveCommands"]["0"].length>0,JSON.stringify(data["moveCommands"]));
 
 
 
@@ -255,7 +255,7 @@ test("AI Tests",function(){
  */
 asyncTest("Player move command test",function(){
 
-    $.getJSON('server/maps/europe.json',function(json){
+    $.getJSON('game/server/maps/europe/europe.json',function(json){
 
 
         var map=new GameManager(new Europe(json));
@@ -282,9 +282,8 @@ asyncTest("Player move command test",function(){
  */
 
 asyncTest("Speed Test",function(){
-    $.getJSON('server/maps/europe.json',function(json){
-        start();
-        console.log("Start:"+start)
+    $.getJSON('game/server/maps/europe/europe.json',function(json){
+
         var map=new GameManager(new Europe(json));
 
         var st=new Date().getTime();
@@ -299,7 +298,7 @@ asyncTest("Speed Test",function(){
         console.log("Done")
         ok(time<10*cycles,"Time "+(end-st));
         ok(1);
-        start()
+        start();
     });
 });
 
