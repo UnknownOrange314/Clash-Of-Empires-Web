@@ -37,13 +37,15 @@ function MapDisplay(dataCon,pName,rCont){
             dataType:"text",
             success: function(imgData){
                 svgView.drawRegions(imgData,data,rCont,dataCon)
-                symbolView.drawSymbols(data)
+                symbolView.update(data)
             }
         })
     }
 
     //Load data and draw regions
     this.drawShapes(dataCon.getMapInfo())
+    var keyList=new KeyListener(dataCon,svgView,symbolView,dataView)
+
 
     this.gameLoop=function(){
         var timer=new Timer()
@@ -59,9 +61,12 @@ function MapDisplay(dataCon,pName,rCont){
 
 
 
+
         if(timer.getTime()>maxTime){
             console.log("Too slow, game update time:"+timer.getTime()+"ms")
         }
     }
+
+
 
 }

@@ -25,7 +25,6 @@
      */
 
     connectionManager.prototype.getMapInfo = function() {
-      console.log(this.game.getMapInfo());
       return this.game.getMapInfo();
     };
 

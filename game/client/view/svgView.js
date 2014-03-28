@@ -5,6 +5,9 @@
  */
 function SvgView(pN,cData,lConf){
 
+    var zoom=0.25;
+
+
     var pName=pN //Name of player.
     var colorData=cData //Data about the color.
     var labelConfig=lConf //Location of labels.
@@ -25,7 +28,7 @@ function SvgView(pN,cData,lConf){
                 .attr("font-weight",labelConfig["font-weight"])
             svg.selectAll("path#"+reg)
                 .attr("stroke-width",2)
-                .attr("transform","scale(0.25)")
+                .attr("transform","scale("+zoom+")")
                 .on("click",function(d,i){console.log(d+":"+i+"  "+reg); dataCon.sendClick(reg,pName)      })
         });
     }
@@ -58,4 +61,28 @@ function SvgView(pN,cData,lConf){
         svg.selectAll("path#"+clickData)//Color other region.
             .attr("fill","white")
     }
+
+    this.update=function(data){
+        Object.keys(data).forEach(function(reg){
+            var rData=data[reg]
+            svg.selectAll("path#"+reg)
+                .attr("stroke-width",2)
+                .attr("transform","scale("+zoom+")")
+
+            svg.selectAll("text#"+reg)
+                .attr("transform","translate(10,20)scale("+4*zoom+")")
+        });
+
+    }
+
+    this.zoomIn=function(data){
+        zoom+=0.01;
+        this.update(data);
+    }
+
+    this.zoomOut=function(data){
+        zoom-=0.01;
+        this.update(data);
+    }
+
 }
