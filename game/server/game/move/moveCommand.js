@@ -5,30 +5,30 @@ var MoveCommand=function(r1,r2){
     var start=r1;
     var end=r2;
     var speed=3;
-    var conflict=false
+    var conflict=false;
 
     this.getConflict=function(){
-        return conflict
+        return conflict;
     }
 
     this.setConflict=function(con){
-        conflict=con
+        conflict=con;
     }
 
     this.getStart=function(){
-        return start
+        return start;
     }
 
     this.getEnd=function(){
-        return end
+        return end;
     }
 
     this.getSpeed=function(){
-        return speed
+        return speed;
     }
 
     this.hashCode=function(){
-        return start.getName()+":"+end.getName()
+        return start.getName()+":"+end.getName();
     }
 }
 
@@ -39,12 +39,12 @@ MoveCommand.prototype.hashCode=function(){
 
 
 MoveCommand.prototype.execute=function(player){
-    var start=this.getStart()
-    var end=this.getEnd()
+    var start=this.getStart();
+    var end=this.getEnd();
     var attacker=start.getOwner();
     var defender=end.getOwner();
     if(attacker!==defender){
-        this.setConflict(true)
+        this.setConflict(true);
         if(Math.random()>0.5){ //Defender hits.
             attacker.removeTroops(start, defender.getDefendPower(end));
         }

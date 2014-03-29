@@ -1,3 +1,8 @@
+/**
+ * This function generates visual data about each region.
+ * @param config The configuration file.
+ * @constructor
+ */
 function DataCanvas(config){
 
     var cName='animation';
@@ -83,10 +88,11 @@ function DataCanvas(config){
             })
         })
     }
+
     this.update=function(gameState){
-        clearCanvas(cName)
-        showRegDamage(gameState)
-        showMoveCommands(gameState)
+        clearCanvas(cName);
+        showRegDamage(gameState);
+        showMoveCommands(gameState);
 
     }
 }
