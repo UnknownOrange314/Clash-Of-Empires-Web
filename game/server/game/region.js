@@ -11,6 +11,20 @@ function Region(x,y,aX,aY,rName,sLoc){
     var maxHP=1000;
     var curHP=1000;
 
+    //Create an economy for each region.
+    var economy=new Economy();
+
+    this.update=function(){
+        economy.growPopulation();
+    }
+
+    /**
+     * This method gets resource income for a city.
+     */
+    this.getResources=function(){
+        return economy.tax();
+    }
+
     this.getAx=function(){
         return aX
     }

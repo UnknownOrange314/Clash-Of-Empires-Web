@@ -41,6 +41,8 @@ function MajorPower(){
 
 function Player(num,ai,pStatus){
 
+    var myMoney=0;
+
     var powStatus=pStatus
     var army=new ArmyData()
 
@@ -146,10 +148,11 @@ function Player(num,ai,pStatus){
         return regions;
     }
 
-    this.moveTroops=function(r1,r2,mv){
-        var ct=Math.min(this.getArmy(r1),mv);
-        this.removeTroops(r1,ct);
-        this.addTroops(r2,mv);
+    //TODO: Consider adding a unit test to make sure that this works properly
+    this.moveTroops=function(r1,r2,maxSpeed){
+        var moveNum=Math.min(this.getArmy(r1),maxSpeed);
+        this.removeTroops(r1,moveNum);
+        this.addTroops(r2,moveNum);
     }
 
 
@@ -178,10 +181,7 @@ function Player(num,ai,pStatus){
         army.addTroops(region,bCount)
     }
 
-    this.moveTroops=function(start,end,ct){
-        this.removeTroops(start,ct);
-        this.addTroops(end,ct);
-    }
+
 
     this.getNum=function(){
         return num;
@@ -200,9 +200,16 @@ function Player(num,ai,pStatus){
 
         regions.forEach(function(reg){
             reg.heal();
+            myMoney+=reg.getResources();
         });
+        myMoney-=army.getSize()*0.0001;
 
+        //Subtract money for troop costs.
         this.update();
+    }
+
+    this.getMoney=function(){
+        return myMoney;
     }
 
     /**
@@ -252,7 +259,7 @@ function Player(num,ai,pStatus){
     this.exportState=function(){
         var pData={};
         pData["score"]=this.getScore();
-        pData["money"]=0.0;
+        pData["money"]=Math.round(myMoney);
         pData["num"]=this.getNum();
         return pData
 

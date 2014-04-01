@@ -22,11 +22,12 @@ function SvgView(pN,cData,lConf){
      * @param renderCont The location where the image will go.
      * @param dataCon The connection to the server to get the data.
      */
-    this.drawRegions=function(shapeData,regionData,renderCont,dataCon){
+    this.setupRegionView=function(shapeData,regionData,renderCont,dataCon){
         renderCont.find("#game").prepend(shapeData);
+        svg=d3.select("svg");
+        console.log("Drawing regions");
         Object.keys(regionData).forEach(function(reg){
             var rData=regionData[reg];
-            svg=d3.select("svg");
             svg.selectAll("text#"+reg)
                 .attr("x",rData["x"])
                 .attr("y",rData["y"])
@@ -39,13 +40,14 @@ function SvgView(pN,cData,lConf){
                 .attr("transform","scale("+zoom+")")
                 .on("click",function(d,i){console.log(d+":"+i+"  "+reg); dataCon.sendClick(reg,pName)      })
         });
+
     }
 
     /**
      * Changes the color of the region to indicate the owner.
      * @param gameState
      */
-    this.showOwners=function(gameState){
+    this.updateData=function(gameState){
         gameState["regionStates"].map(function(state){
             svg.selectAll("path#"+state["name"])
                 .attr("fill",colorData[state["owner"]]);
@@ -58,6 +60,7 @@ function SvgView(pN,cData,lConf){
             svg.selectAll("path#"+update["name"])
                 .attr("fill",colorData[update["owner"]])
         }
+
     }
 
     /**
@@ -84,7 +87,7 @@ function SvgView(pN,cData,lConf){
      * Updates the view.
      * @param data The data that is used for rendering.
      */
-    this.update=function(data){
+    this.processZoom=function(data){
         Object.keys(data).forEach(function(reg){
             var rData=data[reg];
             svg.selectAll("path#"+reg)
@@ -93,25 +96,21 @@ function SvgView(pN,cData,lConf){
             svg.selectAll("text#"+reg)
                 .attr("transform","translate(10,20)scale("+4*zoom+")");
         });
+        var z=zoom*4;
+        console.log("Zoom:"+zoom);
+        svg.selectAll("image")
+            .attr("transform","scale("+z+")");
 
     }
 
-    /**
-     * Zoom in.
-     * @param data The data used for rendering.
-     */
     this.zoomIn=function(data){
         zoom+=0.01;
-        this.update(data);
+        this.processZoom(data);
     }
 
-    /**
-     * Zoom out.
-     * @param data The data used for rendering.
-     */
     this.zoomOut=function(data){
         zoom-=0.01;
-        this.update(data);
+        this.processZoom(data);
     }
 
 }

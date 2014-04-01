@@ -113,7 +113,7 @@ test("Point tests",function(){
     ok(p.getDistance(p5)===5,"Testing distance:"+ p.getDistance(p5));
 });
 
-test("Conquest test",function(){
+test("Move test",function(){
 
     //Players cannot take over region because players cannot lose their last two regions.
     //Players take damage even when there are no troops in a region.

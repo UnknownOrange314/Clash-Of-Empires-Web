@@ -15,6 +15,7 @@ function loadFlags(flagData,drawFun){
     function loadImage(loadIdx){
         if(loadIdx>=names.length){ //We are done loading the images.
             drawFun(imgData);
+            return;
         }
         var name=names[loadIdx];
         var imgLoc=locs[loadIdx];

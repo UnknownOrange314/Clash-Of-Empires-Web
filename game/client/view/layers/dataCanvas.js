@@ -13,7 +13,7 @@ function DataCanvas(config){
     var zMan=new ZoomManager(xScale,yScale,ctx);
 
     //Minimum zoom levels for showing certain information
-    var minBattleZoom=1.00;
+    var minBattleZoom=1.40;
     var minHitPointZoom=1.00;
 
     //Load explosion image.
@@ -29,6 +29,10 @@ function DataCanvas(config){
 
     this.zoomOut=function(data){
         zMan.zoomOut();
+    }
+
+    this.translate=function(x,y,data){
+        zMan.translate(x,y);
     }
 
     var showRegDamage=function(gameState){

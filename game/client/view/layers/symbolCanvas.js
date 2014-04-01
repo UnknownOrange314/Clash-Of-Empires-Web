@@ -33,6 +33,10 @@ function SymbolCanvas(config){
         this.update(rData);
     }
 
+    this.translate=function(x,y,data){
+
+    }
+
     /**
      * TODO:Make sure that rile image does not have to be reloaded every time we zoom.
      * Draws the canvas

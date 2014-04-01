@@ -14,7 +14,7 @@ function Panel(x,y,w,h,backCol,updateFun,ctx){
     this.update=function(data){
         ctx.fillStyle=backCol;
         ctx.fillRect(x,y,w,h);
-        updateFun(data)
+        updateFun(data);
     }
 
 }

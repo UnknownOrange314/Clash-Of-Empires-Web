@@ -48,6 +48,10 @@
       return 0;
     };
 
+      /**
+       *
+       * @returns {number|*} The total number of troops.
+       */
     ArmyData.prototype.getSize = function() {
       return this.troops;
     };
