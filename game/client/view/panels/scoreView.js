@@ -28,7 +28,6 @@ function ScoreView(config){
         var textIdx=0;
 
         for(var key in flags){
-            console.log("Flag"+flags[key]);
             var img=flags[key];
             ctx.fillText(names[textIdx],xPos,h-10);
             ctx.drawImage(img,xPos,h,size,size*img.height/img.width);

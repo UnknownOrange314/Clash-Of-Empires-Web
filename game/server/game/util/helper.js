@@ -2,18 +2,7 @@
 (function() {
   var avg, clearCanvas, getCanvas;
 
-  getCanvas = function(name) {
-    var canvas;
-    canvas = $('#' + name)[0];
-    return canvas.getContext('2d');
-  };
 
-  clearCanvas = function(name) {
-    var canvas, ctx;
-    canvas = $('#' + name)[0];
-    ctx = canvas.getContext('2d');
-    return ctx.clearRect(0, 0, canvas.width, canvas.height);
-  };
 
   avg = function(a, b) {
     return (a + b) / 2;
@@ -21,9 +10,6 @@
 
   window.avg = avg;
 
-  window.getCanvas = getCanvas;
-
-  window.clearCanvas = clearCanvas;
 
 }).call(this);
 

@@ -18,7 +18,8 @@ function helpController($scope, $http) {
            url:"game/gameHTML.txt",
            dataType:"text",
            success:function(data){
-               $("body").find("#game").html(data)
+               console.log(data)
+               $("body").find("#game").html(data);
                startClient(new connectionManager(),"Host");
 
            }

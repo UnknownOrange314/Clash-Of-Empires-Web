@@ -3,12 +3,12 @@
  */
 function ClickManager(){
 
-    var clickMessages=[] //Messages that are sent back to the user.
+    var clickMessages=[]; //Messages that are sent back to the user.
     var clickA=null;
     var clickB=null;
 
     this.getClickMessages=function(){
-        var cLen=clickMessages.length
+        var cLen=clickMessages.length;
         if(cLen>2){
             clickMessages=clickMessages.slice(cLen-2,cLen)
         }
@@ -45,7 +45,6 @@ function ClickManager(){
             var cM=this;
             regions.forEach(function(reg){
                 if(reg.getName()===pt){
-
                     if(reg!=clickA){
                         //We do not want to set a movement command from an enemy region.
                         if(!(clickA.hasBorder(reg))){

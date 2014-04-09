@@ -25,3 +25,9 @@
     top:200px;
     left:300px;
 }
+
+#interface{
+     position: absolute;
+     top: 1050px;
+     left:0px;
+ }

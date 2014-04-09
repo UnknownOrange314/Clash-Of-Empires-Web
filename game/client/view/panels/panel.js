@@ -10,7 +10,7 @@
  * @constructor
  */
 function Panel(x,y,w,h,backCol,updateFun,ctx){
-
+    this.ctx=ctx;
     this.update=function(data){
         ctx.fillStyle=backCol;
         ctx.fillRect(x,y,w,h);

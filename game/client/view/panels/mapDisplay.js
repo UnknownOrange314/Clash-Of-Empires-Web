@@ -13,6 +13,7 @@ function MapDisplay(dataCon,pName,rCont){
     var scoreView=null;
     var alertView=new AlertView();
     var cycleNum=0;
+    var upSpeed=MapDisplay.updateSpeed;
 
     $.ajax({
         url:"game/server/game/renderConfig.json",
@@ -25,7 +26,6 @@ function MapDisplay(dataCon,pName,rCont){
             symbolView=new SymbolCanvas(data);
             svgView=new SvgView(pName,colorData,labelConfig);
             scoreView=new ScoreView(data);
-            console.log("Symbol View:"+symbolView);
         },
         error:function(xhr,ajaxOptions,thrownError){
             console.log("Error loading config file")
@@ -38,7 +38,6 @@ function MapDisplay(dataCon,pName,rCont){
             url:"game/server/maps/europe/map.svg",
             dataType:"text",
             success: function(imgData){
-                console.log("SVGView:"+svgView);
                 svgView.setupRegionView(imgData,data,rCont,dataCon);
                 symbolView.update(data);
             }
@@ -47,7 +46,8 @@ function MapDisplay(dataCon,pName,rCont){
 
     //Load data and draw regions
     this.drawShapes(dataCon.getMapInfo());
-    var keyList=new KeyListener(dataCon,svgView,symbolView,dataView);
+    var inList=new InputListener(dataCon,svgView,symbolView,dataView,this);
+    var interfaceCont=new InterfaceView(this,inList);
 
 
     this.gameLoop=function(){
@@ -56,16 +56,32 @@ function MapDisplay(dataCon,pName,rCont){
         var gameState=dataCon.getRegionStates();
         svgView.showClick(gameState,dataCon);
         //Rendering things too fast will make things confusing.
-        if(cycleNum%MapDisplay.updateSpeed==2){ //TODO:Make sure that the "60" is not hardcoded.
+        if(cycleNum%upSpeed==0){ //TODO:Make sure that the "60" is not hardcoded.
             svgView.updateData(gameState);
             scoreView.update(dataCon);
         }
         dataView.update(gameState);
         alertView.update(gameState["clickMessages"]);
+        interfaceCont.update(this);
         var cText=gameState["clickMessages"];
         if(timer.getTime()>maxTime){
             console.log("Too slow, game update time:"+timer.getTime()+"ms")
         }
+    }
+
+    this.speedRender=function(){
+        console.log("Speed render")
+        console.log(upSpeed)
+        upSpeed--;
+    }
+    this.slowRender=function(){
+        console.log("Slow render")
+        console.log(upSpeed)
+        upSpeed++;
+    }
+
+    this.getUpdateSpeed=function(){
+        return upSpeed;
     }
 }
 MapDisplay.updateSpeed=30; //Number of cycles between updating the view.
