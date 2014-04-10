@@ -9,12 +9,11 @@
  * @param ctx The canvas draw object.
  * @constructor
  */
-function Panel(x,y,w,h,backCol,updateFun,ctx){
+function Panel(x,y,w,h,backCol,ctx){
     this.ctx=ctx;
-    this.update=function(data){
+    this.refresh=function(){
         ctx.fillStyle=backCol;
         ctx.fillRect(x,y,w,h);
-        updateFun(data);
     }
 
 }

@@ -1,12 +1,30 @@
+/**
+ * This is responsible for showing information about the performance of players.
+ * TODO:Make sure the label positions here are not hardcoded.
+ * @param config The configuration
+ * @constructor
+ */
 function ScoreView(config){
 
     var h=1000;
     var w=200;
     var startH=150;
 
+    var resources=new Label("Resources",40,400,24);
+    var money=new Label("Money",70,440,12);
+    var score=new Label("Score",50,80,40);
+
+    var resources=new Label("Resources",40,400,24);
+    var score=new Label("Score",50,80,40);
+
+    var scoreLabels=Array();
+    for(var i=0;i<4;i++){
+        y=150+60*i
+        scoreLabels.push(new Label("S",120,y));
+        console.log("J:"+scoreLabels.length);
+    }
+
     /**
-     * This function is responsible for drawing the score panel.
-     * It should probably be
      * @param flags
      */
     var drawPanel=function(flags){
@@ -15,8 +33,7 @@ function ScoreView(config){
         ctx.fillStyle="#C0C0C0";
         ctx.fillRect(0,0,w,1000);
         ctx.fillStyle="#000000";
-        ctx.font='40pt Calibri';
-        ctx.fillText("Score",50,80);
+        score.draw(ctx);
         var size=40;
         var xPos=40;
         var h=startH;
@@ -26,7 +43,6 @@ function ScoreView(config){
         ctx.fillStyle="#000000";
         ctx.font='14pt Calibri';
         var textIdx=0;
-
         for(var key in flags){
             var img=flags[key];
             ctx.fillText(names[textIdx],xPos,h-10);
@@ -37,38 +53,25 @@ function ScoreView(config){
     }
 
 
+    var ctx=getCanvas('score');
+    loadFlags(config["FlagData"],drawPanel);
+    var panel=new Panel(100,100,100,600,"#C0C0C0",ctx);
 
-
-    var update=function(dataCon){
-
+    this.update=function(dataCon){
+        panel.refresh()
         var pData=dataCon.getPlayerState();
         var x=120;
         var y=startH;
         var dH=60;
+        var j=0;
         Object.keys(pData).forEach(function(name){
-            ctx.fillStyle="#000000";
-            ctx.font='14pt Calibri';
-            ctx.fillText(pData[name]["score"],x,y);
-            y+=dH;
+            scoreLabels[j].setText(pData[name]["score"])
+            scoreLabels[j].draw(ctx);
+            j++;
         });
-
-
-        y+=200;
-        ctx.font='24pt Calibri';
-        ctx.fillText("Resources",x-80,y);
-        ctx.font='12pt Calibri';
-        //TODO: Make sure that this is not hardcoded to use a specific player name.
-        ctx.fillText("Money",x-80,y+60); //This is a bug.
-        ctx.fillText("$"+pData["Russian"]["money"],x-20,y+60); //This is a bug.
-    }
-
-
-    var ctx=getCanvas('score');
-    loadFlags(config["FlagData"],drawPanel);
-
-    var panel=new Panel(100,100,100,600,"#C0C0C0",update,ctx);
-    this.update=function(data){
-        panel.update(data)
+        resources.draw(ctx);
+        money.setText("Money:"+"$"+pData["Russian"]["money"]) //TODO: Make sure that this is not hardcoded to use a specific player name.
+        money.draw(ctx);
     }
 }
 

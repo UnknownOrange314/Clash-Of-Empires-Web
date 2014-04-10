@@ -6,8 +6,11 @@
  */
 function AlertView(){
 
+    var ctx=getCanvas('alerts');
+    var panel=new Panel(0,0,700,100,"#C0C0C0",ctx);
 
-    var update=function(messages){
+    this.update=function(data){
+        panel.refresh();
         ctx.fillStyle="#000000";
         ctx.font='30pt Calibri';
         var sX=10;
@@ -18,13 +21,6 @@ function AlertView(){
             ctx.fillText(messages[i],sX,sY);
             sY+=dH
         }
-    }
-
-    var ctx=getCanvas('alerts');
-    var panel=new Panel(0,0,700,100,"#C0C0C0",update,ctx);
-
-    this.update=function(data){
-        panel.update(data);
     }
 
 }

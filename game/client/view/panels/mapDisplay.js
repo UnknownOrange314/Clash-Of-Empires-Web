@@ -13,7 +13,7 @@ function MapDisplay(dataCon,pName,rCont){
     var scoreView=null;
     var alertView=new AlertView();
     var cycleNum=0;
-    var upSpeed=MapDisplay.updateSpeed;
+    this._upSpeed=MapDisplay.updateSpeed;
 
     $.ajax({
         url:"game/server/game/renderConfig.json",
@@ -49,39 +49,45 @@ function MapDisplay(dataCon,pName,rCont){
     var inList=new InputListener(dataCon,svgView,symbolView,dataView,this);
     var interfaceCont=new InterfaceView(this,inList);
 
-
+    var obj=this;
     this.gameLoop=function(){
         var timer=new Timer();
         cycleNum++;
         var gameState=dataCon.getRegionStates();
         svgView.showClick(gameState,dataCon);
+
+        console.log(obj._upSpeed)
         //Rendering things too fast will make things confusing.
-        if(cycleNum%upSpeed==0){ //TODO:Make sure that the "60" is not hardcoded.
+        if(cycleNum%obj._upSpeed==0){ //TODO:Make sure that the "60" is not hardcoded.
             svgView.updateData(gameState);
             scoreView.update(dataCon);
         }
         dataView.update(gameState);
         alertView.update(gameState["clickMessages"]);
-        interfaceCont.update(this);
+        interfaceCont.update();
         var cText=gameState["clickMessages"];
         if(timer.getTime()>maxTime){
             console.log("Too slow, game update time:"+timer.getTime()+"ms")
         }
     }
-
-    this.speedRender=function(){
-        console.log("Speed render")
-        console.log(upSpeed)
-        upSpeed--;
-    }
-    this.slowRender=function(){
-        console.log("Slow render")
-        console.log(upSpeed)
-        upSpeed++;
-    }
-
-    this.getUpdateSpeed=function(){
-        return upSpeed;
-    }
 }
+
+
 MapDisplay.updateSpeed=30; //Number of cycles between updating the view.
+
+MapDisplay.prototype.speedRender=function(){
+    console.log("Speed render")
+    console.log("Item:"+this);
+    console.log("Update speed:"+this._upSpeed)
+    this._upSpeed--;
+}
+
+MapDisplay.prototype.slowRender=function(){
+    console.log("Slow render")
+    console.log(this._upSpeed)
+    this._upSpeed++;
+}
+
+MapDisplay.prototype.getUpdateSpeed=function(){
+    return this._upSpeed;
+}
