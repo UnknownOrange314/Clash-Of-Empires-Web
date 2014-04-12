@@ -13,6 +13,20 @@ function GameManager(mapGen){
     }
 
     /**
+     * This function processes the research commands
+     * @param rName The research name.
+     */
+    this.researchCommand=function(rName){
+        console.log(" command");
+        players.forEach(function(p){
+            if(p.getName()=="Host"){
+
+                p.upgrade(rName);
+            }
+        })
+    }
+
+    /**
      * @param pt
      */
     this.processClick=function(pt,pName){

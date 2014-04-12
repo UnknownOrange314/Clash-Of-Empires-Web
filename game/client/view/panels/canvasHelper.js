@@ -42,10 +42,8 @@ transformClick=function(e,ctx){
         x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
         y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
     }
-    console.log(x);
    // x -= ctx.offsetLeft;
    // y -= ctx.offsetTop;
-    console.log(x);
     var a=Array()
     a.push(x);
     a.push(y);

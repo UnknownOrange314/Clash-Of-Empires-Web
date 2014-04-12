@@ -7,12 +7,12 @@
 function MapDisplay(dataCon,pName,rCont){
 
     var maxTime=30;
+    var inList=new InputListener(dataCon,this);
     var dataView=null;
     var svgView=null;
     var scoreView=null;
     var alertView=new AlertView();
     var regionInfo=new RegionInfo(); //This is the view responsible for showing region information.
-    console.log("nfoView:"+JSON.stringify(regionInfo));
 
     var cycleNum=0;
     this._upSpeed=MapDisplay.updateSpeed;
@@ -26,13 +26,12 @@ function MapDisplay(dataCon,pName,rCont){
             var labelConfig=data["ArmyLabels"][0];
             dataView=new DataCanvas(data);
             svgView=new SvgView(pName,colorData,labelConfig);
-            scoreView=new ScoreView(data);
+            scoreView=new ScoreView(data,inList);
         },
         error:function(xhr,ajaxOptions,thrownError){
             console.log("Error loading config file")
         }
     });
-    console.log("Done loading");
 
     this.drawShapes=function(data){
         $.ajax({
@@ -46,7 +45,8 @@ function MapDisplay(dataCon,pName,rCont){
 
     //Load data and draw regions
     this.drawShapes(dataCon.getMapInfo());
-    var inList=new InputListener(dataCon,svgView,dataView,this);
+    inList.addLayer(svgView);
+    inList.addLayer(dataView);
     var interfaceCont=new InterfaceView(this,inList);
 
     var obj=this;
@@ -55,8 +55,6 @@ function MapDisplay(dataCon,pName,rCont){
         cycleNum++;
         var gameState=dataCon.getRegionStates();
         svgView.showClick(gameState,dataCon);
-
-        console.log(obj._upSpeed)
         //Rendering things too fast will make things confusing.
         if(cycleNum%obj._upSpeed==0){ //TODO:Make sure that the "60" is not hardcoded.
             svgView.updateData(gameState);
@@ -77,9 +75,6 @@ function MapDisplay(dataCon,pName,rCont){
 MapDisplay.updateSpeed=30; //Number of cycles between updating the view.
 
 MapDisplay.prototype.speedRender=function(){
-    console.log("Speed render")
-    console.log("Item:"+this);
-    console.log("Update speed:"+this._upSpeed)
     this._upSpeed--;
 }
 

@@ -25,7 +25,6 @@ function SvgView(pN,cData,lConf){
     this.setupRegionView=function(shapeData,regionData,renderCont,dataCon){
         renderCont.find("#game").prepend(shapeData);
         svg=d3.select("svg");
-        console.log("Drawing regions");
         Object.keys(regionData).forEach(function(reg){
             var rData=regionData[reg];
             svg.selectAll("text#"+reg)
@@ -97,7 +96,6 @@ function SvgView(pN,cData,lConf){
                 .attr("transform","translate(10,20)scale("+4*zoom+")");
         });
         var z=zoom*4;
-        console.log("Zoom:"+zoom);
         svg.selectAll("image")
             .attr("transform","scale("+z+")");
 

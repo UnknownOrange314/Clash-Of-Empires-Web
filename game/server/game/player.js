@@ -89,7 +89,7 @@ function Player(num,ai,pStatus){
      * @param reg
      */
     this.getAttackPower=function(reg){
-        return army.getAttackPower(reg)
+        return army.getAttackPower(reg)*(1+dRes);
     }
 
     /**
@@ -97,7 +97,7 @@ function Player(num,ai,pStatus){
      * @param reg
      */
     this.getDefendPower=function(reg){
-        var dBonus=powStatus.getDefense(this,reg)
+        var dBonus=powStatus.getDefense(this,reg)*(1+dRes);
         return dBonus*Math.min(this.getArmy(reg),2);
     }
 
@@ -216,7 +216,7 @@ function Player(num,ai,pStatus){
      * @param cost
      */
     this.subtractCost=function(cost){
-        myMoney-=cost;
+        myMoney-=cost/(1+iRes); //Reduce cost by infrastructure.
     }
     this.getMoney=function(){
         return myMoney;
@@ -263,6 +263,14 @@ function Player(num,ai,pStatus){
         moveCommands.remove(c)
     }
 
+
+
+    //TODO: Refactor the code below here since it is a hack.
+    var mRes=1;
+    var iRes=1;
+    var fRes=1;
+    var dRes=1;
+
     /**
      * This function exports data about the player state.
      */
@@ -272,8 +280,57 @@ function Player(num,ai,pStatus){
         pData["money"]=Math.round(myMoney);
         pData["num"]=this.getNum();
         pData["research"]=Math.round(myResearch);
+        pData["mRes"]=mRes;
+        pData["iRes"]=iRes;
+        pData["fRes"]=fRes;
+        pData["dRes"]=dRes;
         return pData
 
+    }
+
+
+    this.upgrade=function(uName){
+
+        console.log("Upgrade:"+uName);
+        if(uName=="movement"){
+            var c=Math.pow(2,mRes)*10
+            if(c<myMoney){
+                console.log("Move research upgrading:"+mRes);
+                mRes++;
+                this.subtractCost(c);
+            }
+        }
+        if(uName=="infrastructure"){
+            var c=Math.pow(2,iRes*10);
+            if(c<myMoney){
+                iRes++;
+                this.subtractCost(c);
+            }
+        }
+        if(uName=="farming"){
+            var c=Math.pow(2,fRes*10);
+            if(c<myMoney){
+                fRes++;
+                this.subtractCost(c);
+            }
+        }
+        if(uName=="defense"){
+            var c=Math.pow(2,dRes*10);
+            if(c<myMoney){
+                dRes++;
+                this.subtractCost(c);
+            }
+        }
+    }
+
+    this.speedMul=function(){
+        return 1+mRes;
+    }
+
+
+    //Pop cap mul
+    this.getCapMul=function(){
+        return 1+fRes;
     }
 
 }

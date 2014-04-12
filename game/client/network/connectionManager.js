@@ -80,6 +80,10 @@
         this.game.upgradeCommand(upCom);
     }
 
+    connectionManager.prototype.researchCommand=function(rName){
+        this.game.researchCommand(rName);
+    }
+
     return connectionManager;
 
   })();

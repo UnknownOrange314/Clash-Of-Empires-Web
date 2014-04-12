@@ -46,7 +46,7 @@ function Region(x,y,aX,aY,rName,sLoc){
 
 
     this.update=function(){
-        economy.growPopulation();
+        economy.growPopulation(myOwner.getCapMul());
     }
 
     /**

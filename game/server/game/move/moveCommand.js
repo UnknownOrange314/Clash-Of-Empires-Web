@@ -70,6 +70,6 @@ MoveCommand.prototype.execute=function(player){
         this.triggerConflict(false)
     }
     if(start.getOwner()===end.getOwner()){
-        player.moveTroops(start,end,MoveCommand.speed);
+        player.moveTroops(start,end,MoveCommand.speed*start.getOwner().speedMul());
     }
 }
