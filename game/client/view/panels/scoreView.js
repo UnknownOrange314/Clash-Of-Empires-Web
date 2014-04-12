@@ -11,7 +11,9 @@ function ScoreView(config){
     var startH=150;
 
     var resources=new Label("Resources",40,400,24);
-    var money=new Label("Money",70,440,14);
+    var money=new Label("Money",70,440,14); //Label to indicate research.
+    var research=new Label("Research",70,480,14);
+
     var score=new Label("Score",50,80,40);
 
     var resources=new Label("Resources",40,400,24);
@@ -23,6 +25,9 @@ function ScoreView(config){
         scoreLabels.push(new Label("S",120,y,14));
         console.log("J:"+scoreLabels.length);
     }
+
+    //var resButtons=Array();
+
 
     /**
      * @param flags
@@ -70,8 +75,10 @@ function ScoreView(config){
             j++;
         });
         resources.draw(ctx);
-        money.setText("Money:"+"$"+pData["Russian"]["money"]) //TODO: Make sure that this is not hardcoded to use a specific player name.
+        money.setText("Money: "+"$"+pData["Russian"]["money"]) //TODO: Make sure that this is not hardcoded to use a specific player name.
         money.draw(ctx);
+        research.setText("Research: "+pData["Russian"]["research"]);
+        research.draw(ctx);
     }
 }
 

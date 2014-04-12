@@ -19,8 +19,15 @@ function GameManager(mapGen){
         cManager.processClick(pt,pName,regions,players)
     }
 
-    this.getFirstClick=function(){
-        return cManager.getFirstClick()
+    this.getFirstClickName=function(){
+        return cManager.getFirstClickName()
+    }
+
+    this.upgradeCommand=function(uCom){
+        var cReg=cManager.getClickReg();
+        cReg.upgrade(uCom);
+
+
     }
 
     /**
@@ -55,11 +62,11 @@ function GameManager(mapGen){
     this.getMapInfo=function(){
         var rData={};
         regions.forEach(function(reg){
-            var data={}
-            data["x"]=reg.getX()
-            data["y"]=reg.getY()
-            data["aX"]=reg.getAx()
-            data["aY"]=reg.getAy()
+            var data={};
+            data["x"]=reg.getX();
+            data["y"]=reg.getY();
+            data["aX"]=reg.getAx();
+            data["aY"]=reg.getAy();
             rData[reg.getName()]=data
         });
         return rData;

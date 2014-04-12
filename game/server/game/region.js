@@ -14,6 +14,37 @@ function Region(x,y,aX,aY,rName,sLoc){
     //Create an economy for each region.
     var economy=new Economy();
 
+    //TODO: Find a better way of doing upgrades that doesn't rely on excessive if statements.
+    this.upgrade=function(uCom){
+        console.log("Upgrading with command:"+uCom);
+        var owner=this.getOwner();
+        if(uCom=="Market"){
+            console.log(economy.getTradeCost()+":"+owner.getMoney())
+            if(economy.getTradeCost()<owner.getMoney()){
+                console.log("Upgrading market");
+                owner.subtractCost(economy.getTradeCost());
+                economy.upgradeMarket();
+            }
+        }
+        if(uCom=="University"){
+            if(economy.getResearchCost()<owner.getMoney()){
+                owner.subtractCost(economy.getResearchCost());
+                economy.upgradeResearch();
+            }
+        }
+        if(uCom=="Barracks"){
+            if(economy.getBarracksCost()<owner.getMoney()){
+                owner.subtractCost(economy.getBarracksCost());
+                economy.upgradeBarracks();
+            }
+        }
+    }
+
+    this.getResearch=function(){
+        return economy.getResearch();
+    }
+
+
     this.update=function(){
         economy.growPopulation();
     }
@@ -25,6 +56,9 @@ function Region(x,y,aX,aY,rName,sLoc){
         return economy.getTax();
     }
 
+    this.getRecruitment=function(){
+        return 1+economy.getBarracks();
+    }
     this.getAx=function(){
         return aX
     }
@@ -134,6 +168,9 @@ function Region(x,y,aX,aY,rName,sLoc){
         arr["name"]=this.getName();
         arr["population"]=parseInt(economy.getPopulation())/1000000.0;
         arr["tax"]=parseInt(economy.getTax()*1000)/1000;
+        arr["economy"]=economy.getTrade();
+        arr["research"]=economy.getResearch();
+        arr["barracks"]=economy.getBarracks();
         return arr;
     }
 

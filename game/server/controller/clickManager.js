@@ -63,7 +63,18 @@ function ClickManager(){
         }
     }
 
-    this.getFirstClick=function(){
+    /**
+     * Get the region that has been clicked on.
+     */
+    this.getClickReg=function(){
+        return clickA;
+    }
+
+    /**
+     * Get the name of the region that has been clicked on.
+     * @returns {*}
+     */
+    this.getFirstClickName=function(){
         if(clickA!==null){
             return clickA.getName();
         }else{

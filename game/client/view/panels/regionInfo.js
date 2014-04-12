@@ -25,7 +25,9 @@ function RegionInfo(){
                 ctx.fillText("Number of troops: "+state["army"],10,120);
                 ctx.fillText("Population: "+state["population"]+" million",10,160);
                 ctx.fillText("Tax income: $"+state["tax"],10,200);
-                console.log("Finding information for region:"+state["name"]);
+                ctx.fillText("Tax:"+state["economy"],10,240);
+                ctx.fillText("Research:"+state["research"],10,260);
+                ctx.fillText("Barracks:"+state["barracks"],10,280);
             }
         });
     }

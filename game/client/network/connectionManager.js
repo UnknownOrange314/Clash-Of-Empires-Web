@@ -52,7 +52,7 @@
      */
 
     connectionManager.prototype.getSavedClick = function() {
-      return this.game.getFirstClick();
+      return this.game.getFirstClickName();
     };
 
 
@@ -75,6 +75,10 @@
     connectionManager.prototype.registerPlayer = function(pName) {
       return this.game.registerPlayer(pName);
     };
+
+    connectionManager.prototype.upgradeCommand=function(upCom){
+        this.game.upgradeCommand(upCom);
+    }
 
     return connectionManager;
 

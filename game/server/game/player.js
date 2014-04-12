@@ -21,10 +21,11 @@ function MajorPower(){
     }
 
     this.getBuildCount=function(player,reg){
+        var mul=reg.getRecruitment();
         if(reg===player.getCapital()){
-            return 20;
+            return 20.0*mul;
         }
-        return 1;
+        return 1.0*mul;
     }
 
     this.getDefense=function(player,reg){
@@ -42,6 +43,7 @@ function MajorPower(){
 function Player(num,ai,pStatus){
 
     var myMoney=0;
+    var myResearch=0;
 
     var powStatus=pStatus
     var army=new ArmyData()
@@ -201,6 +203,7 @@ function Player(num,ai,pStatus){
         regions.forEach(function(reg){
             reg.heal();
             myMoney+=reg.getResources();
+            myResearch+=reg.getResearch();
         });
         myMoney-=army.getSize()*0.0001;
 
@@ -208,6 +211,13 @@ function Player(num,ai,pStatus){
         this.update();
     }
 
+    /**
+     * Remove money in order to pay for somehing.
+     * @param cost
+     */
+    this.subtractCost=function(cost){
+        myMoney-=cost;
+    }
     this.getMoney=function(){
         return myMoney;
     }
@@ -261,6 +271,7 @@ function Player(num,ai,pStatus){
         pData["score"]=this.getScore();
         pData["money"]=Math.round(myMoney);
         pData["num"]=this.getNum();
+        pData["research"]=Math.round(myResearch);
         return pData
 
     }
