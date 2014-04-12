@@ -87,6 +87,7 @@ function GameManager(mapGen){
 
 
         var regionState=regions.map(function(reg){
+            reg.update(); //Updates state for each region. TODO: Consider refactoring.
             return reg.exportState()
         });
 

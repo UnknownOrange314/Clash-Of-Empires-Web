@@ -22,7 +22,7 @@ function Region(x,y,aX,aY,rName,sLoc){
      * This method gets resource income for a city.
      */
     this.getResources=function(){
-        return economy.tax();
+        return economy.getTax();
     }
 
     this.getAx=function(){
@@ -132,6 +132,8 @@ function Region(x,y,aX,aY,rName,sLoc){
         arr["army"]=myOwner.getArmy(this);
         arr["hitPoints"]=curHP;
         arr["name"]=this.getName();
+        arr["population"]=parseInt(economy.getPopulation())/1000000.0;
+        arr["tax"]=parseInt(economy.getTax()*1000)/1000;
         return arr;
     }
 

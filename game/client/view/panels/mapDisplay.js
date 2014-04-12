@@ -11,6 +11,9 @@ function MapDisplay(dataCon,pName,rCont){
     var svgView=null;
     var scoreView=null;
     var alertView=new AlertView();
+    var regionInfo=new RegionInfo(); //This is the view responsible for showing region information.
+    console.log("nfoView:"+JSON.stringify(regionInfo));
+
     var cycleNum=0;
     this._upSpeed=MapDisplay.updateSpeed;
 
@@ -66,8 +69,7 @@ function MapDisplay(dataCon,pName,rCont){
         if(timer.getTime()>maxTime){
             console.log("Too slow, game update time:"+timer.getTime()+"ms")
         }
-
-
+        regionInfo.update(gameState,dataCon);
     }
 }
 
