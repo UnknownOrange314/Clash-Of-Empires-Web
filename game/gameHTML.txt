@@ -1,6 +1,6 @@
 <canvas id="symbols" width="1000px" height="1000px"></canvas>
 <canvas id="animation" width="1000px" height="1000px"></canvas>
 <canvas id="score" width="1400px" height="1000px"></canvas>
-<canvas id="interface" width="1000px" height=200px"></canvas>
+<canvas id="interface" width="1200px" height=200px"></canvas>
 <canvas id="alerts" width="1000px" height=500px"></canvas>
 

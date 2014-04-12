@@ -12,7 +12,7 @@ function Label(text,x,y,size){
     }
 
     this.draw=function(ctx){
-        ctx.fillStyle="#000000";
+        ctx.fillStyle="#FFFFFF";
         ctx.font=size+'pt Calibri'
         ctx.fillText(text,x,y);
     }

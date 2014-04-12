@@ -23,17 +23,15 @@ function DataCanvas(config){
     var hpLocs=config["BarLocs"];
     var lineConfig=config["moveLocs"];
 
-    this.zoomIn=function(data){
+    this.zoomIn=function(){
         zMan.zoomIn();
     }
 
-    this.zoomOut=function(data){
+    this.zoomOut=function(){
         zMan.zoomOut();
     }
 
-    this.translate=function(x,y,data){
-        zMan.translate(x,y);
-    }
+
 
     var showRegDamage=function(gameState){
         if(zMan.getZoom()>=minHitPointZoom){
@@ -64,7 +62,12 @@ function DataCanvas(config){
             gameState["moveCommands"][name].forEach(function(loc){
                 var x=avg(loc["x1"],loc["x2"]);
                 var y=avg(loc["y1"],loc["y2"]);
+                var lineCol="";
                 if(name=="Host"){
+                    lineCol="#EEE9E9"
+                }else{
+                    lineCol="#8B2323"
+                }
                     var dX=0;
                     var dY=0;
                     var n=loc["sCity"]+"_"+loc["eCity"];
@@ -82,8 +85,8 @@ function DataCanvas(config){
                     var y1=loc["y1"]+dY;
                     var y2=loc["y2"]+dY;
 
-                    drawArrow(x1,y1,x2,y2,ctx);
-                }
+                    drawArrow(x1,y1,x2,y2,ctx,lineCol);
+
                 if(loc["conflict"]==true){
                     if(zMan.getZoom()>=minBattleZoom){
                         ctx.drawImage(battleMark,loc["x2"]+15,loc["y2"],15/zMan.getZoom(),15/zMan.getZoom())

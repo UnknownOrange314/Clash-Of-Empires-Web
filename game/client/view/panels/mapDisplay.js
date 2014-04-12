@@ -7,7 +7,6 @@
 function MapDisplay(dataCon,pName,rCont){
 
     var maxTime=30;
-    var symbolView=null;
     var dataView=null;
     var svgView=null;
     var scoreView=null;
@@ -23,7 +22,6 @@ function MapDisplay(dataCon,pName,rCont){
             var colorData=data["PlayerColors"][0];
             var labelConfig=data["ArmyLabels"][0];
             dataView=new DataCanvas(data);
-            symbolView=new SymbolCanvas(data);
             svgView=new SvgView(pName,colorData,labelConfig);
             scoreView=new ScoreView(data);
         },
@@ -39,14 +37,13 @@ function MapDisplay(dataCon,pName,rCont){
             dataType:"text",
             success: function(imgData){
                 svgView.setupRegionView(imgData,data,rCont,dataCon);
-                symbolView.update(data);
             }
         })
     }
 
     //Load data and draw regions
     this.drawShapes(dataCon.getMapInfo());
-    var inList=new InputListener(dataCon,svgView,symbolView,dataView,this);
+    var inList=new InputListener(dataCon,svgView,dataView,this);
     var interfaceCont=new InterfaceView(this,inList);
 
     var obj=this;
@@ -69,6 +66,8 @@ function MapDisplay(dataCon,pName,rCont){
         if(timer.getTime()>maxTime){
             console.log("Too slow, game update time:"+timer.getTime()+"ms")
         }
+
+
     }
 }
 

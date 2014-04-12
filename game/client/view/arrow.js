@@ -2,9 +2,10 @@
 (function() {
   var drawArrow, drawLine, drawTriangle;
 
-  drawLine = function(x1, y1, x2, y2, ctx) {
+  drawLine = function(x1, y1, x2, y2, ctx,color) {
+
     ctx.save();
-    ctx.strokeStyle = "Gray";
+    ctx.strokeStyle = color;
     ctx.lineWidth = 2;
     ctx.moveTo(x1, y1);
     ctx.lineTo(x2, y2);
@@ -12,12 +13,13 @@
     return ctx.restore();
   };
 
-  drawTriangle = function(x2, y2, angle, ctx) {
+  drawTriangle = function(x2, y2, angle, ctx,color) {
     ctx.save();
     ctx.translate(x2, y2);
     ctx.rotate(angle);
     ctx.translate(-x2, -y2);
-    ctx.fillStyle = "Gray";
+    ctx.strokeStyle=color
+    ctx.fillStyle = color
     ctx.beginPath();
     ctx.moveTo(x2, y2 - 5);
     ctx.lineTo(x2, y2 + 5);
@@ -37,7 +39,7 @@
     @param ctx The graphics drawing object.
    */
 
-  drawArrow = function(x1, y1, x2, y2, ctx) {
+  drawArrow = function(x1, y1, x2, y2, ctx,color) {
     var aX, aY, angle;
     aX = x2 - x1;
     aY = y2 - y1;
@@ -46,8 +48,8 @@
     y1 += 15 * Math.sin(angle);
     x2 -= 15 * Math.cos(angle);
     y2 -= 15 * Math.sin(angle);
-    drawLine(x1, y1, x2, y2, ctx);
-    return drawTriangle(x2, y2, angle, ctx);
+    drawLine(x1, y1, x2, y2, ctx,color);
+    return drawTriangle(x2, y2, angle, ctx,color);
   };
 
   window.drawArrow = drawArrow;
