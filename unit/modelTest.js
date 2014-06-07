@@ -44,10 +44,7 @@ asyncTest("Map setup tests",function(){
         dataType:"json",
         success:function(json){
             ok(1)
-
             var mapGen=new Europe(json);
-
-            //Load the map data from a JSON file.
 
             //Generate the map
             var data=mapGen.generateMap();
@@ -72,14 +69,10 @@ asyncTest("Map setup tests",function(){
 
             start();
         }
-
-
     })
-
 })
 
 asyncTest("Game map tests",function(){
-
     $.getJSON('game/server/maps/europe/europe.json',function(json){
         var map=new GameManager(new Europe(json));
         ok(map.getRegionCount()>0,"Regions created");
@@ -132,7 +125,6 @@ test("Move test",function(){
     r3.setOwner(p2);
     r4.setOwner(p2);
 
-
     r0.addBorder(r1);
     r0.addBorder(r2);
     r1.addBorder(r0);
@@ -181,7 +173,6 @@ test("Move test",function(){
             ok(0,"Invalid borders");
         }
     }
-
 });
 
 test("Attacking capital test",function(){
@@ -203,13 +194,11 @@ test("Attacking capital test",function(){
     var c1=aOwn.getArmy(aReg);
     var c2=players[0].getArmy(r1);
     ok(c1<c2,"Troop counts "+c1+":"+c2);
-
-
-
 });
 
 
 test("AI Tests",function(){
+    
     var map=new GameManager(new TestGen());
 
     var oStr="";
@@ -232,7 +221,6 @@ test("AI Tests",function(){
         }
     }
 
-
     var regionCount2=0;
     var players=map.getPlayers();
     players.forEach(function(p){
@@ -244,9 +232,6 @@ test("AI Tests",function(){
     }
     var data=map.updateState();
     ok(data["moveCommands"]["0"].length>0,JSON.stringify(data["moveCommands"]));
-
-
-
     ok(1,"AI is working");
 });
 
@@ -256,7 +241,6 @@ test("AI Tests",function(){
 asyncTest("Player move command test",function(){
 
     $.getJSON('game/server/maps/europe/europe.json',function(json){
-
 
         var map=new GameManager(new Europe(json));
         map.registerPlayer("host");
@@ -271,10 +255,7 @@ asyncTest("Player move command test",function(){
         console.log("Start:")
         ok(1,"Done testing move commands")
         start();
-
-
     });
-
 });
 
 /**
@@ -285,14 +266,13 @@ asyncTest("Speed Test",function(){
     $.getJSON('game/server/maps/europe/europe.json',function(json){
 
         var map=new GameManager(new Europe(json));
-
         var st=new Date().getTime();
-
         var cycles=100;
         for(var i=0;i<cycles;i++){
             map.updateState();
             console.log("Updating")
         }
+        
         var end=new Date().getTime();
         var time=end-start;
         console.log("Done")
