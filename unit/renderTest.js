@@ -1,10 +1,6 @@
 /**
- * Created by Gulu on 3/24/14.
- */
-
-
-
-
+ * Make sure that the client runs without bugs
+ **/
 test("Test",function(){
     ok(1,"Render testing")
     startClient(new MockConnectionManager(),"Host")
