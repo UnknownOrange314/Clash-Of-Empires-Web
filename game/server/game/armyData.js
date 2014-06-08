@@ -6,12 +6,10 @@
       this.troops = 0;
     }
 
-
     /*
     * The attack power of a player when attacking from a region.
     * @param reg
      */
-
     ArmyData.prototype.getAttackPower = function(reg) {
       var pow;
       pow = Math.floor(Math.log(this.getArmy(reg) + 2));
@@ -57,9 +55,5 @@
     };
 
     return ArmyData;
-
   })();
-
 }).call(this);
-
-//# sourceMappingURL=armyData.map
