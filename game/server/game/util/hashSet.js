@@ -1,8 +1,4 @@
 /**
- * Created by Gulu on 3/26/14.
- */
-
-/**
  * Basic hash set implementation.
  * @param hFun The hash function that will be used.
  * @constructor
@@ -49,6 +45,4 @@ function HashSet(hFun){
     this.size=function(){
         return size;
     }
-
-
 }
