@@ -21,6 +21,25 @@ function ClickManager(){
 
     }
 
+
+    /**
+     * This function finds the closest region to a point.
+     * @param pt
+     * @param regions
+     * @param dist The maximum distance. Returns null if there are no valid results.
+     * @returns {null}
+     */
+    var findClosestRegion=function(pt,regions,dist){
+        var cReg=null
+        var cDist=9999
+        regions.forEach(function(reg){
+            if(reg.distance(pt)<cDist){
+                cReg=reg
+                cDist=reg.distance(pt)
+            }
+        });
+        return cReg
+    }
     /**
      * Processes a click.
      * @param pt The point that was clicked on.
@@ -29,37 +48,39 @@ function ClickManager(){
      * @param players A list of players in the game.
      */
     this.processClick=function(pt,pName,regions,players){
+
         if(clickA==null){
-            regions.forEach(function(reg){
-                if(reg.getName()===pt){
-                    console.log(reg.getOwner().getName()+":"+pName)
-                    if(reg.getOwner().getName()!=pName){
-                        clickMessages.push("Cannot move troops from region you don't own")
-                    }else{
-                        clickA=reg;
-                    }
+            var reg=findClosestRegion(pt,regions,100)
+            if(reg!=null){
+                if(reg.getOwner().getName()!=pName){
+                    console.log("Owner issue");
+                    clickMessages.push("Cannot move troops from region you don't own")
+                }else{
+                    console.log("Possible clickA");
+                    clickA=reg;
+                    console.log("ClickA:"+clickA.getName())
                 }
-            });
+            }
         }
+
         else{
             var cM=this;
-            regions.forEach(function(reg){
-                if(reg.getName()===pt){
-                    if(reg!=clickA){
-                        //We do not want to set a movement command from an enemy region.
-                        if(!(clickA.hasBorder(reg))){
-                            clickMessages.push("Cannot move troops to non bordering region")
-                        }else{
-                            clickB=reg;
-                            cM.createMoveCommand(clickA,clickB,pName,players);
-                            cM.clearClicks();
-                        }
-                    }else{ //Clear click.
-                        clickA=null;
+            var reg=findClosestRegion(pt,regions,100)
+            console.log("Possible click");
+            if(reg!=null){
+                if(reg!=clickA){
+                    //We do not want to set a movement command from an enemy region.
+                    if(!(clickA.hasBorder(reg))){
+                        clickMessages.push("Cannot move troops to non bordering region")
+                    }else{
+                        clickB=reg;
+                        cM.createMoveCommand(clickA,clickB,pName,players);
+                        cM.clearClicks();
                     }
+                }else{ //Clear click.
+                    clickA=null;
                 }
-            });
-
+            }
         }
     }
 

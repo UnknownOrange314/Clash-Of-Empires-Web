@@ -1,0 +1,40 @@
+{
+    "PlayerColors":[
+        {
+            "1":"#FF4444",
+            "2":"Yellow",
+            "3":"Cyan",
+            "4":"#E0B0FF",
+            "5":"Green",
+            "6":"GoldenRod",
+            "7":"#C19A6B",
+            "8":"White"
+        }
+
+    ],
+    "FlagData":{
+        "Russia":"game/server/maps/europe/flags/Russia.png",
+        "Ottoman":"game/server/maps/europe/flags/Ottoman.png",
+        "France":"game/server/maps/europe/flags/France.png",
+        "Britain":"game/server/maps/europe/flags/Britain.png"
+    },
+    "ImageLocs":{
+        "combat":"game/images/sword.png",
+        "arrow":"game/images/arrow.png",
+        "army":"game/images/soldier.png"
+
+    },
+    "ArmyLabels":[
+        {
+            "font-size":"12px",
+            "fill":"black",
+            "font-weight":"bold"
+        }
+    ],
+    "TerritoryShape":[
+        {
+            "stroke-width":"5"
+        }
+    ]
+
+}

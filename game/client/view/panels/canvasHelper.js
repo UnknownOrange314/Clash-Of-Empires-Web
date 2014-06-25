@@ -28,6 +28,7 @@ getHeight=function(name){
 }
 
 /**
+ * TODO: Make this return a point object instead of an array
  * Transforms a click event into canvas coordinates.
  * @param e
  */

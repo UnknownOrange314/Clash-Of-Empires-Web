@@ -1,81 +1,66 @@
-
-
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+
     <title>Clash of Empires</title>
 
-    <link rel="stylesheet" href="site/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="site/css/style.css">
+    <link rel="stylesheet" href="landing/site/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="landing/site/style.css">
     <link rel="stylesheet" href="game/gameStyle.css">
 
-    <script src="lib/jquery.min.js"></script>
-    <script src="lib/angular.min.js"></script>
-    <script src="landing/menuController.js"></script>
-
-    <div id="header">
-        <img src="game/images/websiteHeader.jpg" width="50%" height="50%">
-    </div>
+    <script src="lib/underscore-min.js"></script>
+    <script src="lib/underscore-min.js"></script>
 
     <!--Game files -->
     <script type="text/javascript" src="lib/d3.js"></script>
-
     <script src="lib/socket.io.js"></script>
     <script src="lib/jquery.min.js"></script>
     <script src="game/client/view/displayCache.js"></script>
     <script src="game/client/view/arrow.js"></script>
-    <script src="game/server/game/util/timer.js"></script>
-    <script src="game/server/game/util/mathHelper.js"></script>
+    <script src="game/server/model/util/timer.js"></script>
+    <script src="game/server/model/util/mathHelper.js"></script>
     <script src="game/client/data/imageLoader.js"></script>
     <script src="game/client/network/connectionManager.js"></script>
-    <script src="game/client/view/driver.js"></script>
-    <script src="game/client/view/layers/symbolCanvas.js"></script>
-    <script src="game/client/view/layers/dataCanvas.js"></script>
-    <script src="game/server/game/util/helper.js"></script>
-    <script src="game/server/game/armyData.js"></script>
-    <script src="game/server/game/move/moveCommand.js"></script>
-    <script src="game/server/game/ai/computer.js"></script>
-    <script src="game/server/game/gameManager.js"></script>
-    <script src="game/server/game/region.js"></script>
-    <script src="game/server/game/point.js"></script>
-    <script src="game/server/game/player.js"></script>
-    <script src="game/server/maps/europe/europe.js"></script>
+    <script src="game/client/driver.js"></script>
+    <script src="game/client/view/layers/dataLayer.js"></script>
+    <script src="game/server/model/util/helper.js"></script>
+    <script src="game/server/model/armyData.js"></script>
+    <script src="game/server/model/move/moveCommand.js"></script>
+    <script src="game/server/model/ai/computer.js"></script>
+    <script src="game/server/model/gameManager.js"></script>
+    <script src="game/server/model/region.js"></script>
+    <script src="game/server/model/point.js"></script>
+    <script src="game/server/model/player.js"></script>
     <script src="game/server/controller/clickManager.js"></script>
-    <script src="game/server/game/economy.js"></script>
+    <script src="game/server/model/economy.js"></script>
     <script src="game/client/view/panels/mapDisplay.js"></script>
-    <script src="game/client/view/layers/svgView.js"></script>
+    <script src="game/client/view/layers/mapLayer.js"></script>
     <script src="game/client/view/panels/scoreView.js"></script>
     <script src="game/client/view/panels/alertView.js"></script>
     <script src="game/client/view/panels/interfaceView.js"></script>
     <script src="game/client/view/panels/panel.js"></script>
     <script src="game/client/view/panels/canvasHelper.js"></script>
-    <script src="game/server/game/util/hashSet.js"></script>
+    <script src="game/server/model/util/hashSet.js"></script>
     <script src="game/client/inputListener.js"></script>
     <script src="game/client/view/layers/zoomManager.js"></script>
     <script src="game/client/view/components/button.js"></script>
     <script src="game/client/view/components/label.js"></script>
     <script src="game/client/view/panels/regionInfo.js"></script>
+    <script src="game/server/maps/randomHex.js"></script>
+
+    <div id="header">
+        <img src="game/images/websiteHeader.png" width="50%" height="50%">
+    </div>
+
 </head>
 
-
-
-<!-- apply the module and controller to our body so angular is applied to that -->
-<body ng-app="formApp" ng-controller="helpController">
-
+<body ng-app="sampleApp">'
 
 
     <div id="navMenu">
         <nav class="navbar navbar-default" >
             <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
+
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -88,43 +73,27 @@
         </nav>
     </div>
 
-    <div id="game">
-
-    </div>
-
     <div class="container">
-        <div class="col-md-6 col-md-offset-3">
-
-            <!-- PAGE TITLE -->
-            <div class="page-header">
+        <div class="row">
+            <div class="col-md-3">
+                <ul class="nav">
+                    <div id="menuLinks">
+                        <li><a href="#PlayGame"> Play Game </a></li>
+                        <li><a href="#Help"> Help </a></li>
+                    </div>
+                </ul>
             </div>
-
-            <!-- SHOW ERROR/SUCCESS MESSAGES -->
-            <div id="messages" class="well" ng-show="message">{{ message }}</div>
-
-            <!-- FORM -->
-            <form ng-submit="processForm()">
-
-
-                <button ng-click="startGame()" type="submit" class="btn btn-success btn-lg btn-block">
-                    Play game
-                </button>
-
-                <!-- SUBMIT BUTTON -->
-                <button ng-click="showHelp()" type="submit" class="btn btn-success btn-lg btn-block">
-                  Help
-                </button>
-            </form>
-
-            <!-- SHOW DATA FROM INPUTS AS THEY ARE BEING TYPED -->
-
+            <div class="col-md-9">
+                <div ng-view></div>
+            </div>
         </div>
     </div>
 
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+<script src="landing/app.js"></script>
 
+    <div id="footer">
 
-<div id="footer">
-</div>
-
+    </div>
 </body>
 </html>

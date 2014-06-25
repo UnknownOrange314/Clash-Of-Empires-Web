@@ -13,19 +13,18 @@ function MapDisplay(dataCon,pName,rCont){
     var scoreView=null;
     var alertView=new AlertView();
     var regionInfo=new RegionInfo(); //This is the view responsible for showing region information.
-
     var cycleNum=0;
     this._upSpeed=MapDisplay.updateSpeed;
 
     $.ajax({
-        url:"game/server/game/renderConfig.json",
+        url:"game/client/data/renderConfig.json",
         dataType:"json",
         async:"false",
         success:function(data){
             var colorData=data["PlayerColors"][0];
             var labelConfig=data["ArmyLabels"][0];
-            dataView=new DataCanvas(data);
-            svgView=new SvgView(pName,colorData,labelConfig);
+            dataView=new DataLayer(data);
+            svgView=new MapLayer(pName,colorData,labelConfig);
             scoreView=new ScoreView(data,inList);
         },
         error:function(xhr,ajaxOptions,thrownError){
@@ -33,30 +32,19 @@ function MapDisplay(dataCon,pName,rCont){
         }
     });
 
-    this.drawShapes=function(data){
-        $.ajax({
-            url:"game/server/maps/europe/map.svg",
-            dataType:"text",
-            success: function(imgData){
-                svgView.setupRegionView(imgData,data,rCont,dataCon);
-            }
-        })
-    }
 
     //Load data and draw regions
-    this.drawShapes(dataCon.getMapInfo());
     inList.addLayer(svgView);
     inList.addLayer(dataView);
     var interfaceCont=new InterfaceView(this,inList);
 
-    var obj=this;
     this.gameLoop=function(){
         var timer=new Timer();
         cycleNum++;
         var gameState=dataCon.getRegionStates();
         svgView.showClick(gameState,dataCon);
         //Rendering things too fast will make things confusing.
-        if(cycleNum%obj._upSpeed==0){ //TODO:Make sure that the "60" is not hardcoded.
+        if(cycleNum%this._upSpeed==0){ //TODO:Make sure that the "60" is not hardcoded.
             svgView.updateData(gameState);
             scoreView.update(dataCon);
         }

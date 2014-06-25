@@ -1,3 +1,10 @@
+#game {
+    position:absolute;
+    top:200px;
+    left:0px;
+}
+
+
 #symbols {
     pointer-events: none;
     position:absolute;

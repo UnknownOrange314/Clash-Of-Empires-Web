@@ -1,12 +1,56 @@
+/**
+ * Tests to make sure that hash sets are working.
+ */
+test("Addition test",function(){
+    var set=new HashSet(function(reg){
+       return reg.hashCode();
+    });
+    var reg=new Region(1,1);
+    set.push(reg);
+    set.push(reg);
+    equal(set.size(),1);
+
+});
+test("Contains test",function(){
+    var set=new HashSet(function(reg){
+        return reg.hashCode();
+    });
+    var reg=new Region(1,1);
+    var r2=new Region(2,2);
+    set.push(reg);
+    ok(set.contains(reg));
+    ok(!set.contains(r2));
+});
+
+test("Remove test",function(){
+    var set=new HashSet(function(reg){
+        return reg.hashCode();
+    });
+    var reg=new Region(1,1);
+    var r2=new Region(2,2);
+    set.push(reg);
+    set.push(r2);
+    set.remove(r2);
+    set.remove(r2);
+    equal(set.size(),1);
+    ok(!set.contains(r2));
+
+    set.remove(new Region(1,33));
+    equal(set.size(),1);
+
+});
+
+
 
 test("Region test",function(){
     var reg=new Region(2,2,2);
     var p=new Player(1);
     reg.setOwner(p);
     ok(reg.getOwner()!=undefined);
-    ok(reg.getRenderState()!==null,"Region can be rendered");
-    ok(reg.getX()==2,"xPos:"+reg.getX());
-    ok(reg.getY()==2,"yPos"+reg.getY());
+    var rData=reg.exportState();
+    ok(rData!==null,"Region can be rendered");
+    equal(rData["xPos"],"2");
+    equal(rData["yPos"],"2");
 
     var reg2=new Region(2,3,2);
     ok(reg2.distance(reg)===1,"Testing region distance");
@@ -14,85 +58,64 @@ test("Region test",function(){
     reg2.addBorder(reg);
     ok(reg2.hasBorder(reg)===true,"Has border");
     ok(reg.hasBorder(reg2)===true,"Has border");
-    ok(reg.getBorders().length===1,"Testing correct border count:");
-    ok(reg2.getBorders().length===1,"Testing correct border count");
+    equal(reg.getBorders().size(),1,"Testing correct border count:");
+    equal(reg2.getBorders().size(),1,"Testing correct border count:");
 });
+
+
+
+
 
 test("Region render state test",function(){
     var reg=new Region(2,2,2);
     var p=new Player(1);
     reg.setOwner(p);
-    var renderState=reg.getRenderState();
-    ok(renderState.getOwner()>-1&&renderState.getOwner()<10,"Testing owner");
-    ok(renderState.getX()==2,"Correct xPos state");
-    ok(renderState.getY()==2,"Correct yPos state");
-});
-
-test( "DataConnection test", function() {
-    var dCon=new connectionManager();
-    var data=dCon.getRegionStates();
-    var rData=dCon.getMapInfo();
-    ok(Object.keys(rData).length>0,"Region info size");
-    ok( 1, "Passed!" );
+    var renderState=reg.exportState();
+    ok(renderState["owner"]>-1&&renderState["owner"]<10,"Testing owner");
+    ok(renderState["xPos"]==2,"Correct xPos state");
+    ok(renderState["yPos"]==2,"Correct yPos state");
 });
 
 
-asyncTest("Map setup tests",function(){
-
-    $.ajax({
-        url:'game/server/maps/europe/europe.json',
-        dataType:"json",
-        success:function(json){
-            ok(1)
-
-            var mapGen=new Europe(json);
-
-            //Load the map data from a JSON file.
-
-            //Generate the map
-            var data=mapGen.generateMap();
-            var regions=data["regions"];
-            var players=data["players"];
-
-            ok(Object.keys(regions).length>20,"We have created regions")
-            players.forEach(function(player){
-                ok(player!==null,"Checking if player is null");
-            });
-            regions.forEach(function(reg){
-                if(reg===undefined){
-                    ok(0,"Undefined region");
-                }
-                if(reg.getOwner()===null){
-                    ok(0,"Null owner");
-                }
-                if(reg.getBorders().length===0){
-                    ok(0,"No borders:"+reg.getName());
-                }
-            });
-
-            start();
-        }
 
 
-    })
+test("Map setup tests",function(){
 
-})
+    //Generate the map
+    var mapGen=new RandomHex(1);
+    var data=mapGen.generateMap();
+    var regions=data["regions"];
+    var players=data["players"];
 
-asyncTest("Game map tests",function(){
-
-    $.getJSON('game/server/maps/europe/europe.json',function(json){
-        var map=new GameManager(new Europe(json));
-        ok(map.getRegionCount()>0,"Regions created");
-        ok(map.getRegionCount()<999999,"Did not create too many regions");
-        map.updateState()["regionStates"].forEach(function(state){
-            if(isNaN(state["army"])){
-                ok(0,"Army state is invalid");
-            }
-        });
-        ok("Done updating")
-         start();
+    ok(Object.keys(regions).length>20,"We have created regions");
+    players.forEach(function(player){
+        ok(player!==null,"Checking if player is null");
     });
 
+    regions.forEach(function(reg){
+        if(reg===undefined){
+            ok(0,"Undefined region");
+        }
+        if(reg.getOwner()===null){
+            ok(0,"Null owner");
+        }
+        if(reg.getBorders().length===0){
+            ok(0,"No borders:"+reg.getName());
+        }
+    });
+})
+
+test("Game map tests",function(){
+
+    var map=new GameManager(new RandomHex(1));
+    ok(map.getRegionCount()>0,"Regions created");
+    ok(map.getRegionCount()<999999,"Did not create too many regions");
+    map.updateState()["regionStates"].forEach(function(state){
+        if(isNaN(state["army"])){
+            ok(0,"Army state is invalid");
+        }
+    });
+    ok("Done updating")
 });
 
 test("Point tests",function(){
@@ -101,17 +124,56 @@ test("Point tests",function(){
     ok(p.getY()===1,"Testing yPos");
 
     var p2=new Point(1,1);
-    ok(p.getDistance(p2)==0,"Testing distance to same location");
+    ok(p.distance(p2)==0,"Testing distance to same location");
 
     var p3=new Point(2,1);
-    ok(p.getDistance(p3)===1,"Testing distance");
+    ok(p.distance(p3)===1,"Testing distance");
 
     var p4=new Point(50,1);
-    ok(p.getDistance(p4)==49,"Testing distance:"+ p.getDistance(p4));
+    ok(p.distance(p4)==49,"Testing distance:"+ p.distance(p4));
 
     var p5=new Point(4,5);
-    ok(p.getDistance(p5)===5,"Testing distance:"+ p.getDistance(p5));
+    ok(p.distance(p5)===5,"Testing distance:"+ p.distance(p5));
 });
+
+test( "DataConnection test", function() {
+    var dCon=new LocalConnectionManager();
+    var data=dCon.getRegionStates();
+    var rData=dCon.getMapInfo();
+    ok(Object.keys(rData).length>0,"Region info size");
+    ok( 1, "Passed!" );
+});
+
+//Player Tests
+test("Army size test",function(){
+    //Players cannot take over region because players cannot lose their last two regions.
+    //Players take damage even when there are no troops in a region.
+    var r0=new Region(200,200.1);
+    var r1=new Region(0,0,1);
+    var r2=new Region(100,100,1);
+    var r3=new Region(3,3);
+    var r4=new Region(4,4);
+
+    var p1=new Player(1,new NoAI("P1"),new MajorPower());
+    var p2=new Player(2,new NoAI("P2"),new MajorPower());
+
+    r0.setOwner(p1);
+    r1.setOwner(p1);
+    r2.setOwner(p2);
+    r3.setOwner(p2);
+    r4.setOwner(p2);
+
+
+    p1.addTroops(r0,50);
+    p1.addTroops(r1,500);
+    p2.addTroops(r2,100);
+
+    ok(p1.getArmy(r0)===50);
+    ok(p1.getArmy(r1)===500,"Army size:"+p1.getArmy(r1));
+    ok(p1.getArmy(r2)===0,"Army size in r2:"+p1.getArmy(r2));
+    ok(p2.getArmy(r2)===100,"Army size:"+p2.getArmy(r2));
+});
+
 
 test("Move test",function(){
 
@@ -131,8 +193,6 @@ test("Move test",function(){
     r2.setOwner(p2);
     r3.setOwner(p2);
     r4.setOwner(p2);
-
-
     r0.addBorder(r1);
     r0.addBorder(r2);
     r1.addBorder(r0);
@@ -143,11 +203,6 @@ test("Move test",function(){
     p1.addTroops(r0,50);
     p1.addTroops(r1,500);
     p2.addTroops(r2,100);
-
-    ok(p1.getArmy(r0)===50);
-    ok(p1.getArmy(r1)===500,"Army size:"+p1.getArmy(r1));
-    ok(p1.getArmy(r2)===0,"Army size in r2:"+p1.getArmy(r2));
-    ok(p2.getArmy(r2)===100,"Army size:"+p2.getArmy(r2));
 
     var move=new MoveCommand(r1,r2);
     var max=999;
@@ -171,20 +226,16 @@ test("Move test",function(){
     for(var i=0;i<10;i++){
         p1.updateState();
         p2.updateState();
-        if(r0.getBorders().length!==2){
-            ok(0,"Invalid borders");
-        }
-        if(r1.getBorders().length!==2){
-            ok(0,"Invalid borders");
-        }
-        if(r2.getBorders().length!==2){
-            ok(0,"Invalid borders");
-        }
-    }
+        notEqual(r0.getBorders().size(),2);
+        notEqual(r1.getBorders().size(),2);
+        notEqual(r2.getBorders().size(),2);
 
+
+    }
 });
 
 test("Attacking capital test",function(){
+
     var map=new GameManager(new TestGen());
     var players=map.getPlayers();
     var regions=map.getRegions();
@@ -203,13 +254,11 @@ test("Attacking capital test",function(){
     var c1=aOwn.getArmy(aReg);
     var c2=players[0].getArmy(r1);
     ok(c1<c2,"Troop counts "+c1+":"+c2);
-
-
-
 });
 
 
 test("AI Tests",function(){
+
     var map=new GameManager(new TestGen());
 
     var oStr="";
@@ -232,7 +281,6 @@ test("AI Tests",function(){
         }
     }
 
-
     var regionCount2=0;
     var players=map.getPlayers();
     players.forEach(function(p){
@@ -244,36 +292,25 @@ test("AI Tests",function(){
     }
     var data=map.updateState();
     ok(data["moveCommands"]["0"].length>0,JSON.stringify(data["moveCommands"]));
-
-
-
     ok(1,"AI is working");
 });
 
 /**
- * This test to see if a player can issue a move command and have trops move.
+ * This test to see if a player can issue a move command and have troops move.
  */
-asyncTest("Player move command test",function(){
+test("Player move command test",function(){
 
-    $.getJSON('game/server/maps/europe/europe.json',function(json){
+    var map=new GameManager(new SandboxGen(6));
+    map.registerPlayer("host");
+    map.processClick(new Point(40,40),"host");
+    map.processClick(new Point(150,150),"host");
 
+    var data=map.updateState();
+    console.log("Data:"+JSON.stringify(data["moveCommands"]))
+    ok(data["moveCommands"].hasOwnProperty("host"),"Has host data been sent?");
+    ok((data["moveCommands"]["host"]).length===1,"Move data:"+JSON.stringify(data["moveCommands"]["host"]));
 
-        var map=new GameManager(new Europe(json));
-        map.registerPlayer("host");
-        map.processClick(new Point(226,346),"host");
-        map.processClick(new Point(248,302),"host");
-
-        var data=map.updateState();
-        console.log("Data:"+JSON.stringify(data["moveCommands"]))
-        ok(data["moveCommands"].hasOwnProperty("host"),"Has host data been sent?");
-        ok((data["moveCommands"]["host"]).length===1,"Move data:"+JSON.stringify(data["moveCommands"]["host"]));
-
-        console.log("Start:")
-        ok(1,"Done testing move commands")
-        start();
-
-
-    });
+    ok(1,"Done testing move commands")
 
 });
 
