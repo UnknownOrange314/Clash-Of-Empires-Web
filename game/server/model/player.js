@@ -1,4 +1,3 @@
-
 function MinorPower(){
     this.status=function(){
         return false;
@@ -34,17 +33,12 @@ function MajorPower(){
         }
         return 1;
     }
-
-
 }
-
-
 
 function Player(num,ai,pStatus){
 
     var myMoney=0;
     var myResearch=0;
-
     var powStatus=pStatus
     var army=new ArmyData()
 
@@ -84,6 +78,7 @@ function Player(num,ai,pStatus){
             powStatus=new MajorPower();
         }
     }
+    
     /**
      * The attack power of a player when attacking from a region.
      * @param reg
@@ -100,8 +95,6 @@ function Player(num,ai,pStatus){
         var dBonus=powStatus.getDefense(this,reg)*(1+dRes);
         return dBonus*Math.min(this.getArmy(reg),2);
     }
-
-
 
     this.exportMoveCommands=function(){
         var data=[]
@@ -268,9 +261,6 @@ function Player(num,ai,pStatus){
         moveCommands.remove(c)
     }
 
-
-
-    //TODO: Refactor the code below here since it is a hack.
     var mRes=1;
     var iRes=1;
     var fRes=1;
@@ -290,9 +280,7 @@ function Player(num,ai,pStatus){
         pData["fRes"]=fRes;
         pData["dRes"]=dRes;
         return pData
-
     }
-
 
     this.upgrade=function(uName){
 
@@ -332,10 +320,8 @@ function Player(num,ai,pStatus){
         return 1+mRes;
     }
 
-
     //Pop cap mul
     this.getCapMul=function(){
         return 1+fRes;
     }
-
 }
