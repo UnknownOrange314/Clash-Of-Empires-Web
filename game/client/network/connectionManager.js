@@ -13,8 +13,8 @@ function LocalConnectionManager() {
 /*
  * Gets information about the map.
  */
-LocalConnectionManager.prototype.getMapInfo = function() {
-  return this.game.getMapInfo();
+LocalConnectionManager.prototype.exportMapInfo = function() {
+  return this.game.exportMapInfo();
 };
 
 
@@ -59,8 +59,8 @@ LocalConnectionManager.prototype.sendClick = function(data, pName) {
  * Adds information about a client player to the server.
  * @param pName The player that is being added.
  */
-LocalConnectionManager.prototype.registerPlayer = function(pName) {
-  return this.game.registerPlayer(pName);
+LocalConnectionManager.prototype.registerPlayerClicks = function(pName) {
+  return this.game.registerPlayerClicks(pName);
 };
 
 LocalConnectionManager.prototype.upgradeCommand=function(upCom){

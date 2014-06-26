@@ -11,14 +11,14 @@ function InputListener(dCon,mapDisplay){
     }
 
     this.zoomIn=function(){
-        var info=dataCon.getMapInfo();
+        var info=dataCon.exportMapInfo();
         layers.forEach(function(layer){
             layer.zoomIn(info)
         });
     }
 
    this.zoomOut=function(){
-        var info=dataCon.getMapInfo();
+        var info=dataCon.exportMapInfo();
         layers.forEach(function(layer){
             layer.zoomOut(info)
         });
@@ -52,7 +52,7 @@ function InputListener(dCon,mapDisplay){
 
     window.onkeyup=function(e){
         var key= e.keyCode ? e.keyCode: e.which;
-        var info=dataCon.getMapInfo();
+        var info=dataCon.exportMapInfo();
         console.log("Key:"+key);
         if(InputListener.zoomOut==key){
             list.zoomOut();

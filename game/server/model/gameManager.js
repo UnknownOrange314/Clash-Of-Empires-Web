@@ -4,25 +4,23 @@ function GameManager(mapGen){
     var data=mapGen.generateMap();
     var regions=data["regions"];
     var players=data["players"];
-    var cManager=new ClickManager()
+    var cManager=new ClickManager();
+
+    var aiTimer=new IntervalFunction(60,function(){
+        players.forEach(function(player){
+            player.updateAI();
+        })
+    });
+
+    var recruitTimer=new IntervalFunction(60,function(){
+        regions.forEach(function(region){
+            region.buildTroop();
+        });
+    });
 
     //Below are methods for processing input from clients
     this.clearClicks=function(){
         cManager.clearClicks()
-    }
-
-    /**
-     * This function processes the research commands
-     * @param rName The research name.
-     */
-    this.researchCommand=function(rName){
-        console.log(" command");
-        players.forEach(function(p){
-            if(p.getName()=="Host"){
-
-                p.upgrade(rName);
-            }
-        })
     }
 
     /**
@@ -39,25 +37,31 @@ function GameManager(mapGen){
     this.upgradeCommand=function(uCom){
         var cReg=cManager.getClickReg();
         cReg.upgrade(uCom);
-
-
     }
 
     /**
      * This method registers a player so that input associated
      * with a player can be processed.
      */
-    this.registerPlayer=function(pName){
-        cManager.registerPlayer(pName,players)
+    this.registerPlayerClicks=function(pName){
+        cManager.registerPlayerClicks(pName,players)
     }
 
     /**
      * This function sets movement between two regions.
      */
     this.setMovementCommand=function(r1,r2,pName){
-        console.log("Players:"+players)
         cManager.createMoveCommand(r1,r2,pName,players)
     }
+
+    /**
+     * This function processes the research commands
+     * @param rName The research name.
+     */
+    this.researchCommand=function(rName){
+        cManager.researchCommand(rName,players);
+    }
+
 
     this.getRegions=function(){
         return regions;
@@ -68,11 +72,10 @@ function GameManager(mapGen){
     }
 
 
-
     /**
      * This method returns information about a region.
      */
-    this.getMapInfo=function(){
+    this.exportMapInfo=function(){
         var rData={};
         regions.forEach(function(reg){
             var data={};
@@ -88,23 +91,17 @@ function GameManager(mapGen){
     this.updateState=function(){
 
         players.forEach(function(player){
-            player.updateState();
+            player.update();
         });
 
-        //Build troops for each region
-        if(time%60==0){
-            regions.forEach(function(region){
-                region.buildTroop();
-            });
-            players.forEach(function(player){
-                player.updateAI();
-            })
-        }
-        time++;
+        recruitTimer.update();
+        aiTimer.update();
+
+
 
         var regionState=regions.map(function(reg){
-            reg.update(); //Updates state for each region. TODO: Consider refactoring.
-            return reg.exportState()
+            reg.update(); //Updates state for each region.
+            return reg.exportState();
         });
 
         var capitals={};
@@ -114,7 +111,7 @@ function GameManager(mapGen){
             moveCommands[player.getAI().username(player)]=player.exportMoveCommands();
         });
 
-        var cMessages=cManager.getClickMessages()
+        var cMessages=cManager.getClickMessages();
         return {"regionStates":regionState,"moveCommands":moveCommands,"capitals":capitals,"clickMessages":cMessages};
     }
 
@@ -122,13 +119,5 @@ function GameManager(mapGen){
         return regions.length;
     }
 
-    this.getPlayerState=function(){
-        var data={};
-        players.forEach(function(p){
-            if(p.powerStatus()==true){ //Ignore minor powers.
-                data[p.getAI().username(p)]= p.exportState();
-            }
-        });
-        return data;
-    }
+
 }

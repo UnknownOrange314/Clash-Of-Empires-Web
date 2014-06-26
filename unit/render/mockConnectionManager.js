@@ -31,7 +31,7 @@ function MockConnectionManager(){
         }
     })
 
-    this.getMapInfo=function(){
+    this.exportMapInfo=function(){
 
     }
 
@@ -44,7 +44,7 @@ function MockConnectionManager(){
     }
 
 
-    this.registerPlayer=function(pName){
+    this.registerPlayerClicks=function(pName){
 
     }
 

@@ -38,7 +38,6 @@ var Computer=function(){
                 });
             }
         });
-
         return moveCommands;
 
     }

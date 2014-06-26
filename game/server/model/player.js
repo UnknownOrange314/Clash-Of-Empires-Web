@@ -115,7 +115,7 @@ function Player(num,ai,pStatus){
     }
 
     this.addMoveCommand=function(s,e){
-        moveCommands.add(new MoveCommand(s,e))
+        moveCommands.push(new MoveCommand(s,e))
     }
 
     this.getMoveCommands=function(){
@@ -191,7 +191,7 @@ function Player(num,ai,pStatus){
         moveCommands=ai.run(this);
     }
 
-    this.updateState=function(){
+    this.update=function(){
 
         var player=this;
         moveCommands.forEach(function(command){
@@ -206,7 +206,7 @@ function Player(num,ai,pStatus){
         myMoney-=army.getSize()*0.0001;
 
         //Subtract money for troop costs.
-        this.update();
+        score+=regions.size();
     }
 
     /**
@@ -237,9 +237,7 @@ function Player(num,ai,pStatus){
         return score;
     }
 
-    this.update=function(){
-        score+=regions.size();
-    }
+
 
     this.setName=function(nm){
         name=nm
