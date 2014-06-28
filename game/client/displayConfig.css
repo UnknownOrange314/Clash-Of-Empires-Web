@@ -1,0 +1,44 @@
+#game {
+    position:absolute;
+    top:1px;
+    left:0px;
+}
+
+
+#symbols {
+    pointer-events: none;
+    position:absolute;
+    top:1px;
+    left:0px
+}
+
+#animation{
+    pointer-events: none;
+    position:absolute;
+    top:1px;
+    left:0px;
+}
+
+#score{
+    position:absolute;
+    top:1px;
+    left:1000px;
+}
+
+#alerts{
+    pointer-events:none;
+    position: absolute;
+    top:1px;
+    left:300px;
+}
+
+#interface{
+     position: absolute;
+     top: 1000px;
+     left:0px;
+ }
+#regInfo{
+    position: absolute;
+    top: 1px;
+    left:0px;
+}
