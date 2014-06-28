@@ -16,7 +16,7 @@ function Button(tx,ty,text,clickFun){
     this.checkClick=function(x,y){
         if(x>tx&&x<tx+width){
             if(y>ty&&y<ty+height){
-                clickFun();
+                clickFun(text);
             }
         }
     }

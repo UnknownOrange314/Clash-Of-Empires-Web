@@ -5,7 +5,7 @@
  */
 
 function LocalConnectionManager() {
-  this.game=new GameManager(new RandomHex(6))
+  this.game=new GameManager(new RandomHex(5));
 
 }
 
@@ -13,8 +13,8 @@ function LocalConnectionManager() {
 /*
  * Gets information about the map.
  */
-LocalConnectionManager.prototype.exportMapInfo = function() {
-  return this.game.exportMapInfo();
+LocalConnectionManager.prototype.exportGameInfo = function() {
+  return this.game.exportGameInfo();
 };
 
 

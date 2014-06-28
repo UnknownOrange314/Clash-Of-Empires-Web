@@ -1,13 +1,15 @@
-function IntervalFunction(cycles,fun){
+function IntervalFunction(cy,fun){
+    var cycles=cy;
     var num=0;
-    this.update=function(add){
-        if(typeof add === 'undefined'){
-            num++;
-        }else{
-            num+=add;
-        }
-        if(num%cycles-1<0){
-            fun();
-        }
+    this.update=function(data){
+        fun(data);
+    }
+
+    this.getCycles=function(){
+        return cycles;
+    }
+
+    this.setCycles=function(cy){
+        cycles=cy;
     }
 }

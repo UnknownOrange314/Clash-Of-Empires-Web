@@ -62,7 +62,6 @@ function GameManager(mapGen){
         cManager.researchCommand(rName,players);
     }
 
-
     this.getRegions=function(){
         return regions;
     }
@@ -71,11 +70,10 @@ function GameManager(mapGen){
         return players;
     }
 
-
     /**
-     * This method returns information about a region.
+     * This method returns information about the map.
      */
-    this.exportMapInfo=function(){
+    this.exportGameInfo=function(){
         var rData={};
         regions.forEach(function(reg){
             var data={};
@@ -85,7 +83,12 @@ function GameManager(mapGen){
             data["aY"]=reg.getY();
             rData[reg.getName()]=data
         });
-        return rData;
+        var numPlayers=players.length;
+
+        var upgrades=Array("Movement","Infrastructure","Farming","Defense");
+        //TODO:Store this in a config file somewhere else and make sure that the names are not declared in multiple places.
+
+        return {"regionData":rData,"numPlayers":numPlayers,"upgrades":upgrades};
     }
 
     this.updateState=function(){
@@ -97,8 +100,6 @@ function GameManager(mapGen){
         recruitTimer.update();
         aiTimer.update();
 
-
-
         var regionState=regions.map(function(reg){
             reg.update(); //Updates state for each region.
             return reg.exportState();
@@ -106,18 +107,21 @@ function GameManager(mapGen){
 
         var capitals={};
         var moveCommands={};
+        var playerData={};
         players.forEach(function(player){
             capitals[player.getAI().username(player)]= player.getCapital().getName();
             moveCommands[player.getAI().username(player)]=player.exportMoveCommands();
+            if(player.powerStatus()==true){  //Ignore minor powers.
+                playerData[player.getAI().username(player)]= player.exportState();
+            }
         });
 
         var cMessages=cManager.getClickMessages();
-        return {"regionStates":regionState,"moveCommands":moveCommands,"capitals":capitals,"clickMessages":cMessages};
+        return {"regionStates":regionState,"moveCommands":moveCommands,"capitals":capitals,"clickMessages":cMessages,"playerData":playerData};
     }
 
     this.getRegionCount=function(){
         return regions.length;
     }
-
 
 }

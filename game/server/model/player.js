@@ -249,20 +249,22 @@ function Player(num,ai,pStatus){
 
     //TODO: Find a way to implement this without creating a new object.
     this.hasMoveCommand=function(r1,r2){
-        var c=new MoveCommand(r1,r2)
+        var c=new MoveCommand(r1,r2);
         return moveCommands.contains(c)
     }
 
-    //TODO: Find a way to implement this without creating a new object.
     this.removeMoveCommand=function(r1,r2){
         var c=new MoveCommand(r1,r2)
         moveCommands.remove(c)
     }
 
-    var mRes=1;
-    var iRes=1;
-    var fRes=1;
-    var dRes=1;
+    //TODO: These names are also declared in gameManager.js. Refactor so that the names come from one config file.
+    var research={};
+    research["Movement"]=1;
+    research["Infrastructure"]=1;
+    research["Farming"]=1;
+    research["Defense"]=1;
+
 
     /**
      * This function exports data about the player state.
@@ -273,10 +275,9 @@ function Player(num,ai,pStatus){
         pData["money"]=Math.round(myMoney);
         pData["num"]=this.getNum();
         pData["research"]=Math.round(myResearch);
-        pData["mRes"]=mRes;
-        pData["iRes"]=iRes;
-        pData["fRes"]=fRes;
-        pData["dRes"]=dRes;
+        Object.keys(research).forEach(function(resName){
+           pData[resName]=research[resName];
+        });
         return pData
     }
 

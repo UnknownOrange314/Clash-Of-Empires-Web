@@ -31,7 +31,7 @@ function MockConnectionManager(){
         }
     })
 
-    this.exportMapInfo=function(){
+    this.exportGameInfo=function(){
 
     }
 
