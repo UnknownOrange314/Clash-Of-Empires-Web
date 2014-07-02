@@ -1562,7 +1562,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
     this.targets        = $([])
     this.activeTarget   = null
 
-    this.refresh()
+    this.clearPanel()
     this.process()
   }
 
@@ -1570,7 +1570,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
     offset: 10
   }
 
-  ScrollSpy.prototype.refresh = function () {
+  ScrollSpy.prototype.clearPanel = function () {
     var offsetMethod = this.$element[0] == window ? 'offset' : 'position'
 
     this.offsets = $([])

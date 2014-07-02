@@ -6,8 +6,9 @@
  * @param rName The name of the region.
  * @constructor
  */
-function Region(x,y,rName){
+function Region(x,y,rName,rSize){
 
+    var size=rSize;
     var myOwner=null;
     var myLoc=new Point(x,y);
     var borders=new HashSet(function(reg){
@@ -160,6 +161,7 @@ function Region(x,y,rName){
         arr["hitPoints"]=curHP;
         arr["name"]=this.getName();
         arr["economy"]=economy.exportState();
+        arr["size"]=size;
         return arr;
     }
 

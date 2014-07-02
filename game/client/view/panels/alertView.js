@@ -7,10 +7,10 @@
 function AlertView(){
 
     var ctx=getCanvas('alerts');
-    var panel=new Panel(0,0,710,100,ctx);
+    var panel=new Panel(0,0,710,100,'alerts',"rgb(26,29,69)");
 
     this.update=function(messages){
-        panel.refresh();
+        panel.clearPanel();
         ctx.fillStyle="#000000";
         ctx.font='30pt Calibri';
         var sX=10;

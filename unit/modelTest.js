@@ -13,10 +13,9 @@ commandTests();
  * This method tests if the game is running fast enough
  */
 
-asyncTest("Speed Test",function(){
-    $.getJSON('game/server/maps/europe/europe.json',function(json){
+test("Speed Test",function(){
 
-        var map=new GameManager(new Europe(json));
+        var map=new GameManager(new RandomHex(5));
 
         var st=new Date().getTime();
 
@@ -30,8 +29,7 @@ asyncTest("Speed Test",function(){
         console.log("Done")
         ok(time<10*cycles,"Time "+(end-st));
         ok(1);
-        start();
-    });
+
 });
 
 mathTests();

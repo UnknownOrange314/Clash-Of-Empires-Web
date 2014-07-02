@@ -4,7 +4,7 @@
  * @param rCont The place where the game is going to be rendered.
  * @constructor
  */
-function MapDisplay(dataCon,pName,rCont){
+function GameDisplay(dataCon){
 
     var inList=new InputListener(dataCon,this);
     var dataView=null;
@@ -12,8 +12,9 @@ function MapDisplay(dataCon,pName,rCont){
     var scoreView=null;
     var alertView=new AlertView();
     var regionInfo=new RegionInfo(); //This is the view responsible for showing region information.
-    this._upSpeed=MapDisplay.updateSpeed;
+    this._upSpeed=GameDisplay.updateSpeed;
 
+    var configLoaded=false;
     $.ajax({
         url:"game/client/data/renderConfig.json",
         dataType:"json",
@@ -24,7 +25,8 @@ function MapDisplay(dataCon,pName,rCont){
             var labelConfig=data["ArmyLabels"][0];
             dataView=new DataLayer(data);
             mapView=new MapView(dataCon,colorData);
-            scoreView=new EmpireView(data,inList,dataCon);
+            scoreView=new ScoreView(data,inList,dataCon);
+            configLoaded=true;
         },
         error:function(xhr,ajaxOptions,thrownError){
             console.log("Error loading config file")
@@ -40,39 +42,47 @@ function MapDisplay(dataCon,pName,rCont){
     var dataUpdate=new IntervalFunction(30,function(gameState){
         mapView.updateData(gameState);
         scoreView.update(dataCon,gameState);
+
+
     });
 
     this.gameLoop=function(){
-        var timer=new Timer();
-        var gameState=dataCon.getRegionStates();
-        mapView.showClick(gameState,dataCon);
+        if(configLoaded){
+            var timer=new Timer();
+            var gameState=dataCon.getRegionStates();
+            mapView.showClick(gameState,dataCon);
 
-        dataUpdate.update(gameState);
+           dataUpdate.update(gameState);
 
-        dataView.update(gameState);
-        alertView.update(gameState["clickMessages"]);
-        interfaceCont.update();
-        var cText=gameState["clickMessages"];
-        if(timer.getTime()>MapDisplay.maxTime){
-            console.log("Too slow, game update time:"+timer.getTime()+"ms")
+
+            dataView.update(gameState);
+            alertView.update(gameState["clickMessages"]);
+            interfaceCont.update();
+            var cText=gameState["clickMessages"];
+            if(timer.getTime()>GameDisplay.maxTime){
+                console.log("Too slow, game update time:"+timer.getTime()+"ms")
+            }
+            regionInfo.update(gameState,dataCon);
+        }else{
+            console.log("Waiting to load");
         }
-        regionInfo.update(gameState,dataCon);
+
     }
 }
 
-MapDisplay.maxTime=40;//The maximum time between rendering cycles.
-MapDisplay.updateSpeed=30; //Number of cycles between updating the view.
+GameDisplay.maxTime=40;//The maximum time between rendering cycles.
+GameDisplay.updateSpeed=30; //Number of cycles between updating the view.
 
-MapDisplay.prototype.speedRender=function(){
+GameDisplay.prototype.speedRender=function(){
     this._upSpeed--;
 }
 
-MapDisplay.prototype.slowRender=function(){
+GameDisplay.prototype.slowRender=function(){
     console.log("Slow render");
     console.log(this._upSpeed);
     this._upSpeed++;
 }
 
-MapDisplay.prototype.getUpdateSpeed=function(){
+GameDisplay.prototype.getUpdateSpeed=function(){
     return this._upSpeed;
 }

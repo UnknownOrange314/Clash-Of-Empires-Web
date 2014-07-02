@@ -5,7 +5,13 @@ function RandomHex(numPlayers){
 
     var width=800;
     var height=600;
-    var hSize=100;
+    var regSize=65;//Distance from center to middle of edge.
+
+    var yDiff=regSize*2;
+    var xDiff=1.5*regSize/Math.cos(Math.PI/6);
+    console.log(xDiff+":"+yDiff);
+    var startX=80;
+    var startY=90;
     this.generateMap=function(){
 
         var names=new Array("Russia","Turkey","France","England","Neutrals");
@@ -26,16 +32,15 @@ function RandomHex(numPlayers){
         var regions=[];
         for(var i=0;i<8;i++){
             for(var j=0;j<6;j++){
-                var x=hSize*i;
-                if(x%2==1){
-                    x+=hSize/2
+                var x=xDiff*i+startX;
+                var y=yDiff*j+startY;
+                if(i%2==1){
+                    y+=yDiff/2;
                 }
-                var y=hSize*j;
-                var reg=new Region(x,y,x,y-10);
+                var reg=new Region(x,y,x+":"+y,regSize);
                 regions.push(reg);
                 reg.setOwner(players[numPlayers-1]);
                 players[numPlayers-1].addRegion(reg);
-
             }
         }
 
@@ -46,7 +51,7 @@ function RandomHex(numPlayers){
         //Set borders.
         regions.forEach(function(reg1){
             regions.forEach(function(reg2){
-                if(reg1.distance(reg2)<hSize*1.5&&reg1!=reg2){
+                if(reg1.distance(reg2)<xDiff*1.5&&reg1!=reg2){
                     reg1.addBorder(reg2);
                     reg2.addBorder(reg1);
                 }

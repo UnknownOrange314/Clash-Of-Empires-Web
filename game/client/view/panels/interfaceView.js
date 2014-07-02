@@ -56,7 +56,7 @@ function InterfaceView(mapDisplay,inListener){
 
     });
 }
-InterfaceView.canvasName='interface'
+InterfaceView.canvasName='interface';
 
 
 
