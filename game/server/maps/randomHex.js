@@ -9,7 +9,6 @@ function RandomHex(numPlayers){
 
     var yDiff=regSize*2;
     var xDiff=1.5*regSize/Math.cos(Math.PI/6);
-    console.log(xDiff+":"+yDiff);
     var startX=80;
     var startY=90;
     this.generateMap=function(){
@@ -22,7 +21,7 @@ function RandomHex(numPlayers){
             if(i<numPlayers-1){
                 p=new Player(i,new Computer(),new MajorPower());
             }else{
-                p=new Player(i,new NoAI("Minors"+i),new MinorPower());
+                p=new Player(i,new Computer("Minors"+i),new MinorPower());
             }
             p.setName(names[i]);
             players.push(p);
@@ -62,7 +61,6 @@ function RandomHex(numPlayers){
         //Give regions to each player
         var capitals= _.sample(regions,players.length);
         for(var j=0;j<players.length;j++){
-
             players[j].addRegion(capitals[j]);
             players[j].setCapital(capitals[j]);
         }

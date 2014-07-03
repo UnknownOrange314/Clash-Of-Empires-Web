@@ -70,7 +70,7 @@ function GameDisplay(dataCon){
     }
 }
 
-GameDisplay.maxTime=40;//The maximum time between rendering cycles.
+GameDisplay.maxTime=50;//The maximum time between rendering cycles.
 GameDisplay.updateSpeed=30; //Number of cycles between updating the view.
 
 GameDisplay.prototype.speedRender=function(){

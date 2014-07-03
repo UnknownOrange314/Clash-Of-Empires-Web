@@ -1,8 +1,6 @@
 function RegionInfo(){
 
-    var ctx=getCanvas(RegionInfo.canvasName);
-    var w=getWidth(RegionInfo.canvasName);
-    var h=getHeight(RegionInfo.canvasName);
+    var panel=new Panel(0,0,1000,1000,RegionInfo.canvasName);
 
     /**
      * Updates the region view
@@ -10,24 +8,24 @@ function RegionInfo(){
      * @param dataCon An object representing a connection with the server.
      */
     this.update=function(gameState,dataCon){
-        ctx.clearRect(0,0,w,h);
+        panel.clearCanvas();
         //Get the click data.
         var clickData=dataCon.getSavedClick();
         gameState["regionStates"].map(function(state){ //Restore old color.
             if(state["name"]==clickData){
-                ctx.fillStyle="#000000"
+                panel.setColor("#000000");
+                var ctx=panel.getCanvas;
                 ctx.fillRect(0,0,w,h);
-                ctx.fillStyle="#FFFFFF";
-                ctx.font='26pt Calibri';
-                ctx.fillText("Region:"+state["name"],10,40);
-                ctx.font='16pt Calibri';
-                ctx.fillText("Hit points: "+state["hitPoints"],10,80);
-                ctx.fillText("Number of troops: "+state["army"],10,120);
-                ctx.fillText("Population: "+state["population"]+" million",10,160);
-                ctx.fillText("Tax income: $"+state["tax"],10,200);
-                ctx.fillText("Tax:"+state["economy"],10,240);
-                ctx.fillText("Research:"+state["research"],10,260);
-                ctx.fillText("Barracks:"+state["barracks"],10,280);
+                panel.setFont('26pt Calibri');
+                panel.fillText("Region:"+state["name"],10,40);
+                panel.setFont('16pt Calibri');
+                panel.fillText("Hit points: "+state["hitPoints"],10,80);
+                panel.fillText("Number of troops: "+state["army"],10,120);
+                panel.fillText("Population: "+state["population"]+" million",10,160);
+                panel.fillText("Tax income: $"+state["tax"],10,200);
+                panel.fillText("Tax:"+state["economy"],10,240);
+                panel.fillText("Research:"+state["research"],10,260);
+                panel.fillText("Barracks:"+state["barracks"],10,280);
             }
         });
     }

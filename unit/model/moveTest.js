@@ -50,7 +50,6 @@ window.moveTest=function(){
         for(var i=0;i<10;i++){
             p1.update();
             p2.update();
-            console.log(r0.getBorders().size());
             equal(r0.getBorders().size(),2);
             equal(r1.getBorders().size(),2);
             equal(r2.getBorders().size(),2);
@@ -71,7 +70,7 @@ window.moveTest=function(){
         players[0].addTroops(r1,9999);
         aReg.getOwner().addTroops(aReg,9999);
 
-        ok(1,aReg.getOwner()!=players[0]);
+        notEqual(aReg.getOwner(),players[0]);
         for(var i=0;i<20;i++){
             move.execute(aReg.getOwner());
         }

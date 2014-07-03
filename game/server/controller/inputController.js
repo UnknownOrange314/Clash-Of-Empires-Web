@@ -10,7 +10,7 @@ function ClickManager(){
     this.getClickMessages=function(){
         var cLen=clickMessages.length;
         if(cLen>2){
-            clickMessages=clickMessages.slice(cLen-2,cLen)
+            clickMessages=clickMessages.slice(cLen-2,cLen);
         }
         return clickMessages
     }
@@ -18,9 +18,7 @@ function ClickManager(){
     this.clearClicks=function(){
         clickA=null;
         clickB=null;
-
     }
-
 
     /**
      * This function finds the closest region to a point.
@@ -30,16 +28,17 @@ function ClickManager(){
      * @returns {null}
      */
     var findClosestRegion=function(pt,regions,dist){
-        var cReg=null
-        var cDist=9999
+        var cReg=null;
+        var cDist=9999;
         regions.forEach(function(reg){
             if(reg.distance(pt)<cDist){
-                cReg=reg
+                cReg=reg;
                 cDist=reg.distance(pt)
             }
         });
         return cReg
     }
+
     /**
      * Processes a click.
      * @param pt The point that was clicked on.
@@ -48,25 +47,21 @@ function ClickManager(){
      * @param players A list of players in the game.
      */
     this.processClick=function(pt,pName,regions,players){
-
         if(clickA==null){
-            var reg=findClosestRegion(pt,regions,100)
+            var reg=findClosestRegion(pt,regions,100);
             if(reg!=null){
                 if(reg.getOwner().getName()!=pName){
                     console.log("Owner issue");
                     clickMessages.push("Cannot move troops from region you don't own")
                 }else{
-                    console.log("Possible clickA");
                     clickA=reg;
-                    console.log("ClickA:"+clickA.getName())
                 }
             }
         }
 
         else{
             var cM=this;
-            var reg=findClosestRegion(pt,regions,100)
-            console.log("Possible click");
+            var reg=findClosestRegion(pt,regions,100);
             if(reg!=null){
                 if(reg!=clickA){
                     //We do not want to set a movement command from an enemy region.
@@ -130,7 +125,6 @@ function ClickManager(){
         });
     }
 
-
     this.researchCommand=function(rName,players){
         console.log(" command");
         players.forEach(function(p){
@@ -139,6 +133,4 @@ function ClickManager(){
             }
         })
     }
-
-
 }

@@ -64,9 +64,7 @@ MoveCommand.prototype.execute=function(){
         if(defender.getArmy(end)<=0){//The enemy is out of troops.
             end.loseHP(attacker.getAttackPower(start));
             if(end.getHP()<=0){
-                end.setOwner(attacker);
                 attacker.addRegion(end);
-                defender.removeRegion(end);
             }
         }
     }else{

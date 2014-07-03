@@ -6,25 +6,18 @@
  */
 function AlertView(){
 
-    var ctx=getCanvas('alerts');
     var panel=new Panel(0,0,710,100,'alerts',"rgb(26,29,69)");
 
     this.update=function(messages){
-        panel.clearPanel();
-        ctx.fillStyle="#000000";
-        ctx.font='30pt Calibri';
+        panel.fillBackground();
         var sX=10;
         var sY=30;
         var dH=30;
-        ctx.fillStyle="#FFFFFF";
-        ctx.font='14pt Calibri';
+        panel.setColor("#FFFFFF");
+        panel.setFont("14pt Calibri");
         for(var i=0;i<messages.length;i++){
-            ctx.fillText(messages[i],sX,sY);
-            sY+=dH
+            panel.fillText(messages[i],sX,sY);
+            sY+=dH;
         }
     }
-
 }
-
-
-

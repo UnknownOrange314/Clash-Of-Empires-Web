@@ -43,7 +43,7 @@
     var aX, aY, angle;
     aX = x2 - x1;
     aY = y2 - y1;
-    angle = findAngle(aX, aY);
+    angle = MathHelper.findAngle(aX, aY);
     x1 += 15 * Math.cos(angle);
     y1 += 15 * Math.sin(angle);
     x2 -= 15 * Math.cos(angle);

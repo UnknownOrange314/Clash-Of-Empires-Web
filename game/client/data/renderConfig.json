@@ -1,14 +1,13 @@
 {
     "PlayerColors":[
         {
+            "0":"#C19A6B",
             "1":"#FF4444",
             "2":"Yellow",
             "3":"Cyan",
             "4":"#A0B0FF",
             "5":"Green",
-            "6":"GoldenRod",
-            "7":"#C19A6B",
-            "8":"White"
+            "6":"GoldenRod"
         }
 
     ],

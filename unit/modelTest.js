@@ -22,11 +22,9 @@ test("Speed Test",function(){
         var cycles=100;
         for(var i=0;i<cycles;i++){
             map.updateState();
-            console.log("Updating")
         }
         var end=new Date().getTime();
         var time=end-start;
-        console.log("Done")
         ok(time<10*cycles,"Time "+(end-st));
         ok(1);
 

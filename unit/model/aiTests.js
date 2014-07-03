@@ -27,6 +27,6 @@ window.aiTests=function(){
         }
         var data=map.updateState();
         ok(data["moveCommands"]["0"].length>0,JSON.stringify(data["moveCommands"]));
-        ok(1,"AI is working");
+        ok(1,"This test is broken!");
     });
 }

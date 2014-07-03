@@ -25,8 +25,32 @@
                 ok(0,"No borders:"+reg.getName());
             }
         });
-    })
+    });
 
+     /**
+      * This test makes sure that the random map generator properly sets the owners of regions.
+      */
+    test("Random map setup test",function(){
+        var mapGen=new RandomHex(5);
+        var mapData=mapGen.generateMap();
+        var data=Array(0,0,0,0,0);
+        mapData["regions"].forEach(function(reg){
+            var num=reg.getOwner().getNum();
+            data[num]++;
+
+        });
+        for(var i=0;i<4;i++){
+            equal(data[i],1);
+        }
+        console.log(data[4]);
+        notEqual(data[4],48);
+    });
+
+
+
+     /**
+      * This tst makes sure that the map is setup properly and the armies are valid after the game is done.
+      */
     test("Game map tests",function(){
 
         var map=new GameManager(new RandomHex(1));
@@ -62,7 +86,6 @@
              regions.forEach(function(reg){
                  bCount+=reg.getBorders().size();
              })
-             console.log(bCount+":"+90);
              if(bCount!=90){
                  ok(0,"Borders:"+bCount);
              }

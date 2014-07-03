@@ -9,11 +9,11 @@ function MapView(dataCon,colorData){
 
     var regionData=null;
     var cName='gameMap';
-    var ctx=getCanvas(cName);
+    var ctx=Panel.getCanvas(cName);
     var zoomManager=new ZoomManager(1.0,1.0,ctx);
 
-    $("gameMap").click(function(e){
-        var cData=transformClick(e,ctx);
+    $("#gameMap").click(function(e){
+        var cData=Panel.transformClick(e);
         dataCon.sendClick(new Point(cData[0],cData[1]));
     });
 
@@ -51,12 +51,10 @@ function MapView(dataCon,colorData){
                 ctx.fillStyle="#FFFFFF"
             }
             ctx.fill();
-
             drawHex(x,y,size,"#000000");
             ctx.strokeStyle="#000000";
             ctx.stroke();
-
-        })
+        });
     }
 
 

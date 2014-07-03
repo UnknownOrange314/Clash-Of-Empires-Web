@@ -148,7 +148,7 @@ function Region(x,y,rName,rSize){
      * Generates a string hash for the region for use in dictionaries.
      */
     this.hashCode=function(){
-        return myLoc.getX()+":"+myLoc.getY();
+        return Math.round(myLoc.getX())+":"+Math.round(myLoc.getY());
     }
 
     this.exportState=function(){
@@ -157,7 +157,7 @@ function Region(x,y,rName,rSize){
         arr["owner"]=myOwner.getNum();
         arr["xPos"]=myLoc.getX();
         arr["yPos"]=myLoc.getY();
-        arr["army"]=myOwner.getArmy(this);
+        arr["army"]=Math.floor(myOwner.getArmy(this));
         arr["hitPoints"]=curHP;
         arr["name"]=this.getName();
         arr["economy"]=economy.exportState();

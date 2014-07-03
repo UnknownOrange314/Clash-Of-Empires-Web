@@ -7,10 +7,9 @@
  */
 function InterfaceView(mapDisplay,inListener){
 
-
-    var ctx=getCanvas(InterfaceView.canvasName);
-    var w=getWidth(InterfaceView.canvasName);
-    var h=getHeight(InterfaceView.canvasName);
+    var ctx=Panel.getCanvas(InterfaceView.canvasName);
+    var w=Panel.getWidth(InterfaceView.canvasName);
+    var h=Panel.getHeight(InterfaceView.canvasName);
 
     var zIn=new Button(40,80,"Zoom in", inListener.zoomIn);
     var zOut=new Button(40,140,"Zoom out",inListener.zoomOut);
@@ -44,7 +43,7 @@ function InterfaceView(mapDisplay,inListener){
     }
 
     $("#interface").click(function(e){
-        var cData=transformClick(e,ctx);
+        var cData=Panel.transformClick(e,ctx);
         var x=cData[0];
         var y=cData[1]-1040; //TODO: Make sure this value is not hardcoded.
 

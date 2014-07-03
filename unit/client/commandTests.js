@@ -10,7 +10,6 @@ window.commandTests=function(){
         map.processClick(new Point(150,150),"host");
 
         var data=map.updateState();
-        console.log("Data:"+JSON.stringify(data["moveCommands"]))
         ok(data["moveCommands"].hasOwnProperty("host"),"Has host data been sent?");
         ok((data["moveCommands"]["host"]).length===1,"Move data:"+JSON.stringify(data["moveCommands"]["host"]));
 

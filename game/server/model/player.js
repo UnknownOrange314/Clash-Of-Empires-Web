@@ -84,7 +84,7 @@ function Player(num,ai,pStatus){
      * @param reg
      */
     this.getAttackPower=function(reg){
-        var dRes=powStatus.getDefense(reg.getOwner(),reg);
+        var dRes=1.0/powStatus.getDefense(reg.getOwner(),reg);
         return army.getAttackPower(reg)*(1+dRes);
     }
 
@@ -134,6 +134,8 @@ function Player(num,ai,pStatus){
     }
 
     this.addRegion=function(region){
+        region.getOwner().removeRegion(region);
+        region.setOwner(this);
         regions.push(region)
     }
 
